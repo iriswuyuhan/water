@@ -12,7 +12,7 @@
 
     <!--********************************************配置Spring***************************************-->
     <!-- 自动扫描 -->
-    <context:component-scan base-package="com.demo">
+    <context:component-scan base-package="com.water">
         <!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
@@ -38,7 +38,7 @@
     <!--配置session工厂-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.demo.entity" />
+        <property name="packagesToScan" value="com.water.entity" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> <!--hibernate根据实体自动生成数据库表-->
