@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="WaterWeb:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="water.war">
-      <element id="artifact" artifact-name="WaterWeb:war exploded" />
-    </root>
-  </artifact>
-</component>
