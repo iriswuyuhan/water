@@ -1,247 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3286f4fd-3e88-4fed-8654-90ee3de43716" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/controller/AdminController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/controller/SampleController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/controller/UserController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/dao/AdminDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/AdminDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/RecordDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/SampleDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/dao/RecordDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/dao/SampleDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/entity/Admin.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/entity/Sample.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/entity/record.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/service/Impl/SampleServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/water/service/SampleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/HELP-US-OUT.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/animated.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/bordered-pulled.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/fixed-width.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/larger.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/list.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/rotated-flipped.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/screen-reader.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/stacked.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_animated.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_bordered-pulled.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_core.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_fixed-width.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_icons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_larger.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_list.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_path.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_rotated-flipped.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_screen-reader.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_stacked.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/_variables.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/scss/font-awesome.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery-1.11.1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery-1.11.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/views/Admin.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/views/Login.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/artifacts/Demo_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/artifacts/Demo_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/artifacts/WaterWeb_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/artifacts/WaterWeb_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__c3p0_c3p0_0_9_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__javax_servlet_servlet_api_3_0_alpha_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_38.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__net_sf_ehcache_ehcache_core_2_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_4_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_hibernate_hibernate_core_4_3_5_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_hibernate_hibernate_ehcache_4_3_5_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_javassist_javassist_3_18_1_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_jboss_jandex_1_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_3_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_jboss_logging_jboss_logging_annotations_1_2_0_Beta1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_projectlombok_lombok_1_16_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_aop_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_beans_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_context_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_core_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_expression_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_orm_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_tx_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_web_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/WaterWeb.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/controller/MainController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/dao/DaoFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/dao/Impl/PersonDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/dao/PersonDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/entity/Person.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/service/Impl/PersonServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/service/Impl/TServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/service/PersonService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/java/com/water/service/TService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/resources/META-INF/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/resources/META-INF/spring-mvc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/resources/config.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/webapp/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/webapp/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/src/main/webapp/views/test.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/META-INF/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/META-INF/spring-mvc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/controller/MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/dao/DaoFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/dao/Impl/PersonDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/dao/PersonDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/entity/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/service/Impl/PersonServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/service/Impl/TServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/service/PersonService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/com/demo/service/TService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/classes/config.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/antlr-2.7.7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/c3p0-0.9.1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/commons-fileupload-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/commons-io-2.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/commons-logging-1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/dom4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/ehcache-core-2.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/hibernate-core-4.3.5.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/hibernate-ehcache-4.3.5.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jackson-annotations-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jackson-core-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jackson-core-asl-1.9.13.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jackson-databind-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jandex-1.1.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/javassist-3.18.1-GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/jstl-1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/log4j-1.2.17.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/mysql-connector-java-5.1.38.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/slf4j-api-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-aop-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-beans-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-context-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-core-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-expression-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-jdbc-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-orm-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-tx-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-web-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/spring-webmvc-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/standard-1.1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/lib/xml-apis-1.0.b2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/Demo/views/test.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/META-INF/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/META-INF/spring-mvc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/controller/MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/dao/DaoFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/dao/Impl/PersonDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/dao/PersonDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/entity/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/service/Impl/PersonServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/service/Impl/TServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/service/PersonService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/com/water/service/TService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/classes/config.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/ssh/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/META-INF/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/META-INF/spring-mvc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/controller/MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/dao/DaoFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/dao/Impl/PersonDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/dao/PersonDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/entity/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/service/Impl/PersonServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/service/Impl/TServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/service/PersonService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/com/water/service/TService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/classes/config.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/antlr-2.7.7.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/c3p0-0.9.1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/commons-fileupload-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/commons-io-2.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/commons-logging-1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/dom4j-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/ehcache-core-2.4.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/hibernate-core-4.3.5.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/hibernate-ehcache-4.3.5.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jackson-annotations-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jackson-core-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jackson-core-asl-1.9.13.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jackson-databind-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jandex-1.1.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/javassist-3.18.1-GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/jstl-1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/log4j-1.2.17.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/mysql-connector-java-5.1.38.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/slf4j-api-1.6.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-aop-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-beans-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-context-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-core-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-expression-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-jdbc-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-orm-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-tx-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-web-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/spring-webmvc-4.3.1.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/standard-1.1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/lib/xml-apis-1.0.b2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Demo/target/water/views/test.jsp" afterPath="" />
+    <list default="true" id="3286f4fd-3e88-4fed-8654-90ee3de43716" name="Default" comment="增加json数据返回">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/water/controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/com/water/controller/MainController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/water/service/Impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/water/service/Impl/UserServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/water/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/com/water/service/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/water/WEB-INF/classes/com/water/controller/MainController.class" afterPath="$PROJECT_DIR$/target/water/WEB-INF/classes/com/water/controller/MainController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/water/WEB-INF/classes/com/water/service/Impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/water/WEB-INF/classes/com/water/service/Impl/UserServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/water/WEB-INF/classes/com/water/service/UserService.class" afterPath="$PROJECT_DIR$/target/water/WEB-INF/classes/com/water/service/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/WaterWeb_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/WaterWeb_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WaterWeb.iml" afterPath="$PROJECT_DIR$/WaterWeb.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/water/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/water/controller/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/water/service/Impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/water/service/Impl/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/water/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/water/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/config.properties" afterPath="$PROJECT_DIR$/target/classes/config.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/water/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/water/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/water/WEB-INF/classes/config.properties" afterPath="$PROJECT_DIR$/target/water/WEB-INF/classes/config.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -252,113 +29,26 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Admin.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Admin.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="765">
+              <caret line="45" column="18" lean-forward="false" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SampleDaoImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/Impl/SampleDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1277#1278#0" expanded="true" />
-                <element signature="e#1320#1321#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sample.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/Sample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SampleDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/SampleDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="64" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/AdminController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SampleController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/SampleController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="font-awesome.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/font-awesome-4.7.0/css/font-awesome.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -396,7 +86,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/demo/service/Impl/TestServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/service/TService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/service/Impl/TServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/dao/DaoFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/dao/PersonDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/dao/Impl/PersonDaoImpl.java" />
@@ -405,25 +94,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/demo/service/Impl/PersonServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/test.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/entity/Person.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/PersonDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/DaoFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/DomainRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/PersonDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/water/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/service/Impl/PersonServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/service/Impl/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/water/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/SampleDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/entity/Sample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/SampleDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/entity/Record.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/RecordDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/RecordDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/water/entity/Admin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/AdminDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/AdminDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/service/Impl/TServiceImpl.java" />
@@ -433,10 +116,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/water/service/SampleService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/service/Impl/SampleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/Login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/Admin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/water/entity/Admin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/water/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/water/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/water/dao/Impl/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/service/Impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/water/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/Admin.jsp" />
       </list>
     </option>
   </component>
@@ -446,6 +136,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -453,11 +150,25 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Demo Maven Webapp" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -475,7 +186,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -488,9 +199,177 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,7 +403,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat7">
+  <component name="RunManager" selected="Tomcat Server.my_server">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings>
@@ -909,9 +788,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -970,28 +846,17 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
       <method />
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="Tomcat7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.78" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+    <configuration default="false" name="my_server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.12" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="WaterWeb:war exploded">
           <settings>
@@ -1000,8 +865,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="AJP_PORT" value="1099" />
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Demo" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_water" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -1064,7 +928,7 @@
       </method>
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat7" />
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.my_server" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -1084,41 +948,41 @@
       <workItem from="1500015598809" duration="275000" />
       <workItem from="1500034470834" duration="148000" />
       <workItem from="1500034670887" duration="12251000" />
+      <workItem from="1500085314430" duration="8663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22596000" />
+    <option name="totallyTimeSpent" value="31259000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20415778" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3991323" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3308026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33150384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2531983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1126,6 +990,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1136,7 +1001,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1145,50 +1010,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/Impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1204,69 +1025,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/service/impl/TestService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/service/Impl/TestServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/config.properties.properties" />
-    <entry file="file://$PROJECT_DIR$/WaterWeb.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/kk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/DomainRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/kk.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/RecordDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="60" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1049,7 @@
         <state relative-caret-position="193">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1293,25 +1059,18 @@
         <state relative-caret-position="-74">
           <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/Admin.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/AdminService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1321,7 +1080,7 @@
         <state relative-caret-position="204">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1330,9 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1340,74 +1096,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/Impl/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/Impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/test.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1308">
@@ -1416,29 +1108,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
-          <folding>
-            <element signature="e#1669#1687#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/jquery-1.11.1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1450,82 +1123,245 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/SampleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/Sample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/SampleDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="64" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="64" />
+        <state relative-caret-position="68">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/Impl/SampleDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        <state relative-caret-position="425">
+          <caret line="37" column="44" lean-forward="false" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/SampleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.5.Final/hibernate-core-4.3.5.Final.jar!/org/hibernate/internal/SessionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="563" column="0" lean-forward="false" selection-start-line="563" selection-start-column="0" selection-end-line="563" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/Id.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/DomainRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/Sample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/entity/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.5.0/jackson-databind-2.5.0.jar!/com/fasterxml/jackson/databind/util/JSONPObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Long.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="53" column="19" lean-forward="false" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/Admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WaterWeb.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-750">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1649">
+          <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="31" column="67" lean-forward="true" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
+          <folding>
+            <element signature="e#1449#1465#0" expanded="true" />
+            <element signature="e#1524#1537#0" expanded="true" />
+            <element signature="e#1594#1612#0" expanded="true" />
+            <element signature="e#1669#1687#0" expanded="true" />
+            <element signature="n#prop#0;n#props#0;n#property#2;n#bean#1;n#beans#0;n#!!top" expanded="true" />
+            <element signature="n#prop#1;n#props#0;n#property#2;n#bean#1;n#beans#0;n#!!top" expanded="true" />
+            <element signature="n#prop#2;n#props#0;n#property#2;n#bean#1;n#beans#0;n#!!top" expanded="true" />
+            <element signature="n#prop#3;n#props#0;n#property#2;n#bean#1;n#beans#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.5.Final/hibernate-core-4.3.5.Final.jar!/org/hibernate/Session.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/dao/Impl/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="41" column="44" lean-forward="false" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1277#1278#0" expanded="true" />
-            <element signature="e#1320#1321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/Impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="56" column="29" lean-forward="false" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/water/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="18" lean-forward="false" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
