@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>Water</groupId>
-    <artifactId>Demo</artifactId>
+    <groupId>NoahsArk</groupId>
+    <artifactId>Water</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Demo Maven Webapp</name>
+    <name>Noah's Ark_Water</name>
     <url>http://maven.apache.org</url>
     <!-- 本人将配置包的版本信息都统一放入此处，方便以后管理-->
     <!--<build>-->
@@ -180,6 +180,13 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+        </dependency>
+
 
     </dependencies>
 
