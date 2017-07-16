@@ -15,5 +15,5 @@ pipeline {
             steps { 
                 sh 'docker stop NoahsArk_Water || true' 
                 sh 'docker rm NoahsArk_Water || true'
-                sh 'docker run --name NoahsArk_Water -p 11111:8080 -d dordoka/tomcat'
+                sh 'docker run --name NoahsArk_Water -p 15432:8080 -d dordoka/tomcat'
                 sh 'docker cp target/Water.war NoahsArk_Water:/opt/tomcat/webapps/'}}}}
