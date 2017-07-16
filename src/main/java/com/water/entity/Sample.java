@@ -17,9 +17,19 @@ public class Sample {
     private String address;
     private Date applyDate;
     private String remark;
+    private byte[] image;//图片文件
 
     @Id
-    @Column(name = "sampleID" )
+    @Column(name = "image")
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    @Column(name = "sampleID")
     public Long getSampleID() {
         return sampleID;
     }
@@ -56,7 +66,7 @@ public class Sample {
     }
 
     @Column(name = "applyDate")
-    @Temporal(value=TemporalType.DATE)
+    @Temporal(value = TemporalType.DATE)
     public Date getApplyDate() {
         return applyDate;
     }
