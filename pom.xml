@@ -6,7 +6,7 @@
     <artifactId>Water</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Demo Maven Webapp</name>
+    <name>Noah's Ark_Water</name>
     <url>http://maven.apache.org</url>
     <!-- 本人将配置包的版本信息都统一放入此处，方便以后管理-->
     <!--<build>-->
