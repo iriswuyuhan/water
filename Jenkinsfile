@@ -1,19 +1,19 @@
 pipeline {
     agent any 
     tools {
-        maven ¡®Maven¡¯}
+        maven 'Maven'}
     stages {
-        stage(¡®Test¡¯) { 
+        stage('Test') { 
             steps { 
-                withSonarQubeEnv(¡®SonarQube¡¯) {
-                    sh ¡®mvn clean sonar:sonar¡¯}}}
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn clean sonar:sonar'}}}
         stage('Build') {
             steps {
-                sh ¡®mvn package¡¯ 
-                archive ¡®target/Water.war¡¯}}
+                sh 'mvn package' 
+                archive 'target/Water.war'}}
         stage('Deploy') {
             steps { 
-                sh ¡®docker stop Noah's Ark_Water || true¡¯ 
-                sh ¡®docker rm Noah's Ark_Water || true¡¯ 
-                sh ¡®docker run --name Noah's Ark_Water -p 11111:8080 -d dordoka/tomcat¡¯
-                sh ¡®docker cp target/Water.war Noah's Ark_Water:/opt/tomcat/webapps/¡¯}}}}
+                sh 'docker stop NoahsArk_Water || true' 
+                sh 'docker rm NoahsArk_Water || true'
+                sh 'docker run --name NoahsArk_Water -p 11111:8080 -d dordoka/tomcat'
+                sh 'docker cp target/Water.war NoahsArk_Water:/opt/tomcat/webapps/'}}}}
