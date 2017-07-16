@@ -1,87 +1,83 @@
 package com.water.entity;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import java.util.Date;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
- * Created by asus1 on 2017/7/14.
+ * Created by 朱晨乾 on 2017/7/16.
  */
 public class Sample {
-
-    private Long sampleID;//样本编号
-    private String longitude;//经度LNG
-    private String latitude;//纬度Lat
-    private String address;
-    private Date applyDate;
-    private String remark;
-    private byte[] image;//图片文件
+    private String Id;//样本编号
+    private double Longitude;//经度
+    private double Latitude;//纬度
+    private String Remark;//备注
+    private byte[] Image;//图片
+    private Date ApplyDate;//申请时间
+    private int Volume;//样本体积
 
     @Id
-    @Column(name = "image")
+    @GeneratedValue
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String Id) {
+        this.Id = Id;
+    }
+
+    @Column(name = "Longitude")
+    public double getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(double Longitude) {
+        this.Longitude = Longitude;
+    }
+
+    @Column(name = "Latitude")
+    public double getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(double Latitude) {
+        this.Latitude = Latitude;
+    }
+
+    @Column(name = "Remark")
+    public String getRemark() {
+        return Remark;
+    }
+
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    @Column(name = "Image")
     public byte[] getImage() {
-        return image;
+        return Image;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImage(byte[] Image) {
+        this.Image = Image;
     }
 
-    @Column(name = "sampleID")
-    public Long getSampleID() {
-        return sampleID;
-    }
-
-    public void setSampleID(Long sampleID) {
-        this.sampleID = sampleID;
-    }
-
-    @Column(name = "longitude")
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    @Column(name = "latitude")
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    @Column(name = "address")
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Column(name = "applyDate")
+    @Column(name = "ApplyDate")
     @Temporal(value = TemporalType.DATE)
     public Date getApplyDate() {
-        return applyDate;
+        return ApplyDate;
     }
 
-    public void setApplyDate(Date applyDate) {
-        this.applyDate = applyDate;
+    public void setApplyDate(Date ApplyDate) {
+        this.ApplyDate = ApplyDate;
     }
 
-    @Column(name = "remark")
-    public String getRemark() {
-        return remark;
+    @Column(name = "Volume")
+    public int getVolume() {
+        return Volume;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setVolume(int Volume) {
+        this.Volume = Volume;
     }
 
 

@@ -28,8 +28,8 @@ public class MainController {
 
     @RequestMapping(value = "saveUser2")
     @ResponseBody
-    public Object saveUser2(String username, String password, String address) {
-        Long userId = userService.saveUser(username, password, address);
+    public Object saveUser2(String Id, String Password,String Name,String TelephoneNumber, String HomeAddress,String PostCode) {
+        Long userId = userService.saveUser(Id,Password,Name,TelephoneNumber,HomeAddress,PostCode);
         JSONObject obj = new JSONObject();
         if (userId != null && userId > 0) {
             obj.put("result", 1);

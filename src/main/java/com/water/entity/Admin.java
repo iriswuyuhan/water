@@ -3,8 +3,9 @@ package com.water.entity;
 import javax.persistence.*;
 
 /**
- * Created by asus1 on 2017/7/14.
+ * Created by 朱晨乾 on 2017/7/16.
  */
+
 @Entity
 @Table(name = "Admin")
 public class Admin {
@@ -30,5 +31,4 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

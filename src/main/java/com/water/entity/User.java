@@ -1,54 +1,73 @@
 package com.water.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
- * Created by bxh on 2017/7/14.
+ * Created by 朱晨乾 on 2017/7/16.
  */
-@Entity
-@Table(name = "User")
 public class User {
-
-    private Long id;
-    private String username;
-    private String password;
-    private String address;
+    private String Id;
+    private String Password;
+    private String Name;//姓名
+    private String TelephoneNumber;//电话号码
+    private String HomeAddress;//家庭地址
+    private String PostCode;//邮编
 
     @Id
     @GeneratedValue
-    public Long getId() {
-        return id;
+    public String getId() {
+        return Id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(String Id) {
+        this.Id = Id;
     }
 
-    @Column(name = "username")
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    @Column(name = "password")
+    @Column(name = "Password")
     public String getPassword() {
-        return password;
+        return Password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
 
-    @Column(name = "address")
-    public String getAddress() {
-        return address;
+    @Column(name = "Name")
+    public String getName() {
+        return Name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    @Column(name = "TelephoneNumber")
+    public String getTelephoneNumber() {
+        return TelephoneNumber;
+    }
+
+    public void setTelephoneNumber(String TelephoneNumber) {
+        this.TelephoneNumber = TelephoneNumber;
+    }
+
+    @Column(name = "HomeAddress")
+    public String getHomeAddress() {
+        return HomeAddress;
+    }
+
+    public void setHomeAddress(String HomeAddress) {
+        this.HomeAddress = HomeAddress;
+    }
+
+    @Column(name = "PostCode")
+    public String getPostCode() {
+        return PostCode;
+    }
+
+    public void setPostCode(String PostCode) {
+        this.PostCode = PostCode;
     }
 
 }
-

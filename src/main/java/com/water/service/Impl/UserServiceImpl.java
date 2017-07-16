@@ -1,7 +1,7 @@
 package com.water.service.Impl;
 
 import com.water.dao.UserDao;
-import com.water.entity.Record;
+//import com.water.entity.Record;
 import com.water.entity.Sample;
 import com.water.entity.User;
 import com.water.service.UserService;
@@ -33,23 +33,29 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    public List<Record> checkRecord(User user) {
-        return null;
-    }
+//    public List<Record> checkRecord(User user) {
+//        return null;
+//    }
 
     public Long saveUser() {
         User person = new User();
-        person.setUsername("11111111111");
+        person.setId("111111");
         person.setPassword("123456");
-        person.setAddress("NJU");
+        person.setName("11111111111");
+        person.setTelephoneNumber("1111111");
+        person.setHomeAddress("NJU");
+        person.setPostCode("111111");
         return userDao.save(person);
     }
 
-    public Long saveUser(String username, String password, String address) {
+    public Long saveUser(String Id, String Password,String Name,String TelephoneNumber, String HomeAddress,String PostCode) {
         User person = new User();
-        person.setUsername(username);
-        person.setPassword(password);
-        person.setAddress(address);
+        person.setId(Id);
+        person.setPassword(Password);
+        person.setName(Name);
+        person.setTelephoneNumber(TelephoneNumber);
+        person.setHomeAddress(HomeAddress);
+        person.setPostCode(PostCode);
         return userDao.save(person);
     }
 

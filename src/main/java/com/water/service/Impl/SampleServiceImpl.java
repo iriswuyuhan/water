@@ -1,7 +1,7 @@
 package com.water.service.Impl;
 
 import com.water.dao.SampleDao;
-import com.water.entity.Record;
+//import com.water.entity.Record;
 import com.water.entity.Sample;
 import com.water.entity.User;
 import com.water.service.SampleService;
