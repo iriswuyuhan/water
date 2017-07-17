@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Created by 朱晨乾 on 2017/7/17.
  */
 @Entity
-@Table(name = "sample", schema = "water")
+@Table(name = "sample", schema = "water", catalog = "")
 public class SampleEntity {
     private int idSample;
     private Double longitude;

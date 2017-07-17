@@ -8,9 +8,9 @@ import java.util.Arrays;
  * Created by 朱晨乾 on 2017/7/17.
  */
 @Entity
-@Table(name = "apply", schema = "water")
+@Table(name = "apply", schema = "water", catalog = "")
 public class ApplyEntity {
-    private int idApply;
+    private String idApply;
     private Double longitude;
     private Double latitude;
     private String number;
@@ -21,12 +21,12 @@ public class ApplyEntity {
     private byte[] image;
 
     @Id
-    @Column(name = "idApply", nullable = false)
-    public int getIdApply() {
+    @Column(name = "idApply", nullable = false, length = 45)
+    public String getIdApply() {
         return idApply;
     }
 
-    public void setIdApply(int idApply) {
+    public void setIdApply(String idApply) {
         this.idApply = idApply;
     }
 
@@ -117,7 +117,7 @@ public class ApplyEntity {
 
         ApplyEntity that = (ApplyEntity) o;
 
-        if (idApply != that.idApply) return false;
+        if (idApply != null ? !idApply.equals(that.idApply) : that.idApply != null) return false;
         if (longitude != null ? !longitude.equals(that.longitude) : that.longitude != null) return false;
         if (latitude != null ? !latitude.equals(that.latitude) : that.latitude != null) return false;
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
@@ -132,7 +132,7 @@ public class ApplyEntity {
 
     @Override
     public int hashCode() {
-        int result = idApply;
+        int result = idApply != null ? idApply.hashCode() : 0;
         result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
         result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
         result = 31 * result + (number != null ? number.hashCode() : 0);
