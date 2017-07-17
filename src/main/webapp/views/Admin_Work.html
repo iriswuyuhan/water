@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>水污染-管理 </title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../resources/css/admin_work.css"/>
+    <link rel="stylesheet" href="../resources/font-awesome-4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+
+    <!--    &lt;!&ndash; Favicon and touch icons &ndash;&gt;
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">-->
+
+
+</head>
+<body>
+<div class="content">
+    <header>
+        <div class="header_top">
+            <div class="top_container">
+                <h1><a>Noah's</a> Ark</h1>
+                <div id="top-navigation">
+                    Welcome! <a href="#"><strong>Administrator</strong></a>
+                    <span>|</span>
+                    <a href="#">Log out</a>
+                </div>
+
+                </div>
+        </div>
+        <div class="header_main">
+            <ul id="nav">
+                <li class="active"><a href="#"><i class="fa fa-2x fa-sitemap"></i><h4>审核申请</h4></a></li>
+                <li><a href="#"><i class="fa fa-2x fa-download set_middle"></i><h4>下载采样信息</h4></a></li>
+                <li><a href="#"><i class="fa fa-2x fa-upload set_right"></i><h4>上传实验结果</h4></a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="main_wrapper">
+        <ul id="tabs">
+            <li id="current"><a href="#" title="tab1">待审核</a></li>
+            <li><a href="#" title="tab2">审核通过</a></li>
+            <li><a href="#" title="tab3">未通过审核</a></li>
+        </ul>
+        <div id="main_content">
+            <div id="tab1">
+                <div class="table-content">
+                    <ul id="scro" class="scroll indicator-group-title">
+                        <li class="active"><a>12345678</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345679</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li><a>12345680</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345681</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345682</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345683</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345684</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li><a >12345681</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345685</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345686</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345687</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345688</a><span
+                                class="fa fa-angle-right"></span></li>
+                        <li class=""><a>12345689</a><span
+                                class="fa fa-angle-right"></span></li>
+                    </ul>
+
+
+                </div>
+            </div>
+            <div id="tab2" style="display: none">
+                <h2>2222</h2>
+            </div>
+            <div id="tab3" style="display: none">
+                <h2>3333</h2>
+            </div>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+        <script>
+            $(document).ready(function() {
+/*                $("#main_content div").hide(); // Initially hide all content
+                $("#tabs li:first").prop("id","current"); // Activate first tab
+                $("#content div:first").fadeIn(); // Show first tab content*/
+
+                $('#tabs a').click(function(e) {
+                    e.preventDefault();
+                    $("#main_content div").hide(); //Hide all content
+                    $("#tabs li").prop("id",""); //Reset id's
+                    $(this).parent().prop("id","current"); // Activate this
+                    $('#' + $(this).prop('title')).fadeIn(); // Show content for current tab
+                });
+            })();
+        </script>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>Copyright 2017 Water - by Noah's Ark.</p>
+    </footer>
+</div>
+</body>
+</html>

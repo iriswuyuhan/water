@@ -39,7 +39,7 @@
     <!--配置session工厂-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.water.entity" />
+        <property name="packagesToScan" value="com.water.model" />
         <property name="hibernateProperties">
             <props>
                 <!--<prop key="hibernate.hbm2ddl.auto">create</prop>&lt;!&ndash; 启动时删数据库中的表，然后创建，退出时不删除数据表&ndash;&gt;-->
