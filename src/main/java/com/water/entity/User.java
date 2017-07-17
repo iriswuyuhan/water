@@ -14,6 +14,7 @@ public class User {
     private String TelephoneNumber;//电话号码
     private String HomeAddress;//家庭地址
     private String PostCode;//邮编
+    private boolean IsResearcher;//是否是研究者
 
     @Id
     @GeneratedValue
@@ -68,6 +69,15 @@ public class User {
 
     public void setPostCode(String PostCode) {
         this.PostCode = PostCode;
+    }
+
+    @Column(name = "IsResearch")
+    public boolean getIsResearcher() {
+        return IsResearcher;
+    }
+
+    public void setIsReSearcher(boolean IsResearcher) {
+        this.IsResearcher = IsResearcher;
     }
 
 }
