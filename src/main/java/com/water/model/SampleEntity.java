@@ -1,14 +1,14 @@
 package com.water.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Arrays;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
  */
 @Entity
-@Table(name = "sample", schema = "water", catalog = "")
+@Table(name = "sample", schema = "water")
 public class SampleEntity {
     private int idSample;
     private Double longitude;
