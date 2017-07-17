@@ -8,6 +8,7 @@ import java.util.Arrays;
  * Created by dell on 2017/7/16.
  */
 public class SignUtil {
+
     public static boolean validSign(String signature,String token,String timestamp,String nonce){
         String[] strs=new String[]{token,timestamp,nonce};
         Arrays.sort(strs);

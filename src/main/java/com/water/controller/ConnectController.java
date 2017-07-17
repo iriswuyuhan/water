@@ -18,14 +18,15 @@ public class ConnectController {
     @RequestMapping(value = "wx", method = RequestMethod.GET)
     @ResponseBody
     public String doGet(HttpServletRequest request){
-        String signature=request.getParameter("signature");
-        String timestamp=request.getParameter("timestamp");
-        String nonce=request.getParameter("nonce");
-        String echstr=request.getParameter("echostr");
-
-        if(SignUtil.validSign(signature,token,timestamp,nonce)){
-            return echstr;
-        }
-        return "error";
+//        String signature=request.getParameter("signature");
+//        String timestamp=request.getParameter("timestamp");
+//        String nonce=request.getParameter("nonce");
+//        String echstr=request.getParameter("echostr");
+//
+//        if(SignUtil.validSign(signature,token,timestamp,nonce)){
+//            return echstr;
+//        }
+//        return "error";
+        return "hello world";
     }
 }
