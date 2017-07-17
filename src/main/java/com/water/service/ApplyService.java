@@ -2,6 +2,7 @@ package com.water.service;
 
 import com.water.model.ApplyEntity;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,12 +12,12 @@ public interface ApplyService {
     /**
      *
      */
-    public ApplyEntity sendApplication();
+    public ApplyEntity sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image);
 
     /**
      *
      */
-    public int updateState();
+    public int updateState(Integer state);
 
     /**
      *
@@ -26,5 +27,5 @@ public interface ApplyService {
     /**
      *
      */
-    public ApplyEntity searchApplication();
+    public ApplyEntity searchApplication(String idApply);
 }

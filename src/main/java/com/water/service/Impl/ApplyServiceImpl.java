@@ -2,6 +2,8 @@ package com.water.service.Impl;
 
 import com.water.model.ApplyEntity;
 
+import java.util.Date;
+
 /**
  * Created by 朱晨乾 on 2017/7/17.
  */
@@ -9,12 +11,12 @@ public class ApplyServiceImpl {
     /**
      *
      */
-    public ApplyEntity sendApplication(){return null;}
+    public ApplyEntity sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image){return null;}
 
     /**
      *
      */
-    public int updateState(){return 0;}
+    public int updateState(Integer state){return 0;}
 
     /**
      *
@@ -24,5 +26,5 @@ public class ApplyServiceImpl {
     /**
      *
      */
-    public ApplyEntity searchApplication(){return null;}
+    public ApplyEntity searchApplication(String idApply){return null;}
 }
