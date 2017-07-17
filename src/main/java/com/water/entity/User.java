@@ -71,7 +71,7 @@ public class User {
         this.PostCode = PostCode;
     }
 
-    @Column(name = "IsResearch")
+    @Column(name = "IsResearcher")
     public boolean getIsResearcher() {
         return IsResearcher;
     }

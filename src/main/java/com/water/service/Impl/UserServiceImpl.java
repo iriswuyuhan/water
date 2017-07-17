@@ -45,7 +45,8 @@ public class UserServiceImpl implements UserService {
         person.setTelephoneNumber("1111111");
         person.setHomeAddress("NJU");
         person.setPostCode("111111");
-        return userDao.save(person);
+//        return userDao.save(person);
+        return null;
     }
 
     public Long saveUser(String Id, String Password,String Name,String TelephoneNumber, String HomeAddress,String PostCode) {
@@ -56,10 +57,12 @@ public class UserServiceImpl implements UserService {
         person.setTelephoneNumber(TelephoneNumber);
         person.setHomeAddress(HomeAddress);
         person.setPostCode(PostCode);
-        return userDao.save(person);
+//        return userDao.save(person);
+        return null;
     }
 
     public User getById(long id) {
-        return userDao.get(id);
+//        return userDao.get(id);
+        return null;
     }
 }

@@ -33,6 +33,7 @@
         <property name="minPoolSize" value="1" />       <!--最小连接数-->
         <property name="initialPoolSize" value="10" />      <!--初始化连接池内的数据库连接-->
         <property name="maxIdleTime" value="20" />  <!--最大空闲时间-->
+
     </bean>
 
     <!--配置session工厂-->
@@ -41,7 +42,8 @@
         <property name="packagesToScan" value="com.water.entity" />
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> <!--hibernate根据实体自动生成数据库表-->
+                <!--<prop key="hibernate.hbm2ddl.auto">create</prop>&lt;!&ndash; 启动时删数据库中的表，然后创建，退出时不删除数据表&ndash;&gt;-->
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop><!-- 自动修改，如果表结构与实体类不一致，那么就修改表使它们一致，数据会保留-->
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>   <!--指定数据库方言-->
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>     <!--在控制台显示执行的数据库操作语句-->
                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>     <!--在控制台显示执行的数据哭操作语句（格式）-->
