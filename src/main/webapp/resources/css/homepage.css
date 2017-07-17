@@ -1,0 +1,55 @@
+.TopActionBar{
+    background: #DDDDDD;
+    width:100%;
+    height:10%;
+    position:relative;
+}
+
+.LeftArrow{
+    position:absolute;
+    left:5%;
+    width:5%;
+    height:90%;
+    top:5%;
+}
+
+.TopTitle{
+    display:inline;
+    position:absolute;
+    width:80%;
+    height:20%;
+    top:30%;
+    left:10%;
+    text-align:center;
+}
+.TopTitle span{
+    font-size:18px;
+    height:100%;
+}
+
+.MoreAction{
+    position:absolute;
+    width:5%;
+    height:90%;
+    top:5%;
+    right:5%;
+}
+
+.MainPart{
+    height:80%;
+}
+
+.BottomPart{
+    background:#FFF;
+    position:relative;
+    width:100%;
+    height:10%;
+}
+.BottomPart table{
+    width:100%;
+    text-align:center;
+    font-size:18px;
+}
+.BottomPart table td{
+    border-right:1px solid #BCBCBC;
+}
