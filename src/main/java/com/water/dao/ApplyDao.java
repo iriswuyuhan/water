@@ -10,7 +10,6 @@ import java.util.Date;
  */
 public interface ApplyDao {
     /**
-     *
      * @param idApply
      * @param name
      * @param longitude
@@ -22,24 +21,26 @@ public interface ApplyDao {
      * @param state
      * @param image
      */
-    public void sendApplication(String idApply, String name, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image);
+//    public void sendApplication(long idApply, String name, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image);
 
     /**
      *
+     * @param applyEntity
+     */
+    public void sendApplication(ApplyEntity applyEntity);
+    /**
      * @param idApply
      * @param state
      */
-    public void updateState(String idApply, Integer state);
+    public void updateState(long idApply, Integer state);
 
     /**
-     *
      * @param idApply
      * @return
      */
-    public ArrayList<ApplyEntity> searchApplicationById(String idApply);
+    public ArrayList<ApplyEntity> searchApplicationById(long idApply);
 
     /**
-     *
      * @param state
      * @return
      */
