@@ -25,17 +25,17 @@ public class ApplyController {
      */
     @RequestMapping("/applylist")
     public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        /*String state = request.getParameter("name" );
+        String state = request.getParameter("name" );
         ApplyService applyService = new ApplyServiceImpl();
         ArrayList<ApplyEntity> arrayList= applyService.getApplicationList(state);
         ApplyEntity applyEntity = new ApplyEntity();
-        applyEntity.setIdApply("123456789");
+        applyEntity.setIdApply(123456789);
         applyEntity.setState(0);
         applyEntity.setAddress("sadasdasdafa");
         applyEntity.setLatitude(32123.22);
         applyEntity.setLongitude(253.22);
         applyEntity.setNumber("2512156");
-        applyEntity.setIdApply("123456789");
+        applyEntity.setIdApply(123456789);
         ArrayList<ApplyEntity> list =new  ArrayList<ApplyEntity>();
 
         list.add(applyEntity);
@@ -48,7 +48,7 @@ public class ApplyController {
         list.add(applyEntity);
         JSONArray array = JSONArray.fromObject(list);
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().print(array.toString());*/
+        response.getWriter().print(array.toString());
     }
     /**
      * @param request

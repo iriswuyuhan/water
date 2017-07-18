@@ -61,8 +61,7 @@
                             type:'post',
                             data:{"username":$(".username").val(),"password":$(".password").val()},
                             success:function (data) {
-
-                                window.location.href="toAdmin.do"
+                               window.location.href="toAdmin.do"
                             }
 
                         });

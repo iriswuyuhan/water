@@ -25,10 +25,9 @@ import java.util.ArrayList;
 @Controller
 public class MainController {
     //测试
-    @Autowired
-    private ApplyService applyService;
 
-   
+
+
 
 /*    @RequestMapping(value = "saveUser2")
     @ResponseBody
