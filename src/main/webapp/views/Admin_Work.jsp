@@ -48,14 +48,14 @@
     <div class="main_wrapper">
 
         <ul id="tabs">
-            <li id="current"><a class="a1" href="#" title="tab1">待审核</a></li>
-            <li><a class="a2" href="#" title="tab2">审核通过</a></li>
-            <li><a class="a3" href="#" title="tab3">未通过审核</a></li>
+            <li id="current"><a class="state" href="#" title="tab1">待审核</a></li>
+            <li><a  class="state" href="#" title="tab2">审核通过</a></li>
+            <li><a  class="state" href="#" title="tab3">未通过审核</a></li>
         </ul>
         <div class="search bar">
             <form>
-                <input type="text" placeholder="请输入申请编号">
-                <button type="submit"></button>
+                <input id= "input" type="text" placeholder="请输入申请编号">
+                <button id="search" ></button>
             </form>
         </div>
         <div id="main_content">
@@ -91,30 +91,30 @@
                     </ul>
                     <div class=" indicator-group-content">
                         <div class="left_title">
-                            <h1><i class="fa fa-edit blue"></i>12345678</h1>
-                            <a>2017-7-17 00:00:00</a>
+                            <i class="fa fa-edit blue"></i><h1 id="applyid" class="number">12345678</h1>
+                            <a class="time">2017-7-17 00:00:00</a>
                         </div>
                         <div class="left_content">
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span id="name1">李四</span>
+                                    <span name="name">李四</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span id="contact1">11111111111</span>
+                                    <span name="name">11111111111</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span id="address1">江苏省南京市栖霞区仙林大道163号</span>
+                                    <span name="name">江苏省南京市栖霞区仙林大道163号</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span id="lng1">21.5494949°</span>
+                                    <span name="name">21.5494949°</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span id="lat1">100.545646°</span>
+                                    <span name="name">100.545646°</span>
                                 </p>
                             </div>
 
@@ -127,8 +127,8 @@
                                 </ul>
                             </div>
                             <div class="operate">
-                                <a class="yes button"><i class="fa fa-check"></i>审核通过</a>
-                                <a class="no button"><i class="fa fa-close"></i>拒绝申请</a>
+                                <a onclick="dealApply(this)" class="yes button"><i class="fa fa-check"></i>审核通过</a>
+                                <a  onclick="dealApply(this)" class="no button"><i class="fa fa-close"></i>拒绝申请</a>
                             </div>
 
                         </div>
@@ -167,8 +167,8 @@
                     </ul>
                     <div class=" indicator-group-content">
                         <div class="left_title">
-                            <h1><i class="fa fa-check green"></i>12345678</h1>
-                            <a>2017-7-17 00:00:00</a>
+                           <i class="fa fa-check green"></i> <h1>12345678</h1>
+                            <a class="time">2017-7-17 00:00:00</a>
                         </div>
                         <div class="left_content">
                             <div class="left_info">
@@ -239,18 +239,18 @@
                     </ul>
                     <div class=" indicator-group-content">
                         <div class="left_title">
-                            <h1><i class="fa fa-close red"></i>12345678</h1>
-                            <a>2017-7-17 00:00:00</a>
+                            <i class="fa fa-close red"></i><h1>12345678</h1>
+                            <a class="time">2017-7-17 00:00:00</a>
                         </div>
                         <div class="left_content">
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span id="name3">李四</span>
+                                    <span name="name">李四</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span id="contact3">11111111111</span>
+                                    <span name="name">11111111111</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
@@ -281,9 +281,7 @@
             </div>
         </div>
         <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-        <script>
-
-        </script>
+        <script src="./resources/js/Admin_Work.js"></script>
         <script type="text/javascript">
             /*轮播*/
             $(function(){

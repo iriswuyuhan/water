@@ -26,16 +26,16 @@ import java.util.ArrayList;
 public class MainController {
     //测试
     @Autowired
-//    private UserService userService;
+    private ApplyService applyService;
 
-    @RequestMapping(value = "saveUser", method = RequestMethod.GET)
+    @RequestMapping(value = "saveApply", method = RequestMethod.GET)
     @ResponseBody
-    public String saveUser() {
-//        userService.saveUser();
+    public String saveApply(){
+        applyService.saveApply();
         return "success!";
     }
 
-    @RequestMapping(value = "saveUser2")
+/*    @RequestMapping(value = "saveUser2")
     @ResponseBody
     public Object saveUser2(String Id, String Password,String Name,String TelephoneNumber, String HomeAddress,String PostCode) {
 //        Long userId = userService.saveUser(Id,Password,Name,TelephoneNumber,HomeAddress,PostCode);
@@ -62,7 +62,7 @@ public class MainController {
 //            obj.put("result", 0);
 //        }
         return obj;
-    }
+    }*/
     /**
      * @param request
      * @param response
@@ -76,7 +76,6 @@ public class MainController {
     }
     @RequestMapping(value="/toAdmin.do")
     public String toAdmin() throws IOException{
-        System.out.println("登录功"+System.currentTimeMillis());
         return "Admin_Work";
     }
 

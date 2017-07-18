@@ -310,13 +310,17 @@ footer{
     overflow-y: auto;
 }
 
+
 .left_title h1{
     color: #444;
     margin-bottom: 5px;
 }
-.left_title h1 i{
+.left_title i{
+    float: left;
+    font-size: 29px;
     margin-right: 5px;
 }
+
 .left_title a{
     color: #555;
 }

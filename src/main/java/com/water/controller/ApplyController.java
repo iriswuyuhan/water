@@ -20,18 +20,24 @@ public class ApplyController {
     /**
      * @param request
      * @param response
-     * @return 登录验证
+     * @return 得到申请的list
      * @throws Exception
      */
     @RequestMapping("/applylist")
     public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        System.out.print(123);
-        String state = request.getParameter("name" );
+        /*String state = request.getParameter("name" );
         ApplyService applyService = new ApplyServiceImpl();
         ArrayList<ApplyEntity> arrayList= applyService.getApplicationList(state);
         ApplyEntity applyEntity = new ApplyEntity();
         applyEntity.setIdApply("123456789");
+        applyEntity.setState(0);
+        applyEntity.setAddress("sadasdasdafa");
+        applyEntity.setLatitude(32123.22);
+        applyEntity.setLongitude(253.22);
+        applyEntity.setNumber("2512156");
+        applyEntity.setIdApply("123456789");
         ArrayList<ApplyEntity> list =new  ArrayList<ApplyEntity>();
+
         list.add(applyEntity);
         list.add(applyEntity);
         list.add(applyEntity);
@@ -42,7 +48,49 @@ public class ApplyController {
         list.add(applyEntity);
         JSONArray array = JSONArray.fromObject(list);
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().print(array.toString());
+        response.getWriter().print(array.toString());*/
     }
-
+    /**
+     * @param request
+     * @param response
+     * @return 得到一个申请的信息
+     * @throws Exception
+     */
+    @RequestMapping("/getApplyInfo")
+    public void getSampleInfo(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String id = request.getParameter("id" );
+        ApplyService applyService = new ApplyServiceImpl();
+        ApplyEntity applyEntity = new ApplyEntity();
+        applyEntity.setIdApply(123456789);
+        applyEntity.setAddress("江苏省");
+        applyEntity.setLatitude(32123.22);
+        applyEntity.setState(0);
+        applyEntity.setLongitude(253.22);
+        applyEntity.setNumber("2512156");
+       JSONObject object = JSONObject.fromObject(applyEntity);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(object.toString());
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 审核申请
+     * @throws Exception
+     */
+    @RequestMapping("/dealApply")
+    public void dealApply(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String id = request.getParameter("id" );
+        String state = request.getParameter("state" );
+        ApplyService applyService = new ApplyServiceImpl();
+        ApplyEntity applyEntity = new ApplyEntity();
+        applyEntity.setIdApply(123456789);
+        applyEntity.setState(0);
+        applyEntity.setAddress("sadasdasdafa");
+        applyEntity.setLatitude(32123.22);
+        applyEntity.setLongitude(253.22);
+        applyEntity.setNumber("2512156");
+        JSONObject object = JSONObject.fromObject(applyEntity);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print("success");
+    }
 }
