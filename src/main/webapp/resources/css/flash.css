@@ -1,0 +1,19 @@
+body{
+    overflow: auto;
+}
+
+#video{
+    width:90%;
+    margin-left: 5%;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    margin-left: 5%;
+}
+
+h1{
+    font-size: large;
+    color: #2196F3;
+}
