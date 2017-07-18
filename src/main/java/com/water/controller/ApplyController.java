@@ -30,7 +30,7 @@ public class ApplyController {
         ApplyService applyService = new ApplyServiceImpl();
         ArrayList<ApplyEntity> arrayList= applyService.getApplicationList(state);
         ApplyEntity applyEntity = new ApplyEntity();
-        applyEntity.setIdApply("123456789");
+        applyEntity.setIdApply(123456789);
         ArrayList<ApplyEntity> list =new  ArrayList<ApplyEntity>();
         list.add(applyEntity);
         list.add(applyEntity);
