@@ -28,12 +28,7 @@ public class MainController {
     @Autowired
     private ApplyService applyService;
 
-    @RequestMapping(value = "saveApply", method = RequestMethod.GET)
-    @ResponseBody
-    public String saveApply(){
-        applyService.saveApply();
-        return "success!";
-    }
+   
 
 /*    @RequestMapping(value = "saveUser2")
     @ResponseBody
