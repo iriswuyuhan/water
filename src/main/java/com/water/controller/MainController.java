@@ -6,6 +6,7 @@ package com.water.controller;
 import com.water.model.ApplyEntity;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
+import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,12 +70,12 @@ public class MainController {
      * @throws Exception
      */
     @RequestMapping("/login")
-    public void login(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void login(HttpServletRequest request, HttpServletResponse response) throws IOException{
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }
     @RequestMapping(value="/toAdmin.do")
-    public String toAdmin() throws Exception{
+    public String toAdmin() throws IOException{
         System.out.println("登录功"+System.currentTimeMillis());
         return "Admin_Work";
     }

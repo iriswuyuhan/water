@@ -10,6 +10,7 @@ import net.sf.json.JSONObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.io.IOException;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -23,7 +24,7 @@ public class ApplyController {
      * @throws Exception
      */
     @RequestMapping("/applylist")
-    public void applylist(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException{
         System.out.print(123);
         String state = request.getParameter("name" );
         ApplyService applyService = new ApplyServiceImpl();
