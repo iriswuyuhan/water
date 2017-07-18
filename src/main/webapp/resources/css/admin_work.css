@@ -315,11 +315,13 @@ footer{
     margin-bottom: 5px;
 }
 .left_title h1 i{
-    color: #3FAEEC;
     margin-right: 5px;
 }
 .left_title a{
     color: #555;
+}
+.blue{
+    color: #3FAEEC;
 }
 .left_title {
     margin-left: 5px;
@@ -341,9 +343,9 @@ footer{
 }
 
 
-#scroll{width:50%; height:260px; background-color:white; position:relative;float:right;}
-#scroll ul{height:260px; list-style:none;}
-#scroll ul li{width:50%; max-height:260px;margin:0px; padding:0px; display:none;}
+#scroll,#scroll2,#scroll3{width:50%; height:260px; background-color:white; position:relative;float:right;}
+#scroll ul,#scroll2 ul,#scroll3 ul{height:260px; list-style:none;}
+#scroll ul li,#scroll2 ul li,#scroll3 ul li{width:50%; max-height:260px;margin:0px; padding:0px; display:none;}
 .subl{position:absolute; text-align:left;font-size:30px;font-weight:bold; cursor:pointer;margin-top: 110px;margin-left: 5px;}
 .subr{
     position:absolute;
@@ -351,7 +353,7 @@ footer{
     margin-top: 110px;
     margin-left: 380px;
 }
-#scroll ul li img{
+#scroll ul li img,#scroll2 ul li img,#scroll3 ul li img{
     height: 260px;
     width:400px;
 }
@@ -391,11 +393,13 @@ button, .button {
     padding-bottom: 0.25em;
     padding-left: 0.55em;
     font-size: 1em;
-    background-color: #eee;
+    background-color:rgba(0,0,0,0.01);
     border-color: #829606;
     color: #000;
 }
-
+.button:hover{
+    background-color:rgba(0,0,0,0.05);
+}
 
 .button i{
     margin-right: 0.3em;
@@ -416,4 +420,42 @@ button, .button {
 }
 .red{
     color: red;
+}
+.search{
+    float: right;
+    margin-top: -37px;
+}
+.bar input {
+    height: 30px;
+    width: 250px;
+    border-radius: 42px;
+    border: 2px solid rgba(0,0,0,0.1);
+    background: #fff;
+    transition: .3s linear;
+    float: right;
+    margin-right: 80px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #888;
+    font-style: italic;
+}
+.bar button {
+    margin-right: -260px;
+    margin-top: 3px;
+    float: right;
+    background: none;
+    right: 0;
+    border: none;
+}
+.bar button::before {
+    font-size: 16px;
+    content: "\f002";
+    font-family: FontAwesome;
+    color: #4B9DD6;
+}
+
+
+.bar input{
+    padding-left: 10px;
 }
