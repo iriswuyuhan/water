@@ -2,6 +2,7 @@ package com.water.service;
 
 import com.water.model.ApplyEntity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,4 +29,6 @@ public interface ApplyService {
      *
      */
     public ApplyEntity searchApplication(String idApply);
+
+    public ArrayList<ApplyEntity> getApplicationList(String state);
 }

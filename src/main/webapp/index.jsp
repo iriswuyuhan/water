@@ -44,9 +44,32 @@
         </div>
 
         <div class="footer">
-            <a href="#" class="button">Login</a>
+            <a href="#" id="login" class="button">Login</a>
         </div>
+        <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
 
+                $("#login").click(function () {
+                    if($(".username").val()==""||$(".password").val()==""){
+                        alert("信息填写不完整")
+                    }
+                    else{
+
+                        $.ajax({
+                           url:'./login',
+                            type:'post',
+                            data:{"username":$(".username").val(),"password":$(".password").val()},
+                            success:function (data) {
+
+                                window.location.href="toAdmin.do"
+                            }
+
+                        });
+                    }
+                })
+            })
+        </script>
     </form>
 
 </div>

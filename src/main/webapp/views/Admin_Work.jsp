@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -14,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>水污染-管理 </title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../resources/css/admin_work.css"/>
-    <link rel="stylesheet" href="../resources/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./resources/css/admin_work.css"/>
+    <link rel="stylesheet" href="./resources/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
 
     <!--    &lt;!&ndash; Favicon and touch icons &ndash;&gt;
@@ -47,9 +48,9 @@
     </header>
     <div class="main_wrapper">
         <ul id="tabs">
-            <li id="current"><a href="#" title="tab1">待审核</a></li>
-            <li><a href="#" title="tab2">审核通过</a></li>
-            <li><a href="#" title="tab3">未通过审核</a></li>
+            <li id="current"><a class="state" href="#" title="tab1">待审核</a></li>
+            <li><a class="state" href="#" title="tab2">审核通过</a></li>
+            <li><a class="state" href="#" title="tab3">未通过审核</a></li>
         </ul>
         <div id="main_content">
             <div id="tab1">
@@ -115,10 +116,10 @@
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
                                 <ul>
-                                    <li style="display:block;"><img src="../resources/img/Title.png" width="" height=""></li>
-                                    <li><img src="../resources/img/backimg.png" width="" height=""></li>
-                                    <li><img src="../resources/img/background.jpg" width="" height=""></li>
-                                    <li><img src="../resources/img/Title.png" width="" height=""></li>
+                                    <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                    <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                    <li><img src="./resources/img/background.jpg" width="" height=""></li>
+                                    <li><img src="./resources/img/Title.png" width="" height=""></li>
                                 </ul>
                             </div>
                             <div class="operate">
@@ -129,7 +130,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div id="tab2" style="display: none">
                 <div class="table-content">
@@ -194,10 +194,10 @@
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
                                 <ul>
-                                    <li style="display:block;"><img src="../resources/img/Title.png" width="" height=""></li>
-                                    <li><img src="../resources/img/backimg.png" width="" height=""></li>
-                                    <li><img src="../resources/img/background.jpg" width="" height=""></li>
-                                    <li><img src="../resources/img/Title.png" width="" height=""></li>
+                                    <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                    <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                    <li><img src="./resources/img/background.jpg" width="" height=""></li>
+                                    <li><img src="./resources/img/Title.png" width="" height=""></li>
                                 </ul>
                             </div>
                             <div class="operate">
@@ -272,10 +272,10 @@
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
                                 <ul>
-                                    <li style="display:block;"><img src="../resources/img/Title.png" width="" height=""></li>
-                                    <li><img src="../resources/img/backimg.png" width="" height=""></li>
-                                    <li><img src="../resources/img/background.jpg" width="" height=""></li>
-                                    <li><img src="../resources/img/Title.png" width="" height=""></li>
+                                    <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                    <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                    <li><img src="./resources/img/background.jpg" width="" height=""></li>
+                                    <li><img src="./resources/img/Title.png" width="" height=""></li>
                                 </ul>
                             </div>
                             <div class="operate">
@@ -289,12 +289,10 @@
             </div>
         </div>
         <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-        <script>
-
-        </script>
         <script type="text/javascript">
             /*轮播*/
             $(function(){
+
                 var i=0;
                 var len=$("#scroll ul li").length-1;
                 $(".subl").click(function(){
@@ -315,6 +313,7 @@
             });
             /*轮播*/
         </script>
+        <script src="./resources/js/Admin_Work.js"></script>
     </div>
     <!-- Footer -->
     <footer>
@@ -322,4 +321,5 @@
     </footer>
 </div>
 </body>
+
 </html>

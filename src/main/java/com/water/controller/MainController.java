@@ -1,13 +1,21 @@
 package com.water.controller;
 
-import com.alibaba.fastjson.JSONObject;
+
 //import com.water.entity.User;
 //import com.water.service.UserService;
+import com.water.model.ApplyEntity;
+import com.water.service.ApplyService;
+import com.water.service.Impl.ApplyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 
 /**
@@ -54,4 +62,21 @@ public class MainController {
 //        }
         return obj;
     }
+    /**
+     * @param request
+     * @param response
+     * @return 登录验证
+     * @throws Exception
+     */
+    @RequestMapping("/login")
+    public void login(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print("success");
+    }
+    @RequestMapping(value="/toAdmin.do")
+    public String toAdmin() throws Exception{
+        System.out.println("登录功"+System.currentTimeMillis());
+        return "Admin_Work";
+    }
+
 }

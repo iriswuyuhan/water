@@ -1,13 +1,15 @@
 package com.water.service.Impl;
 
 import com.water.model.ApplyEntity;
+import com.water.service.ApplyService;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
  */
-public class ApplyServiceImpl {
+public class ApplyServiceImpl implements ApplyService{
     /**
      *
      */
@@ -27,4 +29,8 @@ public class ApplyServiceImpl {
      *
      */
     public ApplyEntity searchApplication(String idApply){return null;}
+
+    public ArrayList<ApplyEntity> getApplicationList(String state) {
+        return null;
+    }
 }
