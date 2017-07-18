@@ -86,7 +86,7 @@ $(function () {
 })
  function dealApply(type){
     var state;
-    if(type.className="yes button")
+    if(type.className=="yes button")
         state="1"
      else
          state="0";
