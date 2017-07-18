@@ -1,3 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2017/7/18 0018
+  Time: 9:50
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +35,7 @@
                     <a href="#">Log out</a>
                 </div>
 
-                </div>
+            </div>
         </div>
         <div class="header_main">
             <ul id="nav">
@@ -39,9 +47,9 @@
     </header>
     <div class="main_wrapper">
         <ul id="tabs">
-            <li id="current"><a class="a1" href="#" title="tab1">待审核</a></li>
-            <li><a class="a2" href="#" title="tab2">审核通过</a></li>
-            <li><a class="a3" href="#" title="tab3">未通过审核</a></li>
+            <li id="current"><a href="#" title="tab1">待审核</a></li>
+            <li><a href="#" title="tab2">审核通过</a></li>
+            <li><a href="#" title="tab3">未通过审核</a></li>
         </ul>
         <div id="main_content">
             <div id="tab1">
@@ -100,7 +108,7 @@
                                 <p>
                                     <span>纬度：</span>
                                     <span id="lng">100.545646°</span>
-                                 </p>
+                                </p>
                             </div>
 
                             <div id="scroll">
@@ -121,6 +129,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div id="tab2" style="display: none">
                 <div class="table-content">
@@ -286,30 +295,6 @@
         <script type="text/javascript">
             /*轮播*/
             $(function(){
-                $(".a1").click(function () {
-                    $("#tabs li").prop("id","");
-                  $("#tab1").show();
-                  $("#tab2").hide();
-                  $("#tab3").hide();
-                  $(".a1").parent().prop("id","current");
-
-                });
-                $(".a2").click(function () {
-                    $("#tabs li").prop("id","");
-                    $("#tab2").show();
-                    $("#tab1").hide();
-                    $("#tab3").hide();
-                    $(".a2").parent().prop("id","current");
-
-                })
-                $(".a3").click(function () {
-                    $("#tabs li").prop("id","");
-                    $("#tab3").show();
-                    $("#tab2").hide();
-                    $("#tab1").hide();
-                    $(".a3").parent().prop("id","current");
-
-                })
                 var i=0;
                 var len=$("#scroll ul li").length-1;
                 $(".subl").click(function(){
@@ -337,5 +322,4 @@
     </footer>
 </div>
 </body>
-
 </html>
