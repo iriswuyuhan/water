@@ -1,11 +1,11 @@
 package com.water.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Arrays;
 
 /**
- * Created by 朱晨乾 on 2017/7/17.
+ * Created by 朱晨乾 on 2017/7/18.
  */
 @Entity
 @Table(name = "apply", schema = "water")

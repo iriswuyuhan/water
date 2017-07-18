@@ -3,7 +3,7 @@ package com.water.model;
 import javax.persistence.*;
 
 /**
- * Created by 朱晨乾 on 2017/7/17.
+ * Created by 朱晨乾 on 2017/7/18.
  */
 @Entity
 @Table(name = "user", schema = "water")

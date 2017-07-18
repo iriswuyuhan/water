@@ -4,7 +4,9 @@ import com.water.dao.ApplyDao;
 import com.water.model.ApplyEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.Transaction;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -16,9 +18,13 @@ import java.util.Date;
 @Repository
 public class ApplyDaoImpl implements ApplyDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private ApplicationContext applicationContext = null;
+    private SessionFactory sessionFactory = null;
+    private Session session = null;
+    private Transaction transaction = null;
+    public void init(){
 
+    }
     private Session getCurrentSession() {
         return this.sessionFactory.openSession();
     }
