@@ -10,21 +10,21 @@ import java.util.Arrays;
 @Entity
 @Table(name = "sample", schema = "water")
 public class SampleEntity {
-    private int idSample;
+    private long idSample;
     private Double longitude;
     private Double latitude;
     private Date sampleDate;
-    private Integer volume;
+    private Double volume;
     private byte[] image;
     private String remark;
 
     @Id
     @Column(name = "idSample", nullable = false)
-    public int getIdSample() {
+    public long getIdSample() {
         return idSample;
     }
 
-    public void setIdSample(int idSample) {
+    public void setIdSample(long idSample) {
         this.idSample = idSample;
     }
 
@@ -59,12 +59,12 @@ public class SampleEntity {
     }
 
     @Basic
-    @Column(name = "volume", nullable = true)
-    public Integer getVolume() {
+    @Column(name = "volume", nullable = true, precision = 0)
+    public Double getVolume() {
         return volume;
     }
 
-    public void setVolume(Integer volume) {
+    public void setVolume(Double volume) {
         this.volume = volume;
     }
 
@@ -108,7 +108,7 @@ public class SampleEntity {
 
     @Override
     public int hashCode() {
-        int result = idSample;
+        int result = (int) (idSample ^ (idSample >>> 32));
         result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
         result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
         result = 31 * result + (sampleDate != null ? sampleDate.hashCode() : 0);

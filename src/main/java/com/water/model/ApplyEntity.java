@@ -1,16 +1,16 @@
 package com.water.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Arrays;
 
 /**
  * Created by 朱晨乾 on 2017/7/18.
  */
 @Entity
-@Table(name = "apply", schema = "water")
+@Table(name = "apply", schema = "water", catalog = "")
 public class ApplyEntity {
-    private String idApply;
+    private long idApply;
     private Double longitude;
     private Double latitude;
     private String number;
@@ -19,14 +19,15 @@ public class ApplyEntity {
     private Date applyDate;
     private Integer state;
     private byte[] image;
+    private String name;
 
     @Id
-    @Column(name = "idApply", nullable = false, length = 45)
-    public String getIdApply() {
+    @Column(name = "idApply", nullable = false)
+    public long getIdApply() {
         return idApply;
     }
 
-    public void setIdApply(String idApply) {
+    public void setIdApply(long idApply) {
         this.idApply = idApply;
     }
 
@@ -110,6 +111,16 @@ public class ApplyEntity {
         this.image = image;
     }
 
+    @Basic
+    @Column(name = "name", nullable = true, length = 45)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -117,7 +128,7 @@ public class ApplyEntity {
 
         ApplyEntity that = (ApplyEntity) o;
 
-        if (idApply != null ? !idApply.equals(that.idApply) : that.idApply != null) return false;
+        if (idApply != that.idApply) return false;
         if (longitude != null ? !longitude.equals(that.longitude) : that.longitude != null) return false;
         if (latitude != null ? !latitude.equals(that.latitude) : that.latitude != null) return false;
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
@@ -126,13 +137,14 @@ public class ApplyEntity {
         if (applyDate != null ? !applyDate.equals(that.applyDate) : that.applyDate != null) return false;
         if (state != null ? !state.equals(that.state) : that.state != null) return false;
         if (!Arrays.equals(image, that.image)) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = idApply != null ? idApply.hashCode() : 0;
+        int result = (int) (idApply ^ (idApply >>> 32));
         result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
         result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
         result = 31 * result + (number != null ? number.hashCode() : 0);
@@ -141,6 +153,7 @@ public class ApplyEntity {
         result = 31 * result + (applyDate != null ? applyDate.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + Arrays.hashCode(image);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
 }

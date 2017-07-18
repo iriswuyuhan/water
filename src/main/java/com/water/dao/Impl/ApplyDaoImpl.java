@@ -4,7 +4,7 @@ import com.water.dao.ApplyDao;
 import com.water.model.ApplyEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
@@ -18,33 +18,22 @@ import java.util.Date;
 @Repository
 public class ApplyDaoImpl implements ApplyDao {
 
-    private ApplicationContext applicationContext = null;
-    private SessionFactory sessionFactory = null;
-    private Session session = null;
-    private Transaction transaction = null;
-    public void init(){
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    }
     private Session getCurrentSession() {
         return this.sessionFactory.openSession();
     }
 
+//    public void persist(ApplyEntity applyEntity){
+//        getCurrentSession().persist(applyEntity);
+//    }
     /**
-     * 上传申请信息到数据库
      *
-     * @param idApply
-     * @param name
-     * @param longitude
-     * @param latitude
-     * @param number
-     * @param address
-     * @param postcode
-     * @param applyDate
-     * @param state
-     * @param image
+     * @param applyEntity
      */
-    public void sendApplication(String idApply, String name, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image) {
-
+    public void sendApplication(ApplyEntity applyEntity){
+//        getCurrentSession().sendApplication(applyEntity);
     }
 
     /**
@@ -53,7 +42,8 @@ public class ApplyDaoImpl implements ApplyDao {
      * @param idApply
      * @param state
      */
-    public void updateState(String idApply, Integer state) {
+    public void updateState(long idApply, Integer state) {
+
     }
 
     /**
@@ -62,7 +52,8 @@ public class ApplyDaoImpl implements ApplyDao {
      * @param idApply
      * @return
      */
-    public ArrayList<ApplyEntity> searchApplicationById(String idApply) {
+    public ArrayList<ApplyEntity> searchApplicationById(long idApply) {
+
         return null;
     }
 
@@ -75,5 +66,9 @@ public class ApplyDaoImpl implements ApplyDao {
     public ArrayList<ApplyEntity> searchApplicationByState(Integer state) {
         return null;
     }
+
+//    public void flush(){
+//        getCurrentSession().flush();
+//    }
 
 }
