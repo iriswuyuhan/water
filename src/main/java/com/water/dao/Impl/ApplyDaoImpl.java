@@ -1,38 +1,73 @@
 package com.water.dao.Impl;
 
+import com.water.dao.ApplyDao;
 import com.water.model.ApplyEntity;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
  */
-public class ApplyDaoImpl {
+@Repository
+public class ApplyDaoImpl implements ApplyDao {
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    private Session getCurrentSession() {
+        return this.sessionFactory.openSession();
+    }
+
     /**
+     * 上传申请信息到数据库
      *
+     * @param idApply
+     * @param name
+     * @param longitude
+     * @param latitude
+     * @param number
+     * @param address
+     * @param postcode
+     * @param applyDate
+     * @param state
+     * @param image
      */
-    public ApplyEntity sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image) {
+    public void sendApplication(String idApply, String name, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image) {
+
+    }
+
+    /**
+     * 修改申请状态
+     *
+     * @param idApply
+     * @param state
+     */
+    public void updateState(String idApply, Integer state) {
+    }
+
+    /**
+     * 通过id查询申请
+     *
+     * @param idApply
+     * @return
+     */
+    public ArrayList<ApplyEntity> searchApplicationById(String idApply) {
         return null;
     }
 
     /**
+     * 通过状态查询申请
      *
+     * @param state
+     * @return
      */
-    public int updateState(Integer state) {
-        return 0;
-    }
-
-    /**
-     *
-     */
-    public ApplyEntity addApplication() {
+    public ArrayList<ApplyEntity> searchApplicationByState(Integer state) {
         return null;
     }
 
-    /**
-     *
-     */
-    public ApplyEntity searchApplication(String idApply) {
-        return null;
-    }
 }
