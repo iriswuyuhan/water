@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user", schema = "water")
 public class UserEntity {
-    private int idUser;
+    private long idUser;
     private String password;
     private String name;
     private String address;
@@ -18,11 +18,11 @@ public class UserEntity {
 
     @Id
     @Column(name = "idUser", nullable = false)
-    public int getIdUser() {
+    public long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(long idUser) {
         this.idUser = idUser;
     }
 
@@ -106,7 +106,7 @@ public class UserEntity {
 
     @Override
     public int hashCode() {
-        int result = idUser;
+        int result = (int) (idUser ^ (idUser >>> 32));
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);

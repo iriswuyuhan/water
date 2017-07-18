@@ -11,7 +11,7 @@ public class UserDaoImpl implements UserDao{
      * @param idUser
      * @param password
      */
-    public void testIdentify(String idUser, String password) {
+    public void testIdentify(long idUser, String password) {
 
     }
 }
