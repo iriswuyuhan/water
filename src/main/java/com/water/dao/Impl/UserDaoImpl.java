@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
 import java.util.List;
-
 /**
  * Created by asus1 on 2017/7/19.
  */
 @Repository
 public class UserDaoImpl implements UserDao{
+
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -63,5 +63,6 @@ public class UserDaoImpl implements UserDao{
 
     public void flush() {
         getCurrentSession().flush();
+
     }
 }

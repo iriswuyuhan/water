@@ -1,24 +1,22 @@
 package com.water.model;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Arrays;
+import java.sql.Date;
 
 /**
- * Created by 朱晨乾 on 2017/7/18.
+ * Created by 朱晨乾 on 2017/7/19.
  */
 @Entity
-@Table(name = "apply", schema = "water", catalog = "")
+@Table(name = "apply", schema = "water")
 public class ApplyEntity {
     private long idApply;
     private Double longitude;
     private Double latitude;
     private String number;
     private String address;
-    private Integer postcode;
     private Date applyDate;
     private Integer state;
-    private byte[] image;
+    private String image;
     private String name;
 
     @Id
@@ -72,16 +70,6 @@ public class ApplyEntity {
     }
 
     @Basic
-    @Column(name = "postcode", nullable = true)
-    public Integer getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(Integer postcode) {
-        this.postcode = postcode;
-    }
-
-    @Basic
     @Column(name = "applyDate", nullable = true)
     public Date getApplyDate() {
         return applyDate;
@@ -102,12 +90,12 @@ public class ApplyEntity {
     }
 
     @Basic
-    @Column(name = "image", nullable = true)
-    public byte[] getImage() {
+    @Column(name = "image", nullable = true, length = 255)
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -119,6 +107,41 @@ public class ApplyEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ApplyEntity that = (ApplyEntity) o;
+
+        if (idApply != that.idApply) return false;
+        if (longitude != null ? !longitude.equals(that.longitude) : that.longitude != null) return false;
+        if (latitude != null ? !latitude.equals(that.latitude) : that.latitude != null) return false;
+        if (number != null ? !number.equals(that.number) : that.number != null) return false;
+        if (address != null ? !address.equals(that.address) : that.address != null) return false;
+        if (applyDate != null ? !applyDate.equals(that.applyDate) : that.applyDate != null) return false;
+        if (state != null ? !state.equals(that.state) : that.state != null) return false;
+        if (image != null ? !image.equals(that.image) : that.image != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (idApply ^ (idApply >>> 32));
+        result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
+        result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
+        result = 31 * result + (number != null ? number.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (applyDate != null ? applyDate.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
+        result = 31 * result + (image != null ? image.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 
 }

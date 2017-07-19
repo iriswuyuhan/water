@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,16 @@
     <script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
-    <!--<script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>-->
+    <script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
     <!--<script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>-->
+    <script type="text/javascript" src="../resources/PhotoSwipe-master/klass.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../resources/PhotoSwipe-master/jquery-1.8.2.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../resources/PhotoSwipe-master/code.photoswipe-3.0.5.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../resources/PhotoSwipe-master/jquery.transit.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../resources/PhotoSwipe-master/hammer.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../resources/PhotoSwipe-master/jquery.hammer.js"></script>
+
+    <link rel="stylesheet" href="../resources/css/upload_sampling_info.css"/>
 </head>
 <body>
 <div class="uploaded-imgs">
@@ -17,9 +25,15 @@
         <div class="weui-cell">
             <div class="weui-cell__bd">
                 <div class="weui-uploader__bd">
-                    <ul class="weui-uploader__files">
-                        <li class="uploaded-img weui-uploader__file" style="background-image:url(../resources/img/backimg.png)"></li>
-                        <li class="uploaded-img weui-uploader__file" style="background-image:url(../resources/img/backimg.png)"></li>
+                    <ul class="weui-uploader__files" id="Gallery">
+                        <li class="uploaded-img weui-uploader__file">
+                            <a href="../resources/img/backimg.png">
+                                <img style="width: 80px;height: 80px" src="../resources/img/backimg.png" alt="Image 01" /></a>
+                        </li>
+                        <li class="uploaded-img weui-uploader__file">
+                            <a href="../resources/img/backimg.png">
+                                <img style="width: 80px;height: 80px" src="../resources/img/backimg.png" alt="Image 02" /></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -73,5 +87,18 @@
 <p style="padding-top: 15px;">
     <a style="line-height: 38px;width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_plain-primary">上传</a>
 </p>
+<div id="background-shade"></div>
 </body>
+<script>
+    $("#Gallery a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
+    $("#Gallery a").click(function () {
+        $("#background-shade").fadeIn();
+    });
+    $(window).on('beforeunload', function() {
+        $("#background-shade").fadeOut();
+    });
+    $("#background-shade").click(function () {
+        window.history.back();
+    });
+</script>
 </html>
