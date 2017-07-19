@@ -2,7 +2,6 @@ package com.water.dao.Impl;
 
 import com.water.dao.ApplyDao;
 import com.water.entity.Apply;
-import com.water.entity.Person;
 import com.water.entity.User;
 import com.water.model.ApplyEntity;
 import org.hibernate.Session;

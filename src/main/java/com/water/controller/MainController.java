@@ -2,7 +2,6 @@ package com.water.controller;
 
 
 import com.water.service.ApplyService;
-import com.water.service.PersonService;
 import com.water.service.UploadService;
 import com.water.service.UserService;
 import java.io.IOException;
@@ -23,15 +22,15 @@ import javax.servlet.http.HttpServletResponse;
 public class MainController {
     //测试
 
-    @Autowired
-    private PersonService personService;
-
-    @RequestMapping(value = "savePerson", method = RequestMethod.GET)
-    @ResponseBody
-    public String savePerson(){
-        personService.savePerson();
-        return "success!";
-    }
+//    @Autowired
+//    private PersonService personService;
+//
+//    @RequestMapping(value = "savePerson", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String savePerson(){
+//        personService.savePerson();
+//        return "success!";
+//    }
     @Autowired
     private UserService userService;
 
