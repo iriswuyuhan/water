@@ -16,9 +16,11 @@
     <script type="text/javascript" charset="utf-8" src="../resources/PhotoSwipe-master/hammer.js"></script>
     <script type="text/javascript" charset="utf-8" src="../resources/PhotoSwipe-master/jquery.hammer.js"></script>
 
+    <link href="../resources/PhotoSwipe-master/styles.css" type="text/css" rel="stylesheet" />
+    <link href="../resources/PhotoSwipe-master/photoswipe.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="../resources/css/upload_sampling_info.css"/>
 </head>
-<body>
+<body style="background-color: white">
 <div class="uploaded-imgs">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">
@@ -87,18 +89,18 @@
 <p style="padding-top: 15px;">
     <a style="line-height: 38px;width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_plain-primary">上传</a>
 </p>
-<div id="background-shade"></div>
 </body>
 <script>
-    $("#Gallery a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
-    $("#Gallery a").click(function () {
-        $("#background-shade").fadeIn();
-    });
-    $(window).on('beforeunload', function() {
-        $("#background-shade").fadeOut();
-    });
-    $("#background-shade").click(function () {
-        window.history.back();
-    });
+    //图片预览
+(function(window, PhotoSwipe){
+    document.addEventListener('DOMContentLoaded', function(){
+        var options = {
+                fullscreenEl : false,
+                //点击图片关闭
+                tapToClose: true,
+            },
+            instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+    }, false);
+}(window, window.Code.PhotoSwipe));
 </script>
 </html>
