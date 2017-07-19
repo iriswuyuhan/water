@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>定位地址</title>
+
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
+
 </head>
-<body>
+<body onload="getCurlocation()">
 <div class="page">
     <div class="page__bd page__bd_spacing">
         <div class="weui-cells">
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <h3>当前收货地址</h3>
+                    <h2>当前收货地址</h2>
                 </div>
                 <div class="weui-cell__bd">
                     <label id="curAdd">收货地址</label>
@@ -36,7 +38,7 @@
         <div class="weui-cells">
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <h3>当前定位</h3>
+                    <h2>当前定位</h2>
                 </div>
             </div>
             <div class="weui-cell">
@@ -51,7 +53,7 @@
         <div class="weui-cells">
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <h3>附近地址</h3>
+                    <h2>附近地址</h2>
                 </div>
             </div>
             <div class="weui-cell">
