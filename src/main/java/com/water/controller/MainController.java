@@ -40,10 +40,11 @@ public class MainController {
         userService.addUser1();
         return "success!";
     }
-
+/*----------------------------------对Apply逻辑调用数据增删改查方法的测试----------------------------------------*/
     @Autowired
     private ApplyService applyService;
 
+    //测试增加Apply方法
     @RequestMapping(value = "addApply", method = RequestMethod.GET)
     @ResponseBody
     public String addApply(){
@@ -51,6 +52,7 @@ public class MainController {
         return "success!";
     }
 
+    //测试是否返回对应状态的列表
     @RequestMapping(value = "findApply", method = RequestMethod.GET)
     @ResponseBody
     public String findApply(){
@@ -58,19 +60,30 @@ public class MainController {
         return "success!";
     }
 
+    //测试按id搜索 不包括id不存在情况处理 id不存在
     @RequestMapping(value = "searchApply", method = RequestMethod.GET)
     @ResponseBody
     public String searchApply(){
-        System.out.println(applyService.searchApplication(548946).getAddress());
+        System.out.println(applyService.searchApplication(46464646).getApplyDate());
         return "success!";
     }
 
-    @RequestMapping(value = "getState0", method = RequestMethod.GET)
+    //测试更新申请状态 如果id不存在 会返回false
+    @RequestMapping(value = "updateState", method = RequestMethod.GET)
     @ResponseBody
-    public String getState0(){
-        System.out.println(applyService.getApplicationList(0).size());
+    public String updateState(){
+        System.out.println(applyService.updateState(46464646,0));
         return "success!";
     }
+
+    //测试删除Apply
+    @RequestMapping(value = "deleteApply", method = RequestMethod.GET)
+    @ResponseBody
+    public String deleteApply(){
+        System.out.println(applyService.deleteApply(3333333));
+        return "success!";
+    }
+    /*------------------------------------------------End--------------------------------------------------------*/
 
     @Autowired
     private UploadService uploadService;
