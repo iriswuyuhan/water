@@ -1,19 +1,19 @@
 package com.water.entity;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 
 /**
- * Created by asus1 on 2017/7/19.
+ * Created by 朱晨乾 on 2017/7/19.
  */
 @Entity
-@Table(name = "User")
+@Table(name = "user", schema = "water")
 public class User {
-    private Long idUser;              //id用户为手机号 管理员系统设置
-    private String password;          //登录密码
-    private String name;              //用户姓名
-    private String address;           //用户邮寄地址
-    private Integer isResearcher;     //是否是管理员 1为管理员 0为用户
+    private long idUser;
+    private String password;
+    private String name;
+    private String address;
+    private String number;
+    private Integer isResearcher;
 
     @Id
     @Column(name = "idUser", nullable = false)
@@ -25,8 +25,8 @@ public class User {
         this.idUser = idUser;
     }
 
-
-    @Column(name = "password", length = 20)
+    @Basic
+    @Column(name = "password", nullable = true, length = 45)
     public String getPassword() {
         return password;
     }
@@ -35,7 +35,8 @@ public class User {
         this.password = password;
     }
 
-    @Column(name = "name")
+    @Basic
+    @Column(name = "name", nullable = true, length = 45)
     public String getName() {
         return name;
     }
@@ -44,7 +45,8 @@ public class User {
         this.name = name;
     }
 
-    @Column(name = "address")
+    @Basic
+    @Column(name = "address", nullable = true, length = 255)
     public String getAddress() {
         return address;
     }
@@ -53,7 +55,18 @@ public class User {
         this.address = address;
     }
 
-    @Column(name = "isResearcher")
+    @Basic
+    @Column(name = "number", nullable = true, length = 45)
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    @Basic
+    @Column(name = "isResearcher", nullable = true)
     public Integer getIsResearcher() {
         return isResearcher;
     }
@@ -62,4 +75,31 @@ public class User {
         this.isResearcher = isResearcher;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User that = (User) o;
+
+        if (idUser != that.idUser) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (address != null ? !address.equals(that.address) : that.address != null) return false;
+        if (number != null ? !number.equals(that.number) : that.number != null) return false;
+        if (isResearcher != null ? !isResearcher.equals(that.isResearcher) : that.isResearcher != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (idUser ^ (idUser >>> 32));
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (number != null ? number.hashCode() : 0);
+        result = 31 * result + (isResearcher != null ? isResearcher.hashCode() : 0);
+        return result;
+    }
 }

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
     <title>定位地址</title>
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=RWc8drj7zTVzdlRajxxdfPLEScuRmb16"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=RWc8drj7zTVzdlRajxxdfPLEScuRmb16"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script>
         var geolocation = new BMap.Geolocation();
@@ -27,7 +28,8 @@
                         var addComp = rs.addressComponents;
                         //alert(longtitude, latitude);
                         //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-                        curLoc = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+                        curLoc = addComp.province + addComp.city + addComp.district + addComp.street +
+                            addComp.streetNumber;
                         var loc = document.getElementById("curLoc");
                         loc.innerHTML = curLoc;
                     });
@@ -43,53 +45,53 @@
             return document.getElementById(id);
         }
 
-//        var map = new BMap.Map("l-map");
-//        map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+        //        var map = new BMap.Map("l-map");
+        //        map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
 
         var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
-            {"input" : "searchInput"
-                //,"location" : map
-            });
+            {"input": "searchInput"});
 
-        ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+        ac.addEventListener("onhighlight", function (e) {  //鼠标放在下拉列表上的事件
             var str = "";
             var _value = e.fromitem.value;
             var value = "";
             if (e.fromitem.index > -1) {
-                value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                value = _value.province + _value.city + _value.district + _value.street + _value.business;
             }
             str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
 
             value = "";
             if (e.toitem.index > -1) {
                 _value = e.toitem.value;
-                value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                value = _value.province + _value.city + _value.district + _value.street + _value.business;
             }
-            str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-            G("searchResult").innerHTML = str;
+//            str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+//            G("searchResult").innerHTML = str;
         });
 
         var myValue;
-        ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+        ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
             var _value = e.item.value;
-            myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-            G("searchResult").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+            myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+            G("searchResult").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
 
             setPlace();
+            //            G("searchResult").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+            function setPlace() {
+                map.clearOverlays();    //清除地图上所有覆盖物
+                function myFun() {
+                    var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+                    map.centerAndZoom(pp, 18);
+                    map.addOverlay(new BMap.Marker(pp));    //添加标注
+                }
+
+                var local = new BMap.LocalSearch(map, { //智能搜索
+                    onSearchComplete: myFun
+                });
+                local.search(myValue);
+            }
         });
 
-        function setPlace(){
-            map.clearOverlays();    //清除地图上所有覆盖物
-            function myFun(){
-                var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
-                map.centerAndZoom(pp, 18);
-                map.addOverlay(new BMap.Marker(pp));    //添加标注
-            }
-            var local = new BMap.LocalSearch(map, { //智能搜索
-                onSearchComplete: myFun
-            });
-            local.search(myValue);
-        }
     </script>
 </head>
 <body onload="startLoc()">
@@ -108,15 +110,16 @@
         <div class="weui-cells">
             <div class="weui-cell js_show searchbar">
                 <!--<div class="weui-cell__hd">-->
-                    <!--<select class="weui-select" id="curCity">-->
-                    <!--</select>-->
+                <!--<select class="weui-select" id="curCity">-->
+                <!--</select>-->
                 <!--</div>-->
                 <div class="weui-cell__bd">
                     <div class="weui-search-bar" id="searchBar">
                         <form class="weui-search-bar__form">
                             <div class="weui-search-bar__box">
                                 <i class="weui-icon-search"></i>
-                                <input class="weui-search-bar__input" id="searchInput" required="" type="search" placeholder="请输入地址">
+                                <input class="weui-search-bar__input" id="searchInput" required="" type="search"
+                                       placeholder="请输入地址">
                                 <a class="weui-icon-clear" id="searchClear" href="javascript:"></a>
                             </div>
                             <label class="weui-search-bar__label" id="searchText">
@@ -124,6 +127,8 @@
                                 <span>请输入地址</span>
                             </label>
                         </form>
+                        <a class="weui-search-bar__cancel-btn" id="searchConfirm" onclick="" href="javascript:">
+                            确认</a>
                         <a class="weui-search-bar__cancel-btn" id="searchCancel" href="javascript:">取消</a>
                     </div>
                     <div class="weui-cells searchbar-result" id="searchResult">
@@ -131,7 +136,7 @@
                 </div>
             </div>
             <script class="js_show searchbar" type="text/javascript">
-                $(function(){
+                $(function () {
                     var $searchBar = $('#searchBar'),
                         $searchResult = $('#searchResult'),
                         $searchText = $('#searchText'),
@@ -139,37 +144,38 @@
                         $searchClear = $('#searchClear'),
                         $searchCancel = $('#searchCancel');
 
-                    function hideSearchResult(){
+                    function hideSearchResult() {
                         $searchResult.hide();
                         $searchInput.val('');
                     }
-                    function cancelSearch(){
+
+                    function cancelSearch() {
                         hideSearchResult();
                         $searchBar.removeClass('weui-search-bar_focusing');
                         $searchText.show();
                     }
 
-                    $searchText.on('click', function(){
+                    $searchText.on('click', function () {
                         $searchBar.addClass('weui-search-bar_focusing');
                         $searchInput.focus();
                     });
                     $searchInput
                         .on('blur', function () {
-                            if(!this.value.length) cancelSearch();
+                            if (!this.value.length) cancelSearch();
                         })
-                        .on('input', function(){
-                            if(this.value.length) {
+                        .on('input', function () {
+                            if (this.value.length) {
                                 $searchResult.show();
                             } else {
                                 $searchResult.hide();
                             }
                         })
                     ;
-                    $searchClear.on('click', function(){
+                    $searchClear.on('click', function () {
                         hideSearchResult();
                         $searchInput.focus();
                     });
-                    $searchCancel.on('click', function(){
+                    $searchCancel.on('click', function () {
                         cancelSearch();
                         $searchInput.blur();
                     });

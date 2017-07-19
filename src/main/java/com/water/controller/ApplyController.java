@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.sf.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import net.sf.json.JSONObject;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;

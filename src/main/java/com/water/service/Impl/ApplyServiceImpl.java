@@ -1,18 +1,11 @@
 package com.water.service.Impl;
 
 import com.water.dao.ApplyDao;
-import com.water.dao.UserDao;
-import com.water.entity.Apply;
-import com.water.entity.User;
 import com.water.entity.Apply;
 import com.water.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,15 +19,6 @@ public class ApplyServiceImpl implements ApplyService{
     private ApplyDao applyDao;
     public void addApply(){
         Apply apply = new Apply();
-        apply.setIdApply(Long.valueOf(46464646));
-        apply.setAddress("08885Over");
-        apply.setImage("http:dsfadijji55523");
-        apply.setLatitude(30.00);
-        apply.setLongitude(105.22);
-        apply.setApplyDate(new Date(System.currentTimeMillis()));
-        apply.setName("Jefree");
-        apply.setNumber("55555555555");
-        apply.setState(0);
         applyDao.save(apply);
     }
 
@@ -68,7 +52,7 @@ public class ApplyServiceImpl implements ApplyService{
 
     public ArrayList<Apply> getApplicationList(int state) {
        List<Apply> arrayList = applyDao.findAll();
-        System.out.println(arrayList+"@@@@@@");
+       System.out.println(arrayList+"@@@@@@");
        ArrayList<Apply> list = new ArrayList<Apply>();
        for(Apply temp:arrayList){
           if(temp.getState()==state){

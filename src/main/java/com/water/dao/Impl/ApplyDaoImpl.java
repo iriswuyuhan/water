@@ -3,22 +3,21 @@ package com.water.dao.Impl;
 import com.water.dao.ApplyDao;
 import com.water.entity.Apply;
 import org.hibernate.Query;
+
+//import com.water.entity.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.annotations.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.hibernate.Transaction;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by bxh on 2017/7/18.
+ * Created by 朱晨乾 on 2017/7/17.
  */
 @Repository
 public class ApplyDaoImpl implements ApplyDao {
@@ -31,11 +30,11 @@ public class ApplyDaoImpl implements ApplyDao {
     }
 
     public Apply load(Long id) {
-        return (Apply)getCurrentSession().load(Apply.class,id);
+        return (Apply) getCurrentSession().load(Apply.class,id);
     }
 
     public Apply get(Long id) {
-        return (Apply)getCurrentSession().get(Apply.class,id);
+        return (Apply) getCurrentSession().get(Apply.class,id);
     }
 
     public List<Apply> findAll() {
@@ -53,6 +52,27 @@ public class ApplyDaoImpl implements ApplyDao {
             session.close();
         }
         return list;
+    }
+
+    /**
+     * 修改申请状态
+     *
+     * @param idApply
+     * @param state
+     */
+    public void updateState(long idApply, Integer state) {
+
+    }
+
+    /**
+     * 通过id查询申请
+     *
+     * @param idApply
+     * @return
+     */
+    public ArrayList<Apply> searchApplicationById(Long idApply) {
+
+        return null;
     }
 
     public void persist(Apply entity) {
@@ -94,5 +114,4 @@ public class ApplyDaoImpl implements ApplyDao {
     public void flush() {
         getCurrentSession().flush();
     }
-
 }

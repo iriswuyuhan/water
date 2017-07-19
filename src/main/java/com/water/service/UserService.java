@@ -2,8 +2,6 @@ package com.water.service;
 
 import com.water.entity.User;
 
-import java.math.BigInteger;
-
 /**
  * Created by asus1 on 2017/7/19.
  */
