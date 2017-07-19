@@ -58,6 +58,20 @@ public class MainController {
         return "success!";
     }
 
+    @RequestMapping(value = "searchApply", method = RequestMethod.GET)
+    @ResponseBody
+    public String searchApply(){
+        System.out.println(applyService.searchApplication(548946).getAddress());
+        return "success!";
+    }
+
+    @RequestMapping(value = "getState0", method = RequestMethod.GET)
+    @ResponseBody
+    public String getState0(){
+        System.out.println(applyService.getApplicationList(0).size());
+        return "success!";
+    }
+
     @Autowired
     private UploadService uploadService;
 

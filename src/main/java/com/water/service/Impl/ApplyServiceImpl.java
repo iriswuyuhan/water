@@ -8,6 +8,9 @@ import com.water.entity.Apply;
 import com.water.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -23,14 +26,15 @@ public class ApplyServiceImpl implements ApplyService{
     private ApplyDao applyDao;
     public void addApply(){
         Apply apply = new Apply();
-        apply.setIdApply(Long.valueOf(548946));
-        apply.setAddress("NJU4546578");
-        apply.setImage("kshfioakdfjojsofsf");
-        apply.setLatitude(5.154);
-        apply.setLongitude(9.545);
-        apply.setName("李四");
+        apply.setIdApply(Long.valueOf(92945424));
+        apply.setAddress("NJU45dsafa4s");
+        apply.setImage("kshfioakdfjojsofesf");
+        apply.setLatitude(30.3333);
+        apply.setLongitude(10.55);
+        apply.setApplyDate(new Date(2082810112));
+        apply.setName("Flutter");
         apply.setNumber("11111111111");
-        apply.setState(0);
+        apply.setState(2);
         applyDao.save(apply);
     }
 
@@ -61,12 +65,14 @@ public class ApplyServiceImpl implements ApplyService{
 
     public ArrayList<Apply> getApplicationList(int state) {
        List<Apply> arrayList = applyDao.findAll();
+        System.out.println(arrayList+"@@@@@@");
        ArrayList<Apply> list = new ArrayList<Apply>();
        for(Apply temp:arrayList){
           if(temp.getState()==state){
               list.add(temp);
           }
        }
+       System.out.println(arrayList+"@@@@@@");
        return  list;
 
     }
