@@ -36,6 +36,10 @@ public class ApplyDaoImpl implements ApplyDao {
 //        getCurrentSession().sendApplication(applyEntity);
     }
 
+    public void save(ApplyEntity applyEntity){
+        getCurrentSession().save(applyEntity);
+    }
+
     /**
      * 修改申请状态
      *
