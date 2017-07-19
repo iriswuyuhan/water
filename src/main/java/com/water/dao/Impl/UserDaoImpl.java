@@ -1,7 +1,7 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UserDao;
-import com.water.entity.User;
+import com.water.model.UserEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -24,23 +24,23 @@ public class UserDaoImpl implements UserDao{
         return this.sessionFactory.openSession();
     }
 
-    public User load(Long id) {
-        return (User)getCurrentSession().load(User.class,id);
+    public UserEntity load(Long id) {
+        return (UserEntity) getCurrentSession().load(UserEntity.class,id);
     }
 
-    public User get(Long id) {
-        return (User)getCurrentSession().get(User.class,id);
+    public UserEntity get(Long id) {
+        return (UserEntity)getCurrentSession().get(UserEntity.class,id);
     }
 
-    public List<User> findAll() {
+    public List<UserEntity> findAll() {
         return null;
     }
 
-    public void persist(User entity) {
+    public void persist(UserEntity entity) {
         getCurrentSession().persist(entity);
     }
 
-    public void save(User entity) {
+    public void save(UserEntity entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -52,12 +52,12 @@ public class UserDaoImpl implements UserDao{
             session.close();
         }
     }
-    public void saveOrUpdate(User entity) {
+    public void saveOrUpdate(UserEntity entity) {
         getCurrentSession().saveOrUpdate(entity);
     }
 
     public void delete(Long id) {
-        User person = load(id);
+        UserEntity person = load(id);
         getCurrentSession().delete(person);
     }
 

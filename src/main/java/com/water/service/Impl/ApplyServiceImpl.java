@@ -2,9 +2,10 @@ package com.water.service.Impl;
 
 import com.water.dao.ApplyDao;
 import com.water.dao.UserDao;
-import com.water.entity.Apply;
-import com.water.entity.User;
-import com.water.entity.Apply;
+import com.water.model.ApplyEntity;
+import com.water.model.UserEntity;
+import com.water.model.ApplyEntity;
+import com.water.model.ApplyEntity;
 import com.water.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class ApplyServiceImpl implements ApplyService{
     @Autowired
     private ApplyDao applyDao;
     public void addApply(){
-        Apply apply = new Apply();
+        ApplyEntity apply = new ApplyEntity();
         apply.setIdApply(Long.valueOf(548946));
         apply.setAddress("NJU4546578");
         apply.setImage("kshfioakdfjojsofsf");
@@ -37,7 +38,7 @@ public class ApplyServiceImpl implements ApplyService{
     /**
      *
      */
-    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image){return null;}
+    public ApplyEntity sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image){return null;}
 
     /**
      *
@@ -51,18 +52,18 @@ public class ApplyServiceImpl implements ApplyService{
     /**
      *
      */
-    public Apply addApplication(){return null;}
+    public ApplyEntity addApplication(){return null;}
 
     /**
      *
      */
-    public Apply searchApplication(long idApply){
+    public ApplyEntity searchApplication(long idApply){
         return applyDao.get(idApply);}
 
-    public ArrayList<Apply> getApplicationList(int state) {
-       List<Apply> arrayList = applyDao.findAll();
-       ArrayList<Apply> list = new ArrayList<Apply>();
-       for(Apply temp:arrayList){
+    public ArrayList<ApplyEntity> getApplicationList(int state) {
+       List<ApplyEntity> arrayList = applyDao.findAll();
+       ArrayList<ApplyEntity> list = new ArrayList<ApplyEntity>();
+       for(ApplyEntity temp:arrayList){
           if(temp.getState()==state){
               list.add(temp);
           }

@@ -21,11 +21,11 @@ public class ApplyEntity {
 
     @Id
     @Column(name = "idApply", nullable = false)
-    public long getIdApply() {
+    public Long getIdApply() {
         return idApply;
     }
 
-    public void setIdApply(long idApply) {
+    public void setIdApply(Long idApply) {
         this.idApply = idApply;
     }
 
@@ -109,7 +109,6 @@ public class ApplyEntity {
         this.name = name;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -143,5 +142,4 @@ public class ApplyEntity {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
-
 }

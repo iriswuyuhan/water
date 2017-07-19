@@ -1,7 +1,8 @@
 package com.water.service.Impl;
 
 import com.water.dao.UploadDao;
-import com.water.entity.Sample;
+import com.water.model.SampleEntity;
+import com.water.model.SampleEntity;
 import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class UploadServiceImpl implements UploadService {
     private UploadDao uploadDao;
 
     public void addUpload() {
-        Sample sample = new Sample();
+        SampleEntity sample = new SampleEntity();
         sample.setIdSample(Long.valueOf(1564654));
         sample.setImage("dsfasdfasg");
         sample.setLatitude(5.65446);

@@ -19,11 +19,11 @@ public class SampleEntity {
 
     @Id
     @Column(name = "idSample", nullable = false)
-    public long getIdSample() {
+    public Long getIdSample() {
         return idSample;
     }
 
-    public void setIdSample(long idSample) {
+    public void setIdSample(Long idSample) {
         this.idSample = idSample;
     }
 

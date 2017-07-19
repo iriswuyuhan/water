@@ -28,7 +28,7 @@
         <property name="driverClass" value="${jdbc.driver}" />  <!--数据库连接驱动-->
         <property name="jdbcUrl" value="${jdbc.url}" />     <!--数据库地址-->
         <property name="user" value="${jdbc.username}" />   <!--用户名-->
-        <property name="password" value="flutter561802" />   <!--密码-->
+        <property name="password" value="123456" />   <!--密码-->
         <property name="maxPoolSize" value="40" />      <!--最大连接数-->
         <property name="minPoolSize" value="1" />       <!--最小连接数-->
         <property name="initialPoolSize" value="10" />      <!--初始化连接池内的数据库连接-->
@@ -39,7 +39,7 @@
     <!--配置session工厂-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.water.entity" />
+        <property name="packagesToScan" value="com.water.model" />
         <property name="hibernateProperties">
             <props>
                 <!--<prop key="hibernate.hbm2ddl.auto">create</prop>&lt;!&ndash; 启动时删数据库中的表，然后创建，退出时不删除数据表&ndash;&gt;-->

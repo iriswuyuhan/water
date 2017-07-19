@@ -1,6 +1,7 @@
 package com.water.controller;
 
-import com.water.entity.Apply;
+import com.water.model.ApplyEntity;
+import com.water.model.ApplyEntity;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class ApplyController {
         if (state.equals("未通过审核"))
             state1=2;
         ApplyService applyService = new ApplyServiceImpl();
-        ArrayList<Apply> arrayList= applyService.getApplicationList(state1);
+        ArrayList<ApplyEntity> arrayList= applyService.getApplicationList(state1);
 //        Apply apply = new Apply();
 //        apply.setIdApply(123456789);
 //        apply.setState(0);
@@ -73,7 +74,7 @@ public class ApplyController {
 //        apply.setLongitude(253.22);
 //        apply.setNumber("2512156");
         long id1 = Integer.parseInt(id);
-        Apply apply = applyService.searchApplication(id1);
+        ApplyEntity apply = applyService.searchApplication(id1);
        JSONObject object = JSONObject.fromObject(apply);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());

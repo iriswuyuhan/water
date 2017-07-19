@@ -1,6 +1,6 @@
 package com.water.service;
 
-import com.water.entity.User;
+import com.water.model.UserEntity;
 
 import java.math.BigInteger;
 
@@ -27,5 +27,5 @@ public interface UserService {
      * @param id 用户记录id
      * @return 用户对象，查询不到则返回null
      */
-    public User getById(Long id);
+    public UserEntity getById(Long id);
 }

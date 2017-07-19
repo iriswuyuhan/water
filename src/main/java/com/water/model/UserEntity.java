@@ -17,11 +17,11 @@ public class UserEntity {
 
     @Id
     @Column(name = "idUser", nullable = false)
-    public long getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(long idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 

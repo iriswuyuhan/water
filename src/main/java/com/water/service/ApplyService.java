@@ -1,6 +1,6 @@
 package com.water.service;
 
-import com.water.entity.Apply;
+import com.water.model.ApplyEntity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +14,7 @@ public interface ApplyService {
     /**
      *
      */
-    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image);
+    public ApplyEntity sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image);
 
     /**
      *
@@ -24,12 +24,12 @@ public interface ApplyService {
     /**
      *
      */
-    public Apply addApplication();
+    public ApplyEntity addApplication();
 
     /**
      *
      */
-    public Apply searchApplication(long idApply);
+    public ApplyEntity searchApplication(long idApply);
 
-    public ArrayList<Apply> getApplicationList(int state);
+    public ArrayList<ApplyEntity> getApplicationList(int state);
 }

@@ -1,8 +1,13 @@
 package com.water.dao.Impl;
 
 import com.water.dao.ApplyDao;
-import com.water.entity.Apply;
+import com.water.model.ApplyEntity;
 import org.hibernate.Query;
+import org.hibernate.Query;
+
+//import com.water.entity.Person;
+import com.water.model.UserEntity;
+import com.water.model.ApplyEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.annotations.Table;
@@ -17,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by bxh on 2017/7/18.
+ * Created by 朱晨乾 on 2017/7/17.
  */
 @Repository
 public class ApplyDaoImpl implements ApplyDao {
@@ -29,27 +34,48 @@ public class ApplyDaoImpl implements ApplyDao {
         return this.sessionFactory.openSession();
     }
 
-    public Apply load(Long id) {
-        return (Apply)getCurrentSession().load(Apply.class,id);
+    public ApplyEntity load(Long id) {
+        return (ApplyEntity) getCurrentSession().load(ApplyEntity.class,id);
     }
 
-    public Apply get(Long id) {
-        return (Apply)getCurrentSession().get(Apply.class,id);
+    public ApplyEntity get(Long id) {
+        return (ApplyEntity) getCurrentSession().get(ApplyEntity.class,id);
     }
 
-    public List<Apply> findAll() {
+    public List<ApplyEntity> findAll() {
         Session session = getCurrentSession();
-        String hql = "from Apply";
+        String hql = "from ApplyEntity";
         Query query = session.createQuery(hql);
-        List<Apply> list = query.list();
+        List<ApplyEntity> list = query.list();
         return list;
     }
 
-    public void persist(Apply entity) {
+    /**
+     * 修改申请状态
+     *
+     * @param idApply
+     * @param state
+     */
+    public void updateState(long idApply, Integer state) {
+
+    }
+
+    /**
+     * 通过id查询申请
+     *
+     * @param idApply
+     * @return
+     */
+    public ArrayList<ApplyEntity> searchApplicationById(Long idApply) {
+
+        return null;
+    }
+
+    public void persist(ApplyEntity entity) {
         getCurrentSession().persist(entity);
     }
 
-    public void save(Apply entity) {
+    public void save(ApplyEntity entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -61,17 +87,16 @@ public class ApplyDaoImpl implements ApplyDao {
             session.close();
         }
     }
-    public void saveOrUpdate(Apply entity) {
+    public void saveOrUpdate(ApplyEntity entity) {
         getCurrentSession().saveOrUpdate(entity);
     }
 
     public void delete(Long id) {
-        Apply person = load(id);
+        ApplyEntity person = load(id);
         getCurrentSession().delete(person);
     }
 
     public void flush() {
         getCurrentSession().flush();
     }
-
 }

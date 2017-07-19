@@ -1,7 +1,8 @@
 package com.water.service.Impl;
 
 import com.water.dao.UserDao;
-import com.water.entity.User;
+import com.water.model.UserEntity;
+import com.water.model.UserEntity;
 import com.water.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
     public void addUser1(){
 
-        User user = new User();
+        UserEntity user = new UserEntity();
         user.setIdUser(Long.valueOf(1111111111));
         user.setName("李四");
         user.setPassword("sdfjafdsafas");
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void addUser(Long userId, String username, String password, String address, Integer isResearcher) {
-        User user = new User();
+        UserEntity user = new UserEntity();
         user.setIdUser(userId);
         user.setName(username);
         user.setPassword(password);
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
     }
 
-    public User getById(Long id) {
+    public UserEntity getById(Long id) {
         return userDao.get(id);
     }
 }
