@@ -2,10 +2,10 @@ package com.water.dao.Impl;
 
 import com.water.dao.ApplyDao;
 import com.water.entity.Apply;
-import com.water.entity.User;
-import com.water.model.ApplyEntity;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
@@ -38,7 +38,11 @@ public class ApplyDaoImpl implements ApplyDao {
     }
 
     public List<Apply> findAll() {
-        return null;
+        Session session = getCurrentSession();
+        String hql = "from Apply";
+        Query query = session.createQuery(hql);
+        List<Apply> list = query.list();
+        return list;
     }
 
     public void persist(Apply entity) {
@@ -69,4 +73,5 @@ public class ApplyDaoImpl implements ApplyDao {
     public void flush() {
         getCurrentSession().flush();
     }
+
 }

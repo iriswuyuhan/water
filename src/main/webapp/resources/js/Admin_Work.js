@@ -7,7 +7,7 @@ $(function () {
         url:"./applylist",
         type:'post',
         async:false,
-        data:{"name":"待审核"},
+        data:{"state":"待审核"},
         success:function (data) {
             var obj = $.parseJSON(data);
             list = obj;
@@ -18,7 +18,36 @@ $(function () {
             }
         }
     });
-
+    $.ajax({
+        url:"./applylist",
+        type:'post',
+        async:false,
+        data:{"state":"审核通过"},
+        success:function (data) {
+            var obj = $.parseJSON(data);
+            list = obj;
+            scrolist("待审核");
+            if(list.length>0){
+                var id = list[0].idApply;
+                setinitinfo(id);
+            }
+        }
+    });
+    $.ajax({
+        url:"./applylist",
+        type:'post',
+        async:false,
+        data:{"state":"未通过审核"},
+        success:function (data) {
+            var obj = $.parseJSON(data);
+            list = obj;
+            scrolist("待审核");
+            if(list.length>0){
+                var id = list[0].idApply;
+                setinitinfo(id);
+            }
+        }
+    });
 
     $(".state").click(function () {
         $("#tabs li").prop("id","");
@@ -40,7 +69,7 @@ $(function () {
             url:"./applylist",
             type:'post',
             async:false,
-            data:{"name":name},
+            data:{"state":name},
             success:function (data) {
                 var obj =$.parseJSON(data);
                 list=obj;
@@ -57,7 +86,6 @@ $(function () {
             $("#scro1").empty();
             $("#scro1").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
-
                 $("#scro1").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
@@ -96,7 +124,7 @@ $(function () {
          type:'post',
          data:{"id":id,"state":state},
          success:function (data) {
-             alert(data);
+
              window.location.href="toAdmin.do";
          }
      })
@@ -104,14 +132,15 @@ $(function () {
  }
 function  applyClick(type) {
    var id = type.innerHTML;
+
     $.ajax({
         url:'./getApplyInfo',
         type:'post',
         async:'false',
         data:{"id":id},
         success: function (data) {
-            var obj = $.parseJSON(data);
-            setinfo(obj,type);
+            var obj1 = $.parseJSON(data);
+            setinfo(obj1);
         }
 
     });
@@ -139,11 +168,11 @@ function  applyClick(type) {
             $(type.parentNode).addClass("active");
         }
         $(".time").each(function () {
-            $(this).html(temp.address);
+            $(this).html(temp.applyDate);
         })
         obj.find("span[name='name']").each(function (index) {
             if(index==0)
-                $(this).html(temp.address);
+                $(this).html(temp.name);
             if(index==1)
                 $(this).html(temp.number);
             if(index==2)
@@ -154,7 +183,7 @@ function  applyClick(type) {
                 $(this).html(temp.latitude);
         });
 
-        obj.find("h4").each(function () {
+        obj.find("h1").each(function () {
             $(this).html(temp.idApply);
         })
 
@@ -181,11 +210,11 @@ function  setinitinfo(id) {
                 obj=$("#tab3")
             }
             $(".time").each(function () {
-                $(this).html(temp.address);
+                $(this).html(temp.applyDate);
             })
             obj.find("span[name='name']").each(function (index) {
                 if(index==0)
-                    $(this).html(temp.address);
+                    $(this).html(temp.name);
                 if(index==1)
                     $(this).html(temp.number);
                 if(index==2)
@@ -195,7 +224,7 @@ function  setinitinfo(id) {
                 if(index==4)
                     $(this).html(temp.latitude);
             });
-            obj.find("h4").each(function () {
+            obj.find("h1").each(function () {
                 $(this).html(temp.idApply);
             })
         }
