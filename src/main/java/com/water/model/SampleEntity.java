@@ -1,7 +1,7 @@
 package com.water.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by 朱晨乾 on 2017/7/19.
