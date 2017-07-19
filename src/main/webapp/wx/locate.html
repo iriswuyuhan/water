@@ -41,37 +41,40 @@
                                 if(local.getStatus()==BMAP_STATUS_SUCCESS){
                                     var radio=document.getElementById("r-result");
                                     var num=3;
-                                    for(var i=0;i<results.getCurrentNumPois();i++){
-                                        var para=document.createElement("label");
-                                        para.setAttribute("class","weui-cell weui-check__label");
-                                        para.setAttribute("for",num);
+                                    for(var j=0;j<3;j++) {
+                                        for (var i = 0; i < results[j].getCurrentNumPois(); i++) {
+                                            var para = document.createElement("label");
+                                            para.setAttribute("class", "weui-cell weui-check__label");
+                                            para.setAttribute("for", num);
 
-                                        var div1=document.createElement("div");
-                                        div1.setAttribute("class","weui-cell__bd");
+                                            var div1 = document.createElement("div");
+                                            div1.setAttribute("class", "weui-cell__bd");
 
-                                        var p=document.createElement("p");
-                                        p.innerHTML=results.getPoi(i).title+","+results.getPoi(i).address;
-                                        div1.appendChild(p);
-                                        para.appendChild(div1);
+                                            var p = document.createElement("p");
+                                            p.innerHTML = results[j].getPoi(i).title + "," + results[j].getPoi(i).address;
+                                            div1.appendChild(p);
+                                            para.appendChild(div1);
 
-                                        var div2=document.createElement("div");
-                                        div2.setAttribute("class","weui-cell__ft");
+                                            var div2 = document.createElement("div");
+                                            div2.setAttribute("class", "weui-cell__ft");
 
-                                        var input=document.createElement("input");
-                                        input.setAttribute("name","radio"+num);
-                                        input.setAttribute("class","weui-check");
-                                        input.setAttribute("id",num);
-                                        input.setAttribute("type","radio");
-                                        div2.appendChild(input);
+                                            var input = document.createElement("input");
+                                            input.setAttribute("name", "radio" + num);
+                                            input.setAttribute("class", "weui-check");
+                                            input.setAttribute("id", num);
+                                            input.setAttribute("type", "radio");
+                                            div2.appendChild(input);
 
-                                        radio.appendChild(para);
-                                        num++;
+                                            radio.appendChild(para);
+                                            num++;
+                                        }
                                     }
                                 }
                             }
                         };
                         var local = new BMap.LocalSearch(point, options);
-                        local.searchInBounds(addComp.city,bound);
+                        var keys=["小区","公司","学校"];
+                        local.searchInBounds(keys,bound);
                     });
                 }
                 else {
