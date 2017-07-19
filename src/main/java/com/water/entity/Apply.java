@@ -1,37 +1,34 @@
-package com.water.model;
+package com.water.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Arrays;
 
 /**
  * Created by 朱晨乾 on 2017/7/18.
  */
 @Entity
-@Table(name = "apply", schema = "water", catalog = "")
-public class ApplyEntity {
-    private long idApply;
+@Table(name = "Apply")
+public class Apply {
+    private Long idApply;
     private Double longitude;
     private Double latitude;
     private String number;
     private String address;
-    private Integer postcode;
     private Date applyDate;
     private Integer state;
-    private byte[] image;
+    private String image;
     private String name;
 
     @Id
     @Column(name = "idApply", nullable = false)
-    public long getIdApply() {
+    public Long getIdApply() {
         return idApply;
     }
 
-    public void setIdApply(long idApply) {
+    public void setIdApply(Long idApply) {
         this.idApply = idApply;
     }
 
-    @Basic
     @Column(name = "longitude", nullable = true, precision = 0)
     public Double getLongitude() {
         return longitude;
@@ -41,7 +38,6 @@ public class ApplyEntity {
         this.longitude = longitude;
     }
 
-    @Basic
     @Column(name = "latitude", nullable = true, precision = 0)
     public Double getLatitude() {
         return latitude;
@@ -51,7 +47,6 @@ public class ApplyEntity {
         this.latitude = latitude;
     }
 
-    @Basic
     @Column(name = "number", nullable = true, length = 45)
     public String getNumber() {
         return number;
@@ -61,7 +56,6 @@ public class ApplyEntity {
         this.number = number;
     }
 
-    @Basic
     @Column(name = "address", nullable = true, length = 255)
     public String getAddress() {
         return address;
@@ -71,17 +65,6 @@ public class ApplyEntity {
         this.address = address;
     }
 
-    @Basic
-    @Column(name = "postcode", nullable = true)
-    public Integer getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(Integer postcode) {
-        this.postcode = postcode;
-    }
-
-    @Basic
     @Column(name = "applyDate", nullable = true)
     public Date getApplyDate() {
         return applyDate;
@@ -91,7 +74,6 @@ public class ApplyEntity {
         this.applyDate = applyDate;
     }
 
-    @Basic
     @Column(name = "state", nullable = true)
     public Integer getState() {
         return state;
@@ -101,17 +83,15 @@ public class ApplyEntity {
         this.state = state;
     }
 
-    @Basic
     @Column(name = "image", nullable = true)
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    @Basic
     @Column(name = "name", nullable = true, length = 45)
     public String getName() {
         return name;

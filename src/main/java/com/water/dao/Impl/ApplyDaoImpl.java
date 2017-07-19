@@ -1,6 +1,9 @@
 package com.water.dao.Impl;
 
 import com.water.dao.ApplyDao;
+import com.water.entity.Apply;
+import com.water.entity.Person;
+import com.water.entity.User;
 import com.water.model.ApplyEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,8 +12,10 @@ import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -25,50 +30,44 @@ public class ApplyDaoImpl implements ApplyDao {
         return this.sessionFactory.openSession();
     }
 
-//    public void persist(ApplyEntity applyEntity){
-//        getCurrentSession().persist(applyEntity);
-//    }
-    /**
-     *
-     * @param applyEntity
-     */
-    public void sendApplication(ApplyEntity applyEntity){
-//        getCurrentSession().sendApplication(applyEntity);
+    public Apply load(Long id) {
+        return (Apply)getCurrentSession().load(Apply.class,id);
     }
 
-    /**
-     * 修改申请状态
-     *
-     * @param idApply
-     * @param state
-     */
-    public void updateState(long idApply, Integer state) {
-
+    public Apply get(Long id) {
+        return (Apply)getCurrentSession().get(Apply.class,id);
     }
 
-    /**
-     * 通过id查询申请
-     *
-     * @param idApply
-     * @return
-     */
-    public ArrayList<ApplyEntity> searchApplicationById(long idApply) {
-
+    public List<Apply> findAll() {
         return null;
     }
 
-    /**
-     * 通过状态查询申请
-     *
-     * @param state
-     * @return
-     */
-    public ArrayList<ApplyEntity> searchApplicationByState(Integer state) {
-        return null;
+    public void persist(Apply entity) {
+        getCurrentSession().persist(entity);
     }
 
-//    public void flush(){
-//        getCurrentSession().flush();
-//    }
+    public void save(Apply entity) {
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        try{
+            session.save(entity);
+            tx.commit();
+        }catch(Exception ex){
+            tx.rollback();
+        }finally{
+            session.close();
+        }
+    }
+    public void saveOrUpdate(Apply entity) {
+        getCurrentSession().saveOrUpdate(entity);
+    }
 
+    public void delete(Long id) {
+        Apply person = load(id);
+        getCurrentSession().delete(person);
+    }
+
+    public void flush() {
+        getCurrentSession().flush();
+    }
 }
