@@ -1,4 +1,4 @@
-package com.water.model;
+package com.water.entity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "sample", schema = "water")
-public class SampleEntity {
+public class Sample {
     private long idSample;
     private Double longitude;
     private Double latitude;
@@ -92,7 +92,7 @@ public class SampleEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        SampleEntity that = (SampleEntity) o;
+        Sample that = (Sample) o;
 
         if (idSample != that.idSample) return false;
         if (longitude != null ? !longitude.equals(that.longitude) : that.longitude != null) return false;

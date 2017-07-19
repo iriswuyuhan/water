@@ -1,4 +1,4 @@
-package com.water.model;
+package com.water.entity;
 
 import javax.persistence.*;
 
@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user", schema = "water")
-public class UserEntity {
+public class User {
     private long idUser;
     private String password;
     private String name;
@@ -80,7 +80,7 @@ public class UserEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        UserEntity that = (UserEntity) o;
+        User that = (User) o;
 
         if (idUser != that.idUser) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;

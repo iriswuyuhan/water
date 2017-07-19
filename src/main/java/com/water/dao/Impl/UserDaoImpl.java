@@ -1,14 +1,13 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UserDao;
-import com.water.model.UserEntity;
+import com.water.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
 import java.util.List;
 /**
  * Created by asus1 on 2017/7/19.
@@ -24,23 +23,23 @@ public class UserDaoImpl implements UserDao{
         return this.sessionFactory.openSession();
     }
 
-    public UserEntity load(Long id) {
-        return (UserEntity) getCurrentSession().load(UserEntity.class,id);
+    public User load(Long id) {
+        return (User) getCurrentSession().load(User.class,id);
     }
 
-    public UserEntity get(Long id) {
-        return (UserEntity)getCurrentSession().get(UserEntity.class,id);
+    public User get(Long id) {
+        return (User)getCurrentSession().get(User.class,id);
     }
 
-    public List<UserEntity> findAll() {
+    public List<User> findAll() {
         return null;
     }
 
-    public void persist(UserEntity entity) {
+    public void persist(User entity) {
         getCurrentSession().persist(entity);
     }
 
-    public void save(UserEntity entity) {
+    public void save(User entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -52,12 +51,12 @@ public class UserDaoImpl implements UserDao{
             session.close();
         }
     }
-    public void saveOrUpdate(UserEntity entity) {
+    public void saveOrUpdate(User entity) {
         getCurrentSession().saveOrUpdate(entity);
     }
 
     public void delete(Long id) {
-        UserEntity person = load(id);
+        User person = load(id);
         getCurrentSession().delete(person);
     }
 

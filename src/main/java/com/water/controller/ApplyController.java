@@ -1,7 +1,6 @@
 package com.water.controller;
 
-import com.water.model.ApplyEntity;
-import com.water.model.ApplyEntity;
+import com.water.entity.Apply;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.sf.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import net.sf.json.JSONObject;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +40,7 @@ public class ApplyController {
         if (state.equals("未通过审核"))
             state1=2;
         System.out.print("###"+state1);
-        ArrayList<ApplyEntity> arrayList= applyService.getApplicationList(state1);
+        ArrayList<Apply> arrayList= applyService.getApplicationList(state1);
         System.out.println(arrayList);
         JSONArray array = JSONArray.fromObject(arrayList);
         response.setCharacterEncoding("UTF-8");
@@ -58,7 +56,7 @@ public class ApplyController {
     public void getSampleInfo(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String id = request.getParameter("id" );
         long id1 = Integer.parseInt(id);
-        ApplyEntity apply = applyService.searchApplication(id1);
+        Apply apply = applyService.searchApplication(id1);
        JSONObject object = JSONObject.fromObject(apply);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());
@@ -74,6 +72,7 @@ public class ApplyController {
         String id = request.getParameter("id" );
         String state = request.getParameter("state" );
         int state1 = Integer.parseInt(state);
+        ApplyService applyService = new ApplyServiceImpl();
         boolean bool = applyService.updateState(id,state1);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");

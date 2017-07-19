@@ -1,8 +1,7 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UploadDao;
-import com.water.model.SampleEntity;
-import com.water.model.SampleEntity;
+import com.water.entity.Sample;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -24,23 +23,23 @@ public class UploadDaoImpl implements UploadDao {
         return this.sessionFactory.openSession();
     }
 
-    public SampleEntity load(Long id) {
+    public Sample load(Long id) {
         return null;
     }
 
-    public SampleEntity get(Long id) {
+    public Sample get(Long id) {
         return null;
     }
 
-    public List<SampleEntity> findAll() {
+    public List<Sample> findAll() {
         return null;
     }
 
-    public void persist(SampleEntity entity) {
+    public void persist(Sample entity) {
 
     }
 
-    public void save(SampleEntity entity) {
+    public void save(Sample entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         try{
@@ -53,7 +52,7 @@ public class UploadDaoImpl implements UploadDao {
         }
     }
 
-    public void saveOrUpdate(SampleEntity entity) {
+    public void saveOrUpdate(Sample entity) {
 
     }
 

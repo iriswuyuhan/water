@@ -1,8 +1,6 @@
 package com.water.service;
 
-import com.water.model.UserEntity;
-
-import java.math.BigInteger;
+import com.water.entity.User;
 
 /**
  * Created by asus1 on 2017/7/19.
@@ -27,5 +25,5 @@ public interface UserService {
      * @param id 用户记录id
      * @return 用户对象，查询不到则返回null
      */
-    public UserEntity getById(Long id);
+    public User getById(Long id);
 }

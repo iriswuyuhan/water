@@ -3,9 +3,9 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.water.model.ApplyEntity</class>
-        <class>com.water.model.SampleEntity</class>
-        <class>com.water.model.UserEntity</class>
+        <class>com.water.entity.Apply</class>
+        <class>com.water.entity.Sample</class>
+        <class>com.water.entity.User</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/water"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

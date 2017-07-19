@@ -1,14 +1,10 @@
 package com.water.service.Impl;
 
 import com.water.dao.UserDao;
-import com.water.model.UserEntity;
-import com.water.model.UserEntity;
+import com.water.entity.User;
 import com.water.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.math.BigInteger;
 
 
 /**
@@ -21,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
     public void addUser1(){
 
-        UserEntity user = new UserEntity();
+        User user = new User();
         user.setIdUser(Long.valueOf(1111111111));
         user.setName("李四");
         user.setPassword("sdfjafdsafas");
@@ -31,7 +27,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void addUser(Long userId, String username, String password, String address, Integer isResearcher) {
-        UserEntity user = new UserEntity();
+        User user = new User();
         user.setIdUser(userId);
         user.setName(username);
         user.setPassword(password);
@@ -40,7 +36,7 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
     }
 
-    public UserEntity getById(Long id) {
+    public User getById(Long id) {
         return userDao.get(id);
     }
 }

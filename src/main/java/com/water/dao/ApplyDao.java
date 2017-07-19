@@ -1,14 +1,13 @@
 package com.water.dao;
 
-import com.water.model.ApplyEntity;
-import com.water.model.ApplyEntity;
+import com.water.entity.Apply;
 
 import java.util.ArrayList;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
  */
-public interface ApplyDao extends  DaoUtil<ApplyEntity,Long>{
+public interface ApplyDao extends  DaoUtil<Apply,Long>{
     /**
      * 修改申请状态
      *
@@ -22,6 +21,6 @@ public interface ApplyDao extends  DaoUtil<ApplyEntity,Long>{
      * @param idApply
      * @return
      */
-    public ArrayList<ApplyEntity> searchApplicationById(Long idApply);
+    public ArrayList<Apply> searchApplicationById(Long idApply);
 
 }
