@@ -62,6 +62,7 @@ public class ApplyController {
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());
     }
+
     /**
      * @param request
      * @param response
@@ -73,7 +74,8 @@ public class ApplyController {
         String id = request.getParameter("id" );
         String state = request.getParameter("state" );
         int state1 = Integer.parseInt(state);
-        boolean bool = applyService.updateState(id,state1);
+        long id1 = Integer.valueOf(id);
+        boolean bool = applyService.updateState(id1,state1);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }

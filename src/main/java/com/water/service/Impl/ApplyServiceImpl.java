@@ -26,15 +26,15 @@ public class ApplyServiceImpl implements ApplyService{
     private ApplyDao applyDao;
     public void addApply(){
         Apply apply = new Apply();
-        apply.setIdApply(Long.valueOf(92945424));
-        apply.setAddress("NJU45dsafa4s");
-        apply.setImage("kshfioakdfjojsofesf");
-        apply.setLatitude(30.3333);
-        apply.setLongitude(10.55);
-        apply.setApplyDate(new Date(2082810112));
-        apply.setName("Flutter");
-        apply.setNumber("11111111111");
-        apply.setState(2);
+        apply.setIdApply(Long.valueOf(46464646));
+        apply.setAddress("08885Over");
+        apply.setImage("http:dsfadijji55523");
+        apply.setLatitude(30.00);
+        apply.setLongitude(105.22);
+        apply.setApplyDate(new Date(System.currentTimeMillis()));
+        apply.setName("Jefree");
+        apply.setNumber("55555555555");
+        apply.setState(0);
         applyDao.save(apply);
     }
 
@@ -46,10 +46,13 @@ public class ApplyServiceImpl implements ApplyService{
     /**
      *
      */
-    public boolean updateState(String id ,Integer state){
-
+    public boolean updateState(long id ,Integer state){
+        Apply apply = applyDao.get(id);
+        if(apply.equals(null))
+            return false;
+        apply.setState(state);
+        applyDao.saveOrUpdate(apply);
         return true;
-
     }
 
     /**

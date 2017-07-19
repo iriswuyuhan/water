@@ -2,22 +2,10 @@
  * Created by Administrator on 2017/7/18 0018.
  */
 $(function () {
-    var list;
-    $.ajax({
-        url:"./applylist",
-        type:'post',
-        async:false,
-        data:{"state":"待审核"},
-        success:function (data) {
-            var obj = $.parseJSON(data);
-            list = obj;
-            scrolist("待审核");
-            if(list.length>0){
-                var id = list[0].idApply;
-                setinitinfo(id);
-            }
-        }
-    });
+
+    $("#scro1").empty();
+    $("#scro2").empty();
+    $("#scro3").empty();
     $.ajax({
         url:"./applylist",
         type:'post',
@@ -25,11 +13,16 @@ $(function () {
         data:{"state":"审核通过"},
         success:function (data) {
             var obj = $.parseJSON(data);
-            list = obj;
-            scrolist("待审核");
-            if(list.length>0){
-                var id = list[0].idApply;
+            var passlist = obj;
+            if(passlist.length>0){
+                scrolist("审核通过",passlist);
+                var id = passlist[0].idApply;
                 setinitinfo(id);
+            }
+            else{
+                $("#content2").hide();
+                $("#nothing2").show();
+
             }
         }
     });
@@ -40,15 +33,37 @@ $(function () {
         data:{"state":"未通过审核"},
         success:function (data) {
             var obj = $.parseJSON(data);
-            list = obj;
-            scrolist("待审核");
-            if(list.length>0){
-                var id = list[0].idApply;
+            var nolist = obj;
+            scrolist("未通过审核",nolist);
+            if(nolist.length>0){
+                var id = nolist[0].idApply;
                 setinitinfo(id);
+            }
+            else{
+                $("#content3").hide();
+                $("#nothing3").show();
             }
         }
     });
-
+    $.ajax({
+        url:"./applylist",
+        type:'post',
+        async:false,
+        data:{"state":"待审核"},
+        success:function (data) {
+            var obj = $.parseJSON(data);
+            var waitlist = obj;
+            if(waitlist.length>0){
+                scrolist("待审核",waitlist);
+                var id = waitlist[0].idApply;
+                setinitinfo(id);
+            }
+            else{
+                $("#content1").hide();
+                $("#nothing1").show();
+            }
+        }
+    });
     $(".state").click(function () {
         $("#tabs li").prop("id","");
         $(this).parent().prop("id","current");
@@ -65,23 +80,8 @@ $(function () {
         if(name=="未通过审核"){
             $("#tab3").show();
         }
-         $.ajax({
-            url:"./applylist",
-            type:'post',
-            async:false,
-            data:{"state":name},
-            success:function (data) {
-                var obj =$.parseJSON(data);
-                list=obj;
-                if(list.length>0) {
-                    scrolist(name);
-                }
-            }
-        })
-
-
     })
-    function scrolist(tem) {
+    function scrolist(tem,list) {
         if(tem=="待审核"){
             $("#scro1").empty();
             $("#scro1").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
@@ -108,7 +108,79 @@ $(function () {
 
     $("#search").click(function () {
         var id = $("#input").val();
-        setinitinfo(id);
+        $.ajax({
+            url:'./getApplyInfo',
+            type:'post',
+            async:'false',
+            data:{"id":id},
+            success: function (data) {
+                var obj1 = $.parseJSON(data);
+                var temp = obj1;
+                var obj;
+                $("#tabs li").prop("id","");
+                $("#tab1").hide();
+                $("#tab2").hide();
+                $("#tab3").hide();
+
+                if(temp.state==0){
+                    obj=$("#tab1")
+                    $("#tab1").show();
+                    $("#tabs").find("li[name='s1']").prop("id","current")
+                    $("#scro1").find("li").each(function() {
+                        $(this).removeClass("active");
+                    });
+
+                    $("#scro1").find("a").each(function () {
+                        if($(this).html()==id)
+                           $(this.parentNode).addClass("active");
+                    })
+                }
+                if(temp.state==1){
+                    obj=$("#tab2")
+                    $("#tab2").show();
+                    $("#tabs").find("li[name='s2']").prop("id","current")
+                    $("#scro2").find("li").each(function() {
+                        $(this).removeClass("active");
+                    });
+
+                    $("#scro2").find("a").each(function () {
+                        if($(this).html()==id)
+                            $(this.parentNode).addClass("active");
+                    })
+                }
+                if(temp.state==2){
+                    obj=$("#tab3")
+                    $("#tab3").show();
+                    $("#tabs").find("li[name='s3']").prop("id","current")
+                    $("#scro3").find("li").each(function() {
+                        $(this).removeClass("active");
+                    });
+
+                    $("#scro3").find("a").each(function () {
+                        if($(this).html()==id)
+                            $(this.parentNode).addClass("active");
+                    })
+                }
+                $(".time").each(function () {
+                    $(this).html(timeFormatter(temp.applyDate));
+                })
+                obj.find("span[name='name']").each(function (index) {
+                    if(index==0)
+                        $(this).html(temp.name);
+                    if(index==1)
+                        $(this).html(temp.number);
+                    if(index==2)
+                        $(this).html(temp.address);
+                    if(index==3)
+                        $(this).html(temp.longitude);
+                    if(index==4)
+                        $(this).html(temp.latitude);
+                });
+                obj.find("h1").each(function () {
+                    $(this).html(temp.idApply);
+                })
+            }
+        })
     })
 
 })
@@ -117,14 +189,14 @@ $(function () {
     if(type.className=="yes button")
         state="1"
      else
-         state="0";
+         state="2";
     var id = $("#applyid").html();
      $.ajax({
          url:"./dealApply",
          type:'post',
          data:{"id":id,"state":state},
          success:function (data) {
-
+             alert(data);
              window.location.href="toAdmin.do";
          }
      })
@@ -132,7 +204,6 @@ $(function () {
  }
 function  applyClick(type) {
    var id = type.innerHTML;
-
     $.ajax({
         url:'./getApplyInfo',
         type:'post',
@@ -147,6 +218,7 @@ function  applyClick(type) {
     function setinfo(temp) {
         var obj;
         if(temp.state==0){
+
             obj=$("#tab1")
             $("#scro1").find("li").each(function() {
                 $(this).removeClass("active");
@@ -154,13 +226,16 @@ function  applyClick(type) {
             $(type.parentNode).addClass("active");
         }
         if(temp.state==1){
+
             obj=$("#tab2")
+
             $("#scro2").find("li").each(function() {
                 $(this).removeClass("active");
             });
             $(type.parentNode).addClass("active");
         }
         if(temp.state==2){
+
             obj=$("#tab3")
             $("#scro3").find("li").each(function() {
                 $(this).removeClass("active");
@@ -168,11 +243,13 @@ function  applyClick(type) {
             $(type.parentNode).addClass("active");
         }
         $(".time").each(function () {
-            $(this).html(temp.applyDate);
+            $(this).html(timeFormatter(temp.applyDate));
         })
         obj.find("span[name='name']").each(function (index) {
             if(index==0)
-                $(this).html(temp.name);
+                $(this).html(temp.name
+
+                );
             if(index==1)
                 $(this).html(temp.number);
             if(index==2)
@@ -182,13 +259,11 @@ function  applyClick(type) {
             if(index==4)
                 $(this).html(temp.latitude);
         });
-
         obj.find("h1").each(function () {
             $(this).html(temp.idApply);
         })
 
     }
-
 }
 function  setinitinfo(id) {
     $.ajax({
@@ -210,7 +285,7 @@ function  setinitinfo(id) {
                 obj=$("#tab3")
             }
             $(".time").each(function () {
-                $(this).html(temp.applyDate);
+                $(this).html(timeFormatter(temp.applyDate));
             })
             obj.find("span[name='name']").each(function (index) {
                 if(index==0)
@@ -229,4 +304,11 @@ function  setinitinfo(id) {
             })
         }
     })
+}
+
+function timeFormatter(value) {
+
+
+    return (1900+value.year) + "-" + (value.month + 1) + "-" + value.date + " " + value.hours + ":" + value.minutes + ":" + value.seconds;
+
 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -39,9 +40,18 @@ public class ApplyDaoImpl implements ApplyDao {
 
     public List<Apply> findAll() {
         Session session = getCurrentSession();
-        String hql = "from Apply";
-        Query query = session.createQuery(hql);
-        List<Apply> list = query.list();
+        Transaction tx = session.beginTransaction();
+        List<Apply> list = new LinkedList<Apply>();
+        try{
+            String hql = "from Apply";
+            Query query = session.createQuery(hql);
+            list = query.list();
+            tx.commit();
+        }catch (Exception ex){
+            tx.rollback();
+        }finally {
+            session.close();
+        }
         return list;
     }
 
@@ -62,8 +72,19 @@ public class ApplyDaoImpl implements ApplyDao {
         }
     }
     public void saveOrUpdate(Apply entity) {
-        getCurrentSession().saveOrUpdate(entity);
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        try{
+            session.saveOrUpdate(entity);
+            tx.commit();
+        }catch(Exception ex){
+            tx.rollback();
+        }finally{
+            session.close();
+        }
     }
+
+
 
     public void delete(Long id) {
         Apply person = load(id);

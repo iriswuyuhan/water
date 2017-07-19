@@ -48,9 +48,9 @@
     <div class="main_wrapper">
 
         <ul id="tabs">
-            <li id="current"><a class="state" href="#" title="tab1">待审核</a></li>
-            <li><a  class="state" href="#" title="tab2">审核通过</a></li>
-            <li><a  class="state" href="#" title="tab3">未通过审核</a></li>
+            <li id="current" name="s1"><a class="state" href="#" title="tab1">待审核</a></li>
+            <li name="s2"><a  class="state" href="#" title="tab2">审核通过</a></li>
+            <li name="s3"><a  class="state" href="#" title="tab3">未通过审核</a></li>
         </ul>
         <div class="search bar">
             <form>
@@ -60,7 +60,7 @@
         </div>
         <div id="main_content">
             <div id="tab1">
-                <div class="table-content">
+                <div id="content1" class="table-content" style="display: block;">
                     <ul id="scro1" class="scroll indicator-group-title">
                         <li class="active"><a>12345678</a><span
                                 class="fa fa-angle-right"></span></li>
@@ -134,9 +134,10 @@
                         </div>
                     </div>
                 </div>
+                <div id="nothing1" style="display: none"><h3>暂无此类申请！</h3></div>
             </div>
             <div id="tab2" style="display: none">
-                <div class="table-content">
+                <div id="content2" class="table-content" style="">
                     <ul id="scro2" class="scroll indicator-group-title">
                         <li class="active"><a>12345678</a><span
                                 class="fa fa-angle-right"></span></li>
@@ -206,9 +207,10 @@
                         </div>
                     </div>
                 </div>
+                <div id="nothing2" style="display: none"><h3>暂无此类申请！</h3></div>
             </div>
             <div id="tab3" style="display: none">
-                <div class="table-content">
+                <div id="content3" class="table-content" style="">
                     <ul id="scro3" class="scroll indicator-group-title">
                         <li class="active"><a>12345678</a><span
                                 class="fa fa-angle-right"></span></li>
@@ -278,6 +280,7 @@
                         </div>
                     </div>
                 </div>
+                <div id="nothing3" style="display: none"><h3>暂无此类申请！</h3></div>
             </div>
         </div>
         <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>

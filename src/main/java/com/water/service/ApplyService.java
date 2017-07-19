@@ -19,7 +19,7 @@ public interface ApplyService {
     /**
      *
      */
-    public boolean updateState(String id,Integer state);
+    public boolean updateState(long id,Integer state);
 
     /**
      *
