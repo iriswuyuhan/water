@@ -18,6 +18,7 @@ public class Apply {
     private Integer state;
     private String image;
     private String name;
+    private String waterAddress;
 
     @Id
     @Column(name = "idApply", nullable = false)
@@ -25,7 +26,7 @@ public class Apply {
         return idApply;
     }
 
-    public void setIdApply(Long idApply) {
+    public void setIdApply(Long idApply){
         this.idApply = idApply;
     }
 
@@ -107,6 +108,16 @@ public class Apply {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Basic
+    @Column(name = "waterAddress", nullable = true, length = 255)
+    public String getWaterAddress(){
+        return waterAddress;
+    }
+
+    public void setWaterAddress(String waterAddress){
+        this.waterAddress = waterAddress;
     }
 
     @Override

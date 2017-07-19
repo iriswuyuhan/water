@@ -6,6 +6,9 @@
         <class>com.water.entity.Apply</class>
         <class>com.water.entity.Sample</class>
         <class>com.water.entity.User</class>
+        <class>com.water.entity.ApplyEntity</class>
+        <class>com.water.entity.SampleEntity</class>
+        <class>com.water.entity.UserEntity</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/water"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
