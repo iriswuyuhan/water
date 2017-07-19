@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -22,11 +23,24 @@ public class config_wechatController {
 
     @RequestMapping(value = "")
     public ModelAndView configWechat(HttpServletRequest request) {
+        HttpSession session=request.getSession();
         //1、获取AccessToken
-        String accessToken = getAccessToken();
+        String accessToken=null;
+        if(session.getAttribute("access_token")==null||session.getAttribute("access_token").equals("")) {
+            accessToken = getAccessToken();
+            session.setAttribute("access_token",accessToken);
+        }else{
+            accessToken=(String)session.getAttribute("access_token");
+        }
 //        String accessToken="oFG-6X7HWf1jnp2Wr7QCM4c_FwzrDjBevH-G64MdLTh1Dv-seYySN4hSu8uBnS-xyad8w-gcavEAso7m0mGIT7VjSZs_EsfupeuFAis91NNKwAOETNQKqmhdzqwnOQ-HYZQcAJAMNE";
         //2、获取Ticket
-        String jsapi_ticket =getTicket(accessToken);
+        String jsapi_ticket =null;
+        if(session.getAttribute("jsapi_ticket")==null||session.getAttribute("jsapi_ticket").equals("")) {
+            jsapi_ticket =getTicket(accessToken);
+            session.setAttribute("jsapi_ticket",jsapi_ticket);
+        }else{
+            jsapi_ticket=(String)session.getAttribute("jsapi_ticket");
+        }
 //        String jsapi_ticket ="HoagFKDcsGMVCIY2vOjf9vI8gcuU0ERPP5mYkCvNYPD3cWyp_acnTEpg0nWrzY2RH2LXzpfsMXHW6DZY22xwYg";
         String appid="wxe7e1893b40f0e63d";
 
