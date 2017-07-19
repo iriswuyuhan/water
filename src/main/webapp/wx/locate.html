@@ -12,16 +12,18 @@
         var longtitude;
         var latitude;
         var curLoc;
+        var point;
 
         //获取经纬度，进行逆解析
         function startLoc() {
             //alert("success");
             geolocation.getCurrentPosition(function (r) {
+
                 if (this.getStatus() == BMAP_STATUS_SUCCESS) {
                     longtitude = r.point.lng;
                     latitude = r.point.lat;
                     //alert('您的位置：'+r.point.lng+','+r.point.lat);
-                    var point = new BMap.Point(longtitude, latitude);
+                    point = new BMap.Point(longtitude, latitude);
                     var geoc = new BMap.Geocoder();
                     geoc.getLocation(point, function (rs) {
                         var addComp = rs.addressComponents;
@@ -31,6 +33,45 @@
                             addComp.streetNumber;
                         var loc = document.getElementById("curLoc");
                         loc.innerHTML = curLoc;
+                        var stap=new BMap.Point(longtitude-0.01,latitude-0.01);
+                        var endp=new BMap.Point(longtitude+0.01,latitude+0.01);
+                        var bound=new BMap.Bounds(stap,endp);
+                        var options={
+                            onSearchComplete: function(results){
+                                if(local.getStatus()==BMAP_STATUS_SUCCESS){
+                                    var radio=document.getElementById("r-result");
+                                    var num=3;
+                                    for(var i=0;i<results.getCurrentNumPois();i++){
+                                        var para=document.createElement("label");
+                                        para.setAttribute("class","weui-cell weui-check__label");
+                                        para.setAttribute("for",num);
+
+                                        var div1=document.createElement("div");
+                                        div1.setAttribute("class","weui-cell__bd");
+
+                                        var p=document.createElement("p");
+                                        p.innerHTML=results.getPoi(i).title+","+results.getPoi(i).address;
+                                        div1.appendChild(p);
+                                        para.appendChild(div1);
+
+                                        var div2=document.createElement("div");
+                                        div2.setAttribute("class","weui-cell__ft");
+
+                                        var input=document.createElement("input");
+                                        input.setAttribute("name","radio"+num);
+                                        input.setAttribute("class","weui-check");
+                                        input.setAttribute("id",num);
+                                        input.setAttribute("type","radio");
+                                        div2.appendChild(input);
+
+                                        radio.appendChild(para);
+                                        num++;
+                                    }
+                                }
+                            }
+                        };
+                        var local = new BMap.LocalSearch(point, options);
+                        local.searchInBounds(addComp.city,bound);
                     });
                 }
                 else {
@@ -43,9 +84,6 @@
         function G(id) {
             return document.getElementById(id);
         }
-
-//        var map = new BMap.Map("l-map");
-//        map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
 
         var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
             {"input" : "searchInput"});
@@ -80,16 +118,6 @@
 <body onload="startLoc()">
 <div class="page">
     <div class="page__bd page__bd_spacing">
-        <div class="weui-cells">
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <h2>当前收货地址</h2>
-                </div>
-                <div class="weui-cell__bd">
-                    <label id="curAdd">收货地址</label>
-                </div>
-            </div>
-        </div>
         <div class="weui-cells">
             <div class="weui-cell js_show searchbar">
                 <!--<div class="weui-cell__hd">-->
@@ -163,32 +191,27 @@
                     });
                 });</script>
         </div>
-        <div class="weui-cells">
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <h2>当前定位</h2>
-                </div>
-            </div>
-            <div class="weui-cell">
+        <div class="weui-cells__title">当前定位</div>
+        <div class="weui-cells weui-cells_radio">
+            <label class="weui-cell weui-check__label">
                 <div class="weui-cell__bd">
                     <p id="curLoc">当前定位</p>
                 </div>
                 <div class="weui-cell__bd">
                     <a class="weui-btn weui-btn_mini weui-btn_default" onclick="startLoc()">重新定位</a>
                 </div>
-            </div>
+            </label>
         </div>
-        <div class="weui-cells">
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <h2>附近地址</h2>
-                </div>
-            </div>
-            <div class="weui-cell">
+        <div class="weui-cells__title">当前收货地址</div>
+        <div class="weui-cells weui-cells_radio">
+            <label class="weui-cell weui-check__label">
                 <div class="weui-cell__bd">
-                    <p>南京大学仙林校区</p>
+                    <p>收货地址</p>
                 </div>
-            </div>
+            </label>
+        </div>
+        <div class="weui-cells__title">附近地址</div>
+        <div class="weui-cells weui-cells_radio" id="r-result">
         </div>
     </div>
 </div>
