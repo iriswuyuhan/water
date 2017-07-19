@@ -9,6 +9,9 @@ import com.water.model.ApplyEntity;
 import com.water.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -28,10 +31,11 @@ public class ApplyServiceImpl implements ApplyService{
         apply.setAddress("NJU4546578");
         apply.setImage("kshfioakdfjojsofsf");
         apply.setLatitude(5.154);
-        apply.setLongitude(9.545);
+        apply.setLongitude(10.55);
+        apply.setApplyDate(new Date(2082810112));
         apply.setName("李四");
         apply.setNumber("11111111111");
-        apply.setState(0);
+        apply.setState(2);
         applyDao.save(apply);
     }
 
@@ -62,12 +66,14 @@ public class ApplyServiceImpl implements ApplyService{
 
     public ArrayList<ApplyEntity> getApplicationList(int state) {
        List<ApplyEntity> arrayList = applyDao.findAll();
+       System.out.println(arrayList+"@@@@@@");
        ArrayList<ApplyEntity> list = new ArrayList<ApplyEntity>();
        for(ApplyEntity temp:arrayList){
           if(temp.getState()==state){
               list.add(temp);
           }
        }
+       System.out.println(arrayList+"@@@@@@");
        return  list;
 
     }

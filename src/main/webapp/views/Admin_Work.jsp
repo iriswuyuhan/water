@@ -174,23 +174,23 @@
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span id="name2">李四</span>
+                                    <span name='name'>李四</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span id="contact2">11111111111</span>
+                                    <span name='name'>11111111111</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span id="address2">江苏省南京市栖霞区仙林大道163号</span>
+                                    <span name='name'>江苏省南京市栖霞区仙林大道163号</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span id="lng2">21.5494949°</span>
+                                    <span name='name'>21.5494949°</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span id="lat2">100.545646°</span>
+                                    <span name='name'>100.545646°</span>
                                 </p>
                             </div>
 
@@ -254,15 +254,15 @@
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span id="address3">江苏省南京市栖霞区仙林大道163号</span>
+                                    <span name='name'>江苏省南京市栖霞区仙林大道163号</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span id="lng3">21.5494949°</span>
+                                    <span name='name'>21.5494949°</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span id="lat3">100.545646°</span>
+                                    <span name='name'>100.545646°</span>
                                 </p>
                             </div>
 

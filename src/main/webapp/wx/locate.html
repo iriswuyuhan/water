@@ -27,7 +27,8 @@
                         var addComp = rs.addressComponents;
                         //alert(longtitude, latitude);
                         //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-                        curLoc = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+                        curLoc = addComp.province + addComp.city + addComp.district + addComp.street +
+                            addComp.streetNumber;
                         var loc = document.getElementById("curLoc");
                         loc.innerHTML = curLoc;
                     });
@@ -47,9 +48,7 @@
 //        map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
 
         var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
-            {"input" : "searchInput"
-                //,"location" : map
-            });
+            {"input" : "searchInput"});
 
         ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
             var str = "";
@@ -65,31 +64,17 @@
                 _value = e.toitem.value;
                 value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
             }
-            str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-            G("searchResult").innerHTML = str;
+//            str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+//            G("searchResult").innerHTML = str;
         });
 
         var myValue;
         ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
             var _value = e.item.value;
             myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-            G("searchResult").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
-
-            setPlace();
+//            G("searchResult").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
         });
 
-        function setPlace(){
-            map.clearOverlays();    //清除地图上所有覆盖物
-            function myFun(){
-                var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
-                map.centerAndZoom(pp, 18);
-                map.addOverlay(new BMap.Marker(pp));    //添加标注
-            }
-            var local = new BMap.LocalSearch(map, { //智能搜索
-                onSearchComplete: myFun
-            });
-            local.search(myValue);
-        }
     </script>
 </head>
 <body onload="startLoc()">
@@ -116,7 +101,8 @@
                         <form class="weui-search-bar__form">
                             <div class="weui-search-bar__box">
                                 <i class="weui-icon-search"></i>
-                                <input class="weui-search-bar__input" id="searchInput" required="" type="search" placeholder="请输入地址">
+                                <input class="weui-search-bar__input" id="searchInput" required="" type="search"
+                                       placeholder="请输入地址">
                                 <a class="weui-icon-clear" id="searchClear" href="javascript:"></a>
                             </div>
                             <label class="weui-search-bar__label" id="searchText">
@@ -124,6 +110,8 @@
                                 <span>请输入地址</span>
                             </label>
                         </form>
+                        <a class="weui-search-bar__cancel-btn" id="searchConfirm" onclick="" href="javascript:">
+                            确认</a>
                         <a class="weui-search-bar__cancel-btn" id="searchCancel" href="javascript:">取消</a>
                     </div>
                     <div class="weui-cells searchbar-result" id="searchResult">
