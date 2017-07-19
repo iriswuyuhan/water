@@ -51,6 +51,13 @@ public class MainController {
         return "success!";
     }
 
+    @RequestMapping(value = "findApply", method = RequestMethod.GET)
+    @ResponseBody
+    public String findApply(){
+        System.out.println(applyService.getApplicationList(0).get(1).getAddress());
+        return "success!";
+    }
+
     @Autowired
     private UploadService uploadService;
 
