@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by 朱晨乾 on 2017/7/18.
+ * Created by 朱晨乾 on 2017/7/19.
  */
 @Entity
 @Table(name = "sample", schema = "water")
 public class Sample {
-    private Long idSample;
+    private long idSample;
     private Double longitude;
     private Double latitude;
     private Date sampleDate;
@@ -27,6 +27,7 @@ public class Sample {
         this.idSample = idSample;
     }
 
+    @Basic
     @Column(name = "longitude", nullable = true, precision = 0)
     public Double getLongitude() {
         return longitude;
@@ -36,6 +37,7 @@ public class Sample {
         this.longitude = longitude;
     }
 
+    @Basic
     @Column(name = "latitude", nullable = true, precision = 0)
     public Double getLatitude() {
         return latitude;
@@ -45,6 +47,7 @@ public class Sample {
         this.latitude = latitude;
     }
 
+    @Basic
     @Column(name = "sampleDate", nullable = true)
     public Date getSampleDate() {
         return sampleDate;
@@ -54,6 +57,7 @@ public class Sample {
         this.sampleDate = sampleDate;
     }
 
+    @Basic
     @Column(name = "volume", nullable = true, precision = 0)
     public Double getVolume() {
         return volume;
@@ -63,7 +67,8 @@ public class Sample {
         this.volume = volume;
     }
 
-    @Column(name = "image", nullable = true)
+    @Basic
+    @Column(name = "image", nullable = true, length = 255)
     public String getImage() {
         return image;
     }
@@ -72,6 +77,7 @@ public class Sample {
         this.image = image;
     }
 
+    @Basic
     @Column(name = "remark", nullable = true, length = 255)
     public String getRemark() {
         return remark;
@@ -81,4 +87,33 @@ public class Sample {
         this.remark = remark;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Sample that = (Sample) o;
+
+        if (idSample != that.idSample) return false;
+        if (longitude != null ? !longitude.equals(that.longitude) : that.longitude != null) return false;
+        if (latitude != null ? !latitude.equals(that.latitude) : that.latitude != null) return false;
+        if (sampleDate != null ? !sampleDate.equals(that.sampleDate) : that.sampleDate != null) return false;
+        if (volume != null ? !volume.equals(that.volume) : that.volume != null) return false;
+        if (image != null ? !image.equals(that.image) : that.image != null) return false;
+        if (remark != null ? !remark.equals(that.remark) : that.remark != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (idSample ^ (idSample >>> 32));
+        result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
+        result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
+        result = 31 * result + (sampleDate != null ? sampleDate.hashCode() : 0);
+        result = 31 * result + (volume != null ? volume.hashCode() : 0);
+        result = 31 * result + (image != null ? image.hashCode() : 0);
+        result = 31 * result + (remark != null ? remark.hashCode() : 0);
+        return result;
+    }
 }

@@ -317,11 +317,15 @@ footer{
 }
 .left_title i{
     float: left;
-    font-size: 29px;
+    font-size: 35px;
+    margin-top: -6px;
     margin-right: 5px;
 }
 
 .left_title a{
+    float: right;
+    margin-top: -22px;
+    font-size: 18px;
     color: #555;
 }
 .blue{

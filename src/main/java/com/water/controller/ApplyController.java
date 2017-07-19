@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.sf.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import net.sf.json.JSONObject;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -62,6 +61,7 @@ public class ApplyController {
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());
     }
+
     /**
      * @param request
      * @param response
@@ -73,7 +73,8 @@ public class ApplyController {
         String id = request.getParameter("id" );
         String state = request.getParameter("state" );
         int state1 = Integer.parseInt(state);
-        boolean bool = applyService.updateState(id,state1);
+        long id1 = Integer.valueOf(id);
+        boolean bool = applyService.updateState(id1,state1);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }

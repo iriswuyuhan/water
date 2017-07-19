@@ -8,7 +8,6 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
 import java.util.List;
 /**
  * Created by asus1 on 2017/7/19.
@@ -25,7 +24,7 @@ public class UserDaoImpl implements UserDao{
     }
 
     public User load(Long id) {
-        return (User)getCurrentSession().load(User.class,id);
+        return (User) getCurrentSession().load(User.class,id);
     }
 
     public User get(Long id) {

@@ -6,7 +6,7 @@ import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
+import java.util.Date;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -25,5 +25,16 @@ public class UploadServiceImpl implements UploadService {
         sample.setRemark("23333");
         sample.setVolume(2.454);
         uploadDao.save(sample);
+    }
+
+    public void addUpload(long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
+        Sample sampleEntity = new Sample();
+        sampleEntity.setIdSample(idSample);
+        sampleEntity.setLongitude(longitude);
+        sampleEntity.setLatitude(latitude);
+        sampleEntity.setSampleDate(sampleDate);
+        sampleEntity.setVolume(volume);
+        sampleEntity.setImage(image);
+        sampleEntity.setRemark(remark);
     }
 }

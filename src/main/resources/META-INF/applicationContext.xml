@@ -29,10 +29,10 @@
         <property name="jdbcUrl" value="${jdbc.url}" />     <!--数据库地址-->
         <property name="user" value="${jdbc.username}" />   <!--用户名-->
         <property name="password" value="flutter561802" />   <!--密码-->
-<!--        <property name="maxPoolSize" value="40" />      &lt;!&ndash;最大连接数&ndash;&gt;
-        <property name="minPoolSize" value="1" />       &lt;!&ndash;最小连接数&ndash;&gt;
-        <property name="initialPoolSize" value="10" />      &lt;!&ndash;初始化连接池内的数据库连接&ndash;&gt;
-        <property name="maxIdleTime" value="20" />  &lt;!&ndash;最大空闲时间&ndash;&gt;-->
+       <property name="maxPoolSize" value="400" />    <!--  &lt;!&ndash;最大连接数&ndash;&gt;-->
+        <property name="minPoolSize" value="1" />     <!--  &lt;!&ndash;最小连接数&ndash;&gt;-->
+        <property name="initialPoolSize" value="10" />     <!-- &lt;!&ndash;初始化连接池内的数据库连接&ndash;&gt;-->
+        <property name="maxIdleTime" value="20" /> <!--;最大空闲时间-->
 
     </bean>
 
