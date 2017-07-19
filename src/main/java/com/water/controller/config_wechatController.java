@@ -18,7 +18,7 @@ import java.util.UUID;
  * Created by lenovo on 2017/7/17.
  */
 @Controller
-@RequestMapping(value = "/wechat")
+@RequestMapping(value = "/config_wechat")
 public class config_wechatController {
 
     @RequestMapping(value = "")
