@@ -1,6 +1,6 @@
 package com.water.controller;
 
-import com.water.model.ApplyEntity;
+import com.water.entity.Apply;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,28 +25,33 @@ public class ApplyController {
      */
     @RequestMapping("/applylist")
     public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        String state = request.getParameter("name" );
+        String state = request.getParameter("state" );
+        int state1 =0;
+        if(state.equals("审核通过"))
+            state1=1;
+        if (state.equals("未通过审核"))
+            state1=2;
         ApplyService applyService = new ApplyServiceImpl();
-        ArrayList<ApplyEntity> arrayList= applyService.getApplicationList(state);
-        ApplyEntity applyEntity = new ApplyEntity();
-        applyEntity.setIdApply(123456789);
-        applyEntity.setState(0);
-        applyEntity.setAddress("sadasdasdafa");
-        applyEntity.setLatitude(32123.22);
-        applyEntity.setLongitude(253.22);
-        applyEntity.setNumber("2512156");
-        applyEntity.setIdApply(123456789);
-        ArrayList<ApplyEntity> list =new  ArrayList<ApplyEntity>();
-
-        list.add(applyEntity);
-        list.add(applyEntity);
-        list.add(applyEntity);
-        list.add(applyEntity);
-        list.add(applyEntity);
-        list.add(applyEntity);
-        list.add(applyEntity);
-        list.add(applyEntity);
-        JSONArray array = JSONArray.fromObject(list);
+        ArrayList<Apply> arrayList= applyService.getApplicationList(state1);
+//        Apply apply = new Apply();
+//        apply.setIdApply(123456789);
+//        apply.setState(0);
+//        apply.setAddress("sadasdasdafa");
+//        apply.setLatitude(32123.22);
+//        apply.setLongitude(253.22);
+//        apply.setNumber("2512156");
+//        apply.setIdApply(123456789);
+//        ArrayList<Apply> list =new  ArrayList<Apply>();
+//
+//        list.add(apply);
+//        list.add(apply);
+//        list.add(apply);
+//        list.add(apply);
+//        list.add(apply);
+//        list.add(apply);
+//        list.add(apply);
+//        list.add(apply);
+        JSONArray array = JSONArray.fromObject(arrayList);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
     }
@@ -60,14 +65,16 @@ public class ApplyController {
     public void getSampleInfo(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String id = request.getParameter("id" );
         ApplyService applyService = new ApplyServiceImpl();
-        ApplyEntity applyEntity = new ApplyEntity();
-        applyEntity.setIdApply(123456789);
-        applyEntity.setAddress("江苏省");
-        applyEntity.setLatitude(32123.22);
-        applyEntity.setState(0);
-        applyEntity.setLongitude(253.22);
-        applyEntity.setNumber("2512156");
-       JSONObject object = JSONObject.fromObject(applyEntity);
+//        Apply apply = new Apply();
+//        apply.setIdApply(123456789);
+//        apply.setAddress("江苏省");
+//        apply.setLatitude(32123.22);
+//        apply.setState(0);
+//        apply.setLongitude(253.22);
+//        apply.setNumber("2512156");
+        long id1 = Integer.parseInt(id);
+        Apply apply = applyService.searchApplication(id1);
+       JSONObject object = JSONObject.fromObject(apply);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());
     }
@@ -81,15 +88,9 @@ public class ApplyController {
     public void dealApply(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String id = request.getParameter("id" );
         String state = request.getParameter("state" );
+        int state1 = Integer.parseInt(state);
         ApplyService applyService = new ApplyServiceImpl();
-        ApplyEntity applyEntity = new ApplyEntity();
-        applyEntity.setIdApply(123456789);
-        applyEntity.setState(0);
-        applyEntity.setAddress("sadasdasdafa");
-        applyEntity.setLatitude(32123.22);
-        applyEntity.setLongitude(253.22);
-        applyEntity.setNumber("2512156");
-        JSONObject object = JSONObject.fromObject(applyEntity);
+        boolean bool = applyService.updateState(id,state1);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }

@@ -40,7 +40,7 @@ $(function () {
             url:"./applylist",
             type:'post',
             async:false,
-            data:{"name":name},
+            data:{"state":name},
             success:function (data) {
                 var obj =$.parseJSON(data);
                 list=obj;
