@@ -25,4 +25,7 @@ public interface ApplyService {
     public boolean deleteApply(Long id);
 
     public ArrayList<Apply> searchApplicationByUser(Long idUser);
+
+    //找到用户已审核申请,待审核
+    public ArrayList<Apply> findCheckedApply(Long userid,String state);
 }

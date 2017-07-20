@@ -62,6 +62,38 @@ public class ApplyServiceImpl implements ApplyService {
         return list2;
     }
 
+    public ArrayList<Apply> findCheckedApply(Long userid, String state) {
+        List<Apply> list=applyDao.findAll();
+        ArrayList<Apply> userlist=new ArrayList<Apply>();
+        ArrayList<Apply> resultlist=new ArrayList<Apply>();
+        for (Apply temp:list
+             ) {
+            if(temp.getIdUser()==userid){
+                userlist.add(temp);
+            }
+        }
+        if(state=="待审核"){
+            for (Apply temp:userlist
+                 ) {
+                if(temp.getState()==0){
+                    resultlist.add(temp);
+                }
+            }
+
+        }
+        else {
+            for (Apply temp:userlist
+                    ) {
+                if(temp.getState()==1||temp.getState()==2){
+                    resultlist.add(temp);
+                }
+            }
+        }
+        return resultlist;
+
+
+    }
+
     /**
      * 更改状态 申请号不存在返回false
      *
