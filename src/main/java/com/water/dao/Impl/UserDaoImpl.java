@@ -54,8 +54,9 @@ public class UserDaoImpl implements UserDao{
         }
         return flag;
     }
-    public void saveOrUpdate(User entity) {
-        getCurrentSession().saveOrUpdate(entity);
+
+    public boolean saveOrUpdate(User entity) {
+        return false;
     }
 
     public boolean delete(Long id) {
