@@ -1,6 +1,7 @@
 package com.water.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by 朱晨乾 on 2017/7/19.
@@ -14,6 +15,8 @@ public class User {
     private String address;
     private String number;
     private Integer isResearcher;
+    private Collection<Sample> samplesByIdUser;
+    
 
     @Id
     @Column(name = "idUser", nullable = false)
@@ -101,5 +104,14 @@ public class User {
         result = 31 * result + (number != null ? number.hashCode() : 0);
         result = 31 * result + (isResearcher != null ? isResearcher.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "userByIdUserSample")
+    public Collection<Sample> getSamplesByIdUser() {
+        return samplesByIdUser;
+    }
+
+    public void setSamplesByIdUser(Collection<Sample> samplesByIdUser) {
+        this.samplesByIdUser = samplesByIdUser;
     }
 }
