@@ -23,6 +23,7 @@ public class Apply {
 
 
     @Id
+    @GeneratedValue
     @Column(name = "idApply", nullable = false)
     public Long getIdApply() {
         return idApply;
