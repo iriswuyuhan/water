@@ -16,4 +16,9 @@ public interface UploadService {
     public boolean addUpload(Sample sample);
 
     public ArrayList<Sample> searchSample(Long idSample);
+
+    //已采样样本
+    public ArrayList<Sample> alreadySample();
+
+    public ArrayList<Sample> findAll();
 }

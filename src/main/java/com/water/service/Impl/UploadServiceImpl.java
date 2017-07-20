@@ -56,4 +56,21 @@ public class UploadServiceImpl implements UploadService {
         }
         return list2;
     }
+
+    public ArrayList<Sample> alreadySample() {
+       List<Sample> list=uploadDao.findAll();
+
+
+        return null;
+    }
+
+    public ArrayList<Sample> findAll() {
+
+        ArrayList<Sample> list=new ArrayList<Sample>();
+        for(Sample temp:uploadDao.findAll()){
+            list.add(temp);
+
+        }
+        return list;
+    }
 }
