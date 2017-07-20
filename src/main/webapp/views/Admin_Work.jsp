@@ -44,8 +44,7 @@
             </ul>
         </div>
     </header>
-    <div class="main_wrapper">
-
+    <div class="main_wrapper" style="display: none">
         <ul id="tabs">
             <li id="current" name="s1"><a class="state" href="#" title="tab1">待审核</a></li>
             <li name="s2"><a  class="state" href="#" title="tab2">审核通过</a></li>
@@ -123,7 +122,7 @@
 
                             <div  id="scroll">
                                 <p>
-                                    <span>水域照片：</span>
+                                    <span class="toGray">水域照片：</span>
                                 </p>
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
@@ -207,7 +206,7 @@
 
                             <div  id="scroll2">
                                 <p>
-                                    <span>水域照片：</span>
+                                    <span class="toGray">水域照片：</span>
                                 </p>
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
@@ -287,7 +286,7 @@
 
                             <div id="scroll3">
                                 <p>
-                                    <span>水域照片：</span>
+                                    <span class="toGray">水域照片：</span>
                                 </p>
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
@@ -303,6 +302,7 @@
                 <div id="nothing3" style="display: none"><h3>暂无此类申请！</h3></div>
             </div>
         </div>
+
         <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
         <script src="./resources/js/Admin_Work.js"></script>
         <script type="text/javascript">
@@ -354,6 +354,161 @@
                     $("#scroll ul li").eq(i).fadeIn().siblings().hide();
                     $("#scroll2 ul li").eq(i).fadeIn().siblings().hide();
                     $("#scroll3 ul li").eq(i).fadeIn().siblings().hide();
+                });
+            });
+            /*轮播*/
+        </script>
+    </div>
+    <div class="download_wrapper" style="display: block">
+        <div class="load_wrapper">
+                    <div id="content4" class="table-content" style="display: block;">
+                        <ul id="scro4" class="scroll indicator-group-title">
+                            <div class="orther_search bar1">
+                                <form>
+                                    <input id= "input1" type="text" placeholder="请输入样本编号">
+                                    <button id="search1" ></button>
+                                </form>
+                            </div>
+                            <li class="active"><a>12345678</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345679</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li><a>12345680</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345681</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345682</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345683</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345684</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li><a >12345681</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345685</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345686</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345687</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345688</a><span
+                                    class="fa fa-angle-right"></span></li>
+                            <li class=""><a>12345689</a><span
+                                    class="fa fa-angle-right"></span></li>
+                        </ul>
+                        <div class=" indicator-group-content">
+                            <div class="left_title">
+                                <i class="fa fa-file-text-o blue"></i><h1 id="sample" class="number">12345678</h1>
+                                <a class="setpon">采样时间：</a>
+                                <a class="sample_time">2017-7-17 00:00:00</a>
+                            </div>
+                            <div class="left_content">
+                                <div class="left_info" id="left-info">
+                                    <p>
+                                        <span>姓名：</span>
+                                        <span name="name">1</span>
+                                    </p>
+                                    <p>
+                                        <span>申请编号：</span>
+                                        <span name="name">1</span>
+                                    </p>
+                                    <p>
+                                        <span>申请时间：</span>
+                                        <span name="name">2017-7-19 17:15:41</span>
+                                    </p>
+                                    <p>
+                                        <span>样本体积：</span>
+                                        <span name="name"></span>
+                                    </p>
+                                    <p>
+                                        <span>水域地址：</span>
+                                        <span name="name">1</span>
+                                    </p>
+                                    <p>
+                                        <span>备注：</span>
+                                        <span name="name">无</span>
+                                    </p>
+                                </div>
+                                <div class="middle_info" id="middle-info">
+                                    <p>
+                                        <span>联系方式：</span>
+                                        <span name="name">1</span>
+                                    </p>
+                                    <p>
+                                        <span>经度：</span>
+                                        <span name="name">4</span>
+                                    </p>
+                                    <p>
+                                        <span>纬度：</span>
+                                        <span name="name">1</span>
+                                    </p>
+                                    <div class="download_op">
+                                        <a class="button"><i class="fa fa-download"></i>下载信息</a>
+                                    </div>
+                                </div>
+
+                                <div  id="scroll4">
+                                    <p>
+                                        <span class="toGray">水域照片：</span>
+                                    </p>
+                                    <p class="subl"><i class="fa fa-angle-left"></i><p/>
+                                    <p class="subr"><i class="fa fa-angle-right"></i><p/>
+                                    <ul>
+                                        <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                        <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                    <div id="nothing4" style="display: none"><h3>暂无此类申请！</h3></div>
+                </div>
+            </div>
+<%--            <div class="left-content">
+            <div id="user-left-nav" class="left-nav">
+                <ul class="top-nav list-unstyled">
+                    <li class="active">
+                        <a href="#" class="value"><i class="fa fa-file"></i>111111</a>
+                    </li>
+                    <li>
+                        <a href="#" class="value"><i class="fa fa-file"></i>222222</a>
+                    </li>
+                    <li>
+                        <a href="#" class="value"><i class="fa fa-file"></i>33333</a>
+                    </li>
+                    <li>
+                        <a href="#" class="value"><i class="fa fa-file"></i>44444</a>
+                    </li>
+                    <li>
+                        <a href="#"  class="value"><i class="fa fa-file"></i>55555</a>
+                    </li>
+                    <li>
+                        <a href="#"  class="value"><i class="fa fa-file"></i>66666</a>
+                    </li>
+
+                </ul>
+            </div>
+            </div>--%>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+        <script type="text/javascript">
+            /*轮播*/
+            $(function(){
+                var i=0;
+                var len=$(".scroll4 ul li").length-1;
+                $(".subl").click(function(){
+                    if(i==len){
+                        i=-1;
+                    }
+                    i++;
+                    $("#scroll4 ul li").eq(i).fadeIn().siblings().hide();
+                });
+//到这里分开！上面的是上一张点击的效果代码，下面的是下一张点击的效果代码．
+                $(".subr").click(function(){//获取类名的点击事件．
+                    if(i==0){
+                        i=len+1;
+                    }
+                    i--;
+                    $("#scroll4 ul li").eq(i).fadeIn().siblings().hide();
                 });
             });
             /*轮播*/
