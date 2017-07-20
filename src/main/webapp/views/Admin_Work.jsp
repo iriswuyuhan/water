@@ -38,13 +38,13 @@
         </div>
         <div class="header_main">
             <ul id="nav">
-                <li class="active"><a href="#"><i class="fa fa-2x fa-sitemap"></i><h4>审核申请</h4></a></li>
-                <li><a href="#"><i class="fa fa-2x fa-download set_middle"></i><h4>下载采样信息</h4></a></li>
-                <li><a href="#"><i class="fa fa-2x fa-upload set_right"></i><h4>上传实验结果</h4></a></li>
+                <li class="active"><a id="sad" class="type1"><i class="fa fa-2x fa-sitemap"></i><h4>审核申请</h4></a></li>
+                <li ><a class="type1"><i class="fa fa-2x fa-download set_middle"></i><h4>下载采样信息</h4></a></li>
+                <li ><a class="type1"><i class="fa fa-2x fa-upload set_right"></i><h4>上传实验结果</h4></a></li>
             </ul>
         </div>
     </header>
-    <div class="main_wrapper" style="display: none">
+    <div id = "mainwrapper" class="main_wrapper" style="display: none">
         <ul id="tabs">
             <li id="current" name="s1"><a class="state" href="#" title="tab1">待审核</a></li>
             <li name="s2"><a  class="state" href="#" title="tab2">审核通过</a></li>
@@ -303,8 +303,7 @@
             </div>
         </div>
 
-        <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-        <script src="./resources/js/Admin_Work.js"></script>
+
         <script type="text/javascript">
             /*轮播*/
             $(function(){
@@ -359,11 +358,11 @@
             /*轮播*/
         </script>
     </div>
-    <div class="download_wrapper" style="display: block">
+    <div id="downloadwrapper" class="download_wrapper" style="display: block">
         <div class="load_wrapper">
                     <div id="content4" class="table-content" style="display: block;">
                         <ul id="scro4" class="scroll indicator-group-title">
-                            <div class="orther_search bar1">
+                            <div id="searchdiv"class="orther_search bar1">
                                 <form>
                                     <input id= "input1" type="text" placeholder="请输入样本编号">
                                     <button id="search1" ></button>
@@ -490,6 +489,8 @@
             </div>--%>
         </div>
         <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+        <script src="./resources/js/Admin_Work.js"></script>
+        <script src="./resources/js/Admin_work_sample.js"></script>
         <script type="text/javascript">
             /*轮播*/
             $(function(){
