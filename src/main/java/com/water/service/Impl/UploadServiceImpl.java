@@ -38,4 +38,9 @@ public class UploadServiceImpl implements UploadService {
         sampleEntity.setRemark(remark);
         uploadDao.save(sampleEntity);
     }
+
+    public boolean addUpload(Sample sample) {
+
+        return uploadDao.save(sample);
+    }
 }
