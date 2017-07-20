@@ -2,16 +2,24 @@
  * Created by Administrator on 2017/7/18 0018.
  */
 $(function () {
+
     $("#scro1").empty();
     $("#scro2").empty();
     $("#scro3").empty();
+    $.ajax({
+        url:"./download",
+        type:"post",
+        data:{},
+        success:function (data) {
+        }
+
+    })
     $.ajax({
         url:"./applylist",
         type:'post',
         async:false,
         data:{"state":"审核通过"},
         success:function (data) {
-            alert(data);
             var obj = $.parseJSON(data);
             var passlist = obj;
             if(passlist.length>0){
@@ -64,6 +72,20 @@ $(function () {
             }
         }
     });
+    $(".type1").click(function () {
+        alert(5);
+        $("#mainwrapper").hide();
+        $("#downloadwrapper").hide();
+        $("#nav li").prop("id","");
+        $(this).parent().prop("class","active");
+        var  name = $(this).find("h4").html();
+        if(name=="审核申请"){
+            $("#mainwrapper").show();
+        }
+        if(name=="下载采样信息"){
+            $("#downloadwrapper").show();
+        }
+    })
     $(".state").click(function () {
         $("#tabs li").prop("id","");
         $(this).parent().prop("id","current");
@@ -204,6 +226,7 @@ function dealApply(type){
     })
 
 }
+
 function  applyClick(type) {
     var id = type.innerHTML;
     $.ajax({
@@ -313,8 +336,5 @@ function  setinitinfo(id) {
 }
 
 function timeFormatter(value) {
-
-
     return (1900+value.year) + "-" + (value.month + 1) + "-" + value.date + " " + value.hours + ":" + value.minutes + ":" + value.seconds;
-
 }

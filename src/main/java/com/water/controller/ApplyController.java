@@ -1,8 +1,10 @@
 package com.water.controller;
 
 import com.water.entity.Apply;
+import com.water.entity.Sample;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
+import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import net.sf.json.JSONArray;
@@ -23,6 +25,7 @@ public class ApplyController {
 
     @Autowired
     private ApplyService applyService;
+    private UploadService uploadService;
     /**
      * @param request
      * @param response
@@ -77,5 +80,49 @@ public class ApplyController {
         boolean bool = applyService.updateState(id1,state1);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 获得样本信息
+     * @throws Exception
+     */
+    @RequestMapping("/getSample")
+    public void getSample(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+        String id = request.getParameter("id");
+        Long id1 = Long.valueOf(id);
+        Sample sample  = uploadService.searchSample(id1);
+
+        JSONObject object = JSONObject.fromObject(sample);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(object.toString());
+
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 获得所以样本信息
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleList")
+    public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+        ArrayList<Sample> samples =uploadService.findAll();
+
+        JSONArray array = JSONArray.fromObject(samples);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(array.toString());
+
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 下载
+     * @throws Exception
+     */
+    @RequestMapping("/download")
+    public void download(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
     }
 }

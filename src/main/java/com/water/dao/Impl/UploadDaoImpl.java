@@ -51,9 +51,7 @@ public class UploadDaoImpl implements UploadDao {
         return list;
     }
 
-    public void persist(Sample entity) {
-
-    }
+    public void persist(Sample entity) {getCurrentSession().persist(entity);}
 
     public boolean save(Sample entity) {
         Session session = getCurrentSession();
@@ -71,8 +69,20 @@ public class UploadDaoImpl implements UploadDao {
         return flag;
     }
 
-    public void saveOrUpdate(Sample entity) {
-
+    public boolean saveOrUpdate(Sample entity) {
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try{
+            session.saveOrUpdate(entity);
+            tx.commit();
+            flag = true;
+        }catch(Exception ex){
+            tx.rollback();
+        }finally{
+            session.close();
+        }
+        return flag;
     }
 
     public boolean delete(Long id) {

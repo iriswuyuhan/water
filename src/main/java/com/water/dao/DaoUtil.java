@@ -16,7 +16,7 @@ public interface DaoUtil<T,PK extends Serializable>{
 
     boolean save(T entity);
 
-    void saveOrUpdate(T entity);
+    boolean saveOrUpdate(T entity);
 
     boolean delete(PK id);
 
