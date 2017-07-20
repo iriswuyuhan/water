@@ -21,7 +21,6 @@
     <!--    &lt;!&ndash; Favicon and touch icons &ndash;&gt;
         <link rel="shortcut icon" href="assets/ico/favicon.ico">-->
 
-
 </head>
 <body>
 <div class="content">
@@ -98,27 +97,34 @@
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span name="name">李四</span>
+                                    <span name="name">1</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span name="name">11111111111</span>
+                                    <span name="name">1</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span name="name">江苏省南京市栖霞区仙林大道163号</span>
+                                    <span name="name">1</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span name="name">21.5494949°</span>
+                                    <span name="name">1</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span name="name">100.545646°</span>
+                                    <span name="name">1</span>
+                                </p>
+                                <p>
+                                    <span>水域地址：</span>
+                                    <span name="name">1</span>
                                 </p>
                             </div>
 
                             <div  id="scroll">
+                                <p>
+                                    <span>水域照片：</span>
+                                </p>
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
                                 <ul>
@@ -168,34 +174,41 @@
                     </ul>
                     <div class=" indicator-group-content">
                         <div class="left_title">
-                           <i class="fa fa-check green"></i> <h1>12345678</h1>
+                           <i class="fa fa-check green"></i> <h1></h1>
                             <a class="time">2017-7-17 00:00:00</a>
                         </div>
                         <div class="left_content">
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span name='name'>李四</span>
+                                    <span name='name'>1</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span name='name'>11111111111</span>
+                                    <span name='name'>1</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span name='name'>江苏省南京市栖霞区仙林大道163号</span>
+                                    <span name='name'>1</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span name='name'>21.5494949°</span>
+                                    <span name='name'>1</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span name='name'>100.545646°</span>
+                                    <span name='name'>1</span>
+                                </p>
+                                <p>
+                                    <span>水域地址：</span>
+                                    <span name='name'>1</span>
                                 </p>
                             </div>
 
                             <div  id="scroll2">
+                                <p>
+                                    <span>水域照片：</span>
+                                </p>
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
                                 <ul>
@@ -248,27 +261,34 @@
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span name="name">李四</span>
+                                    <span name="name">1</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span name="name">11111111111</span>
+                                    <span name="name">1</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span name='name'>江苏省南京市栖霞区仙林大道163号</span>
+                                    <span name='name'>1</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span name='name'>21.5494949°</span>
+                                    <span name='name'>1</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span name='name'>100.545646°</span>
+                                    <span name='name'>1</span>
+                                </p>
+                                <p>
+                                    <span>水域地址：</span>
+                                    <span name='name'>1</span>
                                 </p>
                             </div>
 
                             <div id="scroll3">
+                                <p>
+                                    <span>水域照片：</span>
+                                </p>
                                 <p class="subl"><i class="fa fa-angle-left"></i><p/>
                                 <p class="subr"><i class="fa fa-angle-right"></i><p/>
                                 <ul>
