@@ -64,7 +64,7 @@ public class MainController {
     @RequestMapping(value = "searchApply", method = RequestMethod.GET)
     @ResponseBody
     public String searchApply(){
-        System.out.println(applyService.searchApplication(46464646).getApplyDate());
+        System.out.println(applyService.searchApplication(Long.valueOf(285561975)).getWaterAddress());
         return "success!";
     }
 
@@ -72,7 +72,7 @@ public class MainController {
     @RequestMapping(value = "updateState", method = RequestMethod.GET)
     @ResponseBody
     public String updateState(){
-        System.out.println(applyService.updateState(46464646,0));
+        System.out.println(applyService.updateState(Long.valueOf(46464646),0));
         return "success!";
     }
 
@@ -80,7 +80,7 @@ public class MainController {
     @RequestMapping(value = "deleteApply", method = RequestMethod.GET)
     @ResponseBody
     public String deleteApply(){
-        System.out.println(applyService.deleteApply(3333333));
+        System.out.println(applyService.deleteApply(Long.valueOf(3333333)));
         return "success!";
     }
     /*------------------------------------------------End--------------------------------------------------------*/
