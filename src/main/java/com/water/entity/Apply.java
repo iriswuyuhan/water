@@ -22,6 +22,8 @@ public class Apply {
     private Long idUser;
     private Sample sampleByIdApply;
 
+
+
     @Id
     @GeneratedValue
     @Column(name = "idApply", nullable = false)
