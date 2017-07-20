@@ -13,10 +13,12 @@
         var latitude;
         var curLoc;
         var point;
+        var url;
 
         //获取经纬度，进行逆解析
         function startLoc() {
             //alert("success");
+            url=document.referrer.split("?")[0];
             geolocation.getCurrentPosition(function (r) {
 
                 if (this.getStatus() == BMAP_STATUS_SUCCESS) {
@@ -45,13 +47,15 @@
                                         for (var i = 0; i < results[j].getCurrentNumPois(); i++) {
                                             var para = document.createElement("label");
                                             para.setAttribute("class", "weui-cell weui-check__label");
-                                            para.setAttribute("for", num);
 
                                             var div1 = document.createElement("div");
                                             div1.setAttribute("class", "weui-cell__bd");
 
                                             var p = document.createElement("p");
-                                            p.innerHTML = results[j].getPoi(i).title + "," + results[j].getPoi(i).address;
+                                            var a=document.createElement("a");
+                                            a.innerHTML = results[j].getPoi(i).title + "," + results[j].getPoi(i).address;
+                                            a.setAttribute("href",url+"?add="+results[j].getPoi(i).title + "," + results[j].getPoi(i).address);
+                                            p.appendChild(a);
                                             div1.appendChild(p);
                                             para.appendChild(div1);
 
@@ -73,7 +77,7 @@
                             }
                         };
                         var local = new BMap.LocalSearch(point, options);
-                        var keys=["小区","公司","学校"];
+                        var keys=["小区","学校","公司"];
                         local.searchInBounds(keys,bound);
                     });
                 }
@@ -116,6 +120,12 @@
 //            G("searchResult").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
         });
 
+        function submitLoc(id){
+            var dom=document.getElementById(id);
+            var add=dom.innerHTML;
+            window.open(url+"?add="+add);
+        }
+
     </script>
 </head>
 <body onload="startLoc()">
@@ -141,7 +151,7 @@
                                 <span>请输入地址</span>
                             </label>
                         </form>
-                        <a class="weui-search-bar__cancel-btn" id="searchConfirm" onclick="" href="javascript:">
+                        <a class="weui-search-bar__cancel-btn" id="searchConfirm" href="javascript:">
                             确认</a>
                         <a class="weui-search-bar__cancel-btn" id="searchCancel" href="javascript:">取消</a>
                     </div>
@@ -157,6 +167,7 @@
                         $searchInput = $('#searchInput'),
                         $searchClear = $('#searchClear'),
                         $searchCancel = $('#searchCancel');
+                        $searchConfirm=$('#searchConfirm');
 
                     function hideSearchResult(){
                         $searchResult.hide();
@@ -192,13 +203,17 @@
                         cancelSearch();
                         $searchInput.blur();
                     });
+                    $searchConfirm.on('click',function () {
+                        var add=$searchInput.val();
+                        window.open(url+"?add="+add);
+                    })
                 });</script>
         </div>
         <div class="weui-cells__title">当前定位</div>
         <div class="weui-cells weui-cells_radio">
             <label class="weui-cell weui-check__label">
                 <div class="weui-cell__bd">
-                    <p id="curLoc">当前定位</p>
+                    <p id="curLoc" onclick=submitLoc("curLoc")>当前定位</p>
                 </div>
                 <div class="weui-cell__bd">
                     <a class="weui-btn weui-btn_mini weui-btn_default" onclick="startLoc()">重新定位</a>
@@ -209,7 +224,7 @@
         <div class="weui-cells weui-cells_radio">
             <label class="weui-cell weui-check__label">
                 <div class="weui-cell__bd">
-                    <p>收货地址</p>
+                    <p id="curRec" onclick=submitLoc("curRec")>收货地址</p>
                 </div>
             </label>
         </div>
