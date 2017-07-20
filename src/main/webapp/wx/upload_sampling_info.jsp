@@ -18,9 +18,9 @@
 
     <link href="../resources/PhotoSwipe-master/styles.css" type="text/css" rel="stylesheet" />
     <link href="../resources/PhotoSwipe-master/photoswipe.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" href="../resources/css/upload_sampling_info.css"/>
 </head>
 <body style="background-color: white">
+<input type="hidden" id="sampleID" value="${sampleID}"/>
 <div class="uploaded-imgs">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">
@@ -42,7 +42,7 @@
         </div>
     </div>
 </div>
-<!---->
+<!--申请采样的信息-->
 <div class="weui-form-preview">
     <div class="weui-form-preview__bd">
         <p>
@@ -56,24 +56,25 @@
     </div>
 </div>
 <div class="fill-in-info">
+    <form>
     <div class="weui-cells__title">补充信息</div>
     <div class="weui-cells">
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">采样时间</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="datetime-local" value="" placeholder=""/>
+                <input id="sample_time" class="weui-input" type="datetime-local" required="true" value="${curTime}" placeholder=""/>
             </div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">采样体积</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="number" pattern="[0-9]*" placeholder="采样体积"/>
+                <input  id="sample_volume" class="weui-input" type="number" required="true" pattern="[0-9]*" placeholder="采样体积"/>
             </div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">采样编号</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="number" pattern="[0-9]*" placeholder="采样编号"/>
+                <input  id="sample_number" class="weui-input" type="number" pattern="[0-9]*" required="true" placeholder="采样编号"/>
             </div>
         </div>
     </div>
@@ -81,15 +82,24 @@
     <div class="weui-cells weui-cells_form">
         <div class="weui-cell">
             <div class="weui-cell__bd">
-                <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+                <textarea id="sample_remark" class="weui-textarea" required="true" placeholder="请输入文本" rows="3"></textarea>
                 <div class="weui-textarea-counter"><span>0</span>/200</div>
             </div>
         </div>
     </div>
+    </form>
 </div>
 <p style="padding-top: 15px;">
-    <a style="line-height: 38px;width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_plain-primary">上传</a>
+    <a id="upload_but" style="line-height: 38px;width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_plain-primary">上传</a>
 </p>
+<!--toast-->
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">上传成功</p>
+    </div>
+</div>
 </body>
 <script>
     //图片预览
@@ -104,4 +114,5 @@
     }, false);
 }(window, window.Code.PhotoSwipe));
 </script>
+<script src="../resources/js/upload_sampling_info.js"></script>
 </html>

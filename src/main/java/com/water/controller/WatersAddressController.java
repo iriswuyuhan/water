@@ -14,9 +14,10 @@ import javax.servlet.http.HttpSession;
  * Created by lenovo on 2017/7/19.
  */
 @Controller
+@RequestMapping("/address/waters")
 public class WatersAddressController {
 
-    @RequestMapping("/address/waters")
+    @RequestMapping("")
     public ModelAndView uploadSampling(){
         ModelAndView modelAndView=new ModelAndView("../wx/confirm_address");
         return modelAndView;
@@ -26,7 +27,7 @@ public class WatersAddressController {
      * 确认地址
      * @return
      */
-    @RequestMapping(value = "/address/waters/confirm", method = RequestMethod.GET)
+    @RequestMapping(value = "/confirm", method = RequestMethod.GET)
     @ResponseBody
     public Boolean addUpload(HttpServletRequest request){
         double longitude=Double.parseDouble(request.getParameter("longitude"));

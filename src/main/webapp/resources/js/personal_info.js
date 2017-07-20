@@ -1,16 +1,18 @@
 /**
- * Created by lenovo on 2017/7/18.
+ * Created by lenovo on 2017/7/20.
  */
+function jump_to_receive_addr(){
+    $("#receive_addr").text("江苏省南京市栖霞区仙林大道163号");
+}
 
-$("#upload_but").click(function () {
-    var sampleID=$("#sampleID").val();
-    alert($("#sample_time").val());
+$("#confirm").click(function () {
+    var userID=$("#userID").val();
     $.ajax({
-        url:"/upload/j"+sampleID+"/confirm",
+        url:"/user/j"+userID+"/confirm",
         type:'get',
         async:false,
-        data:{"sample_time":$("#sample_time").val(),"sample_volume":$("#sample_volume").val(),
-            "sample_number":$("#sample_number").val(),"sample_remark":$("#sample_remark").val()},
+        data:{"name":$("#name").val(),"phone_num":$("#phone_num").val(),
+            "sample_number":$("#sample_number").val()},
         success:function (data) {
             if(data){
                 // toast
