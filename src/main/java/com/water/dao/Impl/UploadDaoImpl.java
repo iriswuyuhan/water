@@ -1,13 +1,16 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UploadDao;
+import com.water.entity.Apply;
 import com.water.entity.Sample;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,15 +27,28 @@ public class UploadDaoImpl implements UploadDao {
     }
 
     public Sample load(Long id) {
-        return null;
+        return (Sample)getCurrentSession().load(Sample.class,id);
     }
 
     public Sample get(Long id) {
-        return null;
+        return (Sample)getCurrentSession().get(Sample.class,id);
     }
 
     public List<Sample> findAll() {
-        return null;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Sample> list = new LinkedList<Sample>();
+        try{
+            String hql = "from Apply";
+            Query query = session.createQuery(hql);
+            list = query.list();
+            tx.commit();
+        }catch (Exception ex){
+            tx.rollback();
+        }finally {
+            session.close();
+        }
+        return list;
     }
 
     public void persist(Sample entity) {
