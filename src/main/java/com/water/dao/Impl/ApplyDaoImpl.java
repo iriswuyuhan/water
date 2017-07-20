@@ -3,21 +3,16 @@ package com.water.dao.Impl;
 import com.water.dao.ApplyDao;
 import com.water.entity.Apply;
 import org.hibernate.Query;
-
-//import com.water.entity.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
-
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by 朱晨乾 on 2017/7/17.
+ * Created by Flutter on 2017/7/19.
  */
 @Repository
 public class ApplyDaoImpl implements ApplyDao {
@@ -54,42 +49,24 @@ public class ApplyDaoImpl implements ApplyDao {
         return list;
     }
 
-    /**
-     * 修改申请状态
-     *
-     * @param idApply
-     * @param state
-     */
-    public void updateState(long idApply, Integer state) {
-
-    }
-
-    /**
-     * 通过id查询申请
-     *
-     * @param idApply
-     * @return
-     */
-    public ArrayList<Apply> searchApplicationById(Long idApply) {
-
-        return null;
-    }
-
     public void persist(Apply entity) {
         getCurrentSession().persist(entity);
     }
 
-    public void save(Apply entity) {
+    public boolean save(Apply entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
+        boolean flag = false;
         try{
             session.save(entity);
             tx.commit();
+            flag = true;
         }catch(Exception ex){
             tx.rollback();
         }finally{
             session.close();
         }
+        return flag;
     }
     public void saveOrUpdate(Apply entity) {
         Session session = getCurrentSession();
@@ -104,11 +81,20 @@ public class ApplyDaoImpl implements ApplyDao {
         }
     }
 
-
-
-    public void delete(Long id) {
-        Apply person = load(id);
-        getCurrentSession().delete(person);
+    public boolean delete(Long id) {
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try{
+            Apply apply = (Apply)session.load(Apply.class,id);
+            session.delete(apply);
+            tx.commit();
+        }catch(Exception ex){
+            tx.rollback();
+        }finally{
+            session.close();
+        }
+        return flag;
     }
 
     public void flush() {

@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by asus1 on 2017/7/19.
+ * Created by Flutter on 2017/7/19.
  */
 public interface DaoUtil<T,PK extends Serializable>{
     T load(PK id);
@@ -14,11 +14,11 @@ public interface DaoUtil<T,PK extends Serializable>{
 
     void persist(T entity);
 
-    void save(T entity);
+    boolean save(T entity);
 
     void saveOrUpdate(T entity);
 
-    void delete(PK id);
+    boolean delete(PK id);
 
     void flush();
 }

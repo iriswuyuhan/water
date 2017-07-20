@@ -16,6 +16,9 @@ public class Sample {
     private Double volume;
     private String image;
     private String remark;
+    private Apply applyByIdSample;
+    private User userByIdUserSample;
+    private Long idUserSample;
 
     @Id
     @Column(name = "idSample", nullable = false)
@@ -115,5 +118,35 @@ public class Sample {
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (remark != null ? remark.hashCode() : 0);
         return result;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "idSample", referencedColumnName = "idApply", nullable = false)
+    public Apply getApplyByIdSample() {
+        return applyByIdSample;
+    }
+
+    public void setApplyByIdSample(Apply applyByIdSample) {
+        this.applyByIdSample = applyByIdSample;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "idUserSample", referencedColumnName = "idUser")
+    public User getUserByIdUserSample() {
+        return userByIdUserSample;
+    }
+
+    public void setUserByIdUserSample(User userByIdUserSample) {
+        this.userByIdUserSample = userByIdUserSample;
+    }
+
+    @Basic
+    @Column(name = "idUserSample", nullable = true)
+    public Long getIdUserSample() {
+        return idUserSample;
+    }
+
+    public void setIdUserSample(Long idUserSample) {
+        this.idUserSample = idUserSample;
     }
 }

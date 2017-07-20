@@ -18,14 +18,20 @@ public class Apply {
     private Integer state;
     private String image;
     private String name;
+    private String waterAddress;
+    private Long idUser;
+    private Sample sampleByIdApply;
+
+
 
     @Id
+    @GeneratedValue
     @Column(name = "idApply", nullable = false)
     public Long getIdApply() {
         return idApply;
     }
 
-    public void setIdApply(Long idApply) {
+    public void setIdApply(Long idApply){
         this.idApply = idApply;
     }
 
@@ -109,6 +115,26 @@ public class Apply {
         this.name = name;
     }
 
+    @Basic
+    @Column(name = "waterAddress", nullable = true, length = 255)
+    public String getWaterAddress(){
+        return waterAddress;
+    }
+
+    public void setWaterAddress(String waterAddress){
+        this.waterAddress = waterAddress;
+    }
+
+    @Basic
+    @Column(name = "idUser", nullable = true)
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -141,5 +167,14 @@ public class Apply {
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @OneToOne(mappedBy = "applyByIdSample")
+    public Sample getSampleByIdApply() {
+        return sampleByIdApply;
+    }
+
+    public void setSampleByIdApply(Sample sampleByIdApply) {
+        this.sampleByIdApply = sampleByIdApply;
     }
 }

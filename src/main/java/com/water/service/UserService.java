@@ -20,7 +20,7 @@ public interface UserService {
     public void addUser(Long userId, String username, String password, String address, Integer isResearcher);//用于测试
 
     /**
-     * 根据用户编号查询用户id
+     * 根据用户编号查询用户
      *
      * @param id 用户记录id
      * @return 用户对象，查询不到则返回null
