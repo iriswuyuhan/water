@@ -16,6 +16,7 @@ public class Sample {
     private Double volume;
     private String image;
     private String remark;
+    private Apply applyByIdSample;
 
     @Id
     @Column(name = "idSample", nullable = false)
@@ -115,5 +116,15 @@ public class Sample {
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (remark != null ? remark.hashCode() : 0);
         return result;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "idSample", referencedColumnName = "idApply", nullable = false)
+    public Apply getApplyByIdSample() {
+        return applyByIdSample;
+    }
+
+    public void setApplyByIdSample(Apply applyByIdSample) {
+        this.applyByIdSample = applyByIdSample;
     }
 }

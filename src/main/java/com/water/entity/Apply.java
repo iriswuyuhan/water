@@ -20,7 +20,7 @@ public class Apply {
     private String name;
     private String waterAddress;
     private Long idUser;
-
+    private Sample sampleByIdApply;
 
     @Id
     @GeneratedValue
@@ -167,5 +167,12 @@ public class Apply {
         return result;
     }
 
+    @OneToOne(mappedBy = "applyByIdSample")
+    public Sample getSampleByIdApply() {
+        return sampleByIdApply;
+    }
 
+    public void setSampleByIdApply(Sample sampleByIdApply) {
+        this.sampleByIdApply = sampleByIdApply;
+    }
 }
