@@ -29,4 +29,10 @@ public class UserController {
         return true;
     }
 
+    @RequestMapping("/j{userID}")
+    public ModelAndView getSelfHistory (@PathVariable String userID){
+        ModelAndView modelAndView=new ModelAndView("../wx/selfhistory");
+        modelAndView.addObject("userID",userID);
+        return modelAndView;
+    }
 }
