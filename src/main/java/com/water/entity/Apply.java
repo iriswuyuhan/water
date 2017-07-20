@@ -19,6 +19,8 @@ public class Apply {
     private String image;
     private String name;
     private String waterAddress;
+    private Long idUser;
+
 
     @Id
     @Column(name = "idApply", nullable = false)
@@ -120,6 +122,16 @@ public class Apply {
         this.waterAddress = waterAddress;
     }
 
+    @Basic
+    @Column(name = "idUser", nullable = true)
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -153,4 +165,6 @@ public class Apply {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
+
+
 }

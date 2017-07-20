@@ -14,13 +14,15 @@ public interface ApplyService {
 
 //    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, String image, String waterAddress);
 
-    public boolean updateState(long id,Integer state);
+    public boolean updateState(Long id,Integer state);
 
-    public Apply addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name, String waterAddress);
+    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name, String waterAddress, Long idUser);
 
-    public Apply searchApplication(long idApply);
+    public Apply searchApplication(Long idApply);
 
     public ArrayList<Apply> getApplicationList(int state);
 
-    public boolean deleteApply(long id);
+    public boolean deleteApply(Long id);
+
+    public ArrayList<Apply> searchApplicationByUser(Long idUser);
 }

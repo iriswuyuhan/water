@@ -27,7 +27,7 @@ public class UploadServiceImpl implements UploadService {
         uploadDao.save(sample);
     }
 
-    public void addUpload(long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
+    public void addUpload(Long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
         Sample sampleEntity = new Sample();
         sampleEntity.setIdSample(idSample);
         sampleEntity.setLongitude(longitude);
@@ -36,5 +36,6 @@ public class UploadServiceImpl implements UploadService {
         sampleEntity.setVolume(volume);
         sampleEntity.setImage(image);
         sampleEntity.setRemark(remark);
+        uploadDao.save(sampleEntity);
     }
 }
