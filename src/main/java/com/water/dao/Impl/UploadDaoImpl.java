@@ -39,7 +39,7 @@ public class UploadDaoImpl implements UploadDao {
         Transaction tx = session.beginTransaction();
         List<Sample> list = new LinkedList<Sample>();
         try{
-            String hql = "from Apply";
+            String hql = "from Sample";
             Query query = session.createQuery(hql);
             list = query.list();
             tx.commit();

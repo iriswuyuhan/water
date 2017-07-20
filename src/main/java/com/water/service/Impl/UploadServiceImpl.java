@@ -6,7 +6,9 @@ import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -42,5 +44,16 @@ public class UploadServiceImpl implements UploadService {
     public boolean addUpload(Sample sample) {
 
         return uploadDao.save(sample);
+    }
+
+    public ArrayList<Sample> searchSample(Long idSample) {
+        List<Sample> list1 = uploadDao.findAll();
+        ArrayList<Sample> list2 = new ArrayList<Sample>();
+        for(Sample temp:list1){
+            if(temp.getIdSample()==idSample){
+                list2.add(temp);
+            }
+        }
+        return list2;
     }
 }
