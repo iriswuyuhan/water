@@ -52,18 +52,18 @@ public class UploadServiceImpl implements UploadService {
 
     }
 
-    public ArrayList<Sample> alreadySample(Long userid) {
-        ArrayList<Sample> resultlist=new ArrayList<Sample>();
-       List<Sample> list=uploadDao.findAll();
-        for (Sample temp:list
-             ) {
-            if(temp.getIdUserSample()==userid){
-                resultlist.add(temp);
-            }
-        }
-
-        return resultlist;
-    }
+//    public ArrayList<Sample> alreadySample(Long userid) {
+//        ArrayList<Sample> resultlist=new ArrayList<Sample>();
+//       List<Sample> list=uploadDao.findAll();
+//        for (Sample temp:list
+//             ) {
+//            if(temp.getIdUserSample()==userid){
+//                resultlist.add(temp);
+//            }
+//        }
+//
+//        return resultlist;
+//    }
 
     public ArrayList<Sample> findAll() {
 

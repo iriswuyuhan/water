@@ -4,10 +4,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by 朱晨乾 on 2017/7/19.
+ * Created by 朱晨乾 on 2017/7/20.
  */
 @Entity
-@Table(name = "apply", schema = "water")
 public class Apply {
     private long idApply;
     private Double longitude;
@@ -22,16 +21,13 @@ public class Apply {
     private Long idUser;
     private Sample sampleByIdApply;
 
-
-
     @Id
-    @GeneratedValue
     @Column(name = "idApply", nullable = false)
     public Long getIdApply() {
         return idApply;
     }
 
-    public void setIdApply(Long idApply){
+    public void setIdApply(Long idApply) {
         this.idApply = idApply;
     }
 
@@ -117,11 +113,11 @@ public class Apply {
 
     @Basic
     @Column(name = "waterAddress", nullable = true, length = 255)
-    public String getWaterAddress(){
+    public String getWaterAddress() {
         return waterAddress;
     }
 
-    public void setWaterAddress(String waterAddress){
+    public void setWaterAddress(String waterAddress) {
         this.waterAddress = waterAddress;
     }
 
@@ -140,17 +136,19 @@ public class Apply {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Apply that = (Apply) o;
+        Apply apply = (Apply) o;
 
-        if (idApply != that.idApply) return false;
-        if (longitude != null ? !longitude.equals(that.longitude) : that.longitude != null) return false;
-        if (latitude != null ? !latitude.equals(that.latitude) : that.latitude != null) return false;
-        if (number != null ? !number.equals(that.number) : that.number != null) return false;
-        if (address != null ? !address.equals(that.address) : that.address != null) return false;
-        if (applyDate != null ? !applyDate.equals(that.applyDate) : that.applyDate != null) return false;
-        if (state != null ? !state.equals(that.state) : that.state != null) return false;
-        if (image != null ? !image.equals(that.image) : that.image != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (idApply != apply.idApply) return false;
+        if (longitude != null ? !longitude.equals(apply.longitude) : apply.longitude != null) return false;
+        if (latitude != null ? !latitude.equals(apply.latitude) : apply.latitude != null) return false;
+        if (number != null ? !number.equals(apply.number) : apply.number != null) return false;
+        if (address != null ? !address.equals(apply.address) : apply.address != null) return false;
+        if (applyDate != null ? !applyDate.equals(apply.applyDate) : apply.applyDate != null) return false;
+        if (state != null ? !state.equals(apply.state) : apply.state != null) return false;
+        if (image != null ? !image.equals(apply.image) : apply.image != null) return false;
+        if (name != null ? !name.equals(apply.name) : apply.name != null) return false;
+        if (waterAddress != null ? !waterAddress.equals(apply.waterAddress) : apply.waterAddress != null) return false;
+        if (idUser != null ? !idUser.equals(apply.idUser) : apply.idUser != null) return false;
 
         return true;
     }
@@ -166,6 +164,8 @@ public class Apply {
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (waterAddress != null ? waterAddress.hashCode() : 0);
+        result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
         return result;
     }
 

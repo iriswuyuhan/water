@@ -4,10 +4,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by 朱晨乾 on 2017/7/19.
+ * Created by 朱晨乾 on 2017/7/20.
  */
 @Entity
-@Table(name = "sample", schema = "water")
 public class Sample {
     private long idSample;
     private Double longitude;
@@ -17,8 +16,6 @@ public class Sample {
     private String image;
     private String remark;
     private Apply applyByIdSample;
-    private User userByIdUserSample;
-    private Long idUserSample;
 
     @Id
     @Column(name = "idSample", nullable = false)
@@ -95,15 +92,15 @@ public class Sample {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Sample that = (Sample) o;
+        Sample sample = (Sample) o;
 
-        if (idSample != that.idSample) return false;
-        if (longitude != null ? !longitude.equals(that.longitude) : that.longitude != null) return false;
-        if (latitude != null ? !latitude.equals(that.latitude) : that.latitude != null) return false;
-        if (sampleDate != null ? !sampleDate.equals(that.sampleDate) : that.sampleDate != null) return false;
-        if (volume != null ? !volume.equals(that.volume) : that.volume != null) return false;
-        if (image != null ? !image.equals(that.image) : that.image != null) return false;
-        if (remark != null ? !remark.equals(that.remark) : that.remark != null) return false;
+        if (idSample != sample.idSample) return false;
+        if (longitude != null ? !longitude.equals(sample.longitude) : sample.longitude != null) return false;
+        if (latitude != null ? !latitude.equals(sample.latitude) : sample.latitude != null) return false;
+        if (sampleDate != null ? !sampleDate.equals(sample.sampleDate) : sample.sampleDate != null) return false;
+        if (volume != null ? !volume.equals(sample.volume) : sample.volume != null) return false;
+        if (image != null ? !image.equals(sample.image) : sample.image != null) return false;
+        if (remark != null ? !remark.equals(sample.remark) : sample.remark != null) return false;
 
         return true;
     }
@@ -128,25 +125,5 @@ public class Sample {
 
     public void setApplyByIdSample(Apply applyByIdSample) {
         this.applyByIdSample = applyByIdSample;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "idUserSample", referencedColumnName = "idUser")
-    public User getUserByIdUserSample() {
-        return userByIdUserSample;
-    }
-
-    public void setUserByIdUserSample(User userByIdUserSample) {
-        this.userByIdUserSample = userByIdUserSample;
-    }
-
-    @Basic
-    @Column(name = "idUserSample", nullable = true)
-    public Long getIdUserSample() {
-        return idUserSample;
-    }
-
-    public void setIdUserSample(Long idUserSample) {
-        this.idUserSample = idUserSample;
     }
 }
