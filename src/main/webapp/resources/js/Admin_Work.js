@@ -2,7 +2,6 @@
  * Created by Administrator on 2017/7/18 0018.
  */
 $(function () {
-
     $("#scro1").empty();
     $("#scro2").empty();
     $("#scro3").empty();
@@ -12,6 +11,7 @@ $(function () {
         async:false,
         data:{"state":"审核通过"},
         success:function (data) {
+            alert(data);
             var obj = $.parseJSON(data);
             var passlist = obj;
             if(passlist.length>0){
@@ -70,7 +70,7 @@ $(function () {
         $("#tab1").hide();
         $("#tab2").hide();
         $("#tab3").hide();
-       var  name = $(this).html();
+        var  name = $(this).html();
         if(name=="待审核"){
             $("#tab1").show();
         }
@@ -132,7 +132,7 @@ $(function () {
 
                     $("#scro1").find("a").each(function () {
                         if($(this).html()==id)
-                           $(this.parentNode).addClass("active");
+                            $(this.parentNode).addClass("active");
                     })
                 }
                 if(temp.state==1){
@@ -175,6 +175,8 @@ $(function () {
                         $(this).html(temp.longitude);
                     if(index==4)
                         $(this).html(temp.latitude);
+                    if(index==5)
+                        $(this).html(temp.waterAddress);
                 });
                 obj.find("h1").each(function () {
                     $(this).html(temp.idApply);
@@ -184,26 +186,26 @@ $(function () {
     })
 
 })
- function dealApply(type){
+function dealApply(type){
     var state;
     if(type.className=="yes button")
         state="1"
-     else
-         state="2";
+    else
+        state="2";
     var id = $("#applyid").html();
-     $.ajax({
-         url:"./dealApply",
-         type:'post',
-         data:{"id":id,"state":state},
-         success:function (data) {
-             alert(data);
-             window.location.href="toAdmin.do";
-         }
-     })
+    $.ajax({
+        url:"./dealApply",
+        type:'post',
+        data:{"id":id,"state":state},
+        success:function (data) {
+            alert(data);
+            window.location.href="toAdmin.do";
+        }
+    })
 
- }
+}
 function  applyClick(type) {
-   var id = type.innerHTML;
+    var id = type.innerHTML;
     $.ajax({
         url:'./getApplyInfo',
         type:'post',
@@ -258,6 +260,8 @@ function  applyClick(type) {
                 $(this).html(temp.longitude);
             if(index==4)
                 $(this).html(temp.latitude);
+            if(index==5)
+                $(this).html(temp.waterAddress);
         });
         obj.find("h1").each(function () {
             $(this).html(temp.idApply);
@@ -298,6 +302,8 @@ function  setinitinfo(id) {
                     $(this).html(temp.longitude);
                 if(index==4)
                     $(this).html(temp.latitude);
+                if(index==5)
+                    $(this).html(temp.waterAddress);
             });
             obj.find("h1").each(function () {
                 $(this).html(temp.idApply);
