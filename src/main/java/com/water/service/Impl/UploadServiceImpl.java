@@ -46,22 +46,23 @@ public class UploadServiceImpl implements UploadService {
         return uploadDao.save(sample);
     }
 
-    public ArrayList<Sample> searchSample(Long idSample) {
-        List<Sample> list1 = uploadDao.findAll();
-        ArrayList<Sample> list2 = new ArrayList<Sample>();
-        for(Sample temp:list1){
-            if(temp.getIdSample()==idSample){
-                list2.add(temp);
-            }
-        }
-        return list2;
+    public Sample searchSample(Long idSample) {
+        Sample sample=uploadDao.get(idSample);
+        return  sample;
+
     }
 
-    public ArrayList<Sample> alreadySample() {
+    public ArrayList<Sample> alreadySample(Long userid) {
+        ArrayList<Sample> resultlist=new ArrayList<Sample>();
        List<Sample> list=uploadDao.findAll();
+        for (Sample temp:list
+             ) {
+            if(temp.getIdUserSample()==userid){
+                resultlist.add(temp);
+            }
+        }
 
-
-        return null;
+        return resultlist;
     }
 
     public ArrayList<Sample> findAll() {

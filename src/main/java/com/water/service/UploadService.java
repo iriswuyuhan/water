@@ -15,10 +15,10 @@ public interface UploadService {
 
     public boolean addUpload(Sample sample);
 
-    public ArrayList<Sample> searchSample(Long idSample);
+    public Sample searchSample(Long idSample);
 
     //已采样样本
-    public ArrayList<Sample> alreadySample();
+    public ArrayList<Sample> alreadySample(Long userid);
 
     public ArrayList<Sample> findAll();
 }
