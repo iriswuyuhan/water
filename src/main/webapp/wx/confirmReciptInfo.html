@@ -6,8 +6,24 @@
     <title>确认收货信息</title>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
+    <script type="text/javascript" src="../resources/js/split.js"></script>
+    <script>
+        function load() {
+            var url = window.location.href;
+            var param = split(url);
+            if (param != null) {
+                var name = document.getElementById("idname");
+                var contact = document.getElementById("phone");
+                var add = document.getElementById("address");
+
+                name.setAttribute("placeholder", param[0]);
+                contact.setAttribute("placeholder", param[1]);
+                add.setAttribute("placeholder", param[2]);
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload=load()>
 <form>
     <br>
     <hr/>
@@ -19,28 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="weui-cells__title">性别</div>
-    <div class="weui-cells weui-cells_radio">
-        <label class="weui-cell weui-check__label" for="x11">
-            <div class="weui-cell__bd">
-                <p>男</p>
-            </div>
-            <div class="weui-cell__ft">
-                <input type="radio" class="weui-check" name="radio1" id="x11">
-                <span class="weui-icon-checked"></span>
-            </div>
-        </label>
-        <label class="weui-cell weui-check__label" for="x12">
-            <div class="weui-cell__bd">
-                <p>女</p>
-            </div>
-            <div class="weui-cell__ft">
-                <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
-                <span class="weui-icon-checked"></span>
-            </div>
-        </label>
 
-    </div>
     <div class="weui-cell weui-cell_vcode">
         <div class="weui-cell__hd">
             <label class="weui-label">手机号</label>

@@ -11,6 +11,14 @@
         <!--var url=document.referrer.split("?");-->
         <!--window.open(url[0]);-->
     <!--</script>-->
+    <script>
+        function resetInfo(){
+            var name=document.getElementById("name").innerHTML;
+            var contact=document.getElementById("contact").innerHTML;
+            var add=document.getElementById("add").innerHTML;
+            window.open("confirmReciptInfo.html?name="+name+"&contact="+contact+"&add="+add);
+        }
+    </script>
 </head>
 <body>
 <div class="weui_cells weui_cells_access">
@@ -30,11 +38,13 @@
         <div class="weui_cell_hd">
             <img src="../resources/img/position.png" alt="icon" style="width:20px;margin-right:5px;display:block">
         </div>
-        <div class="weui_cell_bd weui_cell_primary">
-            <span class="name">收货人：yyy</span>
-            <span class="contact">123456789</span>
-            <!--<p>收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</p>-->
-            <a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>
+        <div class="weui_cell_bd weui_cell_primary" onclick=resetInfo()>
+            <span>收货人：</span>
+            <span id="name">yyy</span>
+            <span id="contact">123456789</span>
+            <span>收货地址：</span>
+            <p id="add">江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</p>
+            <!--<a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>-->
         </div>
         <div class="weui_cell_ft">
         </div>
