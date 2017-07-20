@@ -39,25 +39,29 @@ public class UserDaoImpl implements UserDao{
         getCurrentSession().persist(entity);
     }
 
-    public void save(User entity) {
+    public boolean save(User entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
+         boolean flag = false;
         try{
             session.save(entity);
             tx.commit();
+            flag = true;
         }catch(Exception ex){
             tx.rollback();
         }finally{
             session.close();
         }
+        return flag;
     }
     public void saveOrUpdate(User entity) {
         getCurrentSession().saveOrUpdate(entity);
     }
 
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         User person = load(id);
         getCurrentSession().delete(person);
+        return true;
     }
 
     public void flush() {

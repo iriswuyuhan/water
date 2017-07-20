@@ -55,25 +55,28 @@ public class UploadDaoImpl implements UploadDao {
 
     }
 
-    public void save(Sample entity) {
+    public boolean save(Sample entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
+        boolean flag = false;
         try{
             session.save(entity);
             tx.commit();
+            flag = true;
         }catch(Exception ex){
             tx.rollback();
         }finally{
             session.close();
         }
+        return flag;
     }
 
     public void saveOrUpdate(Sample entity) {
 
     }
 
-    public void delete(Long id) {
-
+    public boolean delete(Long id) {
+        return true;
     }
 
     public void flush() {

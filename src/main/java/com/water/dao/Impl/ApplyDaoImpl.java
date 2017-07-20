@@ -53,17 +53,20 @@ public class ApplyDaoImpl implements ApplyDao {
         getCurrentSession().persist(entity);
     }
 
-    public void save(Apply entity) {
+    public boolean save(Apply entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
+        boolean flag = false;
         try{
             session.save(entity);
             tx.commit();
+            flag = true;
         }catch(Exception ex){
             tx.rollback();
         }finally{
             session.close();
         }
+        return flag;
     }
     public void saveOrUpdate(Apply entity) {
         Session session = getCurrentSession();
@@ -78,9 +81,10 @@ public class ApplyDaoImpl implements ApplyDao {
         }
     }
 
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
+        boolean flag = false;
         try{
             Apply apply = (Apply)session.load(Apply.class,id);
             session.delete(apply);
@@ -90,6 +94,7 @@ public class ApplyDaoImpl implements ApplyDao {
         }finally{
             session.close();
         }
+        return flag;
     }
 
     public void flush() {

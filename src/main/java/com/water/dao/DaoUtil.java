@@ -14,11 +14,11 @@ public interface DaoUtil<T,PK extends Serializable>{
 
     void persist(T entity);
 
-    void save(T entity);
+    boolean save(T entity);
 
     void saveOrUpdate(T entity);
 
-    void delete(PK id);
+    boolean delete(PK id);
 
     void flush();
 }
