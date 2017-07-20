@@ -16,6 +16,7 @@ public class Sample {
     private String image;
     private String remark;
     private Apply applyByIdSample;
+    private Long idUser;
 
     @Id
     @Column(name = "idSample", nullable = false)
@@ -125,5 +126,15 @@ public class Sample {
 
     public void setApplyByIdSample(Apply applyByIdSample) {
         this.applyByIdSample = applyByIdSample;
+    }
+
+    @Basic
+    @Column(name = "idUser", nullable = true)
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
     }
 }

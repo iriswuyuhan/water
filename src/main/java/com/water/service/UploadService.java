@@ -18,7 +18,7 @@ public interface UploadService {
     public Sample searchSample(Long idSample);
 
     //已采样样本
-//    public ArrayList<Sample> alreadySample(Long userid);
+    public ArrayList<Sample> alreadySample(Long userid);
 
     public ArrayList<Sample> findAll();
 }
