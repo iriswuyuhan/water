@@ -12,11 +12,11 @@ public interface ApplyService {
 
     public void addApply();
 
-    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image);
+//    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, String image, String waterAddress);
 
     public boolean updateState(long id,Integer state);
 
-    public Apply addApplication(long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name);
+    public Apply addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name, String waterAddress);
 
     public Apply searchApplication(long idApply);
 

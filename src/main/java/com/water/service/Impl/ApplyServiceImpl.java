@@ -60,6 +60,10 @@ public class ApplyServiceImpl implements ApplyService{
         return true;
     }
 
+    public Apply addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, String image, String name, String waterAddress) {
+        return null;
+    }
+
     /**
      * 根据申请号搜索apply
      * @param idApply
@@ -85,7 +89,7 @@ public class ApplyServiceImpl implements ApplyService{
         return  list;
     }
 
-    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image){return null;}
-
-    public Apply addApplication(long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name){return null;}
+//    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image){return null;}
+//
+//    public Apply addApplication(long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name){return null;}
 }
