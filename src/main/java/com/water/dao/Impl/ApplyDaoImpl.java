@@ -68,17 +68,20 @@ public class ApplyDaoImpl implements ApplyDao {
         }
         return flag;
     }
-    public void saveOrUpdate(Apply entity) {
+    public boolean saveOrUpdate(Apply entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
+        boolean flag = false;
         try{
             session.saveOrUpdate(entity);
             tx.commit();
+            flag = true;
         }catch(Exception ex){
             tx.rollback();
         }finally{
             session.close();
         }
+        return flag;
     }
 
     public boolean delete(Long id) {
