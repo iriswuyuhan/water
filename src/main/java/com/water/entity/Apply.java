@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by 朱晨乾 on 2017/7/20.
+ * Created by 朱晨乾 on 2017/7/21.
  */
 @Entity
 public class Apply {
@@ -18,16 +18,16 @@ public class Apply {
     private String image;
     private String name;
     private String waterAddress;
-    private Long idUser;
+    private String idUser;
     private Sample sampleByIdApply;
 
     @Id
     @Column(name = "idApply", nullable = false)
-    public Long getIdApply() {
+    public long getIdApply() {
         return idApply;
     }
 
-    public void setIdApply(Long idApply) {
+    public void setIdApply(long idApply) {
         this.idApply = idApply;
     }
 
@@ -122,12 +122,12 @@ public class Apply {
     }
 
     @Basic
-    @Column(name = "idUser", nullable = true)
-    public Long getIdUser() {
+    @Column(name = "idUser", nullable = true, length = 255)
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Long idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 

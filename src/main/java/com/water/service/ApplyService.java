@@ -16,7 +16,7 @@ public interface ApplyService {
 
     public boolean updateState(Long id,Integer state);
 
-    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name, String waterAddress, Long idUser);
+    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name, String waterAddress, String idUser);
 
     public Apply searchApplication(Long idApply);
 
@@ -24,8 +24,8 @@ public interface ApplyService {
 
     public boolean deleteApply(Long id);
 
-    public ArrayList<Apply> searchApplicationByUser(Long idUser);
+    public ArrayList<Apply> searchApplicationByUser(String idUser);
 
     //找到用户已审核申请,待审核
-    public ArrayList<Apply> findCheckedApply(Long userid,String state);
+    public ArrayList<Apply> findCheckedApply(String userid,String state);
 }

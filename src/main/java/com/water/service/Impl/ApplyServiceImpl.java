@@ -51,7 +51,7 @@ public class ApplyServiceImpl implements ApplyService {
      * @param idUser
      * @return
      */
-    public ArrayList<Apply> searchApplicationByUser(Long idUser) {
+    public ArrayList<Apply> searchApplicationByUser(String idUser) {
         List<Apply> list1 = applyDao.findAll();
         ArrayList<Apply> list2 = new ArrayList<Apply>();
         for(Apply temp : list1){
@@ -62,7 +62,7 @@ public class ApplyServiceImpl implements ApplyService {
         return list2;
     }
 
-    public ArrayList<Apply> findCheckedApply(Long userid, String state) {
+    public ArrayList<Apply> findCheckedApply(String userid, String state) {
         List<Apply> list=applyDao.findAll();
         ArrayList<Apply> userlist=new ArrayList<Apply>();
         ArrayList<Apply> resultlist=new ArrayList<Apply>();
@@ -110,7 +110,7 @@ public class ApplyServiceImpl implements ApplyService {
         return true;
     }
 
-    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, String image, String name, String waterAddress, Long idUser) {
+    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, String image, String name, String waterAddress, String idUser) {
         Apply apply = new Apply();
         apply.setIdApply(idApply);
         apply.setLongitude(longitude);

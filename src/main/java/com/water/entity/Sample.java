@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by 朱晨乾 on 2017/7/20.
+ * Created by 朱晨乾 on 2017/7/21.
  */
 @Entity
 public class Sample {
@@ -15,16 +15,16 @@ public class Sample {
     private Double volume;
     private String image;
     private String remark;
+    private String idUser;
     private Apply applyByIdSample;
-    private Long idUser;
 
     @Id
     @Column(name = "idSample", nullable = false)
-    public Long getIdSample() {
+    public long getIdSample() {
         return idSample;
     }
 
-    public void setIdSample(Long idSample) {
+    public void setIdSample(long idSample) {
         this.idSample = idSample;
     }
 
@@ -88,6 +88,16 @@ public class Sample {
         this.remark = remark;
     }
 
+    @Basic
+    @Column(name = "idUser", nullable = true, length = 255)
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,6 +112,7 @@ public class Sample {
         if (volume != null ? !volume.equals(sample.volume) : sample.volume != null) return false;
         if (image != null ? !image.equals(sample.image) : sample.image != null) return false;
         if (remark != null ? !remark.equals(sample.remark) : sample.remark != null) return false;
+        if (idUser != null ? !idUser.equals(sample.idUser) : sample.idUser != null) return false;
 
         return true;
     }
@@ -115,6 +126,7 @@ public class Sample {
         result = 31 * result + (volume != null ? volume.hashCode() : 0);
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (remark != null ? remark.hashCode() : 0);
+        result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
         return result;
     }
 
@@ -126,15 +138,5 @@ public class Sample {
 
     public void setApplyByIdSample(Apply applyByIdSample) {
         this.applyByIdSample = applyByIdSample;
-    }
-
-    @Basic
-    @Column(name = "idUser", nullable = true)
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
     }
 }

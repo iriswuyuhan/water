@@ -6,11 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by 朱晨乾 on 2017/7/20.
+ * Created by 朱晨乾 on 2017/7/21.
  */
 @Entity
 public class User {
-    private long idUser;
+    private String idUser;
     private String password;
     private String name;
     private String address;
@@ -18,12 +18,12 @@ public class User {
     private Integer isResearcher;
 
     @Id
-    @Column(name = "idUser", nullable = false)
-    public Long getIdUser() {
+    @Column(name = "idUser", nullable = false, length = 255)
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Long idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 
@@ -84,7 +84,7 @@ public class User {
 
         User user = (User) o;
 
-        if (idUser != user.idUser) return false;
+        if (idUser != null ? !idUser.equals(user.idUser) : user.idUser != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (address != null ? !address.equals(user.address) : user.address != null) return false;
@@ -96,7 +96,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = (int) (idUser ^ (idUser >>> 32));
+        int result = idUser != null ? idUser.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
