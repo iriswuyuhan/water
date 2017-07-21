@@ -29,18 +29,24 @@
             var name = document.getElementById("name");
             var contact = document.getElementById("contact");
             var add = document.getElementById("add");
-            if (param != null && param.length == 3) {
+            var useCook = $.cookie('ret2');
+            if (useCook == '1') {
+//                alert('b');
+                name.innerHTML=$.cookie('name');
+                contact.innerHTML=$.cookie('tel');
+                add.innerHTML = $.cookie('add2');
+                $.cookie('ret2', null);
+                $.cookie('name',null);
+                $.cookie('tel',null);
+                $.cookie('add2', null);
+
+            }
+            else if (param != null && param.length == 3) {
                 name.innerHTML = param[0];
                 contact.innerHTML = param[1];
                 add.innerHTML = param[2];
             }
-            var useCook = $.cookie('ret2');
-            if (useCook == '1') {
-//                alert('b');
-                add.innerHTML = $.cookie('add2');
-                $.cookie('ret2', null);
-                $.cookie('add2', null);
-            }
+
         }
     </script>
 </head>

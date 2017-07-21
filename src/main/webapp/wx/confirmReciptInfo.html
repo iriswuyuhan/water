@@ -41,9 +41,13 @@
         }
 
         function goBack(){
+            var name = document.getElementById("idname").value;
+            var contact = document.getElementById("phone").value;
             var add=document.getElementById("address").innerHTML;
             $.cookie('ret2','1');
             $.cookie('add2',add);
+            $.cookie('name',name);
+            $.cookie('tel',contact);
             window.history.go(-1);
         }
 
