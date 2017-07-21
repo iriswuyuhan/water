@@ -30,7 +30,8 @@ public class ApplyServiceImpl implements ApplyService {
         apply.setName("Sam");
         apply.setWaterAddress("黄河");
         apply.setNumber("77777777777");
-        apply.setState(1);
+        apply.setState(0);
+        apply.setIdUser("ooooooo");
         applyDao.save(apply);
     }
 
@@ -82,7 +83,7 @@ public class ApplyServiceImpl implements ApplyService {
             }
 
         }
-        else {
+        else if(state=="已审核"){
             for (Apply temp:userlist
                     ) {
                 if(temp.getState()==1||temp.getState()==2){
