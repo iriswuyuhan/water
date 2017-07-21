@@ -6,6 +6,8 @@
     <title>申请采样设备</title>
     <!-- WeUI -->
     <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.4.3/weui.min.css"/>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
     <!--<script>-->
         <!--alert(document.referrer);-->
         <!--var url=document.referrer.split("?");-->
@@ -24,14 +26,20 @@
         function load(){
             var url = window.location.href;
             var param = split(url);
-            if (param != null&&param.length==3) {
-                var name = document.getElementById("name");
-                var contact = document.getElementById("contact");
-                var add = document.getElementById("add");
-
-                name.innerHTML=param[0];
-                contact.innerHTML=param[1];
-                add.innerHTML=param[2];
+            var name = document.getElementById("name");
+            var contact = document.getElementById("contact");
+            var add = document.getElementById("add");
+            if (param != null && param.length == 3) {
+                name.innerHTML = param[0];
+                contact.innerHTML = param[1];
+                add.innerHTML = param[2];
+            }
+            var useCook = $.cookie('ret2');
+            if (useCook == '1') {
+//                alert('b');
+                add.innerHTML = $.cookie('add2');
+                $.cookie('ret2', null);
+                $.cookie('add2', null);
             }
         }
     </script>
