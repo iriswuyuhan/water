@@ -56,7 +56,7 @@ public class MainController {
     @RequestMapping(value = "findApply", method = RequestMethod.GET)
     @ResponseBody
     public String findApply(){
-        System.out.println(applyService.getApplicationList(0).get(1).getAddress());
+        System.out.println(applyService.getApplicationList(0).get(0).getAddress());
         return "success!";
     }
 
@@ -92,6 +92,13 @@ public class MainController {
     @ResponseBody
     public String addUpload(){
         uploadService.addUpload();
+        return "success!";
+    }
+
+    @RequestMapping(value = "searchSample", method = RequestMethod.GET)
+    @ResponseBody
+    public String searchSample(){
+        System.out.println(uploadService.searchSample(Long.valueOf(1564654)).getApply().getName());
         return "success!";
     }
 

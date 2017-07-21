@@ -1,19 +1,6 @@
-/**
- * Created by Administrator on 2017/7/18 0018.
- */
-$(function () {
-
-    $("#scro1").empty();
-    $("#scro2").empty();
-    $("#scro3").empty();
-    $.ajax({
-        url:"./download",
-        type:"post",
-        data:{},
-        success:function (data) {
-        }
-
-    })
+$(function(){
+    $("#mainwrapper").show();
+    $("#downloadwrapper").hide();
     $.ajax({
         url:"./applylist",
         type:'post',
@@ -30,7 +17,6 @@ $(function () {
             else{
                 $("#content2").hide();
                 $("#nothing2").show();
-
             }
         }
     });
@@ -42,8 +28,9 @@ $(function () {
         success:function (data) {
             var obj = $.parseJSON(data);
             var nolist = obj;
-            scrolist("未通过审核",nolist);
+
             if(nolist.length>0){
+                scrolist("未通过审核",nolist);
                 var id = nolist[0].idApply;
                 setinitinfo(id);
             }
@@ -72,19 +59,16 @@ $(function () {
             }
         }
     });
-    $(".type1").click(function () {
-        alert(5);
+    $(".tyo").click(function () {
         $("#mainwrapper").hide();
         $("#downloadwrapper").hide();
-        $("#nav li").prop("id","");
+        $("#nav li").removeClass();
         $(this).parent().prop("class","active");
-        var  name = $(this).find("h4").html();
-        if(name=="审核申请"){
+        var name =    $(this).find("h4").html();
+        if(name=="审核申请")
             $("#mainwrapper").show();
-        }
-        if(name=="下载采样信息"){
+        if(name=="下载采样信息")
             $("#downloadwrapper").show();
-        }
     })
     $(".state").click(function () {
         $("#tabs li").prop("id","");
@@ -137,77 +121,83 @@ $(function () {
             data:{"id":id},
             success: function (data) {
                 var obj1 = $.parseJSON(data);
-                var temp = obj1;
-                var obj;
-                $("#tabs li").prop("id","");
-                $("#tab1").hide();
-                $("#tab2").hide();
-                $("#tab3").hide();
+                alert(obj1);
+                if (obj1!==null) {
+                    var temp = obj1;
+                    var obj;
+                    $("#tabs li").prop("id", "");
+                    $("#tab1").hide();
+                    $("#tab2").hide();
+                    $("#tab3").hide();
 
-                if(temp.state==0){
-                    obj=$("#tab1")
-                    $("#tab1").show();
-                    $("#tabs").find("li[name='s1']").prop("id","current")
-                    $("#scro1").find("li").each(function() {
-                        $(this).removeClass("active");
+                    if (temp.state == 0) {
+                        obj = $("#tab1")
+                        $("#tab1").show();
+                        $("#tabs").find("li[name='s1']").prop("id", "current")
+                        $("#scro1").find("li").each(function () {
+                            $(this).removeClass("active");
+                        });
+
+                        $("#scro1").find("a").each(function () {
+                            if ($(this).html() == id)
+                                $(this.parentNode).addClass("active");
+                        })
+                    }
+                    if (temp.state == 1) {
+                        obj = $("#tab2")
+                        $("#tab2").show();
+                        $("#tabs").find("li[name='s2']").prop("id", "current")
+                        $("#scro2").find("li").each(function () {
+                            $(this).removeClass("active");
+                        });
+
+                        $("#scro2").find("a").each(function () {
+                            if ($(this).html() == id)
+                                $(this.parentNode).addClass("active");
+                        })
+                    }
+                    if (temp.state == 2) {
+                        obj = $("#tab3")
+                        $("#tab3").show();
+                        $("#tabs").find("li[name='s3']").prop("id", "current")
+                        $("#scro3").find("li").each(function () {
+                            $(this).removeClass("active");
+                        });
+
+                        $("#scro3").find("a").each(function () {
+                            if ($(this).html() == id)
+                                $(this.parentNode).addClass("active");
+                        })
+                    }
+                    $(".time").each(function () {
+                        $(this).html(timeFormatter(temp.applyDate));
+                    })
+                    obj.find("span[name='name']").each(function (index) {
+                        if (index == 0)
+                            $(this).html(temp.name);
+                        if (index == 1)
+                            $(this).html(temp.number);
+                        if (index == 2)
+                            $(this).html(temp.address);
+                        if (index == 3)
+                            $(this).html(temp.longitude);
+                        if (index == 4)
+                            $(this).html(temp.latitude);
+                        if (index == 5)
+                            $(this).html(temp.waterAddress);
                     });
-
-                    $("#scro1").find("a").each(function () {
-                        if($(this).html()==id)
-                            $(this.parentNode).addClass("active");
+                    obj.find("h1").each(function () {
+                        $(this).html(temp.idApply);
                     })
                 }
-                if(temp.state==1){
-                    obj=$("#tab2")
-                    $("#tab2").show();
-                    $("#tabs").find("li[name='s2']").prop("id","current")
-                    $("#scro2").find("li").each(function() {
-                        $(this).removeClass("active");
-                    });
-
-                    $("#scro2").find("a").each(function () {
-                        if($(this).html()==id)
-                            $(this.parentNode).addClass("active");
-                    })
+                else{
+                    alert("编号不存在");
                 }
-                if(temp.state==2){
-                    obj=$("#tab3")
-                    $("#tab3").show();
-                    $("#tabs").find("li[name='s3']").prop("id","current")
-                    $("#scro3").find("li").each(function() {
-                        $(this).removeClass("active");
-                    });
-
-                    $("#scro3").find("a").each(function () {
-                        if($(this).html()==id)
-                            $(this.parentNode).addClass("active");
-                    })
-                }
-                $(".time").each(function () {
-                    $(this).html(timeFormatter(temp.applyDate));
-                })
-                obj.find("span[name='name']").each(function (index) {
-                    if(index==0)
-                        $(this).html(temp.name);
-                    if(index==1)
-                        $(this).html(temp.number);
-                    if(index==2)
-                        $(this).html(temp.address);
-                    if(index==3)
-                        $(this).html(temp.longitude);
-                    if(index==4)
-                        $(this).html(temp.latitude);
-                    if(index==5)
-                        $(this).html(temp.waterAddress);
-                });
-                obj.find("h1").each(function () {
-                    $(this).html(temp.idApply);
-                })
             }
+
         })
     })
-
-})
+});
 function dealApply(type){
     var state;
     if(type.className=="yes button")
@@ -336,5 +326,6 @@ function  setinitinfo(id) {
 }
 
 function timeFormatter(value) {
-    return (1900+value.year) + "-" + (value.month + 1) + "-" + value.date + " " + value.hours + ":" + value.minutes + ":" + value.seconds;
+    return (1900 + value.year) + "-" + (value.month + 1) + "-" + value.date + " " + value.hours + ":" + value.minutes + ":" + value.seconds;
 }
+/*轮播*/

@@ -1,5 +1,6 @@
 package com.water.service.Impl;
 
+import com.water.dao.ApplyDao;
 import com.water.dao.UploadDao;
 import com.water.entity.Sample;
 import com.water.service.UploadService;
@@ -18,22 +19,22 @@ public class UploadServiceImpl implements UploadService {
     @Autowired
     private UploadDao uploadDao;
 
+    @Autowired
+    private ApplyDao applyDao;
+
     public void addUpload() {
         Sample sample = new Sample();
-        sample.setIdSample(Long.valueOf(1564654));
-        sample.setImage("dsfasdfasg");
-        sample.setLatitude(5.65446);
-        sample.setLongitude(8.546);
-        sample.setRemark("23333");
-        sample.setVolume(2.454);
+        sample.setIdSample(Long.valueOf(1564655));
+        sample.setImage("tty");
+        sample.setRemark("666");
+        sample.setApply(applyDao.get(Long.valueOf(66666666)));
+        sample.setVolume(88.5);
         uploadDao.save(sample);
     }
 
     public void addUpload(Long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
         Sample sampleEntity = new Sample();
         sampleEntity.setIdSample(idSample);
-        sampleEntity.setLongitude(longitude);
-        sampleEntity.setLatitude(latitude);
         sampleEntity.setSampleDate(sampleDate);
         sampleEntity.setVolume(volume);
         sampleEntity.setImage(image);
@@ -42,14 +43,12 @@ public class UploadServiceImpl implements UploadService {
     }
 
     public boolean addUpload(Sample sample) {
-
         return uploadDao.save(sample);
     }
 
     public Sample searchSample(Long idSample) {
         Sample sample=uploadDao.get(idSample);
         return  sample;
-
     }
 
     public ArrayList<Sample> alreadySample(String userid) {
@@ -57,7 +56,7 @@ public class UploadServiceImpl implements UploadService {
        List<Sample> list=uploadDao.findAll();
         for (Sample temp:list
              ) {
-            if(temp.getIdUser()==userid){
+            if(temp.getApply().getIdUser()==userid){
                 resultlist.add(temp);
             }
         }

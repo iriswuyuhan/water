@@ -25,6 +25,7 @@ public class ApplyController {
 
     @Autowired
     private ApplyService applyService;
+    @Autowired
     private UploadService uploadService;
     /**
      * @param request
@@ -36,15 +37,15 @@ public class ApplyController {
     @ResponseBody
     public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String state = request.getParameter("state" );
-        System.out.println(state);
+        System.out.println("!!!"+state+"!!!");
         int state1 =0;
         if(state.equals("审核通过"))
             state1=1;
         if (state.equals("未通过审核"))
             state1=2;
-        System.out.print("###"+state1);
+        System.out.println("###"+state1+"###");
         ArrayList<Apply> arrayList= applyService.getApplicationList(state1);
-        System.out.println(arrayList);
+        System.out.println("$$$"+arrayList);
         JSONArray array = JSONArray.fromObject(arrayList);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
@@ -93,7 +94,6 @@ public class ApplyController {
         String id = request.getParameter("id");
         Long id1 = Long.valueOf(id);
         Sample sample  = uploadService.searchSample(id1);
-
         JSONObject object = JSONObject.fromObject(sample);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());

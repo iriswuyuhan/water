@@ -366,12 +366,24 @@ footer{
 #scroll4{width:40%; height:280px; background-color:white; position:relative;float:right;}
 #scroll ul,#scroll2 ul,#scroll3 ul,#scroll4 ul{height:260px; list-style:none;}
 #scroll ul li,#scroll2 ul li,#scroll3 ul li,#scroll4 ul li{width:50%; max-height:260px;margin:0px; padding:0px; display:none;}
-.subl{position:absolute; text-align:left;font-size:30px;font-weight:bold; cursor:pointer;margin-top: 110px;margin-left: 5px;}
+.subl{
+    position:absolute;
+    text-align:left;font-size:30px;font-weight:bold; cursor:pointer;
+    height: 260px;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 0px;
+}
 .subr{
     position:absolute;
     text-align:right;font-size:30px;font-weight:bold;cursor:pointer;
-    margin-top: 110px;
-    margin-left: 380px;
+    height: 260px;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+.subl i,.subr i{
+    color:transparent;
 }
 #scroll ul li img,#scroll2 ul li img,#scroll3 ul li img,#scroll4 ul li img{
     margin-top: 20px;
@@ -380,14 +392,20 @@ footer{
 }
 .subl:hover{
     font-size: 40px;
-    background-color: rgba(0,0,0,0.2);
-    margin-top: 105px;
+    background: -moz-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
+    background: -webkit-linear-gradient(left,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.01) 100%);
+    background: -o-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
+    background: -ms-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
+    background: linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
     color: #000;
 }
 .subr:hover{
     font-size: 40px;
-    background-color: rgba(0,0,0,0.2);
-    margin-top: 105px;
+    background: -moz-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
+    background: -webkit-linear-gradient(right,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.01) 100%);
+    background: -o-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
+    background: -ms-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
+    background: linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
     color: #000;
 }
 .operate{
@@ -538,7 +556,7 @@ button, .button {
 }
 .middle_info{
     float: left;
-    width: 15%;
+    width: 25%;
     margin-left: 20px;
 }
 

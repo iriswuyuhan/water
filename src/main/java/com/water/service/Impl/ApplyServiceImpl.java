@@ -21,15 +21,16 @@ public class ApplyServiceImpl implements ApplyService {
     //这个方法用来测试增加数据
     public void addApply() {
         Apply apply = new Apply();
-        apply.setIdApply(Long.valueOf(1661166116));
+        apply.setIdApply(Long.valueOf(66666666));
         apply.setAddress("南京市栖霞区2333");
         apply.setImage("http:dsfadijj色调上i55523");
         apply.setLatitude(30.00);
         apply.setLongitude(105.22);
         apply.setApplyDate(new Date(System.currentTimeMillis()));
-        apply.setName("Tati");
+        apply.setName("Sam");
+        apply.setWaterAddress("黄河");
         apply.setNumber("77777777777");
-        apply.setState(0);
+        apply.setState(1);
         applyDao.save(apply);
     }
 

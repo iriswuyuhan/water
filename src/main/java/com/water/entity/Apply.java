@@ -19,7 +19,6 @@ public class Apply {
     private String name;
     private String waterAddress;
     private String idUser;
-    private Sample sampleByIdApply;
 
     @Id
     @Column(name = "idApply", nullable = false)
@@ -169,12 +168,4 @@ public class Apply {
         return result;
     }
 
-    @OneToOne(mappedBy = "applyByIdSample")
-    public Sample getSampleByIdApply() {
-        return sampleByIdApply;
-    }
-
-    public void setSampleByIdApply(Sample sampleByIdApply) {
-        this.sampleByIdApply = sampleByIdApply;
-    }
 }
