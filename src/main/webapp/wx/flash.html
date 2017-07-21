@@ -6,25 +6,76 @@
     <title>视频教程</title>
     <!-- WeUI -->
     <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
-    <link rel="stylesheet" href="../resources/css/flash.css"/>
-</head>
-<body>
-<video id="video" width="320" height="240" controls="controls">
-    <source src="" type="video/mp4" />
-</video><br><br>
+    <!--<link rel="stylesheet" href="../resources/css/flash.css"/>-->
+    <script>
+        var urls=["https://v.qq.com/iframe/player.html?vid=z00248rlt2g&tiny=0&auto=0"];
+        var counter=0;
 
-<div class="box">
-    <div class="Step">
-        <h1>①步骤一</h1>
-        <p></p>
-    </div><br>
-    <div class="Step">
-        <h1>②步骤二</h1>
-        <p></p>
-    </div><br>
-    <div class="Step">
-        <h1>③步骤三</h1>
-        <p></p>
+        var pre=document.createElement("a");
+        pre.setAttribute("class","weui-btn weui-btn_plain-primary");
+        pre.innerHTML="上一步";
+
+        var next=document.createElement("a");
+        next.setAttribute("class","weui-btn weui-btn_plain-primary");
+        next.innerHTML="下一步";
+
+        function load(){
+            var preDom=document.getElementById("previous");
+            var nextDom=document.getElementById("next");
+
+            if(counter==0){
+                nextDom.appendChild(next);
+            }
+            else if(counter==urls.length){
+                preDom.appendChild(pre);
+            }
+            else{
+                preDom.appendChild(pre);
+                nextDom.appendChild(next);
+            }
+
+        }
+
+        function previous(){
+
+        }
+
+        function next(){
+
+        }
+    </script>
+</head>
+<body onload="load()">
+<div align="center" >
+    <iframe src="https://v.qq.com/iframe/player.html?vid=z00248rlt2g&tiny=0&auto=0" id="iframePage" width="100%" frameborder=0 scrolling=no height="350">
+    </iframe>
+<br>
+<br>
+</div>
+<div class="weui-flex">
+    <!--<div class="Step">-->
+        <!--<h1>①步骤一</h1>-->
+        <!--<p></p>-->
+    <!--</div><br>-->
+    <!--<div class="Step">-->
+        <!--<h1>②步骤二</h1>-->
+        <!--<p></p>-->
+    <!--</div><br>-->
+    <!--<div class="Step">-->
+        <!--<h1>③步骤三</h1>-->
+        <!--<p></p>-->
+    <!--</div>-->
+    <div class="weui-flex__item">
+    </div>
+    <div class="weui-flex__item" id="previous">
+        <!--<a class="weui-btn weui-btn_plain-primary" href="javascript:;">按钮</a>-->
+    </div>
+    <div class="weui-flex__item">
+    </div>
+    <div class="weui-flex__item" id="next">
+        <!--<a class="weui-btn weui-btn_plain-primary" href="javascript:;">按钮</a>-->
+    </div>
+    <div class="weui-flex__item">
     </div>
 </div>
 </body>
