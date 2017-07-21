@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     public void addUser1(){
 
         User user = new User();
-        user.setIdUser(Long.valueOf(1111111111));
+        user.setIdUser(String.valueOf(1111111111));
         user.setName("李四");
         user.setPassword("sdfjafdsafas");
         user.setAddress("NJU");
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
     }
 
-    public void addUser(Long userId, String username, String password, String address, Integer isResearcher) {
+    public void addUser(String userId, String username, String password, String address, Integer isResearcher) {
         User user = new User();
         user.setIdUser(userId);
         user.setName(username);
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
     }
 
-    public User getById(Long id) {
+    public User getById(String id) {
         return userDao.get(id);
     }
 

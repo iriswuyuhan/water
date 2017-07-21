@@ -23,11 +23,11 @@ public class UserDaoImpl implements UserDao{
         return this.sessionFactory.openSession();
     }
 
-    public User load(Long id) {
+    public User load(String id) {
         return (User) getCurrentSession().load(User.class,id);
     }
 
-    public User get(Long id) {
+    public User get(String id) {
         return (User)getCurrentSession().get(User.class,id);
     }
 
@@ -59,7 +59,7 @@ public class UserDaoImpl implements UserDao{
         return false;
     }
 
-    public boolean delete(Long id) {
+    public boolean delete(String id) {
         User person = load(id);
         getCurrentSession().delete(person);
         return true;

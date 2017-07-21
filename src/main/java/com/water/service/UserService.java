@@ -17,7 +17,7 @@ public interface UserService {
      * @param isResearcher  是否为管理员
      * @return 记录id
      */
-    public void addUser(Long userId, String username, String password, String address, Integer isResearcher);//用于测试
+    public void addUser(String userId, String username, String password, String address, Integer isResearcher);//用于测试
 
     /**
      * 根据用户编号查询用户
@@ -25,7 +25,7 @@ public interface UserService {
      * @param id 用户记录id
      * @return 用户对象，查询不到则返回null
      */
-    public User getById(Long id);
+    public User getById(String id);
 
 
     public boolean updateUser(User user);
