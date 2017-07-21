@@ -7,18 +7,25 @@
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=RWc8drj7zTVzdlRajxxdfPLEScuRmb16"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../resources/js/split.js"></script>
+    <!--<script type="text/javascript" src="split.js"></script>-->
     <script>
         var geolocation = new BMap.Geolocation();
         var longtitude;
         var latitude;
         var curLoc;
         var point;
-        var url;
 
         //获取经纬度，进行逆解析
         function startLoc() {
-            //alert("success");
             url=document.referrer.split("?")[0];
+
+            var curUrl=split(document.location.href);
+            var add=curUrl[0];
+            var curAdd=document.getElementById("curRec");
+            curAdd.innerHTML=add;
+
             geolocation.getCurrentPosition(function (r) {
 
                 if (this.getStatus() == BMAP_STATUS_SUCCESS) {
@@ -52,10 +59,9 @@
                                             div1.setAttribute("class", "weui-cell__bd");
 
                                             var p = document.createElement("p");
-                                            var a=document.createElement("a");
-                                            a.innerHTML = results[j].getPoi(i).title + "," + results[j].getPoi(i).address;
-                                            a.setAttribute("href",url+"?add="+results[j].getPoi(i).title + "," + results[j].getPoi(i).address);
-                                            p.appendChild(a);
+                                            p.innerHTML = results[j].getPoi(i).title + "," + results[j].getPoi(i).address;
+                                            p.setAttribute("onclick","javascript:set("+"\""+results[j].getPoi(i).title + ","
+                                                + results[j].getPoi(i).address+"\");");
                                             div1.appendChild(p);
                                             para.appendChild(div1);
 
@@ -120,10 +126,16 @@
 //            G("searchResult").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
         });
 
+        function set(add){
+            $.cookie('ret1','1');
+            $.cookie('add',add);
+            window.history.go(-1);
+        }
+
         function submitLoc(id){
             var dom=document.getElementById(id);
             var add=dom.innerHTML;
-            window.open(url+"?add="+add);
+            set(add);
         }
 
     </script>

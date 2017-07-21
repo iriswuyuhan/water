@@ -11,16 +11,32 @@
         <!--var url=document.referrer.split("?");-->
         <!--window.open(url[0]);-->
     <!--</script>-->
+    <script type="text/javascript" src="../resources/js/split.js"></script>
+    <!--<script type="text/javascript" src="split.js"></script>-->
     <script>
         function resetInfo(){
             var name=document.getElementById("name").innerHTML;
             var contact=document.getElementById("contact").innerHTML;
             var add=document.getElementById("add").innerHTML;
-            window.open("confirmReciptInfo.html?name="+name+"&contact="+contact+"&add="+add);
+//            window.close();
+            window.location.href="confirmReciptInfo.html?name="+name+"&contact="+contact+"&add="+add;
+        }
+        function load(){
+            var url = window.location.href;
+            var param = split(url);
+            if (param != null&&param.length==3) {
+                var name = document.getElementById("name");
+                var contact = document.getElementById("contact");
+                var add = document.getElementById("add");
+
+                name.innerHTML=param[0];
+                contact.innerHTML=param[1];
+                add.innerHTML=param[2];
+            }
         }
     </script>
 </head>
-<body>
+<body onload=load()>
 <div class="weui_cells weui_cells_access">
 
     <a class="weui_cell" href="#">
@@ -42,8 +58,10 @@
             <span>收货人：</span>
             <span id="name">yyy</span>
             <span id="contact">123456789</span>
-            <span>收货地址：</span>
-            <p id="add">江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</p>
+            <p>
+                <span>收货地址：</span>
+                <span id="add">江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</span>
+            </p>
             <!--<a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>-->
         </div>
         <div class="weui_cell_ft">

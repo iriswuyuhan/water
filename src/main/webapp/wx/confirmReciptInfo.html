@@ -7,20 +7,38 @@
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script type="text/javascript" src="../resources/js/split.js"></script>
+    <!--<script type="text/javascript" src="split.js"></script>-->
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
     <script>
         function load() {
             var url = window.location.href;
+            var pre=document.referrer.split("?")[0];
             var param = split(url);
-            if (param != null) {
+            if (param != null&&param.length==3) {
                 var name = document.getElementById("idname");
                 var contact = document.getElementById("phone");
                 var add = document.getElementById("address");
 
-                name.setAttribute("placeholder", param[0]);
-                contact.setAttribute("placeholder", param[1]);
-                add.setAttribute("placeholder", param[2]);
+                name.value=param[0];
+                contact.value=param[1];
+                var useCook=$.cookie('ret1');
+                if(useCook=='1'){
+                    add.innerHTML=$.cookie('add');
+                    $.cookie('ret1',null);
+                }
+                else {
+                    add.innerHTML = param[2];
+                }
             }
         }
+
+        function reLoc(){
+            var url="locate.html?add=";
+            var curAdd=document.getElementById("address").innerHTML;
+            window.location.href=url+curAdd;
+        }
+
     </script>
 </head>
 <body onload=load()>
@@ -51,11 +69,11 @@
         <div class="weui-cell__hd">
             <label class="weui-label">收货地址</label>
         </div>
-        <div class="weui-cell__bd">
-            <input id="address" class="weui-input" type="tel" placeholder="请输入收货地址" href=""/>
+        <div class="weui-cell__bd" onclick=reLoc()>
+            <label id="address" class="weui-input" type="tel">请输入收货地址</label>
         </div>
-        <div class="weui-cell__ft">
-            <a id="otheraddress" href="javascript:;" class="weui-vcode-btn">></a>
+        <div class="weui-cell__ft" onclick=reLoc()>
+            <a id="otheraddress" class="weui-vcode-btn"></a>
         </div>
         <hr>
     </div>
@@ -64,10 +82,9 @@
         <br>
         <a href="" id ="butt" class="weui-btn weui-btn_plain-primary">确定</a>
     </div>
-
     </div>
 </form>
-<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-<script src="../resources/js/ConfirmReciptInfo.js"></script>
+<script src="../resources/js/confirmReciptInfo.js"></script>
+<!--<script src="confirmReciptInfo.js"></script>-->
 </body>
 </html>
