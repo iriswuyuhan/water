@@ -22,21 +22,23 @@ public class UploadController {
 
     SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd HH:mm" );
 
-    @RequestMapping("/j{sampleID}")
-    public ModelAndView uploadSampling(@PathVariable String sampleID){
+    @RequestMapping("/j{applyID}")
+    public ModelAndView uploadSamplePage(@PathVariable String applyID){
         ModelAndView modelAndView=new ModelAndView("../wx/upload_sampling_info");
+        //设置当前时间
         Date date=new Date();
         String timeStr=sdf.format(date);
         String[] split_time=timeStr.split(" ");
         String curTime=split_time[0]+"T"+split_time[1];
-        modelAndView.addObject("sampleID",sampleID);
+
+        modelAndView.addObject("applyID",applyID);
         modelAndView.addObject("curTime",curTime);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/j{sampleID}/confirm", method = RequestMethod.GET)
+    @RequestMapping(value = "/j{applyID}/confirm", method = RequestMethod.GET)
     @ResponseBody
-    public Boolean addUpload(@PathVariable String sampleID,HttpServletRequest request){
+    public Boolean addUpload(@PathVariable String applyID,HttpServletRequest request){
         String sample_time=request.getParameter("sample_time");
         String[] split_date=sample_time.split("T");
         sample_time=split_date[0]+" "+split_date[1];

@@ -1,6 +1,7 @@
 /**
  * Created by lenovo on 2017/7/20.
  */
+//跳到定位地址页面
 function jump_to_receive_addr(){
     $("#receive_addr").text("江苏省南京市栖霞区仙林大道163号");
 }

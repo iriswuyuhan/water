@@ -9,6 +9,7 @@
     <script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 </head>
 <body>
+<input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="loaded_checked" value=false/>
 <input type="hidden" id="loaded_sampling" value=false/>
 <div class="weui-tab">

@@ -20,7 +20,7 @@
     <link href="../resources/PhotoSwipe-master/photoswipe.css" type="text/css" rel="stylesheet" />
 </head>
 <body style="background-color: white">
-<input type="hidden" id="sampleID" value="${sampleID}"/>
+<input type="hidden" id="sampleID" value="${applyID}"/>
 <div class="uploaded-imgs">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">
