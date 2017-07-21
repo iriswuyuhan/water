@@ -25,7 +25,6 @@ public class UploadServiceImpl implements UploadService {
     public void addUpload() {
         Sample sample = new Sample();
         sample.setIdSample(Long.valueOf(1564655));
-        sample.setImage("tty");
         sample.setRemark("666");
         sample.setApply(applyDao.get(Long.valueOf(66666666)));
         sample.setVolume(88.5);
@@ -37,7 +36,7 @@ public class UploadServiceImpl implements UploadService {
         sampleEntity.setIdSample(idSample);
         sampleEntity.setSampleDate(sampleDate);
         sampleEntity.setVolume(volume);
-        sampleEntity.setImage(image);
+//        sampleEntity.setImage(image);
         sampleEntity.setRemark(remark);
         uploadDao.save(sampleEntity);
     }

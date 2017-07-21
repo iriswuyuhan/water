@@ -1,13 +1,8 @@
 package com.water.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
-/**
- * Created by 朱晨乾 on 2017/7/21.
- */
 @Entity
 public class User {
     private String idUser;
@@ -16,6 +11,7 @@ public class User {
     private String address;
     private String number;
     private Integer isResearcher;
+    private Collection<Apply> appliesByIdUser;
 
     @Id
     @Column(name = "idUser", nullable = false, length = 255)
@@ -104,4 +100,13 @@ public class User {
         result = 31 * result + (isResearcher != null ? isResearcher.hashCode() : 0);
         return result;
     }
+
+//    @OneToMany(mappedBy = "userByIdUser")
+//    public Collection<Apply> getAppliesByIdUser() {
+//        return appliesByIdUser;
+//    }
+//
+//    public void setAppliesByIdUser(Collection<Apply> appliesByIdUser) {
+//        this.appliesByIdUser = appliesByIdUser;
+//    }
 }
