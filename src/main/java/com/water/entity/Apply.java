@@ -3,9 +3,6 @@ package com.water.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by 朱晨乾 on 2017/7/21.
- */
 @Entity
 public class Apply {
     private long idApply;
@@ -19,6 +16,7 @@ public class Apply {
     private String name;
     private String waterAddress;
     private String idUser;
+    private User userByIdUser;
     private Sample sampleByIdApply;
 
     @Id
@@ -168,6 +166,16 @@ public class Apply {
         result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
         return result;
     }
+
+//    @ManyToOne
+//    @JoinColumn(name = "idUser", referencedColumnName = "idUser")
+//    public User getUserByIdUser() {
+//        return userByIdUser;
+//    }
+//
+//    public void setUserByIdUser(User userByIdUser) {
+//        this.userByIdUser = userByIdUser;
+//    }
 
     @OneToOne(mappedBy = "applyByIdSample")
     public Sample getSampleByIdApply() {

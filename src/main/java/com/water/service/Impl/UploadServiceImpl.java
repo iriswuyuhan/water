@@ -21,9 +21,9 @@ public class UploadServiceImpl implements UploadService {
     public void addUpload() {
         Sample sample = new Sample();
         sample.setIdSample(Long.valueOf(1564654));
-        sample.setImage("dsfasdfasg");
-        sample.setLatitude(5.65446);
-        sample.setLongitude(8.546);
+//        sample.setImage("dsfasdfasg");
+//        sample.setLatitude(5.65446);
+//        sample.setLongitude(8.546);
         sample.setRemark("23333");
         sample.setVolume(2.454);
         uploadDao.save(sample);
@@ -32,11 +32,11 @@ public class UploadServiceImpl implements UploadService {
     public void addUpload(Long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
         Sample sampleEntity = new Sample();
         sampleEntity.setIdSample(idSample);
-        sampleEntity.setLongitude(longitude);
-        sampleEntity.setLatitude(latitude);
+//        sampleEntity.setLongitude(longitude);
+//        sampleEntity.setLatitude(latitude);
         sampleEntity.setSampleDate(sampleDate);
         sampleEntity.setVolume(volume);
-        sampleEntity.setImage(image);
+//        sampleEntity.setImage(image);
         sampleEntity.setRemark(remark);
         uploadDao.save(sampleEntity);
     }

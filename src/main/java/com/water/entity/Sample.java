@@ -3,17 +3,11 @@ package com.water.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by 朱晨乾 on 2017/7/21.
- */
 @Entity
 public class Sample {
     private long idSample;
-    private Double longitude;
-    private Double latitude;
     private Date sampleDate;
     private Double volume;
-    private String image;
     private String remark;
     private String idUser;
     private Apply applyByIdSample;
@@ -26,26 +20,6 @@ public class Sample {
 
     public void setIdSample(long idSample) {
         this.idSample = idSample;
-    }
-
-    @Basic
-    @Column(name = "longitude", nullable = true, precision = 0)
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    @Basic
-    @Column(name = "latitude", nullable = true, precision = 0)
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
     }
 
     @Basic
@@ -66,16 +40,6 @@ public class Sample {
 
     public void setVolume(Double volume) {
         this.volume = volume;
-    }
-
-    @Basic
-    @Column(name = "image", nullable = true, length = 255)
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     @Basic
@@ -106,11 +70,8 @@ public class Sample {
         Sample sample = (Sample) o;
 
         if (idSample != sample.idSample) return false;
-        if (longitude != null ? !longitude.equals(sample.longitude) : sample.longitude != null) return false;
-        if (latitude != null ? !latitude.equals(sample.latitude) : sample.latitude != null) return false;
         if (sampleDate != null ? !sampleDate.equals(sample.sampleDate) : sample.sampleDate != null) return false;
         if (volume != null ? !volume.equals(sample.volume) : sample.volume != null) return false;
-        if (image != null ? !image.equals(sample.image) : sample.image != null) return false;
         if (remark != null ? !remark.equals(sample.remark) : sample.remark != null) return false;
         if (idUser != null ? !idUser.equals(sample.idUser) : sample.idUser != null) return false;
 
@@ -120,11 +81,8 @@ public class Sample {
     @Override
     public int hashCode() {
         int result = (int) (idSample ^ (idSample >>> 32));
-        result = 31 * result + (longitude != null ? longitude.hashCode() : 0);
-        result = 31 * result + (latitude != null ? latitude.hashCode() : 0);
         result = 31 * result + (sampleDate != null ? sampleDate.hashCode() : 0);
         result = 31 * result + (volume != null ? volume.hashCode() : 0);
-        result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (remark != null ? remark.hashCode() : 0);
         result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
         return result;
