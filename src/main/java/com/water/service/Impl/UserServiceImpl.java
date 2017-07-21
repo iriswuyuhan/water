@@ -39,4 +39,10 @@ public class UserServiceImpl implements UserService {
     public User getById(Long id) {
         return userDao.get(id);
     }
+
+    public boolean updateUser(User user) {
+
+        return userDao.saveOrUpdate(user);
+
+    }
 }

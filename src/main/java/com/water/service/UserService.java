@@ -26,4 +26,7 @@ public interface UserService {
      * @return 用户对象，查询不到则返回null
      */
     public User getById(Long id);
+
+
+    public boolean updateUser(User user);
 }
