@@ -8,20 +8,16 @@ document.getElementsByName("chooseRiver").onclick = function () {
         }
 
     })
-    window.location.href = "./confirm_address.jsp";
+    window.location.href = "../wx/confirm_address.jsp";
 }
 document.getElementsByName("chooseAddress").onclick = function () {
-    window.location.href = "./locate.jsp";
+    window.location.href = "../wx/locate.html";
 }
-
-$("#applyUpload").bind("click",submit());
 
 j = 1;
 $(document).ready(function () {
     $("#btn_add").click(function () {
         document.getElementById("newUpload").innerHTML += '<div id="div_' + j + '"><input  name="file_' + j + '" type="file"  /><input type="button" value="删除"  onclick="del(' + j + ')"/></div>';
-        alert(document.getElementsByName("file_j").type());
-        alert(document.getElementsByName("file_j").toString());
         j = j + 1;
     });
 });
@@ -42,13 +38,14 @@ function getApply(longitude,latitude,number,address,applyDate,state,image,name,w
     this.idUser = idUser;
 }
 
-function submit(){
+$("#applyUpload").click(function submit(){
     var url = "./getApplyInfo";
     var number = document.getElementsByName("contact").toString();
     var address = document.getElementsByName("address").toString();
     var myDate = new Date();
     var applyDate = myDate.toLocaleDateString();    //获取当前日期
-    var num = '${num}';
+    var num = j;
+    alert(j);
     var imgUrl = "";
     for (var i=0;i<num;i++){
         var key = "file_"+i;
@@ -66,5 +63,5 @@ function submit(){
             alert("提交成功");
         }
     })
-}
+})
 

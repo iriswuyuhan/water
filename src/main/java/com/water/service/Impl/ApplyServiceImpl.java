@@ -87,7 +87,7 @@ public class ApplyServiceImpl implements ApplyService {
             }
 
         }
-        else {
+        else if(state=="已审核"){
             for (Apply temp:userlist
                     ) {
                 if(temp.getState()==1||temp.getState()==2){

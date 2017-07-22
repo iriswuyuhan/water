@@ -44,7 +44,7 @@ String path = request.getContextPath();
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_bd">
-                    <form class="weui_uploader_files" action="<%=path%>/uploadImage" enctype="multipart/form-data" method="post">
+                    <form class="weui_uploader_files" action="/filesUpload" enctype="multipart/form-data" method="post">
                         <div id="newUpload">
                             <input type="file" name="file_0">
                         </div>
