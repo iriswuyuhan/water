@@ -11,7 +11,7 @@ public class User {
     private String address;
     private String number;
     private Integer isResearcher;
-    private Collection<Apply> appliesByIdUser;
+/*    private Collection<Apply> appliesByIdUser;*/
 
     @Id
     @Column(name = "idUser", nullable = false, length = 255)

@@ -7,6 +7,9 @@ import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -55,7 +58,7 @@ public class UploadServiceImpl implements UploadService {
        List<Sample> list=uploadDao.findAll();
         for (Sample temp:list
              ) {
-            if(temp.getApply().getIdUser()==userid){
+            if(temp.getApply().getUser().getIdUser()==userid){
                 resultlist.add(temp);
             }
         }
@@ -71,5 +74,42 @@ public class UploadServiceImpl implements UploadService {
 
         }
         return list;
+    }
+
+    public void addTxt(Sample sample) {
+        try {
+            FileOutputStream file1 = new FileOutputStream("F:\\拙劣工程师\\water\\src\\main\\webapp\\resources\\txt\\new.txt");
+            String id="样本编号： "+sample.getIdSample()+"\r\n";
+            String name = "申请人姓名： "+sample.getApply().getName()+"\r\n";
+            String applyid="申请编号：  "+sample.getApply().getIdApply()+"\r\n";
+            String applytime ="申请时间： "+sample.getApply().getApplyDate()+"\r\n";
+            String sampletime ="采样时间： "+sample.getSampleDate()+"\r\n";
+            String remark = "备注： "+sample.getRemark()+"\r\n";
+            String  volume = "体积： "+sample.getVolume()+"\r\n";
+            String phone ="联系方式： "+sample.getApply().getNumber()+"\r\n";
+            String address ="水域地址： "+sample.getApply().getWaterAddress()+"\r\n";
+            String lon = "经度： "+sample.getApply().getLongitude()+"\r\n";
+            String lan = "纬度： "+sample.getApply().getLatitude()+"\r\n";
+            file1.write(id.getBytes());
+            file1.write(name.getBytes());
+            file1.write(applyid.getBytes());
+            file1.write(phone.getBytes());
+            file1.write(applytime.getBytes());
+            file1.write(sampletime.getBytes());
+            file1.write(volume.getBytes());
+            file1.write(address.getBytes());
+            file1.write(lon.getBytes());
+            file1.write(lan.getBytes());
+            file1.write(remark.getBytes());
+            file1.flush();
+            file1.close();
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

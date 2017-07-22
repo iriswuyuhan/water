@@ -56,7 +56,19 @@ public class UserDaoImpl implements UserDao{
     }
 
     public boolean saveOrUpdate(User entity) {
-        return false;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try{
+            session.saveOrUpdate(entity);
+            tx.commit();
+            flag = true;
+        }catch(Exception ex){
+            tx.rollback();
+        }finally{
+            session.close();
+        }
+        return flag;
     }
 
     public boolean delete(String id) {
@@ -67,6 +79,5 @@ public class UserDaoImpl implements UserDao{
 
     public void flush() {
         getCurrentSession().flush();
-
     }
 }

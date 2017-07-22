@@ -53,6 +53,7 @@ $(function () {
 
 })
 function  setSampleInfo(temp) {
+    $("#downlo").prop("href", "#");
     $("#sample").html(temp.idSample);
     $(".sample_time").html(timeFormatter1(temp.sampleDate));
     $("#content4").find("span[name='name']").each(function (index) {
@@ -74,6 +75,7 @@ function  setSampleInfo(temp) {
             $(this).html(temp.longitude);
         if(index==8)
             $(this).html(temp.latitude);
+
     });
 }
 function  sampleClick(type) {

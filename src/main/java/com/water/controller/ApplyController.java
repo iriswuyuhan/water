@@ -4,6 +4,7 @@ import com.water.entity.Apply;
 import com.water.entity.Sample;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
+import com.water.service.Impl.test;
 import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.io.IOException;
 
@@ -27,6 +31,7 @@ public class ApplyController {
     private ApplyService applyService;
     @Autowired
     private UploadService uploadService;
+
     /**
      * @param request
      * @param response
@@ -94,6 +99,7 @@ public class ApplyController {
         String id = request.getParameter("id");
         Long id1 = Long.valueOf(id);
         Sample sample  = uploadService.searchSample(id1);
+        uploadService.addTxt(sample);
         JSONObject object = JSONObject.fromObject(sample);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());

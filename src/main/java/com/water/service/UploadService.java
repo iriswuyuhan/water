@@ -21,4 +21,6 @@ public interface UploadService {
     public ArrayList<Sample> alreadySample(String userid);
 
     public ArrayList<Sample> findAll();
+
+    public void addTxt(Sample sample);
 }

@@ -15,7 +15,7 @@ public class Apply {
     private String image;
     private String name;
     private String waterAddress;
-    private String idUser;
+    private User user;
 
     @Id
     @Column(name = "idApply", nullable = false)
@@ -117,15 +117,16 @@ public class Apply {
         this.waterAddress = waterAddress;
     }
 
-    @Basic
-    @Column(name = "idUser", nullable = true, length = 255)
-    public String getIdUser() {
-        return idUser;
+    @ManyToOne
+    @JoinColumn(name="userID")
+    public User getUser() {
+        return user;
     }
 
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
+    public void setUser(User user) {
+        this.user = user;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -144,7 +145,6 @@ public class Apply {
         if (image != null ? !image.equals(apply.image) : apply.image != null) return false;
         if (name != null ? !name.equals(apply.name) : apply.name != null) return false;
         if (waterAddress != null ? !waterAddress.equals(apply.waterAddress) : apply.waterAddress != null) return false;
-        if (idUser != null ? !idUser.equals(apply.idUser) : apply.idUser != null) return false;
 
         return true;
     }
@@ -161,7 +161,6 @@ public class Apply {
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (waterAddress != null ? waterAddress.hashCode() : 0);
-        result = 31 * result + (idUser != null ? idUser.hashCode() : 0);
         return result;
     }
 

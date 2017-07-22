@@ -1,7 +1,9 @@
 package com.water.controller;
 
 
+import com.water.entity.Sample;
 import com.water.service.ApplyService;
+import com.water.service.Impl.test;
 import com.water.service.UploadService;
 import com.water.service.UserService;
 import java.io.IOException;
@@ -80,7 +82,7 @@ public class MainController {
     @RequestMapping(value = "deleteApply", method = RequestMethod.GET)
     @ResponseBody
     public String deleteApply(){
-        System.out.println(applyService.deleteApply(Long.valueOf(3333333)));
+        System.out.println(applyService.deleteApply(Long.valueOf(55555555)));
         return "success!";
     }
     /*------------------------------------------------End--------------------------------------------------------*/
@@ -99,6 +101,15 @@ public class MainController {
     @ResponseBody
     public String searchSample(){
         System.out.println(uploadService.searchSample(Long.valueOf(1564654)).getApply().getName());
+        return "success!";
+    }
+
+    @RequestMapping(value = "testTxt", method = RequestMethod.GET)
+    @ResponseBody
+    public String testTxt(){
+        Sample sample = uploadService.searchSample(Long.valueOf(1564654));
+        test t = new test();
+        t.addtxt(sample);
         return "success!";
     }
 

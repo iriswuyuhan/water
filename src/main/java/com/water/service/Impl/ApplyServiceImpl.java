@@ -1,6 +1,7 @@
 package com.water.service.Impl;
 
 import com.water.dao.ApplyDao;
+import com.water.dao.UserDao;
 import com.water.entity.Apply;
 import com.water.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +19,23 @@ public class ApplyServiceImpl implements ApplyService {
     @Autowired
     private ApplyDao applyDao;
 
+    @Autowired
+    private UserDao userDao;
+
     //这个方法用来测试增加数据
     public void addApply() {
         Apply apply = new Apply();
-        apply.setIdApply(Long.valueOf(66666666));
-        apply.setAddress("南京市栖霞区2333");
-        apply.setImage("http:dsfadijj色调上i55523");
-        apply.setLatitude(30.00);
-        apply.setLongitude(105.22);
+        apply.setIdApply(Long.valueOf(55555555));
+        apply.setAddress("南京市鼓楼区");
+        apply.setImage("resources/img/");
+        apply.setLatitude(28.55);
+        apply.setLongitude(120.75);
         apply.setApplyDate(new Date(System.currentTimeMillis()));
-        apply.setName("Sam");
-        apply.setWaterAddress("黄河");
-        apply.setNumber("77777777777");
-        apply.setState(1);
+        apply.setName("Tati");
+        apply.setWaterAddress("渤海");
+        apply.setNumber("33333333333");
+        apply.setUser(userDao.get("FluteRRR"));
+        apply.setState(0);
         applyDao.save(apply);
     }
 
@@ -56,7 +61,7 @@ public class ApplyServiceImpl implements ApplyService {
         List<Apply> list1 = applyDao.findAll();
         ArrayList<Apply> list2 = new ArrayList<Apply>();
         for(Apply temp : list1){
-            if(temp.getIdUser() == idUser){
+            if(temp.getUser().getIdUser() == idUser){
                 list2.add(temp);
             }
         }
@@ -69,7 +74,7 @@ public class ApplyServiceImpl implements ApplyService {
         ArrayList<Apply> resultlist=new ArrayList<Apply>();
         for (Apply temp:list
              ) {
-            if(temp.getIdUser()==userid){
+            if(temp.getUser().getIdUser()==userid){
                 userlist.add(temp);
             }
         }
@@ -123,7 +128,7 @@ public class ApplyServiceImpl implements ApplyService {
         apply.setImage(image);
         apply.setName(name);
         apply.setWaterAddress(waterAddress);
-        apply.setIdUser(idUser);
+        apply.getUser().setIdUser(idUser);
         applyDao.save(apply);
 
     }
