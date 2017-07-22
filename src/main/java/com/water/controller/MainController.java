@@ -104,14 +104,14 @@ public class MainController {
         return "success!";
     }
 
-    @RequestMapping(value = "testTxt", method = RequestMethod.GET)
+/*    @RequestMapping(value = "testTxt", method = RequestMethod.GET)
     @ResponseBody
     public String testTxt(){
         Sample sample = uploadService.searchSample(Long.valueOf(1564654));
         test t = new test();
         t.addtxt(sample);
         return "success!";
-    }
+    }*/
 
 /*    @RequestMapping(value = "saveUser2")
     @ResponseBody
