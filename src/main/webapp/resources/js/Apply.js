@@ -39,7 +39,7 @@ function getApply(longitude,latitude,number,address,applyDate,state,image,name,w
 }
 
 $("#applyUpload").click(function submit(){
-    var url = "./getApplyInfo";
+    var url = "./getApply";
     var number = document.getElementsByName("contact").toString();
     var address = document.getElementsByName("address").toString();
     var myDate = new Date();

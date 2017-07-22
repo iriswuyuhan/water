@@ -44,12 +44,11 @@ String path = request.getContextPath();
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_bd">
-                    <form class="weui_uploader_files" action="/filesUpload" enctype="multipart/form-data" method="post">
-                        <div id="newUpload">
-                            <input type="file" name="file_0">
-                        </div>
-                        <input type="button" id="btn_add" value="增加一行">
-                        <input id="applyUploadImage" type="button" value="上传">
+                    <form action="/imagesUpload" method="post" enctype="multipart/form-data">
+                        <label>选择您要上传的图片：</label>
+                        <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
+                        <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
+                        <input type="submit" value="提交">
                     </form>
                 </div>
             </div>

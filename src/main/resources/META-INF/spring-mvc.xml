@@ -21,12 +21,16 @@
     </bean>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 设置上传文件的最大尺寸为1MB(也可以不配置而在代码中限制上传的文件大小) -->
-        <property name="maxUploadSize" value="104857600"></property>
-        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="104857600"/>
+        <property name="maxInMemorySize" value="4096"/>
 
     </bean>
 
+    <mvc:default-servlet-handler />
 
+    <mvc:annotation-driven />
+    <!-- 处理器 -->
+    <!-- <bean name="/hello" class="com.mvc.jn.controller.HelloWorldController"/> -->
+    <context:component-scan base-package="com"/>
 
 </beans>
