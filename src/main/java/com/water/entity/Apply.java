@@ -118,7 +118,7 @@ public class Apply {
     }
 
     @ManyToOne
-    @JoinColumn(name="userID")
+    @JoinColumn(name="userID", nullable = false)
     public User getUser() {
         return user;
     }

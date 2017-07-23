@@ -388,7 +388,7 @@
                                 <span name="name">1</span>
                             </p>
                             <div class="download_op">
-                                <a id="downlo" download="new.txt" href=""  class="button"><i class="fa fa-download"></i>下载信息</a>
+                                <a id="downlo1" download="new.txt" href="./resources/txt/new.txt"  class="button"><i class="fa fa-download"></i>下载信息</a>
                             </div>
                         </div>
 
@@ -405,9 +405,10 @@
                         </div>
 
                     </div>
-                    <div id="nothing4" style="display: none"><h3>暂无此类申请！</h3></div>
+
                 </div>
             </div>
+            <div id="nothing4" style="display: none"><h3>暂无此类申请！</h3></div>
             <%--            <div class="left-content">
                         <div id="user-left-nav" class="left-nav">
                             <ul class="top-nav list-unstyled">
@@ -449,10 +450,6 @@
 <script type="text/javascript">
     /*轮播*/
     $(function(){
-        $("#downlo").click(function () {
-            alert(55);
-            $("#downlo").prop("href","./resources/txt/new.txt");
-        })
 
         /*               $(".a1").click(function () {
          $("#tabs li").prop("id","");
@@ -505,27 +502,9 @@
             $("#scroll4 ul li").eq(i).fadeIn().siblings().hide();
         });
     });
-    function downloadFile1(url) {
-        try{
-            var elemIF = document.createElement("iframe");
-            elemIF.src = "./resources/txt/new.txt";
-            elemIF.style.display = "none";
-            document.body.appendChild(elemIF);
-        }catch(e){
 
-        }
-    }
     /*轮播*/
-    function downloadFile(fileName, content){
-        alert(2);
-        var aLink = document.createElement('a');
-        var blob = new Blob([content]);
-        var evt = document.createEvent("HTMLEvents");
-        evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
-        aLink.prop("download","new.txt");
-        aLink.prop("href","./resources/txt/new.txt");
-        aLink.dispatchEvent(evt);
-    }
+
 </script>
 </body>
 

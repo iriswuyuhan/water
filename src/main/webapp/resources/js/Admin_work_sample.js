@@ -53,7 +53,6 @@ $(function () {
 
 })
 function  setSampleInfo(temp) {
-    $("#downlo").prop("href", "#");
     $("#sample").html(temp.idSample);
     $(".sample_time").html(timeFormatter1(temp.sampleDate));
     $("#content4").find("span[name='name']").each(function (index) {

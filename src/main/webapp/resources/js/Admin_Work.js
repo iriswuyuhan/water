@@ -197,6 +197,7 @@ $(function(){
 
         })
     })
+
 });
 function dealApply(type){
     var state;
