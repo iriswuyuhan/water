@@ -53,22 +53,22 @@ public class wechatApplyController {
         double longitude = Double.parseDouble(session.getAttribute("water_addr_lng").toString());
         double latitude = Double.parseDouble(session.getAttribute("water_addr_lat").toString());
         modelAndView.addObject("userId",userId);
-//        User user = userService.getById(userId);
-//        if(userName == null){
-//            userName = user.getName();
-//        }
-//        modelAndView.addObject("userName",userName);
-//        if(contact == null){
-//            contact = user.getNumber();
-//        }
-//        modelAndView.addObject("contact",contact);
-//        if(address == null){
-//            address = user.getAddress();
-//        }
-//        modelAndView.addObject("address",address);
-//        if(river_place == null){
-//            river_place = "";
-//        }
+        User user = userService.getById(userId);
+        if(userName == null){
+            userName = user.getName();
+        }
+        modelAndView.addObject("userName",userName);
+        if(contact == null){
+            contact = user.getNumber();
+        }
+        modelAndView.addObject("contact",contact);
+        if(address == null){
+            address = user.getAddress();
+        }
+        modelAndView.addObject("address",address);
+        if(river_place == null){
+            river_place = "";
+        }
         modelAndView.addObject("river_place",river_place);
         modelAndView.addObject("longitude",longitude);
         modelAndView.addObject("latitude",latitude);
@@ -81,13 +81,19 @@ public class wechatApplyController {
         String userName = request.getParameter("userName");
         String contact = request.getParameter("contact");
         String address = request.getParameter("address");
-        session.setAttribute("userName",userName);
-        session.setAttribute("contact",contact);
-        session.setAttribute("address",address);
+        if(userName != null && !(userName.equals(""))){
+            session.setAttribute("userName",userName);
+        }
+        if(contact != null && !(contact.equals(""))){
+            session.setAttribute("contact",contact);
+        }
+        if(address != null && !(address.equals(""))){
+            session.setAttribute("address",address);
+        }
     }
 
     @RequestMapping(value = "/imagesUpload",method = RequestMethod.POST)
-    public void upload(@RequestPart("image") MultipartFile image[], Model model, HttpServletRequest request) throws IOException {
+    public String upload(@RequestPart("image") MultipartFile image[], Model model, HttpServletRequest request) throws IOException {
         File dir=new File(request.getSession().getServletContext().getRealPath("/upload"));
         System.out.println(request.getSession().getServletContext().getRealPath("/upload"));
         if(!dir.exists()){
@@ -95,93 +101,15 @@ public class wechatApplyController {
         }
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
-            file.transferTo(new File(dir.getAbsolutePath()+"/"+file.getOriginalFilename()));
-            System.out.println(dir.getAbsolutePath()+"/"+file.getOriginalFilename());
+            if(file.getOriginalFilename() != "") {
+                System.out.println(22);
+                file.transferTo(new File(dir.getAbsolutePath() + "/" + file.getOriginalFilename()));
+                System.out.println(dir.getAbsolutePath()+"/"+file.getOriginalFilename());
+            }
+
         }
+        return "Admin_Work";
     }
-
-//    @RequestMapping("/uploadImage")
-//    public Model uploadFile(HttpServletResponse reponse, Model model) throws Exception, IOException {
-//        CommonsMultipartResolver multi = new CommonsMultipartResolver(request.getSession().getServletContext());
-//        if (multi.isMultipart(request)) {
-//            MultipartHttpServletRequest mr = (MultipartHttpServletRequest) request;
-//            Iterator it = mr.getFileNames();
-//            System.out.println(mr.getFileNames().toString());
-//            int i = 0;
-//            while (it.hasNext()) {
-//                i++;
-//                MultipartFile file = mr.getFile((String) it.next());
-//                if (file != null) {
-//                    String fileName = file.getOriginalFilename();
-//                    System.out.println(fileName);
-//                    String currentFileName = System.currentTimeMillis() + fileName.substring(fileName.lastIndexOf("."), fileName.length());
-//                    /**构建图片保存的目录**/
-//                    String logoPathDir = "../resources/upload/" + currentFileName;
-//                    /**得到图片保存目录的真实路径**/
-//                    String logoRealPathDir = request.getSession().getServletContext().getRealPath(logoPathDir);
-//                    System.out.println(logoRealPathDir);
-//                    File localFile = new File(logoRealPathDir);
-//                    //写文件到本地
-//                    file.transferTo(localFile);
-//                    model.addAttribute(fileName,logoRealPathDir);
-//                    System.out.println(fileName);
-//                }
-//            }
-//        }
-//        return model;
-//    }
-
-//    @RequestMapping("filesUpload")
-//    public String filesUpload( DefaultMultipartHttpServletRequest multipartRequest) {
-//        if (multipartRequest != null) {
-//            Iterator iterator = multipartRequest.getFileNames();
-//            while (iterator.hasNext()) {
-//                MultipartFile multifile = multipartRequest.getFile((String) iterator.next());
-//                saveFile(multifile);
-//            }
-//        }
-//        // 重定向
-//        return "redirect:/list.html";
-//    }
-//
-//    /***
-//     * 保存文件
-//     * @param file
-//     * @return
-//     */
-//    private boolean saveFile(MultipartFile file) {
-//        // 判断文件是否为空
-//        if (!file.isEmpty()) {
-//            try {
-//                // 文件保存路径
-//                String filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"
-//                        + file.getOriginalFilename();
-//                // 转存文件
-//                file.transferTo(new File(filePath));
-//                return true;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return false;
-//    }
-//
-//    /***
-//     * 读取上传文件中得所有文件并返回
-//     *
-//     * @return
-//     */
-//    @RequestMapping("list")
-//    public ModelAndView list() {
-//        String filePath = request.getSession().getServletContext().getRealPath("/") + "upload/";
-//        ModelAndView mav = new ModelAndView("list");
-//        File uploadDest = new File(filePath);
-//        String[] fileNames = uploadDest.list();
-//        for (int i = 0; i < fileNames.length; i++) {
-//            System.out.println(fileNames[i]);
-//        }
-//        return mav;
-//    }
 
     @RequestMapping("/getApply")
     public void getApplyInfo(){

@@ -1,4 +1,4 @@
-document.getElementsByName("chooseRiver").onclick = function () {
+document.getElementById("chooseRiver").onclick = function () {
     $.ajax({
         url:"/chooseRiver",
         type:'POST',
@@ -9,16 +9,18 @@ document.getElementsByName("chooseRiver").onclick = function () {
 
     })
     window.location.href = "../wx/confirm_address.jsp";
-}
-document.getElementsByName("chooseAddress").onclick = function () {
+};
+document.getElementById("chooseAddress").onclick = function () {
     window.location.href = "../wx/locate.html";
-}
+};
 
 j = 1;
 $(document).ready(function () {
     $("#btn_add").click(function () {
-        document.getElementById("newUpload").innerHTML += '<div id="div_' + j + '"><input  name="file_' + j + '" type="file"  /><input type="button" value="删除"  onclick="del(' + j + ')"/></div>';
+        alert(22);
+        document.getElementById("newUpload").innerHTML += '<div id="div_' + j + '"><input  name="image" type="file"  /><input type="button" value="删除"  onclick="del(' + j + ')"/></div>';
         j = j + 1;
+
     });
 });
 function del(o) {
@@ -39,6 +41,7 @@ function getApply(longitude,latitude,number,address,applyDate,state,image,name,w
 }
 
 $("#applyUpload").click(function submit(){
+    $("#imageForm").submit();
     var url = "./getApply";
     var number = document.getElementsByName("contact").toString();
     var address = document.getElementsByName("address").toString();

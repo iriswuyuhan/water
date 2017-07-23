@@ -11,11 +11,11 @@ String path = request.getContextPath();
     <title>申请采样设备</title>
     <!-- WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
-    <link rel="stylesheet" href="../resources/js/Apply.js"/>
+    <script type="text/javascript" src="../resources/js/Apply.js"></script>
 </head>
 <body>
 <div class="weui-cells">
-    <a class="weui-cell weui-cell_access" name="chooseRiver" href="javascript:;">
+    <a class="weui-cell weui-cell_access" id="chooseRiver" href="javascript:;">
         <div class="weui-cell_hd">
             <p>水域地址</p>
         </div>&nbsp;&nbsp;&nbsp;
@@ -25,7 +25,7 @@ String path = request.getContextPath();
         <div class="weui-cell__ft">
         </div>
     </a>
-    <a class="weui-cell weui-cell_access" name="chooseAddress" href="javascript:;">
+    <a class="weui-cell weui-cell_access" id="chooseAddress" href="javascript:;">
         <div class="weui-cell__hd"><img src="../resources/img/position.png" alt="收货地址" style="width:20px;margin-right:5px;display:block"></div>
         &nbsp;
         <div class="weui-cell__bd">
@@ -44,11 +44,12 @@ String path = request.getContextPath();
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_bd">
-                    <form action="/imagesUpload" method="post" enctype="multipart/form-data">
+                    <form id="imageForm" action="/imagesUpload" method="post" enctype="multipart/form-data">
                         <label>选择您要上传的图片：</label>
-                        <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
-                        <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
-                        <input type="submit" value="提交">
+                        <div id="newUpload">
+                            <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
+                        </div>
+                        <input type="button" id="btn_add" value="增加一行">
                     </form>
                 </div>
             </div>
