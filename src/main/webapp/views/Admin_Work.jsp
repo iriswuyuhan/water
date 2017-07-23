@@ -388,7 +388,7 @@
                                 <span name="name">1</span>
                             </p>
                             <div class="download_op">
-                                <a id="downlo1" download="new.txt" href="./resources/txt/new.txt"  class="button"><i class="fa fa-download"></i>下载信息</a>
+                                <a id="downlo1" download="" href=""  class="button"><i class="fa fa-download"></i>下载信息</a>
                             </div>
                         </div>
 
