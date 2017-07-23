@@ -9,9 +9,12 @@ import com.water.service.UserService;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -30,6 +33,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/7/20.
  */
+@Controller
 public class wechatApplyController {
 
     //通过Spring的autowired注解获取spring默认配置的request
@@ -80,6 +84,20 @@ public class wechatApplyController {
         session.setAttribute("userName",userName);
         session.setAttribute("contact",contact);
         session.setAttribute("address",address);
+    }
+
+    @RequestMapping(value = "/imagesUpload",method = RequestMethod.POST)
+    public void upload(@RequestPart("image") MultipartFile image[], Model model, HttpServletRequest request) throws IOException {
+        File dir=new File(request.getSession().getServletContext().getRealPath("/upload"));
+        System.out.println(request.getSession().getServletContext().getRealPath("/upload"));
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+        for(int i=0;i<image.length;i++){
+            MultipartFile file = image[i];
+            file.transferTo(new File(dir.getAbsolutePath()+"/"+file.getOriginalFilename()));
+            System.out.println(dir.getAbsolutePath()+"/"+file.getOriginalFilename());
+        }
     }
 
 //    @RequestMapping("/uploadImage")
@@ -165,7 +183,7 @@ public class wechatApplyController {
 //        return mav;
 //    }
 
-    @RequestMapping("/getApplyInfo")
+    @RequestMapping("/getApply")
     public void getApplyInfo(){
 //        Apply apply = request.getParameter("applyData");
         ApplyService applyService = new ApplyServiceImpl();

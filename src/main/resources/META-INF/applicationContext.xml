@@ -29,10 +29,10 @@
         <property name="jdbcUrl" value="${jdbc.url}" />     <!--数据库地址-->
         <property name="user" value="${jdbc.username}" />   <!--用户名-->
         <property name="password" value="${jdbc.password}" />   <!--密码-->
-<!--       <property name="maxPoolSize" value="400" />    &lt;!&ndash;  &lt;!&ndash;最大连接数&ndash;&gt;&ndash;&gt;
-        <property name="minPoolSize" value="1" />     &lt;!&ndash;  &lt;!&ndash;最小连接数&ndash;&gt;&ndash;&gt;
-        <property name="initialPoolSize" value="10" />     &lt;!&ndash; &lt;!&ndash;初始化连接池内的数据库连接&ndash;&gt;&ndash;&gt;
-        <property name="maxIdleTime" value="20" /> &lt;!&ndash;;最大空闲时间&ndash;&gt;-->
+        <property name="maxPoolSize" value="400" />    <!--  &lt;!&ndash;最大连接数&ndash;&gt;-->
+        <property name="minPoolSize" value="1" />     <!--  &lt;!&ndash;最小连接数&ndash;&gt;-->
+        <property name="initialPoolSize" value="10" />     <!-- &lt;!&ndash;初始化连接池内的数据库连接&ndash;&gt;-->
+        <property name="maxIdleTime" value="20" /> <!--;最大空闲时间-->
 
     </bean>
 
@@ -56,4 +56,11 @@
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104857600"/>
+        <property name="maxInMemorySize" value="4096"/>
+
+    </bean>
+
 </beans>

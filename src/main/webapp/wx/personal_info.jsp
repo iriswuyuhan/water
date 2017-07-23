@@ -14,13 +14,13 @@
     <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label" style="color: grey">姓名</label></div>
         <div class="weui-cell__bd">
-            <input id="name" class="weui-input" type="text" value="" placeholder="姓名"/>
+            <input id="name" class="weui-input" type="text" value="${name}" placeholder="姓名"/>
         </div>
     </div>
     <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label" style="color: grey">联系方式</label></div>
         <div class="weui-cell__bd">
-            <input id="phone_num" class="weui-input" type="number" pattern="[0-9]*" placeholder=""/>
+            <input id="phone_num" class="weui-input" type="number" value="${phone_num}" pattern="[0-9]*" placeholder=""/>
         </div>
     </div>
     <div class="weui-cell weui-cell_access" href="javascript:;" onclick="jump_to_receive_addr()">
@@ -28,14 +28,14 @@
             <p style="color: grey">收货地址：</p>
         </div>
         <div class="weui-cell__bd">
-            <p id="receive_addr"></p>
+            <p id="receive_addr">${address}</p>
         </div>
         <div class="weui-cell__ft">
         </div>
     </div>
 </div>
 <p style="padding-top: 15px">
-    <a id="confirm" style="width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_plain-primary">确认</a>
+    <a id="confirm" style="width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_primary">确认</a>
 </p>
 <!--toast-->
 <div id="toast" style="display: none;">
