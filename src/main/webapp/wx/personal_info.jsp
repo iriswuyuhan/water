@@ -35,7 +35,7 @@
     </div>
 </div>
 <p style="padding-top: 15px">
-    <a id="confirm" style="width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_primary">确认</a>
+    <a id="confirm" style="width: 85%;align-self: center" href="javascript:;" class="weui-btn weui-btn_disabled weui-btn_primary">确认</a>
 </p>
 <!--toast-->
 <div id="toast" style="display: none;">

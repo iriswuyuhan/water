@@ -28,6 +28,7 @@
     <link href="/resources/PhotoSwipe-master/photoswipe.css" type="text/css" rel="stylesheet"/>
 </head>
 <body style="background-color: white">
+<input type="hidden" id="userID" value="${userID}"/>
 <div class="uploaded-imgs">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">
@@ -96,11 +97,12 @@
         </p>
     </div>
     <div class="weui-form-preview__ft">
-        <a onclick="window.history.back()" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">返回</a>
+        <a onclick="window.location.href='/user/j'+userID+'/history'" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">返回</a>
     </div>
 </div>
 </body>
 <script>
+    var userID=$("#userID").val();
     //图片预览
     (function (window, PhotoSwipe) {
         document.addEventListener('DOMContentLoaded', function () {
