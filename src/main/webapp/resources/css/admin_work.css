@@ -5,8 +5,8 @@
 }
 body {
     font-family:Verdana,sans-serif;
-    font-size:15px;
-    line-height:14px;
+    font-size:100%;
+    line-height:87.5%;
     color:#555;
     /*    background-color: #D9EDF7;*/
     background: url("../img/backimg.png")
@@ -15,7 +15,7 @@ body {
     margin-bottom: 38px;
 }
 .header_top {
-    height: 60px;
+    height: 4em;
     /*background: #D9EDF7;
     background: -moz-linear-gradient(top,#1F70A8 0,#1D6498 100%);
     background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#1F70A8),color-stop(100%,#1D6498));
@@ -30,28 +30,28 @@ body {
 .content {
     height: auto !important;
     height: 100%;
-    margin: 0 auto -38px;
+    margin: 0 auto -2.375em;
     min-height: 100%;
 }
 
 .top_container {
-    width: 1460px;
-    margin-left: 30px;
-    margin-right: 30px;;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
 
 }
 .top_container h1{
     font-family: 'Lobster', cursive;
     float: left;
     display: inline;
-    padding-top: 12px;
+    padding-top: 0.5em;
 
 }
 .top_container h1 a{
     color: #D9EDF7;
 }
 h1 {
-    line-height: 24px;
+    line-height: 75%;
     color: #fff;
 }
 
@@ -64,49 +64,46 @@ header {
     float: right;
     white-space: nowrap;
     color: #fff;
-    font-size: 12px;
-    padding-top: 20px;
+    font-size: 75%;
+    padding-top: 2em;
 }
 #top-navigation a {
     color: #fff;
-    font-size: 12px;
 }
 
 .header_main {
-    width: 1460px;
-    margin-left: 30px;
-    height: 80px;
+    width: 96%;
+    margin-left: 2%;
+    height:5em;
     background: #fff;
 }
 
 ul#nav{
     width:100%;
-    height:80px;
+    height:100%;
     margin:0 auto;
 }
 ul#nav li{
     display:inline;
-    height:80px;
 }
 ul#nav li h4{
     font-weight:normal;
-    font-size: 14px;
-    margin-top:-30px;
-    margin-left: -10px;
+    font-size:0.875em;
+    margin-top:-2em;
+    margin-left: -0.8em;
 }
 ul#nav li a{
     text-decoration : none;
     display:inline-block;
-    margin-left: 30px;
-    padding:0 20px;
-    height:80px;
-    line-height:60px;
+    margin-left: 2em;
+    padding:0 1.25em;
+    height:5em;
+    line-height:3.75em;
     color:#555;
     font-family:"\5FAE\8F6F\96C5\9ED1";
-    font-size:16px;
 }
 ul#nav li:first-child a{
-    margin-left: 10px;
+    margin-left: 0.9em;
 }
 
 ul#nav li a:hover{
@@ -133,16 +130,16 @@ ul#nav li.active a i{
     color:#0095BB
 }
 .set_middle{
-    margin-left: 15px;
+    margin-left: 0.5em;
 }
 .set_right{
-    margin-left: 15px;
+    margin-left: 0.5em;
 }
 
 #tabs {
     overflow: hidden;
-    width: 1460px;
-    margin-top: 10px;
+    width: 96%;
+    margin-top: 0.5em;
     list-style: none;
 }
 #tabs li {
@@ -153,7 +150,7 @@ ul#nav li.active a i{
     margin-left: 0px;
 }
 #tabs a {
-    font-size: 14px;
+    font-size: 87.5%;
     position: relative;
     background: #ddd;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
@@ -178,11 +175,11 @@ ul#nav li.active a i{
     background: #fff;
 }
 #tabs a:focus {
-    font-size: 14px;
+    font-size: 87.5%;
     outline: 0;
 }
 #tabs a::after {
-    font-size: 14px;
+    font-size: 87.5%;
     content:'';
     position:absolute;
     z-index: 1;
@@ -210,7 +207,7 @@ ul#nav li.active a i{
     border-radius: 0 5px 0 0;
 }
 #tabs #current a, #tabs #current a::after {
-    font-size: 14px;
+    font-size: 87.5%;
     background: #fff;
     z-index: 3;
 }
@@ -219,7 +216,7 @@ ul#nav li.active a i{
 #main_content {
     background: #fff;
     padding: 2em;
-    height: 420px;
+    height: 28em;
     position: relative;
     z-index: 2;
     -moz-border-radius: 0 5px 5px 5px;
@@ -230,7 +227,6 @@ ul#nav li.active a i{
     box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
 }
 #main_content h2, #main_content h3 {
-    margin: 0 0 15px 0;
 }
 /* ------------------------------------------------- */
 
@@ -241,15 +237,15 @@ ul#nav li.active a i{
     color: #eee;
 }
 .main_wrapper{
-    width: 1460px;
-    margin-left: 30px;
+    width: 96%;
+    margin-left: 2%;
 }
 
 footer{
     text-align: center;
     /*    padding-left: 50px;*/
-    margin-top: 30px;
-    font-size: 12px;
+    margin-top: 1em;
+    font-size: 75%;
 }
 
 .table-content {
@@ -259,12 +255,12 @@ footer{
 
 .indicator-group-title {
     float: left;
-    padding: 10px 5px;
+    padding: 0.625em 0.3125em;
     overflow-y: auto;
     overflow-x: hidden;
     border: 1px dashed #dfdfdf;
     width: 15%;
-    height: 392px;
+    height: 26em;
     color: #5a5a5a;
     text-align: left;
 }
@@ -277,7 +273,7 @@ footer{
 
 .indicator-group-title li span {
     float: right;
-    margin-top: 3px;
+    margin-top: 0.1875em;
     display: none;
 }
 
@@ -297,16 +293,16 @@ footer{
 
 .indicator-group-title li{
     cursor: pointer;
-    padding: 5px 15px 5px 10px;
-    margin-bottom: 1px;
+    padding: 0.3125em 0.9375em 0.3125em 0.625em;
+    margin-bottom: 0.0625em;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 93.75%;
 }
 
 .indicator-group-content {
 
     width: 80%;
-    height: 396px;
+    height: 26.3em;
     padding: 5px 30px 10px 5px;
     border: 1px dashed #dfdfdf;
     overflow-y: auto;
@@ -315,46 +311,46 @@ footer{
 
 .left_title h1{
     color: #444;
-    margin-bottom: 5px;
+    margin-bottom: 0.15625em;
 }
 .left_title i{
     float: left;
-    font-size: 35px;
-    margin-top: -6px;
-    margin-right: 5px;
+    font-size: 2.2em;
+    margin-top: -0.075em;
+    margin-right: 0.1em;
 }
 
 .left_title a{
     float: right;
-    margin-top: -22px;
-    font-size: 18px;
+    margin-top: -1.2em;
+    font-size: 1.125em;
     color: #555;
 }
 .left_title .setpon{
     float: right;
-    margin-top: -22px;
-    font-size: 17px;
+    margin-top: -1.375em;
+    font-size: 100%;
     color: #888888;
 }
 .setpon{
-    margin-right: 190px;
+    margin-right: 11.6em;
 }
 .blue{
     color: #3FAEEC;
 }
 .left_title {
-    margin-left: 5px;
-    margin-top:4px;
+    margin-left: 0.3125em;
+    margin-top:0.25em;
     border-bottom: 2px #9D426B solid;
-    padding-bottom: 10px;
+    padding-bottom: 0.625em;
 }
 .left_content{
-    margin-left: 40px;
-    margin-top: 30px;
-    font-size: 20px;
+    margin-left: 2em;
+    margin-top: 2.5em;
+    font-size: 1.25em;
 }
 .left_content  .left_info p {
-    padding-bottom: 35px;
+    padding-bottom: 1.8em;
 }
 
 .left_info{
@@ -362,13 +358,13 @@ footer{
 }
 
 
-#scroll,#scroll2,#scroll3{width:50%; height:260px; background-color:white; position:relative;float:right;}
-#scroll4{width:40%; height:280px; background-color:white; position:relative;float:right;}
-#scroll ul,#scroll2 ul,#scroll3 ul,#scroll4 ul{height:260px; list-style:none;}
-#scroll ul li,#scroll2 ul li,#scroll3 ul li,#scroll4 ul li{width:50%; max-height:260px;margin:0px; padding:0px; display:none;}
+#scroll,#scroll2,#scroll3{width:50%; height:13.1em; background-color:white; position:relative;float:right;}
+#scroll4{width:40%; height:13.5em; background-color:white; position:relative;float:right;}
+#scroll ul,#scroll2 ul,#scroll3 ul,#scroll4 ul{height:13.1em; list-style:none;}
+#scroll ul li,#scroll2 ul li,#scroll3 ul li,#scroll4 ul li{width:50%; height:13.1em;margin:0px; padding:0px; display:none;}
 .subl{
     position:absolute;
-    text-align:left;font-size:30px;font-weight:bold; cursor:pointer;
+    text-align:left;font-size:1.875em;font-weight:bold; cursor:pointer;
     height: 260px;
     width: 200px;
     margin-top: 20px;
@@ -409,10 +405,9 @@ footer{
     color: #000;
 }
 .operate{
-    font-size: 20px;
     float: right;
-    margin-top: 5px;
-    margin-right: 140px;
+    margin-top: 1.7em;
+    margin-right: 6.9em;
 }
 
 button, .button {
@@ -445,7 +440,7 @@ button, .button {
 }
 
 .yes{
-    margin-right: 80px;
+    margin-right:6.7em;
 }
 
 .yes i{
@@ -462,33 +457,32 @@ button, .button {
 }
 .search{
     float: right;
-    margin-top: -37px;
+    margin-top: -2.3125em;
 }
 .bar input {
-    height: 30px;
-    width: 250px;
+    height: 1.875em;
+    width: 16.5em;
     border-radius: 42px;
     border: 2px solid rgba(0,0,0,0.1);
     background: #fff;
     transition: .3s linear;
     float: right;
-    margin-right: 80px;
+    margin-right: 5.5em;
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
+    font-size: 93.75%;
     font-weight: 400;
     color: #888;
     font-style: italic;
 }
 .bar button {
-    margin-right: -260px;
-    margin-top: 3px;
+    margin-right: -16.25em;
     float: right;
     background: none;
     right: 0;
     border: none;
 }
 .bar button::before {
-    font-size: 16px;
+    font-size: 100%;
     content: "\f002";
     font-family: FontAwesome;
     color: #4B9DD6;
@@ -496,19 +490,19 @@ button, .button {
 
 
 .bar input{
-    padding-left: 10px;
+    padding-left: 0.625em;
 }
 .download_wrapper{
-    width: 1460px;
-    margin-left: 30px;
+    width: 96%;
+    margin-left: 2%;
 }
 
 .load_wrapper{
     background: #fff;
     padding: 2em;
-    height: 460px;
+    height: 30em;
     position: relative;
-    margin-top: 5px;
+    margin-top: 0.35em;
     -moz-border-radius: 0 5px 5px 5px;
     -webkit-border-radius: 0 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
@@ -557,11 +551,11 @@ button, .button {
 .middle_info{
     float: left;
     width: 25%;
-    margin-left: 20px;
+    margin-left: 1em;
 }
 
 .middle_info p{
-    padding-bottom: 35px;
+    padding-bottom: 1.8em;
 }
 .middle_info p span:first-child  {
     color: #888888;
@@ -570,10 +564,9 @@ p .toGray{
     color: #888888;
 }
 .download_op{
-    font-size: 20px;
     float: right;
-    margin-top: 120px;
-    margin-right: 30px;
+    margin-top: 6em;
+    margin-right: 1.5em;
 }
 .download_op a{
     color: #555;
@@ -584,8 +577,8 @@ p .toGray{
 }
 
 .bar1 input {
-    height: 30px;
-    width: 200px;
+    height: 2em;
+    width: 13.3em;
     border-radius: 42px;
     border: 2px solid rgba(0,0,0,0.1);
     background: #fff;
@@ -593,20 +586,20 @@ p .toGray{
     float: right;
 
     font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
+    font-size: 93.75%;
     font-weight: 400;
     color: #888;
     font-style: italic;
 }
 .bar1 button {
-    margin-top: -30px;
+    margin-top: -2em;
     float: right;
     background: none;
     right: 0;
     border: none;
 }
 .bar1 button::before {
-    font-size: 16px;
+    font-size: 100%;
     content: "\f002";
     font-family: FontAwesome;
     color: #4B9DD6;
@@ -614,5 +607,5 @@ p .toGray{
 
 
 .bar1 input{
-    padding-left: 10px;
+    padding-left: 0.625em;
 }
