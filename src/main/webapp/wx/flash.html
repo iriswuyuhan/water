@@ -8,25 +8,54 @@
     <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <!--<link rel="stylesheet" href="../resources/css/flash.css"/>-->
     <script>
-        var urls=["https://v.qq.com/iframe/player.html?vid=z00248rlt2g&tiny=0&auto=0"];
+        var urls=["https://v.qq.com/iframe/player.html?vid=z00248rlt2g&tiny=0&auto=0",
+            "https://v.qq.com/iframe/player.html?vid=i00244ch2xj&tiny=0&auto=0",
+            "https://v.qq.com/iframe/player.html?vid=j0526cdx4gn&tiny=0&auto=0" ];
         var counter=0;
-
         var pre=document.createElement("a");
-        pre.setAttribute("class","weui-btn weui-btn_plain-primary");
+        pre.setAttribute("class","weui-btn weui-btn_mini weui-btn_primary");
         pre.innerHTML="上一步";
 
         var next=document.createElement("a");
-        next.setAttribute("class","weui-btn weui-btn_plain-primary");
+        next.setAttribute("class","weui-btn weui-btn_mini weui-btn_primary");
         next.innerHTML="下一步";
 
         function load(){
+//            alert(counter);
+//            alert(urls.length);
+
+            var iframe=document.getElementById("iframePage");
+            iframe.setAttribute("src",urls[counter]);
+
             var preDom=document.getElementById("previous");
             var nextDom=document.getElementById("next");
+
+            var preChild=preDom.childElementCount;
+            var nextChild=nextDom.childElementCount;
+
+            if(preChild>0){
+//                alert("1");
+                preDom.removeChild(preDom.firstElementChild);
+            }
+            if(nextChild>0){
+//                alert("2");
+                nextDom.removeChild(nextDom.firstElementChild);
+            }
+
+            pre.onclick=function () {
+                counter--;
+                load();
+            }
+
+            next.onclick=function () {
+                counter++;
+                load();
+            }
 
             if(counter==0){
                 nextDom.appendChild(next);
             }
-            else if(counter==urls.length){
+            else if(counter==(urls.length-1)){
                 preDom.appendChild(pre);
             }
             else{
@@ -36,35 +65,16 @@
 
         }
 
-        function previous(){
-
-        }
-
-        function next(){
-
-        }
     </script>
 </head>
 <body onload="load()">
 <div align="center" >
-    <iframe src="https://v.qq.com/iframe/player.html?vid=z00248rlt2g&tiny=0&auto=0" id="iframePage" width="100%" frameborder=0 scrolling=no height="350">
+    <iframe id="iframePage" width="100%" frameborder=0 scrolling=no height="350">
     </iframe>
 <br>
 <br>
 </div>
 <div class="weui-flex">
-    <!--<div class="Step">-->
-        <!--<h1>①步骤一</h1>-->
-        <!--<p></p>-->
-    <!--</div><br>-->
-    <!--<div class="Step">-->
-        <!--<h1>②步骤二</h1>-->
-        <!--<p></p>-->
-    <!--</div><br>-->
-    <!--<div class="Step">-->
-        <!--<h1>③步骤三</h1>-->
-        <!--<p></p>-->
-    <!--</div>-->
     <div class="weui-flex__item">
     </div>
     <div class="weui-flex__item" id="previous">
