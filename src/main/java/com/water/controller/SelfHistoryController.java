@@ -69,6 +69,11 @@ public class SelfHistoryController {
         JSONArray jsonArray=new JSONArray();
 //        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"已审核");
         ArrayList<Apply> applyArrayList=new ArrayList<Apply>();
+        Apply apply=new Apply();
+        apply.setWaterAddress("123");
+        apply.setName("123");apply.setNumber("123456788");
+        apply.setAddress("2456");apply.setState(1);
+        applyArrayList.add(apply);
         for(Apply apply1:applyArrayList){
             jsonArray.add(apply1);
         }
@@ -77,10 +82,19 @@ public class SelfHistoryController {
 
     @RequestMapping("/j{userID}/history/getSampling")
     @ResponseBody
-    public JSONArray getSampllingHistory(@PathVariable String userID){
+    public JSONArray getSamplingHistory(@PathVariable String userID){
         JSONArray jsonArray=new JSONArray();
 //        ArrayList<Sample> sampleArrayList=uploadService.alreadySample(userID);
         ArrayList<Sample> sampleArrayList=new ArrayList<Sample>();
+        Sample sample1=new Sample();
+        sample1.setSampleDate(new Date());sample1.setVolume(12.9);
+        sample1.setIdSample(123);sample1.setRemark("23467");
+        Apply apply=new Apply();
+        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
+        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
+        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(0);
+        sample1.setApply(apply);
+        sampleArrayList.add(sample1);
         for(Sample sample:sampleArrayList){
             JSONObject object=new JSONObject();
             object.put("waterAddress",sample.getApply().getWaterAddress());
@@ -113,7 +127,7 @@ public class SelfHistoryController {
         Apply apply=new Apply();
         apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
         apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
-        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(0);
+        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(1);apply.setIdApply(123);
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
         String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
@@ -136,6 +150,7 @@ public class SelfHistoryController {
                     imageArray.add(image);
             }
         }
+        modelAndView.addObject("applyID",apply.getIdApply());
         modelAndView.addObject("imageArray",imageArray);
         modelAndView.addObject("applyDate",sdf.format(apply.getApplyDate()));
         modelAndView.addObject("name",apply.getName());
@@ -150,6 +165,7 @@ public class SelfHistoryController {
     public ModelAndView selfHistorySample(@PathVariable String userID,HttpServletRequest request){
         int index=Integer.parseInt(request.getParameter("index"));
         ModelAndView modelAndView=new ModelAndView("../wx/selfhistory_sample");
+        modelAndView.addObject("userID",userID);
 //        ArrayList<Sample> sampleArrayList=uploadService.alreadySample(userID);
 //        Sample sample=sampleArrayList.get(index);
 //        Apply apply=sample.getApply();
@@ -208,5 +224,15 @@ public class SelfHistoryController {
 //        long deleteID=applyArrayList.get(index).getIdApply();
 //        return applyService.deleteApply(deleteID);
         return true;
+    }
+
+    @RequestMapping("/j{userID}/history/jumpToUpload")
+    @ResponseBody
+    public String jumpToUpload(@PathVariable String userID,HttpServletRequest request){
+        int index=Integer.parseInt(request.getParameter("index"));
+//        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"已审核");
+//        long uploadID=applyArrayList.get(index).getIdApply();
+//        return String.valueOf(uploadID);
+        return "1";
     }
 }
