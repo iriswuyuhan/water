@@ -23,6 +23,7 @@
 <body style="background-color: white">
 <input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="index" value="${index}"/>
+<input type="hidden" id="applyID" value="${applyID}"/>
 <div class="uploaded-imgs">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">
@@ -87,10 +88,12 @@
         </p>
     </div>
     <div class="weui-form-preview__ft">
-        <a onclick="window.history.back()" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">返回</a>
+        <a onclick="window.location.href='/user/j'+userID+'/history'" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">返回</a>
     </div>
     <%if(state==0){%>
     <a onclick="deleteApply()" href="javascript:;" class="weui-btn weui-btn_warn">删除</a>
+    <%}else if(state==1){%>
+    <a onclick="uploadSample()" href="javascript:;" class="weui-btn weui-btn_primary">上传采样信息</a>
     <%}%>
 </div>
 <!--toast-->
@@ -103,8 +106,8 @@
 </div>
 </body>
 <script>
+    var userID=$("#userID").val();
     function deleteApply() {
-        var userID=$("#userID").val();
         var index=$("#index").val();
          $.ajax({
              url:"/user/j"+userID+"/history/apply/delete",
@@ -119,11 +122,16 @@
                      $toast.fadeIn(100);
                      setTimeout(function () {
                          $toast.fadeOut(100);
-                         window.history.back();
+                         window.location.href="/user/j"+userID+"/history";
                      }, 2000);
                  }
              }
          });
+    }
+
+    function uploadSample() {
+        var applyID=$("#applyID").val();
+        window.location.href="/upload/j"+applyID;
     }
     //图片预览
     (function (window, PhotoSwipe) {
