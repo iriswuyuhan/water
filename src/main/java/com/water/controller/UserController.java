@@ -8,6 +8,7 @@ import com.water.entity.User;
 import com.water.service.ApplyService;
 import com.water.service.UploadService;
 import com.water.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,27 +29,30 @@ import java.util.Date;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
     UserService userService;
 
     @RequestMapping("/j{userID}")
     public ModelAndView personalInfo(@PathVariable String userID, HttpSession session){
         ModelAndView modelAndView=new ModelAndView("../wx/personal_info");
-        if(session.getAttribute("user_name")!=null){
-            //从定位地址页面返回，获取收货地址
-            modelAndView.addObject("name",session.getAttribute("user_name"));
-            modelAndView.addObject("phone_num",session.getAttribute("user_number"));
-            modelAndView.addObject("address",session.getAttribute("user_address"));
-            //取收货地址
-
-            session.removeAttribute("user_name");
-            session.removeAttribute("user_number");
-            session.removeAttribute("user_address");
-        }else {
-//            User user = userService.getById(userID);
-//            modelAndView.addObject("name", user.getName());
-//            modelAndView.addObject("phone_num", user.getNumber());
-//            modelAndView.addObject("address", user.getAddress());
-        }
+//        if(session.getAttribute("user_name")!=null){
+//            //从定位地址页面返回，获取收货地址
+//            modelAndView.addObject("name",session.getAttribute("user_name"));
+//            modelAndView.addObject("phone_num",session.getAttribute("user_number"));
+//            modelAndView.addObject("address",session.getAttribute("user_address"));
+//            //取收货地址
+//
+//            session.removeAttribute("user_name");
+//            session.removeAttribute("user_number");
+//            session.removeAttribute("user_address");
+//        }else {
+            User user = userService.getById(userID);
+//        User user=new User();
+//        user.setName("zhs");user.setNumber("15050582771");user.setAddress("江苏省南京市栖霞区");
+        modelAndView.addObject("name", user.getName());
+        modelAndView.addObject("phone_num", user.getNumber());
+        modelAndView.addObject("address", user.getAddress());
+//        }
         modelAndView.addObject("userID",userID);
         return modelAndView;
     }
@@ -72,12 +76,11 @@ public class UserController {
         String name=request.getParameter("name");
         String number=request.getParameter("phone_num");
         String address=request.getParameter("address");
-        User user=new User();
-        user.setIdUser(userID);
+        User user=userService.getById(userID);
         user.setName(name);
         user.setNumber(number);
         user.setAddress(address);
-//        return userService.updateUser(user);
-        return true;
+        return userService.updateUser(user);
+//        return true;
     }
 }

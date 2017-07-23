@@ -8,6 +8,7 @@ import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
 import com.water.service.Impl.UploadServiceImpl;
 import com.water.service.UploadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,10 @@ import java.util.Date;
 @RequestMapping("/upload")
 public class UploadController {
 
+    @Autowired
     ApplyService applyService;
+
+    @Autowired
     UploadService uploadService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -44,10 +48,10 @@ public class UploadController {
         String curTime = split_time[0] + "T" + split_time[1];
         modelAndView.addObject("curTime", curTime);
         //获取申请信息
-//        Apply apply = applyService.searchApplication(Long.parseLong(applyID));
-        Apply apply=new Apply();
-        apply.setWaterAddress("123");apply.setLongitude(12.0);
-        apply.setLatitude(23.0);apply.setImage("/resources/img/delete.png");
+        Apply apply = applyService.searchApplication(Long.parseLong(applyID));
+//        Apply apply=new Apply();
+//        apply.setWaterAddress("123");apply.setLongitude(12.0);
+//        apply.setLatitude(23.0);apply.setImage("/resources/img/delete.png");
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
         String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
@@ -76,7 +80,8 @@ public class UploadController {
 //        HttpSession session=request.getSession();
 //        String userID=(String)session.getAttribute("userID");
 //        modelAndView.addObject("userID",userID);
-        modelAndView.addObject("userID","123");
+        String userID=apply.getUser().getIdUser();
+        modelAndView.addObject("userID",userID);
         return modelAndView;
     }
 
@@ -102,16 +107,16 @@ public class UploadController {
         Double sample_volume = Double.parseDouble(request.getParameter("sample_volume"));
         long sampleID = Long.parseLong(request.getParameter("sample_number"));
         String sample_remark = request.getParameter("sample_remark");
-//        Apply apply=applyService.searchApplication(Long.parseLong(applyID));
-//        //构造一个Sample对象
-//        Sample sample=new Sample();
-//        sample.setApply(apply);
-//        sample.setSampleDate(sample_date);
-//        sample.setVolume(sample_volume);
-//        sample.setIdSample(sampleID);
-//        sample.setRemark(sample_remark);
-//        //往数据库添加一个sample
-//        return uploadService.addUpload(sample);
-        return true;
+        Apply apply=applyService.searchApplication(Long.parseLong(applyID));
+        //构造一个Sample对象
+        Sample sample=new Sample();
+        sample.setApply(apply);
+        sample.setSampleDate(sample_date);
+        sample.setVolume(sample_volume);
+        sample.setIdSample(sampleID);
+        sample.setRemark(sample_remark);
+        //往数据库添加一个sample
+        return uploadService.addUpload(sample);
+//        return true;
     }
 }

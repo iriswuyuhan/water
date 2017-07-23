@@ -18,6 +18,7 @@ $("#sample_remark").on('input propertychange', function () {
 function checkFullfill() {
     if($("#sample_time").val()==""||$("#sample_volume").val()==""||$("#sample_number").val()==""
         ||$("#sample_remark").val()==""){
+        $("#upload_but").addClass("weui-btn_disabled");
         return;
     }
     //输入完成
@@ -28,6 +29,7 @@ $("#upload_but").click(function () {
     if($("#upload_but").hasClass("weui-btn_disabled")){
         return;
     }
+    var userID=$("#userID").val();
     var sampleID=$("#sampleID").val();
     $.ajax({
         url:"/upload/j"+sampleID+"/confirm",
@@ -43,14 +45,12 @@ $("#upload_but").click(function () {
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);
-                    window.location.href="/user/j"+data.userID+"/history";
+                    window.location.href="/user/j"+userID+"/history";
                 }, 2000);
             }else{
                 //没有上传成功
-                alert("该采样编号已存在");
+                alert("该采样编号已存在或者该申请已上传样品");
             }
         }
     });
-    //跳转到个人记录
-
 });

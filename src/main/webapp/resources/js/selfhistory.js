@@ -80,6 +80,9 @@ $.ajax({
             html += loadUnchecked(goods);
         });
         $("#unchecked_tab_panel").append(html);
+        if(data.length==0){
+            noItemTip($("#unchecked_tab_panel"));
+        }
     }
 });
 
@@ -95,14 +98,17 @@ $.ajax({
             html += loadChecked(goods);
         });
         $("#checked_tab_panel").append(html);
-        $("#checked_tab_panel").append("<script>$('.checked_message').click(function () {"+
-            "var index=$('.checked_message').index(this);"+
-            "var isChecked=1;"+
-            "onConcreteApply(index,isChecked);});" +
-            "$('.upload_pass').click(function(){" +
-            "var index=$('.upload_pass').index(this);" +
-            "onUpload(index);  });" +
-            "</script>");
+        if(data.length==0){
+            noItemTip($("#checked_tab_panel"));
+        }
+        // $("#checked_tab_panel").append("<script>$('.checked_message').click(function () {"+
+        //     "var index=$('.checked_message').index(this);"+
+        //     "var isChecked=1;"+
+        //     "onConcreteApply(index,isChecked);});" +
+        //     "$('.upload_pass').click(function(){" +
+        //     "var index=$('.upload_pass').index(this);" +
+        //     "onUpload(index);  });" +
+        //     "</script>");
     }
 });
 
@@ -118,12 +124,21 @@ $.ajax({
             html += loadSampling(goods);
         });
         $("#sampling_tab_panel").append(html);
-        $("#sampling_tab_panel").append("<script>$('.sampling_item').click(function () {"+
-            "var index=$('.sampling_item').index(this);"+
-            "onConcreteSample(index);"+
-            "});</script>");
+        if(data.length==0){
+            noItemTip($("#sampling_tab_panel"));
+        }
+        // $("#sampling_tab_panel").append("<script>$('.sampling_item').click(function () {"+
+        //     "var index=$('.sampling_item').index(this);"+
+        //     "onConcreteSample(index);"+
+        //     "});</script>");
     }
 });
+
+function noItemTip(container) {
+    container.append("<div class='weui-loadmore weui-loadmore_line'>"+
+        "<span class='weui-loadmore__tips'>暂无数据</span>"+
+        "</div>");
+}
 
 function loadUnchecked(goods) {
     return "<div class='unchecked_item'" +

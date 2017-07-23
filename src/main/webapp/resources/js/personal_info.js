@@ -16,6 +16,21 @@ function jump_to_receive_addr(){
     });
 }
 
+function load() {
+   var useCook=$.cookie('ret1');
+   if(useCook=='1'){
+        $("#receive_addr").val($.cookie('add1'));
+        $.cookie('ret1',null);
+        $.cookie('add1',null);
+   }
+}
+
+function reLoc(){
+    var url="/wx/locate.html?add=";
+    var curAdd=document.getElementById("receive_addr").innerHTML;
+    window.location.href=url+curAdd;
+}
+
 $("#confirm").click(function () {
     if($("#confirm").hasClass("weui-btn_disabled")){
         return;
@@ -26,7 +41,7 @@ $("#confirm").click(function () {
         type:'get',
         async:false,
         data:{"name":$("#name").val(),"phone_num":$("#phone_num").val(),
-            "address":$("#receive_addr").val()},
+            "address":$("#receive_addr").text()},
         success:function (data) {
             if(data){
                 // toast
@@ -47,6 +62,7 @@ $("#confirm").click(function () {
 //确认按钮状态转换
 function checkFullfill() {
     if($("#name").val()==""||$("#phone_num").val()==""||$("#receive_addr").text()==""){
+        $("#confirm").addClass("weui-btn_disabled");
         return;
     }
     //输入完成

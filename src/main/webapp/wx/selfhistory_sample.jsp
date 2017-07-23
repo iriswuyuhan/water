@@ -93,7 +93,7 @@
         </p>
         <p>
             <label class="weui-form-preview__label">采样备注</label>
-            <em class="weui-form-preview__value">${sampleRemark}</em>
+            <span class="weui-form-preview__value">${sampleRemark}</span>
         </p>
     </div>
     <div class="weui-form-preview__ft">

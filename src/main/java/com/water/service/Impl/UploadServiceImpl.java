@@ -59,7 +59,7 @@ public class UploadServiceImpl implements UploadService {
         List<Sample> list = uploadDao.findAll();
         for (Sample temp : list
                 ) {
-            if (temp.getApply().getUser().getIdUser() == userid) {
+            if (temp.getApply().getUser().getIdUser() .equals(userid)) {
                 resultlist.add(temp);
             }
         }

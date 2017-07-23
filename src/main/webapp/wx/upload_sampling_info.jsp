@@ -22,6 +22,7 @@
 </head>
 <body style="background-color: white">
 <input type="hidden" id="sampleID" value="${applyID}"/>
+<input type="hidden" id="userID" value="${userID}"/>
 <div class="uploaded-imgs">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">

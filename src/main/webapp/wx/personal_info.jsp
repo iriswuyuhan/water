@@ -8,7 +8,7 @@
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
 </head>
-<body>
+<body onload="load()">
 <input type="hidden" id="userID" value="${userID}"/>
 <div class="weui-cells">
     <div class="weui-cell">
@@ -28,7 +28,7 @@
             <p style="color: grey">收货地址：</p>
         </div>
         <div class="weui-cell__bd">
-            <p id="receive_addr">${address}</p>
+            <p id="receive_addr" onclick="reLoc()">${address}</p>
         </div>
         <div class="weui-cell__ft">
         </div>

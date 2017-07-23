@@ -5,7 +5,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.water.entity.Apply;
 import com.water.entity.Sample;
 import com.water.service.ApplyService;
+import com.water.service.Impl.ApplyServiceImpl;
+import com.water.service.Impl.UploadServiceImpl;
 import com.water.service.UploadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +28,10 @@ import java.util.Date;
 @RequestMapping("/user")
 public class SelfHistoryController {
 
+    @Autowired
     ApplyService applyService;
+
+    @Autowired
     UploadService uploadService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -40,13 +46,13 @@ public class SelfHistoryController {
     @ResponseBody
     public JSONArray getUnCheckedHistory(@PathVariable String userID){
         JSONArray jsonArray=new JSONArray();
-//        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"待审核");
-        ArrayList<Apply> applyArrayList=new ArrayList<Apply>();
-        Apply apply=new Apply();
-        apply.setWaterAddress("12345");
-        apply.setName("zhs");
-        apply.setNumber("3456789");apply.setAddress("aaaaaaaaaaaa");
-        applyArrayList.add(apply);applyArrayList.add(apply);
+        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"待审核");
+//        ArrayList<Apply> applyArrayList=new ArrayList<Apply>();
+//        Apply apply=new Apply();
+//        apply.setWaterAddress("12345");
+//        apply.setName("zhs");
+//        apply.setNumber("3456789");apply.setAddress("aaaaaaaaaaaa");
+//        applyArrayList.add(apply);applyArrayList.add(apply);
         for(Apply apply1:applyArrayList){
             jsonArray.add(apply1);
         }
@@ -57,23 +63,23 @@ public class SelfHistoryController {
     @ResponseBody
     public boolean deleteUnChecked(@PathVariable String userID,HttpServletRequest request){
         int index=Integer.parseInt(request.getParameter("index"));
-//        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"待审核");
-//        long deleteID=applyArrayList.get(index).getIdApply();
-//        return applyService.deleteApply(deleteID);
-        return true;
+        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"待审核");
+        long deleteID=applyArrayList.get(index).getIdApply();
+        return applyService.deleteApply(deleteID);
+//        return true;
     }
 
     @RequestMapping("/j{userID}/history/getChecked")
     @ResponseBody
     public JSONArray getCheckedHistory(@PathVariable String userID){
         JSONArray jsonArray=new JSONArray();
-//        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"已审核");
-        ArrayList<Apply> applyArrayList=new ArrayList<Apply>();
-        Apply apply=new Apply();
-        apply.setWaterAddress("123");
-        apply.setName("123");apply.setNumber("123456788");
-        apply.setAddress("2456");apply.setState(1);
-        applyArrayList.add(apply);
+        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"已审核");
+//        ArrayList<Apply> applyArrayList=new ArrayList<Apply>();
+//        Apply apply=new Apply();
+//        apply.setWaterAddress("123");
+//        apply.setName("123");apply.setNumber("123456788");
+//        apply.setAddress("2456");apply.setState(1);
+//        applyArrayList.add(apply);
         for(Apply apply1:applyArrayList){
             jsonArray.add(apply1);
         }
@@ -84,17 +90,17 @@ public class SelfHistoryController {
     @ResponseBody
     public JSONArray getSamplingHistory(@PathVariable String userID){
         JSONArray jsonArray=new JSONArray();
-//        ArrayList<Sample> sampleArrayList=uploadService.alreadySample(userID);
-        ArrayList<Sample> sampleArrayList=new ArrayList<Sample>();
-        Sample sample1=new Sample();
-        sample1.setSampleDate(new Date());sample1.setVolume(12.9);
-        sample1.setIdSample(123);sample1.setRemark("23467");
-        Apply apply=new Apply();
-        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
-        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
-        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(0);
-        sample1.setApply(apply);
-        sampleArrayList.add(sample1);
+        ArrayList<Sample> sampleArrayList=uploadService.alreadySample(userID);
+//        ArrayList<Sample> sampleArrayList=new ArrayList<Sample>();
+//        Sample sample1=new Sample();
+//        sample1.setSampleDate(new Date());sample1.setVolume(12.9);
+//        sample1.setIdSample(123);sample1.setRemark("23467");
+//        Apply apply=new Apply();
+//        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
+//        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
+//        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(0);
+//        sample1.setApply(apply);
+//        sampleArrayList.add(sample1);
         for(Sample sample:sampleArrayList){
             JSONObject object=new JSONObject();
             object.put("waterAddress",sample.getApply().getWaterAddress());
@@ -118,16 +124,16 @@ public class SelfHistoryController {
         modelAndView.addObject("userID",userID);
         modelAndView.addObject("index",index);
         ArrayList<Apply> applyArrayList=null;
-//        if(isChecked==0) {
-//            applyArrayList = applyService.findCheckedApply(userID, "待审核");
-//        }else{
-//            applyArrayList = applyService.findCheckedApply(userID, "已审核");
-//        }
-//        Apply apply=applyArrayList.get(index);
-        Apply apply=new Apply();
-        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
-        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
-        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(1);apply.setIdApply(123);
+        if(isChecked==0) {
+            applyArrayList = applyService.findCheckedApply(userID, "待审核");
+        }else{
+            applyArrayList = applyService.findCheckedApply(userID, "已审核");
+        }
+        Apply apply=applyArrayList.get(index);
+//        Apply apply=new Apply();
+//        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
+//        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
+//        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(1);apply.setIdApply(123);
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
         String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
@@ -166,16 +172,16 @@ public class SelfHistoryController {
         int index=Integer.parseInt(request.getParameter("index"));
         ModelAndView modelAndView=new ModelAndView("../wx/selfhistory_sample");
         modelAndView.addObject("userID",userID);
-//        ArrayList<Sample> sampleArrayList=uploadService.alreadySample(userID);
-//        Sample sample=sampleArrayList.get(index);
-//        Apply apply=sample.getApply();
-        Sample sample=new Sample();
-        sample.setSampleDate(new Date());sample.setVolume(12.9);
-        sample.setIdSample(123);sample.setRemark("23467");
-        Apply apply=new Apply();
-        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
-        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
-        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(0);
+        ArrayList<Sample> sampleArrayList=uploadService.alreadySample(userID);
+        Sample sample=sampleArrayList.get(index);
+        Apply apply=sample.getApply();
+//        Sample sample=new Sample();
+//        sample.setSampleDate(new Date());sample.setVolume(12.9);
+//        sample.setIdSample(123);sample.setRemark("23467");
+//        Apply apply=new Apply();
+//        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
+//        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
+//        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(0);
         modelAndView.addObject("sampleDate",sample.getSampleDate());
         modelAndView.addObject("sampleVolume",sample.getVolume());
         modelAndView.addObject("sampleID",sample.getIdSample());
@@ -220,19 +226,19 @@ public class SelfHistoryController {
     @ResponseBody
     public boolean deleteApply(@PathVariable String userID,HttpServletRequest request){
         int index=Integer.parseInt(request.getParameter("index"));
-//        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"待审核");
-//        long deleteID=applyArrayList.get(index).getIdApply();
-//        return applyService.deleteApply(deleteID);
-        return true;
+        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"待审核");
+        long deleteID=applyArrayList.get(index).getIdApply();
+        return applyService.deleteApply(deleteID);
+//        return true;
     }
 
     @RequestMapping("/j{userID}/history/jumpToUpload")
     @ResponseBody
     public String jumpToUpload(@PathVariable String userID,HttpServletRequest request){
         int index=Integer.parseInt(request.getParameter("index"));
-//        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"已审核");
-//        long uploadID=applyArrayList.get(index).getIdApply();
-//        return String.valueOf(uploadID);
-        return "1";
+        ArrayList<Apply> applyArrayList= applyService.findCheckedApply(userID,"已审核");
+        long uploadID=applyArrayList.get(index).getIdApply();
+        return String.valueOf(uploadID);
+//        return "1";
     }
 }

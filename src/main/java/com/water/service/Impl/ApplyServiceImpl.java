@@ -74,11 +74,11 @@ public class ApplyServiceImpl implements ApplyService {
         ArrayList<Apply> resultlist=new ArrayList<Apply>();
         for (Apply temp:list
              ) {
-            if(temp.getUser().getIdUser()==userid){
+            if(temp.getUser().getIdUser().equals(userid)){
                 userlist.add(temp);
             }
         }
-        if(state=="待审核"){
+        if(state.equals("待审核")){
             for (Apply temp:userlist
                  ) {
                 if(temp.getState()==0){
@@ -87,7 +87,7 @@ public class ApplyServiceImpl implements ApplyService {
             }
 
         }
-        else if(state=="已审核"){
+        else if(state.equals("已审核")){
             for (Apply temp:userlist
                     ) {
                 if(temp.getState()==1||temp.getState()==2){
