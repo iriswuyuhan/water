@@ -1,5 +1,13 @@
 package com.water.controller;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.water.entity.Apply;
+import com.water.entity.Sample;
+import com.water.service.ApplyService;
+import com.water.service.Impl.ApplyServiceImpl;
+import com.water.service.Impl.UploadServiceImpl;
+import com.water.service.UploadService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,38 +30,88 @@ import java.util.Date;
 @RequestMapping("/upload")
 public class UploadController {
 
-    SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd HH:mm" );
+    ApplyService applyService;
+    UploadService uploadService;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     @RequestMapping("/j{applyID}")
-    public ModelAndView uploadSamplePage(@PathVariable String applyID){
-        ModelAndView modelAndView=new ModelAndView("../wx/upload_sampling_info");
+    public ModelAndView uploadSamplePage(@PathVariable String applyID, HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView("../wx/upload_sampling_info");
         //设置当前时间
-        Date date=new Date();
-        String timeStr=sdf.format(date);
-        String[] split_time=timeStr.split(" ");
-        String curTime=split_time[0]+"T"+split_time[1];
-
-        modelAndView.addObject("applyID",applyID);
-        modelAndView.addObject("curTime",curTime);
+        Date date = new Date();
+        String timeStr = sdf.format(date);
+        String[] split_time = timeStr.split(" ");
+        String curTime = split_time[0] + "T" + split_time[1];
+        modelAndView.addObject("curTime", curTime);
+        //获取申请信息
+//        Apply apply = applyService.searchApplication(Long.parseLong(applyID));
+        Apply apply=new Apply();
+        apply.setWaterAddress("123");apply.setLongitude(12.0);
+        apply.setLatitude(23.0);apply.setImage("/resources/img/delete.png");
+        modelAndView.addObject("waterAddress", apply.getWaterAddress());
+        String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
+        if (apply.getLatitude() >= 0) {
+            modelAndView.addObject("latitude", "北纬" + latitude + "度");
+        } else {
+            modelAndView.addObject("latitude", "南纬" + latitude + "度");
+        }
+        String longitude = keepTwoDecimal(Math.abs(apply.getLongitude()));
+        if (apply.getLongitude() >= 0) {
+            modelAndView.addObject("longitude", "东经" + longitude + "度");
+        } else {
+            modelAndView.addObject("longitude", "西经" + longitude + "度");
+        }
+        //解析图片路径
+        ArrayList<String> imageArray = new ArrayList<String>();
+        if (apply.getImage() != null) {
+            String[] images = apply.getImage().split(";");
+            for (String image : images) {
+                if(!image.equals(""))
+                    imageArray.add(image);
+            }
+        }
+        modelAndView.addObject("imageArray",imageArray);
+        modelAndView.addObject("applyID", applyID);
+        //通过session获得userID
+//        HttpSession session=request.getSession();
+//        String userID=(String)session.getAttribute("userID");
+//        modelAndView.addObject("userID",userID);
+        modelAndView.addObject("userID","123");
         return modelAndView;
+    }
+
+    public String keepTwoDecimal(Double db) {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(db);
     }
 
     @RequestMapping(value = "/j{applyID}/confirm", method = RequestMethod.GET)
     @ResponseBody
-    public Boolean addUpload(@PathVariable String applyID,HttpServletRequest request){
-        String sample_time=request.getParameter("sample_time");
-        String[] split_date=sample_time.split("T");
-        sample_time=split_date[0]+" "+split_date[1];
-        Date sample_date=null;
+    public boolean addUpload(@PathVariable String applyID, HttpServletRequest request) {
+        //把得到的时间转成Date类型
+        String sample_time = request.getParameter("sample_time");
+        String[] split_date = sample_time.split("T");
+        sample_time = split_date[0] + " " + split_date[1];
+        Date sample_date = null;
         try {
-            sample_date=sdf.parse(sample_time);
+            sample_date = sdf.parse(sample_time);
         } catch (ParseException e) {
             e.printStackTrace();
+            return false;
         }
-        Double sample_volume=Double.parseDouble(request.getParameter("sample_volume"));
-        int sample_number=Integer.parseInt(request.getParameter("sample_number"));
-        String sample_remark=request.getParameter("sample_remark");
-
+        Double sample_volume = Double.parseDouble(request.getParameter("sample_volume"));
+        long sampleID = Long.parseLong(request.getParameter("sample_number"));
+        String sample_remark = request.getParameter("sample_remark");
+//        Apply apply=applyService.searchApplication(Long.parseLong(applyID));
+//        //构造一个Sample对象
+//        Sample sample=new Sample();
+//        sample.setApply(apply);
+//        sample.setSampleDate(sample_date);
+//        sample.setVolume(sample_volume);
+//        sample.setIdSample(sampleID);
+//        sample.setRemark(sample_remark);
+//        //往数据库添加一个sample
+//        return uploadService.addUpload(sample);
         return true;
     }
 }
