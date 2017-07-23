@@ -100,6 +100,10 @@ public class ApplyServiceImpl implements ApplyService {
 
     }
 
+    public boolean addApply(Apply apply) {
+        return applyDao.save(apply);
+    }
+
     /**
      * 更改状态 申请号不存在返回false
      *

@@ -28,4 +28,6 @@ public interface ApplyService {
 
     //找到用户已审核申请,待审核
     public ArrayList<Apply> findCheckedApply(String userid,String state);
+
+    public boolean addApply(Apply apply);
 }
