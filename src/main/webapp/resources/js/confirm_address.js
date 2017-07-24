@@ -17,6 +17,7 @@ $("#confirm_but").click(function () {
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);
+                    window.history.back();
                 }, 2000);
             }
         }

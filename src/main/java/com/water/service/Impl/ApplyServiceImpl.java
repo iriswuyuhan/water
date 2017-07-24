@@ -3,6 +3,7 @@ package com.water.service.Impl;
 import com.water.dao.ApplyDao;
 import com.water.dao.Impl.ApplyDaoImpl;
 import com.water.dao.Impl.UserDaoImpl;
+import com.water.dao.UploadDao;
 import com.water.dao.UserDao;
 import com.water.entity.Apply;
 import com.water.service.ApplyService;
@@ -19,10 +20,13 @@ import java.util.List;
 @Service
 public class ApplyServiceImpl implements ApplyService {
     @Autowired
-    private ApplyDao applyDao=new ApplyDaoImpl();
+    private ApplyDao applyDao;
 
     @Autowired
-    private UserDao userDao=new UserDaoImpl();
+    private UploadDao uploadDao;
+
+    @Autowired
+    private UserDao userDao;
 
     //这个方法用来测试增加数据
     public void addApply() {
@@ -67,19 +71,12 @@ public class ApplyServiceImpl implements ApplyService {
         }
         return list2;
     }
-
+//找申请列表
     public ArrayList<Apply> findCheckedApply(String userid, String state) {
-        List<Apply> list=applyDao.findAll();
-        ArrayList<Apply> userlist=new ArrayList<Apply>();
+        List<Apply> applyList=applyDao.findApplyById(userid);
         ArrayList<Apply> resultlist=new ArrayList<Apply>();
-        for (Apply temp:list
-             ) {
-            if(temp.getUser().getIdUser().equals(userid)){
-                userlist.add(temp);
-            }
-        }
         if(state.equals("待审核")){
-            for (Apply temp:userlist
+            for (Apply temp:applyList
                  ) {
                 if(temp.getState()==0){
                     resultlist.add(temp);
@@ -88,9 +85,9 @@ public class ApplyServiceImpl implements ApplyService {
 
         }
         else if(state.equals("已审核")){
-            for (Apply temp:userlist
+            for (Apply temp:applyList
                     ) {
-                if(temp.getState()==1||temp.getState()==2){
+                if((temp.getState()==1||temp.getState()==2)&&uploadDao.findSampleById(temp.getIdApply())==null){
                     resultlist.add(temp);
                 }
             }

@@ -55,7 +55,7 @@ public class ApplyDaoImpl implements ApplyDao {
         Transaction tx = session.beginTransaction();
         List<Apply> applyList = new LinkedList<Apply>();
         try {
-            String sql = "select * from Apply where id = " + idUser;
+            String sql = "select * from Apply where userID= " + idUser;
             Query query = session.createQuery(sql);
             applyList = query.list();
         } catch (Exception ex) {

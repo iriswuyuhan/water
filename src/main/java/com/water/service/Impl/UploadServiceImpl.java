@@ -2,6 +2,7 @@ package com.water.service.Impl;
 
 import com.water.dao.ApplyDao;
 import com.water.dao.UploadDao;
+import com.water.entity.Apply;
 import com.water.entity.Sample;
 import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,14 +55,13 @@ public class UploadServiceImpl implements UploadService {
         return sample;
     }
 
+    //已采样sample
     public ArrayList<Sample> alreadySample(String userid) {
         ArrayList<Sample> resultlist = new ArrayList<Sample>();
-        List<Sample> list = uploadDao.findAll();
-        for (Sample temp : list
+        List<Apply> list = applyDao.findApplyById(userid);
+        for (Apply temp : list
                 ) {
-            if (temp.getApply().getUser().getIdUser() .equals(userid)) {
-                resultlist.add(temp);
-            }
+                resultlist.add(uploadDao.findSampleById(temp.getIdApply()));
         }
 
         return resultlist;

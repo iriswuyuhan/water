@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -26,7 +23,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -40,20 +41,41 @@ public class wechatApplyController {
     @Autowired
     private HttpServletRequest request;
 
-    @RequestMapping("/init")
-    public ModelAndView uploadApply(){
-        ModelAndView modelAndView = new ModelAndView("../wx/apply2.jsp");
+    @Autowired
+    ApplyService applyService;
+    UserService userService;
+
+    @RequestMapping("/init/j{userID}")
+    public ModelAndView uploadApply(@PathVariable String userID){
+        ModelAndView modelAndView = new ModelAndView("../wx/apply2");
         HttpSession session = request.getSession();
-        UserService userService = new UserServiceImpl();
-        String userId = session.getAttribute("userId").toString();
-        String userName = session.getAttribute("userName").toString();
-        String contact = session.getAttribute("contact").toString();
-        String address = session.getAttribute("address").toString();
-        String river_place = session.getAttribute("waters_addr").toString();
-        double longitude = Double.parseDouble(session.getAttribute("water_addr_lng").toString());
-        double latitude = Double.parseDouble(session.getAttribute("water_addr_lat").toString());
-        modelAndView.addObject("userId",userId);
-        User user = userService.getById(userId);
+        String userName = "";
+        String contact = "";
+        String address = "";
+        String river_place = "";
+        String longitude = "";
+        String latitude = "";
+
+        if(session.getAttribute("userName") != null) {
+            userName = session.getAttribute("userName").toString();
+        }
+        if(session.getAttribute("contact") != null) {
+            contact = session.getAttribute("contact").toString();
+        }
+        if(session.getAttribute("address") != null) {
+            address = session.getAttribute("address").toString();
+        }
+        if(session.getAttribute("waters_addr") != null) {
+            river_place = session.getAttribute("waters_addr").toString();
+        }
+        if (session.getAttribute("water_addr_lng") != null) {
+            longitude = session.getAttribute("water_addr_lng").toString();
+        }
+        if(session.getAttribute("water_addr_lat") != null) {
+            latitude = session.getAttribute("water_addr_lat").toString();
+        }
+        modelAndView.addObject("userId",userID);
+        User user = userService.getById(userID);
         if(userName == null){
             userName = user.getName();
         }
@@ -70,6 +92,7 @@ public class wechatApplyController {
             river_place = "";
         }
         modelAndView.addObject("river_place",river_place);
+
         modelAndView.addObject("longitude",longitude);
         modelAndView.addObject("latitude",latitude);
         return modelAndView;
@@ -92,8 +115,10 @@ public class wechatApplyController {
         }
     }
 
-    @RequestMapping(value = "/imagesUpload",method = RequestMethod.POST)
-    public String upload(@RequestPart("image") MultipartFile image[], Model model, HttpServletRequest request) throws IOException {
+    @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
+    public String upload(@RequestPart("image") MultipartFile image[], Model model, HttpServletRequest request) throws IOException, ParseException {
+        String imgUrl = "";
+
         File dir=new File(request.getSession().getServletContext().getRealPath("/upload"));
         System.out.println(request.getSession().getServletContext().getRealPath("/upload"));
         if(!dir.exists()){
@@ -102,19 +127,35 @@ public class wechatApplyController {
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
             if(file.getOriginalFilename() != "") {
-                System.out.println(22);
                 file.transferTo(new File(dir.getAbsolutePath() + "/" + file.getOriginalFilename()));
-                System.out.println(dir.getAbsolutePath()+"/"+file.getOriginalFilename());
+                imgUrl += dir.getAbsolutePath()+"/"+file.getOriginalFilename();
             }
-
         }
-        return "Admin_Work";
-    }
 
-    @RequestMapping("/getApply")
-    public void getApplyInfo(){
-//        Apply apply = request.getParameter("applyData");
-        ApplyService applyService = new ApplyServiceImpl();
-        applyService.addApply();
+        Apply apply = new Apply();
+        apply.setLongitude(Double.parseDouble(request.getParameter("longitude")));
+        apply.setLatitude(Double.parseDouble(request.getParameter("latitude")));
+        apply.setNumber(request.getParameter("number"));
+        apply.setAddress(request.getParameter("address"));
+        DateFormat d = new SimpleDateFormat("yyyy-MM-dd");
+        apply.setApplyDate(d.parse(request.getParameter("applyDate")));
+        apply.setState(Integer.parseInt(request.getParameter("state")));
+        apply.setImage(request.getParameter("image"));
+        apply.setNumber(request.getParameter("name"));
+        apply.setWaterAddress(request.getParameter("waterAddress"));
+        User user = new User();
+        String userId = request.getParameter("idUser");
+        user = userService.getById(userId);
+        apply.setUser(user);
+        System.out.println(apply.getNumber());
+        System.out.println(apply.getAddress());
+        System.out.println(apply.getApplyDate());
+        System.out.println(apply.getState());
+        System.out.println(apply.getImage());
+        System.out.println(apply.getNumber());
+        System.out.println(apply.getWaterAddress());
+        System.out.println(userId);
+        applyService.addApply(apply);
+        return "Admin_Work";
     }
 }

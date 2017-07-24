@@ -25,15 +25,25 @@ String path = request.getContextPath();
         <div class="weui-cell__ft">
         </div>
     </a>
+    <%--<a class="weui-cell weui-cell_access" id="chooseAddress" href="javascript:;">--%>
+        <%--<div class="weui-cell__hd"><img src="../resources/img/position.png" alt="收货地址" style="width:20px;margin-right:5px;display:block"></div>--%>
+        <%--&nbsp;&nbsp;&nbsp;--%>
+        <%--<div class="weui-cell__bd">--%>
+            <%--<span class="name" name="name">收货人：</span>--%>
+            <%--<input class="weui-input" style="display: inline" id="apply_userName" type="text" placeholder="请输入姓名" value="${userName}">--%>
+            <%--<input id="apply_userContact" style="display: inline" class="weui-input" name="contact" type="text" placeholder="联系方式" value="${address}">--%>
+            <%--<p name="address">收货地址:<input class="weui-input" style="display: inline" id="apply_address" type="text" placeholder="请输入收货地址" value="${address}"></input></p>--%>
+        <%--</div>--%>
+    <%--</a>--%>
     <a class="weui-cell weui-cell_access" id="chooseAddress" href="javascript:;">
         <div class="weui-cell__hd"><img src="../resources/img/position.png" alt="收货地址" style="width:20px;margin-right:5px;display:block"></div>
         &nbsp;
         <div class="weui-cell__bd">
             <span class="name" name="name">收货人：</span>
-            <span id="#apply_userName">${userName}</span>
-            <span id="apply_userContact" class="contact" name="contact">${contact}</span>
-            <p name="address">收货地址:<span id="apply_address">${address}</span></p>
+            <span id="apply_userContact" class="weui-input" name="contact" type="text" placeholder="联系方式" value="${address}"></span>
+            <p name="address">收货地址:<input class="weui-input" id="apply_address" type="text" placeholder="请输入收货地址" value="${address}"></input></p>
         </div>
+
         <div class="weui-cell__ft"></div>
     </a>
 </div>
@@ -44,7 +54,7 @@ String path = request.getContextPath();
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_bd">
-                    <form id="imageForm" action="/imagesUpload" method="post" enctype="multipart/form-data">
+                    <form id="imageForm" action="/applyUpload" method="post" enctype="multipart/form-data">
                         <label>选择您要上传的图片：</label>
                         <div id="newUpload">
                             <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
