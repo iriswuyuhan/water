@@ -21,6 +21,11 @@ body {
         border: 1px dashed #dfdfdf;
         overflow-y: auto;
     }
+    .operate{
+        float: right;
+        margin-top: 1.7em;
+        margin-right: 6.9em;
+    }
 }
 
 @media screen and (max-width:1366px){
@@ -40,6 +45,11 @@ body {
         padding: 5px 30px 10px 5px;
         border: 1px dashed #dfdfdf;
         overflow-y: auto;
+    }
+    .operate{
+        float: right;
+        margin-top: 1.7em;
+        margin-right: 6.9em;
     }
 }
 

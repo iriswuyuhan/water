@@ -71,9 +71,9 @@ function  setSampleInfo(temp) {
         if(index===6)
             $(this).html(temp.apply.number);
         if(index==7)
-            $(this).html(temp.longitude);
+            $(this).html(temp.apply.longitude+"°");
         if(index==8)
-            $(this).html(temp.latitude);
+            $(this).html(temp.apply.latitude+"°");
 
         $("#downlo1").attr("href","/samples/"+temp.idSample+".txt");
         $("#downlo1").attr("download",temp.idSample+".txt");
