@@ -1,8 +1,6 @@
 package com.water.service.Impl;
 
 import com.water.dao.ApplyDao;
-import com.water.dao.Impl.ApplyDaoImpl;
-import com.water.dao.Impl.UserDaoImpl;
 import com.water.dao.UploadDao;
 import com.water.dao.UserDao;
 import com.water.entity.Apply;

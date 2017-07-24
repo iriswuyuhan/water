@@ -1,7 +1,6 @@
 package com.water.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class User {

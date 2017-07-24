@@ -1,7 +1,6 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UploadDao;
-import com.water.entity.Apply;
 import com.water.entity.Sample;
 import org.hibernate.Query;
 import org.hibernate.Session;

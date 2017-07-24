@@ -6,7 +6,6 @@ import org.apache.http.client.ClientProtocolException;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.logging.Logger;
 
 /**
  * Created by Administrator on 2017/7/19.

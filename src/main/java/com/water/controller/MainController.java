@@ -1,7 +1,6 @@
 package com.water.controller;
 
 
-import com.water.entity.Sample;
 import com.water.service.ApplyService;
 import com.water.service.UploadService;
 import com.water.service.UserService;

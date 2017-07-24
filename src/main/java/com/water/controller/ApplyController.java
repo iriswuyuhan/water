@@ -3,7 +3,6 @@ package com.water.controller;
 import com.water.entity.Apply;
 import com.water.entity.Sample;
 import com.water.service.ApplyService;
-import com.water.service.Impl.ApplyServiceImpl;
 import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.io.IOException;
 

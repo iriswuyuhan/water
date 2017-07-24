@@ -1,12 +1,6 @@
 package com.water.controller;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.water.entity.Apply;
-import com.water.entity.Sample;
 import com.water.entity.User;
-import com.water.service.ApplyService;
-import com.water.service.UploadService;
 import com.water.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by lenovo on 2017/7/20.

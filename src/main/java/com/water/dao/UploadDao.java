@@ -1,6 +1,5 @@
 package com.water.dao;
 
-import com.water.entity.Apply;
 import com.water.entity.Sample;
 
 import java.util.List;

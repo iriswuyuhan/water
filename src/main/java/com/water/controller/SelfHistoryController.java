@@ -5,8 +5,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.water.entity.Apply;
 import com.water.entity.Sample;
 import com.water.service.ApplyService;
-import com.water.service.Impl.ApplyServiceImpl;
-import com.water.service.Impl.UploadServiceImpl;
 import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by lenovo on 2017/7/22.

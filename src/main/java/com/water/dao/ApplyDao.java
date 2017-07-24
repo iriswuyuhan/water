@@ -2,7 +2,6 @@ package com.water.dao;
 
 import com.water.entity.Apply;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
