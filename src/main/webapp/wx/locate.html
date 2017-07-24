@@ -24,7 +24,7 @@
             var curUrl=split(document.location.href);
             var add=curUrl[0];
             var curAdd=document.getElementById("curRec");
-            curAdd.innerHTML=add;
+            curAdd.innerHTML=decodeURI(add);
 
             geolocation.getCurrentPosition(function (r) {
 

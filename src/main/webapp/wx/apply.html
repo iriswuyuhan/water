@@ -16,10 +16,21 @@
     <script type="text/javascript" src="../resources/js/split.js"></script>
     <!--<script type="text/javascript" src="split.js"></script>-->
     <script>
+        $(function () {
+            var isPageHide = false;
+            window.addEventListener('pageshow', function () {
+                if (isPageHide) {
+                    window.location.reload();
+                }
+            });
+            window.addEventListener('pagehide', function () {
+                isPageHide = true;
+            });
+        });
         function resetInfo(){
-            var name=document.getElementById("name").innerHTML;
+            var name=encodeURI(document.getElementById("name").innerHTML);
             var contact=document.getElementById("contact").innerHTML;
-            var add=document.getElementById("add").innerHTML;
+            var add=encodeURI(document.getElementById("add").innerHTML);
 //            window.close();
             window.location.href="confirmReciptInfo.html?name="+name+"&contact="+contact+"&add="+add;
         }
@@ -42,9 +53,9 @@
 
             }
             else if (param != null && param.length == 3) {
-                name.innerHTML = param[0];
+                name.innerHTML = decodeURI(param[0]);
                 contact.innerHTML = param[1];
-                add.innerHTML = param[2];
+                add.innerHTML = decodeURI(param[2]);
             }
 
         }

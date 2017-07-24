@@ -11,6 +11,17 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
     <script>
+        $(function () {
+            var isPageHide = false;
+            window.addEventListener('pageshow', function () {
+                if (isPageHide) {
+                    window.location.reload();
+                }
+            });
+            window.addEventListener('pagehide', function () {
+                isPageHide = true;
+            });
+        });
         function load() {
             var url = window.location.href;
             var pre=document.referrer.split("?")[0];
@@ -20,7 +31,7 @@
                 var contact = document.getElementById("phone");
                 var add = document.getElementById("address");
 
-                name.value=param[0];
+                name.value=decodeURI(param[0]);
                 contact.value=param[1];
                 var useCook=$.cookie('ret1');
                 if(useCook=='1'){
@@ -29,14 +40,14 @@
                     $.cookie('add1',null);
                 }
                 else {
-                    add.innerHTML = param[2];
+                    add.innerHTML = decodeURI(param[2]);
                 }
             }
         }
 
         function reLoc(){
             var url="locate.html?add=";
-            var curAdd=document.getElementById("address").innerHTML;
+            var curAdd=encodeURI(document.getElementById("address").innerHTML);
             window.location.href=url+curAdd;
         }
 
