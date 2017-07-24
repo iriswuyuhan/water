@@ -1,28 +1,40 @@
 /**
  * Created by lenovo on 2017/7/19.
  */
-//确定地址按钮的相应
 $("#confirm_but").click(function () {
-    $.ajax({
-        url:"/address/waters/confirm",
-        type:'get',
-        async:false,
-        data:{"longitude":$("#longitude").val(),"latitude":$("#latitude").val(),
-            "waters_address":$("#concrete_address").text()},
-        success:function (data) {
-            if(data){
-                // toast
-                var $toast = $('#toast');
-                if ($toast.css('display') !== 'none') return;
-                $toast.fadeIn(100);
-                setTimeout(function () {
-                    $toast.fadeOut(100);
-                    window.history.back();
-                }, 2000);
-            }
-        }
-    });
+    alert(123);
+    var longitude = document.getElementById("longitude").value;
+    var latitude = document.getElementById("latitude").value;
+    var concrete_address=$("#concrete_address").text();
+    $.cookie('ret3','1');
+    $.cookie('longitude',longitude);
+    $.cookie('latitude',latitude);
+    $.cookie('concrete_address',concrete_address);
+    window.history.back();
 });
+
+//确定地址按钮的相应
+// $("#confirm_but").click(function () {
+//     $.ajax({
+//         url:"/address/waters/confirm",
+//         type:'get',
+//         async:false,
+//         data:{"longitude":$("#longitude").val(),"latitude":$("#latitude").val(),
+//             "waters_address":$("#concrete_address").text()},
+//         success:function (data) {
+//             if(data){
+//                 // toast
+//                 var $toast = $('#toast');
+//                 if ($toast.css('display') != 'none') return;
+//                 $toast.fadeIn(100);
+//                 setTimeout(function () {
+//                     $toast.fadeOut(100);
+//                     window.history.back();
+//                 }, 2000);
+//             }
+//         }
+//     });
+//  });
 
 //创建和初始化地图函数：
 function initMap() {
@@ -57,7 +69,7 @@ var longitude;
 var latitude;
 var geolocation = new BMap.Geolocation();
 geolocation.getCurrentPosition(function(r){
-    if(this.getStatus() === BMAP_STATUS_SUCCESS){
+    if(this.getStatus() == BMAP_STATUS_SUCCESS){
         var mk = new BMap.Marker(r.point);
         map.addOverlay(mk);
         map.panTo(r.point);
@@ -78,7 +90,7 @@ function changeLocation(point) {
 }
 
 function changeOverlay(pt) {
-    if(marker!==null) {
+    if(marker!=null) {
         map.removeOverlay(marker);
     }
     marker=new BMap.Marker(pt);

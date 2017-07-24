@@ -1,14 +1,12 @@
-document.getElementById("chooseRiver").onclick = function () {
-    $.ajax({
-        url:"/chooseRiver",
-        type:'POST',
-        async:false,
-        data:{"userName":$("#apply_username").val(),"userContact":$("#apply_userContact").val(),"address":$("#apply_address").val()},
-        success:function (data) {
-        }
-
-    });
+function onClickWaterAddr() {
+    // $.ajax({
+    //     url:"/chooseRiver",
+    //     type:'POST',
+    //     async:false,
+    //     data:{"userName":$("#apply_username").val(),"userContact":$("#apply_userContact").val(),"address":$("#apply_address").val()},
+    //     success:function (data) {
     window.location.href = "/address/waters";
+    //     }.
 };
 
 j = 1;
@@ -63,5 +61,5 @@ $("#applyUpload").click(function submit(){
             alert("提交成功");
         }
     })
-});
+})
 
