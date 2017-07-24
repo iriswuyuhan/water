@@ -110,6 +110,17 @@
         <p class="weui-toast__content">上传成功</p>
     </div>
 </div>
+<!--alert-->
+<div style="display: none;" id="alert">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">上传失败</strong></div>
+        <div class="weui-dialog__bd">采样编号已存在</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+        </div>
+    </div>
+</div>
 </body>
 <script>
     //图片预览

@@ -56,7 +56,7 @@ public class UploadDaoImpl implements UploadDao {
         Transaction tx = session.beginTransaction();
         List<Sample> sampleList = new LinkedList<Sample>();
         try {
-            String hql = "from Sample where applyID =:idApply" + applyId;
+            String hql = "from Sample where applyID =:idApply";
             Query query = session.createQuery(hql);
             query.setLong("idApply", applyId);
             sampleList = query.list();
@@ -66,7 +66,7 @@ public class UploadDaoImpl implements UploadDao {
             session.close();
         }
         Sample result=new Sample();
-        if(sampleList==null){
+        if(sampleList.size()==0){
             result=null;
 
         }else {

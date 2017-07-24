@@ -61,7 +61,10 @@ public class UploadServiceImpl implements UploadService {
         List<Apply> list = applyDao.findApplyById(userid);
         for (Apply temp : list
                 ) {
-                resultlist.add(uploadDao.findSampleById(temp.getIdApply()));
+            Sample sample=uploadDao.findSampleById(temp.getIdApply());
+            if(sample!=null){
+                resultlist.add(sample);
+            }
         }
 
         return resultlist;

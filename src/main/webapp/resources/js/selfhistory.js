@@ -67,6 +67,10 @@ function onConcreteSample(index) {
     window.location.href = "/user/j" + userID + "/history/sample?index=" + index;
 }
 
+function onAddApply() {
+    
+}
+
 var userID = $("#userID").val();
 //加载未审核列表
 $.ajax({
@@ -83,6 +87,13 @@ $.ajax({
         if(data.length==0){
             noItemTip($("#unchecked_tab_panel"));
         }
+        $("#unchecked_tab_panel").append(
+            "<div class='weui-form-preview'>" +
+            "<div class='weui-form-preview__ft' style='margin-top: 5%'>"+
+        "<a onclick='onAddApply()' class='weui-form-preview__btn weui-form-preview__btn_primary' href='javascript:'>" +
+            "<img src='/resources/img/addApply.png' width='25px' style='position:relative;top:5px'/>" +
+            " 添加采样申请</a>"+
+            "</div></div>");
     }
 });
 
