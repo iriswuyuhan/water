@@ -33,7 +33,7 @@ $(function () {
                         $(this).removeClass("active");
                     });
                     $("#scro4").find("a").each(function () {
-                        if($(this).html()==id)
+                        if($(this).html()===id)
                             $(this.parentNode).addClass("active");
                     })}
                 else {
@@ -56,19 +56,19 @@ function  setSampleInfo(temp) {
     $("#sample").html(temp.idSample);
     $(".sample_time").html(timeFormatter1(temp.sampleDate));
     $("#content4").find("span[name='name']").each(function (index) {
-        if(index==0)
+        if(index===0)
             $(this).html(temp.apply.name);
-        if(index==1)
+        if(index===1)
             $(this).html(temp.apply.idApply);
-        if(index==2)
+        if(index===2)
             $(this).html(timeFormatter1(temp.apply.applyDate));
-        if(index==3)
+        if(index===3)
             $(this).html(temp.volume);
-        if(index==4)
+        if(index===4)
             $(this).html(temp.apply.waterAddress);
-        if(index==5)
+        if(index===5)
             $(this).html(temp.remark);
-        if(index==6)
+        if(index===6)
             $(this).html(temp.apply.number);
         if(index==7)
             $(this).html(temp.longitude);
