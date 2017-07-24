@@ -15,8 +15,10 @@
     <!--加载检索信息窗口-->
     <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
     <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+    <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
 </head>
 <body>
+<input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="longitude"/>
 <input type="hidden" id="latitude"/>
 <div id="location_message">

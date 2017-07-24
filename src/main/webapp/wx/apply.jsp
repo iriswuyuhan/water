@@ -11,9 +11,9 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
     <!--<script>-->
-        <!--alert(document.referrer);-->
-        <!--var url=document.referrer.split("?");-->
-        <!--window.open(url[0]);-->
+    <!--alert(document.referrer);-->
+    <!--var url=document.referrer.split("?");-->
+    <!--window.open(url[0]);-->
     <!--</script>-->
     <script type="text/javascript" src="../resources/js/split.js"></script>
     <script type="text/javascript" src="../resources/js/Apply.js"></script>
@@ -38,6 +38,7 @@
             window.location.href="../wx/confirmReciptInfo.html?name="+name+"&contact="+contact+"&add="+add;
         }
         function load(){
+            alert(123);
             var url = window.location.href;
             var param = split(url);
             var name = document.getElementById("name");
@@ -45,7 +46,7 @@
             var add = document.getElementById("add");
             var useCook = $.cookie('ret2');
             if (useCook == '1') {
-//                alert('b');
+                alert('b');
                 name.innerHTML=$.cookie('name');
                 contact.innerHTML=$.cookie('tel');
                 add.innerHTML = $.cookie('add2');
@@ -101,29 +102,29 @@
                 <span>联系电话：</span>
                 <span id="contact">${contact}</span>
                 <p name="address">收货地址：<span id="add">${address}</span></p>
-            <!--<a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>-->
+                <!--<a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>-->
+            </div>
         </div>
     </div>
-    </div>
 
-<div class="weui-cells__title">上传图片</div>
-<div class="weui-cells weui_cells_form">
-    <div class="weui-cell">
-        <div class="weui_cell_bd weui_cell_primary">
-            <div class="weui_uploader">
-                <div class="weui_uploader_bd">
-                    <form id="imageForm" action="/uploadImg" method="post" enctype="multipart/form-data">
-                        <label>选择您要上传的图片：</label>
-                        <div id="newUpload">
-                            <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
-                        </div>
-                        <input type="button" id="btn_add" value="增加一行">
-                    </form>
+    <div class="weui-cells__title">上传图片</div>
+    <div class="weui-cells weui_cells_form">
+        <div class="weui-cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="weui_uploader">
+                    <div class="weui_uploader_bd">
+                        <form id="imageForm" action="/applyUpload" method="post" enctype="multipart/form-data">
+                            <label>选择您要上传的图片：</label>
+                            <div id="newUpload">
+                                <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
+                            </div>
+                            <input type="button" id="btn_add" value="增加一行">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </form>
 <input type="button" id="applyUpload" value="提交">
 

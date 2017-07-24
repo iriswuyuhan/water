@@ -2,15 +2,14 @@
  * Created by lenovo on 2017/7/19.
  */
 $("#confirm_but").click(function () {
-    alert(123);
-    var longitude = document.getElementById("longitude").value;
-    var latitude = document.getElementById("latitude").value;
+    var longitude =$("#longitude").val();
+    var latitude = $("#latitude").val();
     var concrete_address=$("#concrete_address").text();
     $.cookie('ret3','1');
     $.cookie('longitude',longitude);
     $.cookie('latitude',latitude);
     $.cookie('concrete_address',concrete_address);
-    window.history.back();
+    window.history.go(-1);
 });
 
 //确定地址按钮的相应
