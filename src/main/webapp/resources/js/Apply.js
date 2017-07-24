@@ -7,7 +7,7 @@ document.getElementById("chooseRiver").onclick = function () {
         success:function (data) {
         }
 
-    })
+    });
     window.location.href = "/address/waters";
 };
 
@@ -63,5 +63,5 @@ $("#applyUpload").click(function submit(){
             alert("提交成功");
         }
     })
-})
+});
 

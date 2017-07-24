@@ -18,7 +18,7 @@ function jump_to_receive_addr(){
 
 function load() {
    var useCook=$.cookie('ret1');
-   if(useCook=='1'){
+   if(useCook==='1'){
         $("#receive_addr").val($.cookie('add1'));
         $.cookie('ret1',null);
         $.cookie('add1',null);
@@ -46,7 +46,7 @@ $("#confirm").click(function () {
             if(data){
                 // toast
                 var $toast = $('#toast');
-                if ($toast.css('display') != 'none') return;
+                if ($toast.css('display') !== 'none') return;
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);
@@ -61,7 +61,7 @@ $("#confirm").click(function () {
 
 //确认按钮状态转换
 function checkFullfill() {
-    if($("#name").val()==""||$("#phone_num").val()==""||$("#receive_addr").text()==""){
+    if($("#name").val()===""||$("#phone_num").val()===""||$("#receive_addr").text()===""){
         $("#confirm").addClass("weui-btn_disabled");
         return;
     }

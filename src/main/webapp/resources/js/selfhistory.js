@@ -36,7 +36,7 @@ function ondelete(index) {
             if (data) {
                 // toast
                 var $toast = $('#toast');
-                if ($toast.css('display') != 'none') return;
+                if ($toast.css('display') !== 'none') return;
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);
@@ -109,7 +109,7 @@ $.ajax({
             html += loadChecked(goods);
         });
         $("#checked_tab_panel").append(html);
-        if(data.length==0){
+        if(data.length===0){
             noItemTip($("#checked_tab_panel"));
         }
         // $("#checked_tab_panel").append("<script>$('.checked_message').click(function () {"+
@@ -135,7 +135,7 @@ $.ajax({
             html += loadSampling(goods);
         });
         $("#sampling_tab_panel").append(html);
-        if(data.length==0){
+        if(data.length===0){
             noItemTip($("#sampling_tab_panel"));
         }
         // $("#sampling_tab_panel").append("<script>$('.sampling_item').click(function () {"+
@@ -173,21 +173,21 @@ function loadUnchecked(goods) {
 function loadChecked(goods) {
     var result = "<div class='checked_item' style='padding-left: 4%;padding-right:4%;padding-top: 2.6%;" +
         "color: grey;font-size: 15px;'>";
-    if (goods.state == 1) {
+    if (goods.state === 1) {
         result += "<div class='checked_message' style='width: 90%;float: left'>";
-    } else if (goods.state == 2) {
+    } else if (goods.state === 2) {
         result += "<div class='checked_message' style='width: 100%'>";
     }
     result += "<p>水域地址：<label style='color: black'>" + goods.waterAddress + "</label></p>" +
         "<p>姓名： <label style='color: black'>" + goods.name + "</label>" +
         "<label style='color: black;float:right'>" + goods.number + "</label></p>" +
         "<p>收货地址：<label style='color: black'>" + goods.address + "</label></p>";
-    if (goods.state == 1) {
+    if (goods.state === 1) {
         result += "<p>状态：<img src='/resources/img/pass.png' style='width: 15px'/>已通过</p></div>";
-    } else if (goods.state == 2) {
+    } else if (goods.state === 2) {
         result += "<p>状态：<img src='/resources/img/reject.png' style='width: 15px'/>已拒绝</p></div>";
     }
-    if (goods.state == 1) {
+    if (goods.state === 1) {
         result += "<div style='height:86px;float: right;padding-left: 2%;border-left: 1px;" +
             "border-left-style: dashed;margin-bottom: 3%'>" +
             "<br/>" +

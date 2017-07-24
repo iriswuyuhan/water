@@ -16,8 +16,8 @@ $("#sample_remark").on('input propertychange', function () {
 });
 
 function checkFullfill() {
-    if($("#sample_time").val()==""||$("#sample_volume").val()==""||$("#sample_number").val()==""
-        ||$("#sample_remark").val()==""){
+    if($("#sample_time").val()===""||$("#sample_volume").val()===""||$("#sample_number").val()===""
+        ||$("#sample_remark").val()===""){
         $("#upload_but").addClass("weui-btn_disabled");
         return;
     }
@@ -41,7 +41,7 @@ $("#upload_but").click(function () {
             if(data){
                 // toast
                 var $toast = $('#toast');
-                if ($toast.css('display') != 'none') return;
+                if ($toast.css('display') !== 'none') return;
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);

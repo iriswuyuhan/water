@@ -16,7 +16,7 @@ $(function () {
 
             }
         }
-    })
+    });
     $("#search1").click(function () {
         var id = $("#input1").val();
         $.ajax({
@@ -27,7 +27,7 @@ $(function () {
             success: function (data) {
                 var obj = $.parseJSON(data);
                 if(obj!==null){
-                setSampleInfo(obj)
+                setSampleInfo(obj);
                     $("#scro4").find("li").each(function() {
 
                         $(this).removeClass("active");
@@ -42,7 +42,7 @@ $(function () {
             }
         });
 
-    })
+    });
     function  sampleScro(list) {
         $("#scro4").find("li").remove();
         $("#scro4").append("<li class='active'><a onclick='sampleClick(this)'>"+list[0].idSample+"</a><span class='fa fa-angle-right'></span></li>")

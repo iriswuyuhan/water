@@ -86,7 +86,7 @@ $(function(){
         if(name==="未通过审核"){
             $("#tab3").show();
         }
-    })
+    });
     function scrolist(tem,list) {
         if(tem==="待审核"){
             $("#scro1").empty();
@@ -202,7 +202,7 @@ $(function(){
 function dealApply(type){
     var state;
     if(type.className==="yes button")
-        state="1"
+        state="1";
     else
         state="2";
     var id = $("#applyid").html();
@@ -235,7 +235,7 @@ function  applyClick(type) {
         var obj;
         if(temp.state===0){
 
-            obj=$("#tab1")
+            obj=$("#tab1");
             $("#scro1").find("li").each(function() {
                 $(this).removeClass("active");
             });
@@ -243,7 +243,7 @@ function  applyClick(type) {
         }
         if(temp.state===1){
 
-            obj=$("#tab2")
+            obj=$("#tab2");
 
             $("#scro2").find("li").each(function() {
                 $(this).removeClass("active");
@@ -252,7 +252,7 @@ function  applyClick(type) {
         }
         if(temp.state===2){
 
-            obj=$("#tab3")
+            obj=$("#tab3");
             $("#scro3").find("li").each(function() {
                 $(this).removeClass("active");
             });
@@ -260,7 +260,7 @@ function  applyClick(type) {
         }
         $(".time").each(function () {
             $(this).html(timeFormatter(temp.applyDate));
-        })
+        });
         obj.find("span[name='name']").each(function (index) {
             if(index===0)
                 $(this).html(temp.name
@@ -304,7 +304,7 @@ function  setinitinfo(id) {
             }
             $(".time").each(function () {
                 $(this).html(timeFormatter(temp.applyDate));
-            })
+            });
             obj.find("span[name='name']").each(function (index) {
                 if(index===0)
                     $(this).html(temp.name);
