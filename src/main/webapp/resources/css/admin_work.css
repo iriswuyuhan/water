@@ -14,6 +14,7 @@ body {
 
 @media screen and (max-width: 1920px) {
     #scroll,#scroll2,#scroll3{width:50%; height:13.1em; background-color:white; position:relative;float:right;}
+    #scroll4{width:42%; height:13.5em; background-color:white; position:relative;float:right;}
     .indicator-group-content {
         width: 80%;
         height: 26.3em;
@@ -21,17 +22,34 @@ body {
         border: 1px dashed #dfdfdf;
         overflow-y: auto;
     }
+    #main_content{
+        height: 28em;
+    }
+    .indicator-group-title{
+        height: 26em;
+    }
     .operate{
         float: right;
         margin-top: 1.7em;
         margin-right: 6.9em;
     }
+    .load_wrapper{
+        height: 30em;
+    }
 }
 
 @media screen and (max-width:1366px){
     body{
-        font-size:12px;
+        font-family:微软雅黑,sans-serif;
+        font-size:14px;
     }
+    #main_content{
+        height: 28em;
+    }
+    .indicator-group-title{
+        height: 26em;
+    }
+    #scroll4{width:40%; height:13.5em; background-color:white; position:relative;float:right;}
     #scroll,#scroll2,#scroll3{
         width:50%;
         height:13.1em;
@@ -48,15 +66,20 @@ body {
     }
     .operate{
         float: right;
-        margin-top: 1.7em;
-        margin-right: 6.9em;
+        margin-top: 1.5em;
+        margin-right: 7.0em;
+    }
+    .load_wrapper{
+        height: 30em;
     }
 }
 
 @media screen and (max-width:1048px){
     body{
+        font-family:微软雅黑,sans-serif;
         font-size:12px;
     }
+    #scroll4{width:30%; height:13.5em; background-color:white; position:relative;float:right;}
     #scroll,#scroll2,#scroll3{
         width:80%;
         height:13.1em;
@@ -68,27 +91,48 @@ body {
         margin-top: 2em;
     }
     .indicator-group-content {
-        width: 70%;
-        height: 26.3em;
+        width: 60%;
+        height: 34em;
         padding: 5px 30px 10px 5px;
         border: 1px dashed #dfdfdf;
         overflow-y: auto;
+    }
+    #main_content{
+        height: 35em;
+    }
+    .load_wrapper{
+        height: 37em;
+    }
+    .indicator-group-title{
+        height: 34em;
     }
 }
 @media screen and (max-width:768px){
 
     .indicator-group-content {
         width: 70%;
-        height: 26.3em;
+        height: 34em;
         padding: 5px 30px 10px 5px;
         border: 1px dashed #dfdfdf;
         overflow-y: auto;
     }
+
+    #main_content{
+        height: 35em;
+    }
+    .load_wrapper{
+        height: 37em;
+    }
+    .indicator-group-title{
+        height: 34em;
+    }
+
 }
 
 .orther_search{
     margin-bottom: 2.375em;
 }
+/*--------------------------------------------网页首部导航-------------------------------------------*/
 .header_top {
     height: 4em;
     /*background: #D9EDF7;
@@ -180,7 +224,6 @@ ul#nav li a{
 ul#nav li:first-child a{
     margin-left: 0.9em;
 }
-
 ul#nav li a:hover{
     text-decoration : none;
     color:#0095BB
@@ -291,7 +334,7 @@ ul#nav li.active a i{
 #main_content {
     background: #fff;
     padding: 2em;
-    height: 28em;
+
     position: relative;
     z-index: 2;
     -moz-border-radius: 0 5px 5px 5px;
@@ -336,7 +379,6 @@ footer{
     overflow-x: hidden;
     border: 1px dashed #dfdfdf;
     width: 15%;
-    height: 26em;
     color: #5a5a5a;
     text-align: left;
 }
@@ -424,46 +466,33 @@ footer{
 }
 
 
-#scroll4{width:40%; height:13.5em; background-color:white; position:relative;float:right;}
 #scroll ul,#scroll2 ul,#scroll3 ul,#scroll4 ul{height:13.1em; list-style:none;}
 #scroll ul li,#scroll2 ul li,#scroll3 ul li,#scroll4 ul li{width:50%; height:13.1em;margin:0px; padding:0px; display:none;}
 .subl{
     position:absolute;
-    height: 13em;
-    width: 10em;
-    margin-top: 1em;
-    margin-left: 0px;
+    padding-left: 4em;
+    margin-top: 8em;
+    font-size: 1.5em;
+    color: rgba(0,0,0,0.1);
 }
 .subr{
     position:absolute;
-    height: 13em;
-    width: 10em;
-    margin-top: 1em;
-    margin-left: 10em;
+    font-size: 1.5em;
+    margin-top: 8em;
+    margin-left: 8em;
+    color: rgba(0,0,0,0.1);
 }
-.subl i,.subr i{
-    color:transparent;
-}
+
 #scroll ul li img,#scroll2 ul li img,#scroll3 ul li img,#scroll4 ul li img{
     margin-top: 1em;
     height: 13em;
     width:20em;
 }
 .subl:hover{
-    background: -moz-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    background: -webkit-linear-gradient(left,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.01) 100%);
-    background: -o-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    background: -ms-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    background: linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    color: #000;
+    color: rgba(0,0,0,0.5);
 }
 .subr:hover{
-    background: -moz-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    background: -webkit-linear-gradient(right,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.01) 100%);
-    background: -o-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    background: -ms-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    background: linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
-    color: #000;
+    color: rgba(0,0,0,0.5);
 }
 
 button, .button {
@@ -472,7 +501,7 @@ button, .button {
     border-width: 0;
     cursor: pointer;
     font-family: inherit;
-    font-weight: bold;
+    font-weight: normal;
     line-height: normal;
     position: relative;
     text-decoration: none;
@@ -556,7 +585,6 @@ button, .button {
 .load_wrapper{
     background: #fff;
     padding: 2em;
-    height: 30em;
     position: relative;
     margin-top: 0.35em;
     -moz-border-radius: 0 5px 5px 5px;
@@ -663,4 +691,15 @@ p .toGray{
 
 .bar1 input{
     padding-left: 0.625em;
+}
+#downlo1{
+    margin-left: 11em;
+    margin-top: -1.6em;
+    float:left;
+    color:#22568E;
+    font-weight: normal;
+}
+#downlo1 i{
+    font-size: 1.2em;
+    margin-top:2.7px;
 }

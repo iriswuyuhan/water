@@ -106,11 +106,11 @@
                                 <p>
                                     <span class="toGray">水域照片：</span>
                                 </p>
-                                <p class="subl"><p/>
-                                <p class="subr"><p/>
+                                <p class="subl"><i class="fa fa-arrow-left"></i> <p/>
+                                <p class="subr"><i class="fa fa-arrow-right"></i><p/>
                                 <ul>
-                                    <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
-                                    <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                    <li class="Gallery" style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                    <li class="Gallery"><img src="./resources/img/backimg.png" width="" height=""></li>
                                 </ul>
                             </div>
                             <div class="operate">
@@ -166,11 +166,11 @@
                                 <p>
                                     <span class="toGray">水域照片：</span>
                                 </p>
-                                <p class="subl"><p/>
-                                <p class="subr"><p/>
+                                <p class="subl"><i class="fa fa-arrow-left"></i> <p/>
+                                <p class="subr"><i class="fa fa-arrow-right"></i><p/>
                                 <ul>
-                                    <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
-                                    <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                    <li class="Gallery" style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                    <li class="Gallery"><img src="./resources/img/backimg.png" width="" height=""></li>
                                 </ul>
                             </div>
 
@@ -222,11 +222,11 @@
                                 <p>
                                     <span class="toGray">水域照片：</span>
                                 </p>
-                                <p class="subl"><p/>
-                                <p class="subr"><p/>
+                                <p class="subl"><i class="fa fa-arrow-left"></i> <p/>
+                                <p class="subr"><i class="fa fa-arrow-right"></i><p/>
                                 <ul>
-                                    <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
-                                    <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                    <li class="Gallery" style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                    <li class="Gallery"><img src="./resources/img/backimg.png" width="" height=""></li>
                                 </ul>
                             </div>
 
@@ -254,6 +254,7 @@
                 <div class=" indicator-group-content">
                     <div class="left_title">
                         <i class="fa fa-file-text-o blue"></i><h1 id="sample" class="number">--</h1>
+                        <a id="downlo1" download="" href=""  class="button"><i class="fa fa-download"></i>下载信息</a>
                         <a class="setpon">采样时间：</a>
                         <a class="sample_time">2017-7-17 00:00:00</a>
                     </div>
@@ -297,20 +298,17 @@
                                 <span>纬度：</span>
                                 <span name="name">--</span>
                             </p>
-                            <div class="download_op">
-                                <a id="downlo1" download="" href=""  class="button"><i class="fa fa-download"></i>下载信息</a>
-                            </div>
                         </div>
 
                         <div  id="scroll4">
                             <p>
                                 <span class="toGray">水域照片：</span>
                             </p>
-                            <p class="subl"><p/>
-                            <p class="subr"><p/>
+                            <p class="subl"><i class="fa fa-arrow-left"></i> <p/>
+                            <p class="subr"><i class="fa fa-arrow-right"></i><p/>
                             <ul>
-                                <li style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
-                                <li><img src="./resources/img/backimg.png" width="" height=""></li>
+                                <li class="Gallery" style="display:block;"><img src="./resources/img/Title.png" width="" height=""></li>
+                                <li class="Gallery" class="Gallery"><img src="./resources/img/backimg.png" width="" height=""></li>
                             </ul>
                         </div>
 
@@ -413,7 +411,6 @@
         });
     });
 
-    /*轮播*/
 
 </script>
 </body>
