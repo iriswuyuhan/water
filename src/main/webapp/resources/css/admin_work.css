@@ -9,10 +9,10 @@ body {
     line-height:87.5%;
     color:#555;
     /*    background-color: #D9EDF7;*/
-    background: url("../img/backimg.png")
+    background: url("../img/back.png")
 }
 .orther_search{
-    margin-bottom: 38px;
+    margin-bottom: 2.375em;
 }
 .header_top {
     height: 4em;
@@ -365,30 +365,27 @@ footer{
 #scroll ul li,#scroll2 ul li,#scroll3 ul li,#scroll4 ul li{width:50%; height:13.1em;margin:0px; padding:0px; display:none;}
 .subl{
     position:absolute;
-    text-align:left;font-size:1.875em;font-weight:bold; cursor:pointer;
-    height: 260px;
-    width: 200px;
-    margin-top: 20px;
+    height: 13em;
+    width: 10em;
+    margin-top: 1em;
     margin-left: 0px;
 }
 .subr{
     position:absolute;
-    text-align:right;font-size:30px;font-weight:bold;cursor:pointer;
-    height: 260px;
-    width: 200px;
-    margin-top: 20px;
-    margin-left: 200px;
+    height: 13em;
+    width: 10em;
+    margin-top: 1em;
+    margin-left: 10em;
 }
 .subl i,.subr i{
     color:transparent;
 }
 #scroll ul li img,#scroll2 ul li img,#scroll3 ul li img,#scroll4 ul li img{
-    margin-top: 20px;
-    height: 260px;
-    width:400px;
+    margin-top: 1em;
+    height: 13em;
+    width:20em;
 }
 .subl:hover{
-    font-size: 40px;
     background: -moz-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
     background: -webkit-linear-gradient(left,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.01) 100%);
     background: -o-linear-gradient(left,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
@@ -397,7 +394,6 @@ footer{
     color: #000;
 }
 .subr:hover{
-    font-size: 40px;
     background: -moz-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
     background: -webkit-linear-gradient(right,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.01) 100%);
     background: -o-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
@@ -423,9 +419,9 @@ button, .button {
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    padding-top: 0.25em;
+    padding-top: 0.05em;
     padding-right: 0.75em;
-    padding-bottom: 0.25em;
+    padding-bottom: 0.05em;
     padding-left: 0.55em;
     font-size: 1em;
     background-color:rgba(0,0,0,0.01);
