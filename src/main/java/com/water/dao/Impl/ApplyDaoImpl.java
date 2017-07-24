@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,28 +26,44 @@ public class ApplyDaoImpl implements ApplyDao {
     }
 
     public Apply load(Long id) {
-        return (Apply) getCurrentSession().load(Apply.class,id);
+        return (Apply) getCurrentSession().load(Apply.class, id);
     }
 
     public Apply get(Long id) {
-        return (Apply) getCurrentSession().get(Apply.class,id);
+        return (Apply) getCurrentSession().get(Apply.class, id);
     }
 
     public List<Apply> findAll() {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         List<Apply> list = new LinkedList<Apply>();
-        try{
+        try {
             String hql = "from Apply";
             Query query = session.createQuery(hql);
             list = query.list();
             tx.commit();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             tx.rollback();
-        }finally {
+        } finally {
             session.close();
         }
         return list;
+    }
+
+    public List<Apply> findApplyById(long idUser) {
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Apply> applyList = new LinkedList<Apply>();
+        try {
+            String sql = "select * from Apply where id = " + idUser;
+            Query query = session.createQuery(sql);
+            applyList = query.list();
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return applyList;
     }
 
     public void persist(Apply entity) {
@@ -57,28 +74,29 @@ public class ApplyDaoImpl implements ApplyDao {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         boolean flag = false;
-        try{
+        try {
             session.save(entity);
             tx.commit();
             flag = true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             tx.rollback();
-        }finally{
+        } finally {
             session.close();
         }
         return flag;
     }
+
     public boolean saveOrUpdate(Apply entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         boolean flag = false;
-        try{
+        try {
             session.saveOrUpdate(entity);
             tx.commit();
             flag = true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             tx.rollback();
-        }finally{
+        } finally {
             session.close();
         }
         return flag;
@@ -88,13 +106,13 @@ public class ApplyDaoImpl implements ApplyDao {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         boolean flag = false;
-        try{
-            Apply apply = (Apply)session.load(Apply.class,id);
+        try {
+            Apply apply = (Apply) session.load(Apply.class, id);
             session.delete(apply);
             tx.commit();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             tx.rollback();
-        }finally{
+        } finally {
             session.close();
         }
         return flag;

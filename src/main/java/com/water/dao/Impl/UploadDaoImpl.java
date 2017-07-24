@@ -27,43 +27,61 @@ public class UploadDaoImpl implements UploadDao {
     }
 
     public Sample load(Long id) {
-        return (Sample)getCurrentSession().load(Sample.class,id);
+        return (Sample) getCurrentSession().load(Sample.class, id);
     }
 
     public Sample get(Long id) {
-        return (Sample)getCurrentSession().get(Sample.class,id);
+        return (Sample) getCurrentSession().get(Sample.class, id);
     }
 
     public List<Sample> findAll() {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         List<Sample> list = new LinkedList<Sample>();
-        try{
+        try {
             String hql = "from Sample";
             Query query = session.createQuery(hql);
             list = query.list();
             tx.commit();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             tx.rollback();
-        }finally {
+        } finally {
             session.close();
         }
         return list;
     }
 
-    public void persist(Sample entity) {getCurrentSession().persist(entity);}
+    public List<Apply> findApplyById(long idUser) {
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Apply> applyList = new LinkedList<Apply>();
+        try {
+            String sql = "select * from Apply where id = " + idUser;
+            Query query = session.createQuery(sql);
+            applyList = query.list();
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return applyList;
+    }
+
+    public void persist(Sample entity) {
+        getCurrentSession().persist(entity);
+    }
 
     public boolean save(Sample entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         boolean flag = false;
-        try{
+        try {
             session.save(entity);
             tx.commit();
             flag = true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             tx.rollback();
-        }finally{
+        } finally {
             session.close();
         }
         return flag;
@@ -73,13 +91,13 @@ public class UploadDaoImpl implements UploadDao {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         boolean flag = false;
-        try{
+        try {
             session.saveOrUpdate(entity);
             tx.commit();
             flag = true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             tx.rollback();
-        }finally{
+        } finally {
             session.close();
         }
         return flag;
