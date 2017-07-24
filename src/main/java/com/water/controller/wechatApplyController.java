@@ -98,6 +98,17 @@ public class wechatApplyController {
 //        }
 //    }
 
+    @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
+    public void upload(@RequestPart("file") MultipartFile image[], HttpServletRequest request) throws IOException, ParseException {
+        for (int i = 0; i < image.length; i++) {
+            MultipartFile file = image[i];
+            File dir = new File("/home/web_upload/");
+            if (!(file.getOriginalFilename().equals(""))) {
+                file.transferTo(new File("/home/web_upload/" + file.getOriginalFilename()));
+            }
+        }
+    }
+
     @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
     public String upload(@RequestPart("image") MultipartFile image[], Model model, HttpServletRequest request) throws IOException, ParseException {
         String imgUrl = "";

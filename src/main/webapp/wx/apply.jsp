@@ -112,7 +112,7 @@
         <div class="weui_cell_bd weui_cell_primary">
             <div class="weui_uploader">
                 <div class="weui_uploader_bd">
-                    <form id="imageForm" action="/applyUpload" method="post" enctype="multipart/form-data">
+                    <form id="imageForm" action="/uploadImg" method="post" enctype="multipart/form-data">
                         <label>选择您要上传的图片：</label>
                         <div id="newUpload">
                             <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
