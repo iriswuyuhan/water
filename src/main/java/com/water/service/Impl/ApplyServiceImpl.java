@@ -64,7 +64,9 @@ public class ApplyServiceImpl implements ApplyService {
      * @return
      */
     public ArrayList<Apply> searchApplicationByUser(String idUser) {
+        System.out.println("xx");
         List<Apply> list1 = applyDao.findApplyById(idUser);
+        System.out.println("$$$$$$$$$$$$$$$");
         ArrayList<Apply> list2 = new ArrayList<Apply>();
         for(Apply temp : list1){
                 list2.add(temp);
