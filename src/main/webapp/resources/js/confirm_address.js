@@ -13,7 +13,7 @@ $("#confirm_but").click(function () {
             if(data){
                 // toast
                 var $toast = $('#toast');
-                if ($toast.css('display') != 'none') return;
+                if ($toast.css('display') !== 'none') return;
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);
@@ -57,7 +57,7 @@ var longitude;
 var latitude;
 var geolocation = new BMap.Geolocation();
 geolocation.getCurrentPosition(function(r){
-    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+    if(this.getStatus() === BMAP_STATUS_SUCCESS){
         var mk = new BMap.Marker(r.point);
         map.addOverlay(mk);
         map.panTo(r.point);
@@ -78,7 +78,7 @@ function changeLocation(point) {
 }
 
 function changeOverlay(pt) {
-    if(marker!=null) {
+    if(marker!==null) {
         map.removeOverlay(marker);
     }
     marker=new BMap.Marker(pt);
