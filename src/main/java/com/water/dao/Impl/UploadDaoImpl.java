@@ -65,7 +65,15 @@ public class UploadDaoImpl implements UploadDao {
         } finally {
             session.close();
         }
-        return sampleList.get(0);
+        Sample result=new Sample();
+        if(sampleList==null){
+            result=null;
+
+        }else {
+            result=sampleList.get(0);
+        }
+
+        return result;
     }
 
     public void persist(Sample entity) {
