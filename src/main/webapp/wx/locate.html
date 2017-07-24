@@ -127,8 +127,8 @@
         });
 
         function set(add){
-            $.cookie('ret1','1');
-            $.cookie('add1',add);
+            $.cookie('ret1','1',{path:'/'});
+            $.cookie('add1',add,{path:'/'});
             window.history.go(-1);
         }
 

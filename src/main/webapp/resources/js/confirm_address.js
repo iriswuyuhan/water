@@ -5,10 +5,10 @@ $("#confirm_but").click(function () {
     var longitude =$("#longitude").val();
     var latitude = $("#latitude").val();
     var concrete_address=$("#concrete_address").text();
-    $.cookie('ret3','1');
-    $.cookie('longitude',longitude);
-    $.cookie('latitude',latitude);
-    $.cookie('concrete_address',concrete_address);
+    $.cookie('ret3','1',{path:'/'});
+    $.cookie('longitude',longitude,{path:'/'});
+    $.cookie('latitude',latitude,{path:'/'});
+    $.cookie('concrete_address',concrete_address,{path:'/'});
     window.history.go(-1);
 });
 

@@ -15,8 +15,6 @@
     <!--var url=document.referrer.split("?");-->
     <!--window.open(url[0]);-->
     <!--</script>-->
-    <script type="text/javascript" src="../resources/js/split.js"></script>
-    <script type="text/javascript" src="../resources/js/Apply.js"></script>
     <!--<script type="text/javascript" src="split.js"></script>-->
     <script>
         $(function () {
@@ -38,7 +36,6 @@
             window.location.href="../wx/confirmReciptInfo.html?name="+name+"&contact="+contact+"&add="+add;
         }
         function load(){
-            alert(123);
             var url = window.location.href;
             var param = split(url);
             var name = document.getElementById("name");
@@ -46,24 +43,15 @@
             var add = document.getElementById("add");
             var useCook = $.cookie('ret2');
             if (useCook == '1') {
-                alert('b');
                 name.innerHTML=$.cookie('name');
                 contact.innerHTML=$.cookie('tel');
                 add.innerHTML = $.cookie('add2');
-                $.cookie('ret2', null);
-                $.cookie('name',null);
-                $.cookie('tel',null);
-                $.cookie('add2', null);
             }
             var useCook1 = $.cookie('ret3');
             if (useCook1 == '1') {
                 $("#longitude").val($.cookie('longitude'));
                 $("#latitude").val($.cookie('latitude'));
                 $("#river_place").text($.cookie('concrete_address'));
-                $.cookie('ret3', null);
-                $.cookie('longitude',null);
-                $.cookie('latitude',null);
-                $.cookie('concrete_address', null);
             }
             else if (param != null && param.length == 3) {
                 name.innerHTML = decodeURI(param[0]);
@@ -75,6 +63,7 @@
     </script>
 </head>
 <body onload=load()>
+<input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="longitude"/>
 <input type="hidden" id="latitude"/>
 <form>
@@ -113,12 +102,13 @@
             <div class="weui_cell_bd weui_cell_primary">
                 <div class="weui_uploader">
                     <div class="weui_uploader_bd">
-                        <form id="imageForm" action="/applyUpload" method="post" enctype="multipart/form-data">
+                        <form id="imageForm" action="/uploadImg" method="post" enctype="multipart/form-data">
                             <label>选择您要上传的图片：</label>
                             <div id="newUpload">
                                 <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
                             </div>
                             <input type="button" id="btn_add" value="增加一行">
+                            <input type="submit" value="上传">
                         </form>
                     </div>
                 </div>
@@ -130,4 +120,5 @@
 
 </body>
 <script type="text/javascript" src="../resources/js/Apply.js"></script>
+<script type="text/javascript" src="../resources/js/split.js"></script>
 </html>

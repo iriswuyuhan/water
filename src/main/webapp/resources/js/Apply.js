@@ -10,14 +10,13 @@ function onClickWaterAddr() {
 };
 
 j = 1;
-$(document).ready(function () {
+$(document).ready(function(){
     $("#btn_add").click(function () {
-        alert(22);
         document.getElementById("newUpload").innerHTML += '<div id="div_' + j + '"><input  name="image" type="file"  /><input type="button" value="删除"  onclick="del(' + j + ')"/></div>';
         j = j + 1;
-
     });
 });
+
 function del(o) {
     document.getElementById("newUpload").removeChild(document.getElementById("div_" + o));
 }
@@ -35,31 +34,60 @@ function getApply(longitude,latitude,number,address,applyDate,state,image,name,w
     this.idUser = idUser;
 }
 
-$("#applyUpload").click(function submit(){
+$("#applyUpload").click(function(){
     $("#imageForm").submit();
-    var url = "./applyUpload";
-    var number = document.getElementsByName("contact").toString();
-    var address = document.getElementsByName("address").toString();
-    var myDate = new Date();
-    var applyDate = myDate.toLocaleDateString();    //获取当前日期
-    var num = j;
-    alert(j);
+    var url = "/applyUpload";
+    var longitude = "";
+    var latitude = "";
+    var number = "";
+    var address = "";
+    var date = new Date();
+    var applyDate=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes();
+    // alert(applyDate);
+    var state = 0;
+    var name = "";
+    var waterAddress ="";
+    var idUser = $("#userID").val();
+
+    longitude = $("#longitude").val();
+    latitude = $("#latitude").val();
+    number = $("#contact").text();
+    address = $("#add").text();
+    name = $("#name").text();
+    waterAddress = $("#river_place").text();
     var imgUrl = "";
-    // if(sessionStorage.getItem("longitude")==null || sessionStorage.getItem("latitude")==null || $("#river_place").text()==null){
-    //     alert("信息填写不完整");
-    // }else{
-    //     var applyData = JSON.stringify(new getApply(sessionStorage.getItem("longitude"),sessionStorage.getItem("latitude"),number,address,applyDate,0,imgUrl,$("#apply_username").val(),$("#river_place").text(),sessionStorage.getItem("userId")));
-    // }
-    var applyData = JSON.stringify(new getApply("5.3","5.6",number,address,applyDate,0,"",$("#apply_username").val(),"river_place","userId"));
-    $.ajax({
-        type:"POST",
-        url:url,
-        async:true,
-        data:applyData,
-        dataType:"json",
-        success:function (data) {
-            alert("提交成功");
-        }
-    })
+
+    var myArray = document.getElementsByName("image");
+    for(var i=0;i<myArray.length;i++){
+        imgUrl += myArray[i].value + ";";
+    }
+    var applyData = JSON.stringify(new getApply(longitude,latitude,number,address,applyDate,state,imgUrl,name,waterAddress,idUser));
+    alert(applyData);
+    if(waterAddress == ""){
+        alert("请选择水域地址");
+    }else if(imgUrl == ""){
+        alert("请上传河流图片");
+    }else{
+        $.ajax({
+            type:"POST",
+            url:url,
+            async:true,
+            data:{"longitude":longitude,"latitude":latitude,"number":number,"address":address,"applyDate":applyDate,
+            "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser},
+            dataType:"json",
+            success:function (data) {
+                alert("提交成功");
+                $.cookie('ret2', null,{path:'/'});
+                $.cookie('name',null,{path:'/'});
+                $.cookie('tel',null,{path:'/'});
+                $.cookie('add2', null,{path:'/'});
+                $.cookie('ret3', null,{path:'/'});
+                $.cookie('longitude',null,{path:'/'});
+                $.cookie('latitude',null,{path:'/'});
+                $.cookie('concrete_address', null,{path:'/'});
+                window.location.href = "/user/j"+userID+"/history";
+            }
+        })
+    }
 })
 
