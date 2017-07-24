@@ -262,7 +262,7 @@ function Hammer(element, options, undefined)
      */
     function calculateScale(pos_start, pos_move)
     {
-        if(pos_start.length == 2 && pos_move.length == 2) {
+        if(pos_start.length === 2 && pos_move.length === 2) {
             var start_distance = getDistance(pos_start[0], pos_start[1]);
             var end_distance = getDistance(pos_move[0], pos_move[1]);
             return end_distance / start_distance;
@@ -280,7 +280,7 @@ function Hammer(element, options, undefined)
      */
     function calculateRotation(pos_start, pos_move)
     {
-        if(pos_start.length == 2 && pos_move.length == 2) {
+        if(pos_start.length === 2 && pos_move.length === 2) {
             var start_rotation = getAngle(pos_start[1], pos_start[0]);
             var end_rotation = getAngle(pos_move[1], pos_move[0]);
             return end_rotation - start_rotation;
@@ -352,7 +352,7 @@ function Hammer(element, options, undefined)
                 clearTimeout(_hold_timer);
 
                 _hold_timer = setTimeout(function() {
-                    if(_gesture == 'hold') {
+                    if(_gesture === 'hold') {
                         triggerEvent("hold", {
                             originalEvent   : event,
                             position        : _pos.start
@@ -416,13 +416,13 @@ function Hammer(element, options, undefined)
 
             // drag
             // minimal movement required
-            if(options.drag && (_distance > options.drag_min_distance) || _gesture == 'drag') {
+            if(options.drag && (_distance > options.drag_min_distance) || _gesture === 'drag') {
                 // calculate the angle
                 _angle = getAngle(_pos.start[0], _pos.move[0]);
                 _direction = self.getDirectionFromAngle(_angle);
 
                 // check the movement and stop if we go in the wrong direction
-                var is_vertical = (_direction == 'up' || _direction == 'down');
+                var is_vertical = (_direction === 'up' || _direction === 'down');
 
                 if(((is_vertical && !options.drag_vertical) || (!is_vertical && !options.drag_horizontal)) && (_distance > options.drag_min_distance)) {
                     return;
@@ -533,7 +533,7 @@ function Hammer(element, options, undefined)
             var is_double_tap = (function(){
                 if (_prev_tap_pos &&
                     options.tap_double &&
-                    _prev_gesture == 'tap' &&
+                    _prev_gesture === 'tap' &&
                     _pos.start &&
                     (_touch_start_time - _prev_tap_end_time) < options.tap_max_interval)
                 {
@@ -646,7 +646,7 @@ function Hammer(element, options, undefined)
 
                 // drag gesture
                 // dragstart is triggered, so dragend is possible
-                if(_gesture == 'drag') {
+                if(_gesture === 'drag') {
                     triggerEvent("dragend", {
                         originalEvent   : event,
                         direction       : _direction,
@@ -657,7 +657,7 @@ function Hammer(element, options, undefined)
 
                 // transform
                 // transformstart is triggered, so transformed is possible
-                else if(_gesture == 'transform') {
+                else if(_gesture === 'transform') {
                     // define the transform distance
                     var _distance_x = _pos.center.x - _pos.startCenter.x;
                     var _distance_y = _pos.center.y - _pos.startCenter.y;
@@ -816,7 +816,7 @@ function Hammer(element, options, undefined)
      * @return  bool    is function
      */
     function isFunction( obj ){
-        return Object.prototype.toString.call( obj ) == "[object Function]";
+        return Object.prototype.toString.call( obj ) === "[object Function]";
     }
 
 
