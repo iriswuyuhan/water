@@ -1,6 +1,8 @@
 package com.water.service.Impl;
 
 import com.water.dao.ApplyDao;
+import com.water.dao.Impl.ApplyDaoImpl;
+import com.water.dao.Impl.UserDaoImpl;
 import com.water.dao.UserDao;
 import com.water.entity.Apply;
 import com.water.service.ApplyService;
@@ -17,10 +19,10 @@ import java.util.List;
 @Service
 public class ApplyServiceImpl implements ApplyService {
     @Autowired
-    private ApplyDao applyDao;
+    private ApplyDao applyDao=new ApplyDaoImpl();
 
     @Autowired
-    private UserDao userDao;
+    private UserDao userDao=new UserDaoImpl();
 
     //这个方法用来测试增加数据
     public void addApply() {
@@ -58,12 +60,10 @@ public class ApplyServiceImpl implements ApplyService {
      * @return
      */
     public ArrayList<Apply> searchApplicationByUser(String idUser) {
-        List<Apply> list1 = applyDao.findAll();
+        List<Apply> list1 = applyDao.findApplyById(idUser);
         ArrayList<Apply> list2 = new ArrayList<Apply>();
         for(Apply temp : list1){
-            if(temp.getUser().getIdUser() == idUser){
                 list2.add(temp);
-            }
         }
         return list2;
     }

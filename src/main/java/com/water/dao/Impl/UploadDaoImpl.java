@@ -51,20 +51,20 @@ public class UploadDaoImpl implements UploadDao {
         return list;
     }
 
-    public List<Apply> findApplyById(String idUser) {
+    public List<Apply> findSampleById(String idUser) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Apply> applyList = new LinkedList<Apply>();
+        List<Apply> sampleList = new LinkedList<Apply>();
         try {
-            String sql = "select * from Apply where id = " + idUser;
+            String sql = "select * from Sample where id = " + idUser;
             Query query = session.createQuery(sql);
-            applyList = query.list();
+            sampleList = query.list();
         } catch (Exception ex) {
             tx.rollback();
         } finally {
             session.close();
         }
-        return applyList;
+        return sampleList;
     }
 
     public void persist(Sample entity) {
