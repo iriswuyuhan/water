@@ -17,12 +17,13 @@ function jump_to_receive_addr(){
 }
 
 function load() {
-   var useCook=$.cookie('ret1');
-   if(useCook==='1'){
-        $("#receive_addr").val($.cookie('add1'));
-        $.cookie('ret1',null);
-        $.cookie('add1',null);
-   }
+    var useCook=$.cookie('ret1');
+    if(useCook==='1'){
+        $("#receive_addr").text($.cookie('add1'));
+        $.cookie('ret1',null,{path:'/'});
+        $.cookie('add1',null,{path:'/'});
+    }
+    checkFullfill();
 }
 
 function reLoc(){
@@ -73,8 +74,5 @@ $("#name").on('input propertychange', function () {
     checkFullfill();
 });
 $("#phone_num").on('input propertychange', function () {
-    checkFullfill();
-});
-$("#receive_addr").on('input propertychange', function () {
     checkFullfill();
 });
