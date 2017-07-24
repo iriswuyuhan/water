@@ -51,12 +51,12 @@ public class UploadDaoImpl implements UploadDao {
         return list;
     }
 
-    public List<Apply> findSampleById(String idUser) {
+    public Sample findSampleById(long applyId) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Apply> sampleList = new LinkedList<Apply>();
+        List<Sample> sampleList = new LinkedList<Sample>();
         try {
-            String sql = "select * from Sample where id = " + idUser;
+            String sql = "select * from Sample where applyID = " + applyId;
             Query query = session.createQuery(sql);
             sampleList = query.list();
         } catch (Exception ex) {
@@ -64,7 +64,7 @@ public class UploadDaoImpl implements UploadDao {
         } finally {
             session.close();
         }
-        return sampleList;
+        return sampleList.get(0);
     }
 
     public void persist(Sample entity) {
