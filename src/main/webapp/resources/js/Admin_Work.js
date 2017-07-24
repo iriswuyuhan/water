@@ -65,9 +65,9 @@ $(function(){
         $("#nav li").removeClass();
         $(this).parent().prop("class","active");
         var name =    $(this).find("h4").html();
-        if(name=="审核申请")
+        if(name==="审核申请")
             $("#mainwrapper").show();
-        if(name=="下载采样信息")
+        if(name==="下载采样信息")
             $("#downloadwrapper").show();
     })
     $(".state").click(function () {
@@ -77,32 +77,32 @@ $(function(){
         $("#tab2").hide();
         $("#tab3").hide();
         var  name = $(this).html();
-        if(name=="待审核"){
+        if(name==="待审核"){
             $("#tab1").show();
         }
-        if(name=="审核通过"){
+        if(name==="审核通过"){
             $("#tab2").show();
         }
-        if(name=="未通过审核"){
+        if(name==="未通过审核"){
             $("#tab3").show();
         }
     })
     function scrolist(tem,list) {
-        if(tem=="待审核"){
+        if(tem==="待审核"){
             $("#scro1").empty();
             $("#scro1").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
                 $("#scro1").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
-        if(tem=="审核通过"){
+        if(tem==="审核通过"){
             $("#scro2").empty();
             $("#scro2").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
                 $("#scro2").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
-        if(tem=="未通过审核"){
+        if(tem==="未通过审核"){
             $("#scro3").empty();
             $("#scro3").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
@@ -130,7 +130,7 @@ $(function(){
                     $("#tab2").hide();
                     $("#tab3").hide();
 
-                    if (temp.state == 0) {
+                    if (temp.state === 0) {
                         obj = $("#tab1")
                         $("#tab1").show();
                         $("#tabs").find("li[name='s1']").prop("id", "current")
@@ -139,11 +139,11 @@ $(function(){
                         });
 
                         $("#scro1").find("a").each(function () {
-                            if ($(this).html() == id)
+                            if ($(this).html() === id)
                                 $(this.parentNode).addClass("active");
                         })
                     }
-                    if (temp.state == 1) {
+                    if (temp.state === 1) {
                         obj = $("#tab2")
                         $("#tab2").show();
                         $("#tabs").find("li[name='s2']").prop("id", "current")
@@ -152,11 +152,11 @@ $(function(){
                         });
 
                         $("#scro2").find("a").each(function () {
-                            if ($(this).html() == id)
+                            if ($(this).html() === id)
                                 $(this.parentNode).addClass("active");
                         })
                     }
-                    if (temp.state == 2) {
+                    if (temp.state === 2) {
                         obj = $("#tab3")
                         $("#tab3").show();
                         $("#tabs").find("li[name='s3']").prop("id", "current")
@@ -165,7 +165,7 @@ $(function(){
                         });
 
                         $("#scro3").find("a").each(function () {
-                            if ($(this).html() == id)
+                            if ($(this).html() === id)
                                 $(this.parentNode).addClass("active");
                         })
                     }
@@ -173,17 +173,17 @@ $(function(){
                         $(this).html(timeFormatter(temp.applyDate));
                     })
                     obj.find("span[name='name']").each(function (index) {
-                        if (index == 0)
+                        if (index === 0)
                             $(this).html(temp.name);
-                        if (index == 1)
+                        if (index === 1)
                             $(this).html(temp.number);
-                        if (index == 2)
+                        if (index === 2)
                             $(this).html(temp.address);
-                        if (index == 3)
+                        if (index === 3)
                             $(this).html(temp.longitude);
-                        if (index == 4)
+                        if (index === 4)
                             $(this).html(temp.latitude);
-                        if (index == 5)
+                        if (index === 5)
                             $(this).html(temp.waterAddress);
                     });
                     obj.find("h1").each(function () {
@@ -201,7 +201,7 @@ $(function(){
 });
 function dealApply(type){
     var state;
-    if(type.className=="yes button")
+    if(type.className==="yes button")
         state="1"
     else
         state="2";
@@ -233,7 +233,7 @@ function  applyClick(type) {
     });
     function setinfo(temp) {
         var obj;
-        if(temp.state==0){
+        if(temp.state===0){
 
             obj=$("#tab1")
             $("#scro1").find("li").each(function() {
@@ -241,7 +241,7 @@ function  applyClick(type) {
             });
             $(type.parentNode).addClass("active");
         }
-        if(temp.state==1){
+        if(temp.state===1){
 
             obj=$("#tab2")
 
@@ -250,7 +250,7 @@ function  applyClick(type) {
             });
             $(type.parentNode).addClass("active");
         }
-        if(temp.state==2){
+        if(temp.state===2){
 
             obj=$("#tab3")
             $("#scro3").find("li").each(function() {
@@ -262,19 +262,19 @@ function  applyClick(type) {
             $(this).html(timeFormatter(temp.applyDate));
         })
         obj.find("span[name='name']").each(function (index) {
-            if(index==0)
+            if(index===0)
                 $(this).html(temp.name
 
                 );
-            if(index==1)
+            if(index===1)
                 $(this).html(temp.number);
-            if(index==2)
+            if(index===2)
                 $(this).html(temp.address);
-            if(index==3)
+            if(index===3)
                 $(this).html(temp.longitude);
-            if(index==4)
+            if(index===4)
                 $(this).html(temp.latitude);
-            if(index==5)
+            if(index===5)
                 $(this).html(temp.waterAddress);
         });
         obj.find("h1").each(function () {
@@ -293,30 +293,30 @@ function  setinitinfo(id) {
             var obj1 = $.parseJSON(data);
             var temp = obj1;
             var obj;
-            if(temp.state==0){
+            if(temp.state===0){
                 obj=$("#tab1")
             }
-            if(temp.state==1){
+            if(temp.state===1){
                 obj=$("#tab2")
             }
-            if(temp.state==2){
+            if(temp.state===2){
                 obj=$("#tab3")
             }
             $(".time").each(function () {
                 $(this).html(timeFormatter(temp.applyDate));
             })
             obj.find("span[name='name']").each(function (index) {
-                if(index==0)
+                if(index===0)
                     $(this).html(temp.name);
-                if(index==1)
+                if(index===1)
                     $(this).html(temp.number);
-                if(index==2)
+                if(index===2)
                     $(this).html(temp.address);
-                if(index==3)
+                if(index===3)
                     $(this).html(temp.longitude);
-                if(index==4)
+                if(index===4)
                     $(this).html(temp.latitude);
-                if(index==5)
+                if(index===5)
                     $(this).html(temp.waterAddress);
             });
             obj.find("h1").each(function () {
