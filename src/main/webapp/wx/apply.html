@@ -5,7 +5,7 @@
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>申请采样设备</title>
     <!-- WeUI -->
-    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.4.3/weui.min.css"/>
+    <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
     <!--<script>-->
@@ -63,35 +63,35 @@
     </script>
 </head>
 <body onload=load()>
-<div class="weui_cells">
-
-    <div class="weui-cell weui-cell_access" id="chooseRiver" href="javascript:;">
-        <div class="weui-cell_hd">
-            <p>水域地址</p>
-        </div>&nbsp;&nbsp;&nbsp;
-        <div class="weui-cell__bd">
-            <span id="river_place" name="river_place" value="${river_place}"></span>
-        </div>
-        <div class="weui-cell__ft">
+<form>
+    <br>
+    <hr/>
+    <div class="weui-cells weui-cells_vcode" id="chooseRiver" href="javascript:;">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">水域地址</label>
+            </div>
+            <div class="weui-cell__bd">
+                <label class="weui-input" id="river_place" name="river_place" value="${river_place}">请输入水域地址</label>
+            </div>
         </div>
     </div>
 
-    <div class="weui_cell weui-cell_access" id="chooseAddress" href="javascript:;">
-        <div class="weui_cell_hd">
-            <img src="../resources/img/position.png" alt="icon" style="width:20px;margin-left:5px;margin-right: 5px;display:block">
-        </div>&nbsp;&nbsp;
-        <div class="weui_cell_bd" onclick=resetInfo()>
-            <span>收货人：</span>
-            <span id="name">yyy</span>
-            <span id="contact">123456789</span>
-            <p name="address">收货地址:<span id="add">江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</span></p>
+    <div class="weui-cells weui-cells_vcode" id="chooseAddress" href="javascript:;">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <img src="../resources/img/position.png" alt="icon" style="width:20px;margin-left:5px;margin-right: 5px;display:block">
+            </div>
+            <div class="weui-cell__bd" onclick=resetInfo()>
+                <span>收货人：</span>
+                <span id="name">yyy</span>
+                <span>联系电话：</span>
+                <span id="contact">123456789</span>
+                <p name="address">收货地址：<span id="add">江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</span></p>
             <!--<a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>-->
         </div>
-        <div class="weui_cell_ft">
-        </div>
     </div>
-
-</div>
+    </div>
 
 <div class="weui-cells__title">上传图片</div>
 <div class="weui-cells weui_cells_form">
@@ -111,7 +111,7 @@
         </div>
     </div>
 </div>
-
+</form>
 <input type="button" id="applyUpload" value="提交">
 
 </body>
