@@ -111,8 +111,8 @@ function Hammer(element, options, undefined)
 
     /**
      * option setter/getter
-     * @param   string  key
-     * @param   mixed   value
+     * @param   key
+     * @param   val
      * @return  mixed   value
      */
     this.option = function(key, val) {
@@ -126,7 +126,7 @@ function Hammer(element, options, undefined)
 
     /**
      * angle to direction define
-     * @param  float    angle
+     * @param  angle
      * @return string   direction
      */
     this.getDirectionFromAngle = function( angle ) {
@@ -234,8 +234,8 @@ function Hammer(element, options, undefined)
 
     /**
      * calculate the angle between two points
-     * @param   object  pos1 { x: int, y: int }
-     * @param   object  pos2 { x: int, y: int }
+     * @param   pos1 { x: int, y: int }
+     * @param   pos2 { x: int, y: int }
      */
     function getAngle( pos1, pos2 )
     {
@@ -256,8 +256,8 @@ function Hammer(element, options, undefined)
 
     /**
      * calculate the scale size between two fingers
-     * @param   object  pos_start
-     * @param   object  pos_move
+     * @param   pos_start
+     * @param   pos_move
      * @return  float   scale
      */
     function calculateScale(pos_start, pos_move)
@@ -274,8 +274,8 @@ function Hammer(element, options, undefined)
 
     /**
      * calculate the rotation degrees between two fingers
-     * @param   object  pos_start
-     * @param   object  pos_move
+     * @param   pos_start
+     * @param   pos_move
      * @return  float   rotation
      */
     function calculateRotation(pos_start, pos_move)
@@ -292,8 +292,8 @@ function Hammer(element, options, undefined)
 
     /**
      * trigger an event/callback by name with params
-     * @param string name
-     * @param array  params
+     * @param eventName
+     * @param params
      */
     function triggerEvent( eventName, params )
     {
@@ -310,7 +310,7 @@ function Hammer(element, options, undefined)
 
     /**
      * cancel event
-     * @param   object  event
+     * @param   event
      * @return  void
      */
 
@@ -680,7 +680,7 @@ function Hammer(element, options, undefined)
                         _setup();
                         callReset = false;
                     }
-                } else if (_can_tap && event.type != 'mouseout') {
+                } else if (_can_tap && event.type !== 'mouseout') {
                     gestures.tap(_event_start);
                 }
                 
@@ -758,8 +758,8 @@ function Hammer(element, options, undefined)
 
     /**
      * find if element is (inside) given parent element
-     * @param   object  element
-     * @param   object  parent
+     * @param   child
+     * @param   parent
      * @return  bool    inside
      */
     function isInsideHammer(parent, child) {
@@ -788,8 +788,8 @@ function Hammer(element, options, undefined)
 
     /**
      * merge 2 objects into a new object
-     * @param   object  obj1
-     * @param   object  obj2
+     * @param   obj1
+     * @param   obj2
      * @return  object  merged object
      */
     function mergeObject(obj1, obj2) {
@@ -812,7 +812,7 @@ function Hammer(element, options, undefined)
 
     /**
      * check if object is a function
-     * @param   object  obj
+     * @param   obj
      * @return  bool    is function
      */
     function isFunction( obj ){
@@ -822,9 +822,9 @@ function Hammer(element, options, undefined)
 
     /**
      * attach event
-     * @param   node    element
-     * @param   string  types
-     * @param   object  callback
+     * @param   element
+     * @param   types
+     * @param   callback
      */
     function addEvent(element, types, callback) {
         types = types.split(" ");
@@ -841,9 +841,9 @@ function Hammer(element, options, undefined)
 
     /**
      * detach event
-     * @param   node    element
-     * @param   string  types
-     * @param   object  callback
+     * @param   element
+     * @param   types
+     * @param   callback
      */
     function removeEvent(element, types, callback) {
         types = types.split(" ");
