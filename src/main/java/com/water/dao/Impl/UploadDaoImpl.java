@@ -56,8 +56,9 @@ public class UploadDaoImpl implements UploadDao {
         Transaction tx = session.beginTransaction();
         List<Sample> sampleList = new LinkedList<Sample>();
         try {
-            String sql = "select * from Sample where applyID = " + applyId;
-            Query query = session.createQuery(sql);
+            String hql = "from Sample where applyID =:idApply" + applyId;
+            Query query = session.createQuery(hql);
+            query.setLong("idApply", applyId);
             sampleList = query.list();
         } catch (Exception ex) {
             tx.rollback();
