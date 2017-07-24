@@ -51,7 +51,7 @@ public class UploadDaoImpl implements UploadDao {
         return list;
     }
 
-    public List<Apply> findApplyById(long idUser) {
+    public List<Apply> findApplyById(String idUser) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         List<Apply> applyList = new LinkedList<Apply>();
