@@ -75,8 +75,8 @@ function  setSampleInfo(temp) {
         if(index==8)
             $(this).html(temp.latitude);
 
-        $("#downlo1").attr("href","/samples/"+temp.apply.idApply+".txt");
-        $("#downlo1").attr("download",temp.apply.idApply+".txt");
+        $("#downlo1").attr("href","/samples/"+temp.idSample+".txt");
+        $("#downlo1").attr("download",temp.idSample+".txt");
 
     });
 }

@@ -10,13 +10,19 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
     <title>水污染-管理 </title>
     <!-- CSS -->
     <link rel="stylesheet" href="./resources/css/admin_work.css"/>
     <link rel="stylesheet" href="./resources/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
     <!--    &lt;!&ndash; Favicon and touch icons &ndash;&gt;
         <link rel="shortcut icon" href="assets/ico/favicon.ico">-->
@@ -60,63 +66,39 @@
             <div id="tab1">
                 <div id="content1" class="table-content" style="display: block;">
                     <ul id="scro1" class="scroll indicator-group-title">
-                        <li class="active"><a>12345678</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345679</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li><a>12345680</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345681</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345682</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345683</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345684</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li><a >12345681</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345685</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345686</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345687</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345688</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345689</a><span
+                        <li class="active"><a>--</a><span
                                 class="fa fa-angle-right"></span></li>
                     </ul>
                     <div class=" indicator-group-content">
                         <div class="left_title">
-                            <i class="fa fa-edit blue"></i><h1 id="applyid" class="number">12345678</h1>
+                            <i class="fa fa-edit blue"></i><h1 id="applyid" class="number">--</h1>
                             <a class="time">2017-7-17 00:00:00</a>
                         </div>
                         <div class="left_content">
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                                 <p>
                                     <span>水域地址：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                             </div>
 
@@ -144,63 +126,39 @@
             <div id="tab2" style="display: none">
                 <div id="content2" class="table-content" style="">
                     <ul id="scro2" class="scroll indicator-group-title">
-                        <li class="active"><a>12345678</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345679</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li><a>12345680</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345681</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345682</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345683</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345684</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li><a >12345681</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345685</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345686</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345687</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345688</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345689</a><span
+                        <li class="active"><a>--</a><span
                                 class="fa fa-angle-right"></span></li>
                     </ul>
                     <div class=" indicator-group-content">
                         <div class="left_title">
-                            <i class="fa fa-check green"></i> <h1></h1>
+                            <i class="fa fa-check green"></i> <h1>--</h1>
                             <a class="time">2017-7-17 00:00:00</a>
                         </div>
                         <div class="left_content">
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>水域地址：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                             </div>
 
@@ -224,63 +182,39 @@
             <div id="tab3" style="display: none">
                 <div id="content3" class="table-content" style="">
                     <ul id="scro3" class="scroll indicator-group-title">
-                        <li class="active"><a>12345678</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345679</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li><a>12345680</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345681</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345682</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345683</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345684</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li><a >12345681</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345685</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345686</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345687</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345688</a><span
-                                class="fa fa-angle-right"></span></li>
-                        <li class=""><a>12345689</a><span
+                        <li class="active"><a>--</a><span
                                 class="fa fa-angle-right"></span></li>
                     </ul>
                     <div class=" indicator-group-content">
                         <div class="left_title">
-                            <i class="fa fa-close red"></i><h1>12345678</h1>
+                            <i class="fa fa-close red"></i><h1>--</h1>
                             <a class="time">2017-7-17 00:00:00</a>
                         </div>
                         <div class="left_content">
                             <div class="left_info">
                                 <p>
                                     <span>姓名：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                                 <p>
                                     <span>联系方式：</span>
-                                    <span name="name">1</span>
+                                    <span name="name">--</span>
                                 </p>
                                 <p>
                                     <span>家庭住址：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>经度：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>纬度：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                                 <p>
                                     <span>水域地址：</span>
-                                    <span name='name'>1</span>
+                                    <span name='name'>--</span>
                                 </p>
                             </div>
 
@@ -314,36 +248,12 @@
                             <button id="search1" ></button>
                         </form>
                     </div>
-                    <li class="active"><a>12345678</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345679</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li><a>12345680</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345681</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345682</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345683</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345684</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li><a >12345681</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345685</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345686</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345687</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345688</a><span
-                            class="fa fa-angle-right"></span></li>
-                    <li class=""><a>12345689</a><span
+                    <li class="active"><a>--</a><span
                             class="fa fa-angle-right"></span></li>
                 </ul>
                 <div class=" indicator-group-content">
                     <div class="left_title">
-                        <i class="fa fa-file-text-o blue"></i><h1 id="sample" class="number">12345678</h1>
+                        <i class="fa fa-file-text-o blue"></i><h1 id="sample" class="number">--</h1>
                         <a class="setpon">采样时间：</a>
                         <a class="sample_time">2017-7-17 00:00:00</a>
                     </div>
@@ -351,41 +261,41 @@
                         <div class="left_info" id="left-info">
                             <p>
                                 <span>姓名：</span>
-                                <span name="name">1</span>
+                                <span name="name">--</span>
                             </p>
                             <p>
                                 <span>申请编号：</span>
-                                <span name="name">1</span>
+                                <span name="name">--</span>
                             </p>
                             <p>
                                 <span>申请时间：</span>
-                                <span name="name">2017-7-19 17:15:41</span>
+                                <span name="name">--</span>
                             </p>
                             <p>
                                 <span>样本体积：</span>
-                                <span name="name"></span>
+                                <span name="name">--</span>
                             </p>
                             <p>
                                 <span>水域地址：</span>
-                                <span name="name">1</span>
+                                <span name="name">--</span>
                             </p>
                             <p>
                                 <span>备注：</span>
-                                <span name="name">无</span>
+                                <span name="name">--</span>
                             </p>
                         </div>
                         <div class="middle_info" id="middle-info">
                             <p>
                                 <span>联系方式：</span>
-                                <span name="name">1</span>
+                                <span name="name">--</span>
                             </p>
                             <p>
                                 <span>经度：</span>
-                                <span name="name">4</span>
+                                <span name="name">--</span>
                             </p>
                             <p>
                                 <span>纬度：</span>
-                                <span name="name">1</span>
+                                <span name="name">--</span>
                             </p>
                             <div class="download_op">
                                 <a id="downlo1" download="" href=""  class="button"><i class="fa fa-download"></i>下载信息</a>

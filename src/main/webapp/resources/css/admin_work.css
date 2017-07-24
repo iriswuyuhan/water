@@ -9,8 +9,73 @@ body {
     line-height:87.5%;
     color:#555;
     /*    background-color: #D9EDF7;*/
-    background: url("../img/back.png")
+    background: url("../img/back.png");
 }
+
+@media screen and (max-width: 1920px) {
+    #scroll,#scroll2,#scroll3{width:50%; height:13.1em; background-color:white; position:relative;float:right;}
+    .indicator-group-content {
+        width: 80%;
+        height: 26.3em;
+        padding: 5px 30px 10px 5px;
+        border: 1px dashed #dfdfdf;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-width:1366px){
+    body{
+        font-size:12px;
+    }
+    #scroll,#scroll2,#scroll3{
+        width:50%;
+        height:13.1em;
+        background-color:white;
+        position:relative;
+        float:right;
+    }
+    .indicator-group-content {
+        width: 80%;
+        height: 26.3em;
+        padding: 5px 30px 10px 5px;
+        border: 1px dashed #dfdfdf;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-width:1048px){
+    body{
+        font-size:12px;
+    }
+    #scroll,#scroll2,#scroll3{
+        width:80%;
+        height:13.1em;
+        background-color:white;
+        float:left;
+    }
+    .operate{
+        float:left;
+        margin-top: 2em;
+    }
+    .indicator-group-content {
+        width: 70%;
+        height: 26.3em;
+        padding: 5px 30px 10px 5px;
+        border: 1px dashed #dfdfdf;
+        overflow-y: auto;
+    }
+}
+@media screen and (max-width:768px){
+
+    .indicator-group-content {
+        width: 70%;
+        height: 26.3em;
+        padding: 5px 30px 10px 5px;
+        border: 1px dashed #dfdfdf;
+        overflow-y: auto;
+    }
+}
+
 .orther_search{
     margin-bottom: 2.375em;
 }
@@ -300,16 +365,6 @@ footer{
     font-size: 93.75%;
 }
 
-.indicator-group-content {
-
-    width: 80%;
-    height: 26.3em;
-    padding: 5px 30px 10px 5px;
-    border: 1px dashed #dfdfdf;
-    overflow-y: auto;
-}
-
-
 .left_title h1{
     color: #444;
     margin-bottom: 0.15625em;
@@ -359,7 +414,6 @@ footer{
 }
 
 
-#scroll,#scroll2,#scroll3{width:50%; height:13.1em; background-color:white; position:relative;float:right;}
 #scroll4{width:40%; height:13.5em; background-color:white; position:relative;float:right;}
 #scroll ul,#scroll2 ul,#scroll3 ul,#scroll4 ul{height:13.1em; list-style:none;}
 #scroll ul li,#scroll2 ul li,#scroll3 ul li,#scroll4 ul li{width:50%; height:13.1em;margin:0px; padding:0px; display:none;}
@@ -400,11 +454,6 @@ footer{
     background: -ms-linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
     background: linear-gradient(right,rgba(0,0,0,0.2) 0,rgba(0,0,0,0.2) 100%);
     color: #000;
-}
-.operate{
-    float: right;
-    margin-top: 1.7em;
-    margin-right: 6.9em;
 }
 
 button, .button {
@@ -575,13 +624,12 @@ p .toGray{
 
 .bar1 input {
     height: 2em;
-    width: 13.3em;
     border-radius: 42px;
+    width:92%;
     border: 2px solid rgba(0,0,0,0.1);
     background: #fff;
     transition: .3s linear;
     float: right;
-
     font-family: 'Open Sans', sans-serif;
     font-size: 93.75%;
     font-weight: 400;

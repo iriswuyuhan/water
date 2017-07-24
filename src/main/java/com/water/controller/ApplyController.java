@@ -110,8 +110,8 @@ public class ApplyController {
     public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
         ArrayList<Sample> samples =uploadService.findAll();
-/*        if(samples.size()>0)
-        uploadService.addTxt(samples.get(0));*/
+        if(samples.size()>0)
+        uploadService.addTxt(samples.get(0));
         JSONArray array = JSONArray.fromObject(samples);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());

@@ -83,7 +83,7 @@ public class UploadServiceImpl implements UploadService {
     public void addTxt(Sample sample) {
         try {
             // FileOutputStream file1 = new FileOutputStream("F:\\拙劣工程师\\water\\src\\main\\webapp\\resources\\txt\\new.txt");
-            FileOutputStream file1 = new FileOutputStream("/home/samples/" + sample.getApply().getIdApply() + ".txt");
+            FileOutputStream file1 = new FileOutputStream("/home/samples/" + sample.getIdSample() + ".txt");
             OutputStreamWriter oStreamWriter = new OutputStreamWriter(file1, "utf-8");
             String id = "样本编号： " + sample.getIdSample() + "\r\n";
             String name = "申请人姓名： " + sample.getApply().getName() + "\r\n";
