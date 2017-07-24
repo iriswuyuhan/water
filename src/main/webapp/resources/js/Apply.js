@@ -10,9 +10,6 @@ document.getElementById("chooseRiver").onclick = function () {
     })
     window.location.href = "/address/waters";
 };
-document.getElementById("chooseAddress").onclick = function () {
-    window.location.href = "../wx/locate.html";
-};
 
 j = 1;
 $(document).ready(function () {
