@@ -117,7 +117,7 @@
         <div class="weui-dialog__hd"><strong class="weui-dialog__title">上传失败</strong></div>
         <div class="weui-dialog__bd">采样编号已存在</div>
         <div class="weui-dialog__ft">
-            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+            <a href="javascript:;" onclick="hideAlert()" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
         </div>
     </div>
 </div>

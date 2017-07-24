@@ -59,6 +59,7 @@ function onUpload(index) {
     });
 }
 
+var userID = $("#userID").val();
 function onConcreteApply(index, isChecked) {
     window.location.href = "/user/j" + userID + "/history/apply?index=" + index + "&isChecked=" + isChecked;
 }
@@ -68,10 +69,9 @@ function onConcreteSample(index) {
 }
 
 function onAddApply() {
-    
+    window.location.href='/init/j'+userID;
 }
 
-var userID = $("#userID").val();
 //加载未审核列表
 $.ajax({
     url: "/user/j" + userID + "/history/getUnChecked",

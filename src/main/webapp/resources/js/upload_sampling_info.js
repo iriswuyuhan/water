@@ -55,3 +55,9 @@ $("#upload_but").click(function () {
         }
     });
 });
+
+function hideAlert() {
+    $("#alert").hide();
+    $("#sample_number").val("");
+    $("#upload_but").addClass("weui-btn_disabled");
+}

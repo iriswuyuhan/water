@@ -15,8 +15,10 @@
     <!--加载检索信息窗口-->
     <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
     <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+    <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
 </head>
 <body>
+<input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="longitude"/>
 <input type="hidden" id="latitude"/>
 <div id="location_message">
@@ -45,14 +47,14 @@
     <a style="width: 85%;align-self: center;line-height: 35px" href="javascript:;" id="confirm_but"
        class="weui-btn weui-btn_plain-primary">确定</a>
 </p>
-<!--toast-->
-<div id="toast" style="display: none;">
-    <div class="weui-mask_transparent"></div>
-    <div class="weui-toast">
-        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
-        <p class="weui-toast__content">得到水域地址</p>
-    </div>
-</div>
+<%--<!--toast-->--%>
+<%--<div id="toast" style="display: none;">--%>
+    <%--<div class="weui-mask_transparent"></div>--%>
+    <%--<div class="weui-toast">--%>
+        <%--<i class="weui-icon-success-no-circle weui-icon_toast"></i>--%>
+        <%--<p class="weui-toast__content">得到水域地址</p>--%>
+    <%--</div>--%>
+<%--</div>--%>
 </body>
 <script src="../resources/js/inputPrompt.js"></script>
 <script src="../resources/js/confirm_address.js"></script>
