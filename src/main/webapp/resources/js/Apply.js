@@ -8,7 +8,7 @@ document.getElementById("chooseRiver").onclick = function () {
         }
 
     })
-    window.location.href = "../wx/confirm_address.jsp";
+    window.location.href = "/address/waters";
 };
 document.getElementById("chooseAddress").onclick = function () {
     window.location.href = "../wx/locate.html";
@@ -42,7 +42,7 @@ function getApply(longitude,latitude,number,address,applyDate,state,image,name,w
 
 $("#applyUpload").click(function submit(){
     $("#imageForm").submit();
-    var url = "./getApply";
+    var url = "./applyUpload";
     var number = document.getElementsByName("contact").toString();
     var address = document.getElementsByName("address").toString();
     var myDate = new Date();
@@ -50,12 +50,12 @@ $("#applyUpload").click(function submit(){
     var num = j;
     alert(j);
     var imgUrl = "";
-    for (var i=0;i<num;i++){
-        var key = "file_"+i;
-        imgUrl += '${key}';
-    }
-    var applyData = JSON.stringify(new getApply(sessionStorage.getItem("longitude"),sessionStorage.getItem("latitude"),number,address,applyDate,"待审核",imgUrl,$("#apply_username").val(),$("#river_place").text(),sessionStorage.getItem("userId")));
-
+    // if(sessionStorage.getItem("longitude")==null || sessionStorage.getItem("latitude")==null || $("#river_place").text()==null){
+    //     alert("信息填写不完整");
+    // }else{
+    //     var applyData = JSON.stringify(new getApply(sessionStorage.getItem("longitude"),sessionStorage.getItem("latitude"),number,address,applyDate,0,imgUrl,$("#apply_username").val(),$("#river_place").text(),sessionStorage.getItem("userId")));
+    // }
+    var applyData = JSON.stringify(new getApply("5.3","5.6",number,address,applyDate,0,"",$("#apply_username").val(),"river_place","userId"));
     $.ajax({
         type:"POST",
         url:url,
