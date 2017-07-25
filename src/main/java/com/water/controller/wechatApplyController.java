@@ -64,7 +64,7 @@ public class wechatApplyController {
 //        if(session.getAttribute("address") != null) {
 //            address = session.getAttribute("address").toString();
 //        }
-        modelAndView.addObject("userId",userID);
+        modelAndView.addObject("userID",userID);
         User user = userService.getById(userID);
 //        if(userName == null){
         userName = user.getName();
@@ -99,19 +99,8 @@ public class wechatApplyController {
 //    }
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
-    public void upload(@RequestPart("file") MultipartFile image[], HttpServletRequest request) throws IOException, ParseException {
-        for (int i = 0; i < image.length; i++) {
-            MultipartFile file = image[i];
-            File dir = new File("/home/web_upload/");
-            if (!(file.getOriginalFilename().equals(""))) {
-                file.transferTo(new File("/home/web_upload/" + file.getOriginalFilename()));
-            }
-        }
-    }
-
-    @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
-    public String upload(@RequestPart("image") MultipartFile image[], Model model, HttpServletRequest request) throws IOException, ParseException {
-        String imgUrl = "";
+    public String upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException, ParseException {
+        System.out.println(image.length);
 
         File dir=new File("D:/temp");
         if(!dir.exists()){
@@ -121,34 +110,38 @@ public class wechatApplyController {
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
                 file.transferTo(new File(dir.getAbsolutePath() + "/" + file.getOriginalFilename()));
-                imgUrl += dir.getAbsolutePath()+"/"+file.getOriginalFilename();
             }
         }
-
-//        Apply apply = new Apply();
-//        apply.setLongitude(Double.parseDouble(request.getParameter("longitude")));
-//        apply.setLatitude(Double.parseDouble(request.getParameter("latitude")));
-//        apply.setNumber(request.getParameter("number"));
-//        apply.setAddress(request.getParameter("address"));
-//        DateFormat d = new SimpleDateFormat("yyyy-MM-dd");
-//        apply.setApplyDate(d.parse(request.getParameter("applyDate")));
-//        apply.setState(Integer.parseInt(request.getParameter("state")));
-//        apply.setImage(request.getParameter("image"));
-//        apply.setNumber(request.getParameter("name"));
-//        apply.setWaterAddress(request.getParameter("waterAddress"));
-//        User user = new User();
-//        String userId = request.getParameter("idUser");
-//        user = userService.getById(userId);
-//        apply.setUser(user);
-//        System.out.println(apply.getNumber());
-//        System.out.println(apply.getAddress());
-//        System.out.println(apply.getApplyDate());
-//        System.out.println(apply.getState());
-//        System.out.println(apply.getImage());
-//        System.out.println(apply.getNumber());
-//        System.out.println(apply.getWaterAddress());
-//        System.out.println(userId);
-//        applyService.addApply(apply);
         return "Admin_Work";
+    }
+
+    @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
+    public void upload(HttpServletRequest request) throws ParseException{
+
+        Apply apply = new Apply();
+        System.out.print(request.getParameter("longitude"));
+        apply.setLongitude(Double.parseDouble(request.getParameter("longitude")));
+        apply.setLatitude(Double.parseDouble(request.getParameter("latitude")));
+        apply.setNumber(request.getParameter("number"));
+        apply.setAddress(request.getParameter("address"));
+        DateFormat d = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        apply.setApplyDate(d.parse(request.getParameter("applyDate")));
+        apply.setState(Integer.parseInt(request.getParameter("state")));
+        apply.setImage(request.getParameter("imgUrl"));
+        apply.setName(request.getParameter("name"));
+        apply.setWaterAddress(request.getParameter("waterAddress"));
+        User user = new User();
+        String userId = request.getParameter("idUser");
+        user = userService.getById(userId);
+        apply.setUser(user);
+        System.out.println(apply.getNumber());
+        System.out.println(apply.getAddress());
+        System.out.println(apply.getApplyDate());
+        System.out.println(apply.getState());
+        System.out.println(apply.getImage());
+        System.out.println(apply.getNumber());
+        System.out.println(apply.getWaterAddress());
+        System.out.println(userId);
+        applyService.addApply(apply);
     }
 }

@@ -7,6 +7,7 @@
     <script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
+    <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
 </head>
 <body onload="load()">
 <input type="hidden" id="userID" value="${userID}"/>
@@ -46,5 +47,5 @@
     </div>
 </div>
 </body>
-<script src="../resources/js/personal_info.js"></script>
+<script src="/resources/js/personal_info.js"></script>
 </html>

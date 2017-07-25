@@ -36,8 +36,8 @@
                 var useCook=$.cookie('ret1');
                 if(useCook=='1'){
                     add.innerHTML=$.cookie('add1');
-                    $.cookie('ret1',null);
-                    $.cookie('add1',null);
+                    $.cookie('ret1',null,{path:'/'});
+                    $.cookie('add1',null,{path:'/'});
                 }
                 else {
                     add.innerHTML = decodeURI(param[2]);
@@ -55,10 +55,10 @@
             var name = document.getElementById("idname").value;
             var contact = document.getElementById("phone").value;
             var add=document.getElementById("address").innerHTML;
-            $.cookie('ret2','1');
-            $.cookie('add2',add);
-            $.cookie('name',name);
-            $.cookie('tel',contact);
+            $.cookie('ret2','1',{path:'/'});
+            $.cookie('add2',add,{path:'/'});
+            $.cookie('name',name,{path:'/'});
+            $.cookie('tel',contact,{path:'/'});
             window.history.go(-1);
         }
 
