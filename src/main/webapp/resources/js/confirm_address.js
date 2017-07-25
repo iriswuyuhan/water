@@ -2,13 +2,13 @@
  * Created by lenovo on 2017/7/19.
  */
 $("#confirm_but").click(function () {
-    var longitude =$("#longitude").val();
+    var longitude = $("#longitude").val();
     var latitude = $("#latitude").val();
-    var concrete_address=$("#concrete_address").text();
-    $.cookie('ret3','1',{path:'/'});
-    $.cookie('longitude',longitude,{path:'/'});
-    $.cookie('latitude',latitude,{path:'/'});
-    $.cookie('concrete_address',concrete_address,{path:'/'});
+    var concrete_address = $("#concrete_address").text();
+    $.cookie('ret3', '1', {path: '/'});
+    $.cookie('longitude', longitude, {path: '/'});
+    $.cookie('latitude', latitude, {path: '/'});
+    $.cookie('concrete_address', concrete_address, {path: '/'});
     window.history.go(-1);
 });
 
@@ -44,9 +44,9 @@ function initMap() {
     geolocation.getCurrentPosition();
 
     // 逆地址解析（点击地图上的点得到地址，经纬度）
-    map.addEventListener("click", function(e){
+    map.addEventListener("click", function (e) {
         var pt = e.point;
-        myGeo.getLocation(pt, function(rs){
+        myGeo.getLocation(pt, function (rs) {
             var addComp = rs.addressComponents;
             // alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
             $("#concrete_address").text(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
@@ -62,26 +62,26 @@ function initMap() {
 
 var map;
 var myGeo = new BMap.Geocoder();
-var marker=null;
+var marker = null;
 //定位
 var longitude;
 var latitude;
 var geolocation = new BMap.Geolocation();
-geolocation.getCurrentPosition(function(r){
-    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+geolocation.getCurrentPosition(function (r) {
+    if (this.getStatus() === BMAP_STATUS_SUCCESS) {
         var mk = new BMap.Marker(r.point);
         map.addOverlay(mk);
         map.panTo(r.point);
         changeLocation(r.point);
-        myGeo.getLocation(r.point, function(rs){
+        myGeo.getLocation(r.point, function (rs) {
             var addComp = rs.addressComponents;
             $("#concrete_address").text(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
         });
     }
     else {
-        alert('failed'+this.getStatus());
+        alert('failed' + this.getStatus());
     }
-},{enableHighAccuracy: true});
+}, {enableHighAccuracy: true});
 
 function changeLocation(point) {
     $("#longitude").val(point.lng);
@@ -89,10 +89,10 @@ function changeLocation(point) {
 }
 
 function changeOverlay(pt) {
-    if(marker!=null) {
+    if (marker !== null) {
         map.removeOverlay(marker);
     }
-    marker=new BMap.Marker(pt);
+    marker = new BMap.Marker(pt);
     map.addOverlay(marker);
 }
 
@@ -100,12 +100,14 @@ function createMap() {
     map = new BMap.Map("map");
     map.centerAndZoom(new BMap.Point(longitude, latitude), 15);
 }
+
 function setMapEvent() {
     map.enableScrollWheelZoom();
     map.enableKeyboard();
     map.enableDragging();
     map.enableDoubleClickZoom()
 }
+
 function addClickHandler(target, window) {
     target.addEventListener("click", function () {
         target.openInfoWindow(window);
@@ -123,20 +125,21 @@ function addMapControl() {
     map.addControl(overviewControl);
 }
 
-ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
     var _value = e.item.value;
-    myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-    document.getElementById("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+    myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+    document.getElementById("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
     setPlace();
 });
 
-function setPlace(){
-    function myFun(){
+function setPlace() {
+    function myFun() {
         var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
         map.centerAndZoom(pp, 18);
         changeOverlay(pp);
         changeLocation(pp);
     }
+
     var local = new BMap.LocalSearch(map, { //智能搜索
         onSearchComplete: myFun
     });

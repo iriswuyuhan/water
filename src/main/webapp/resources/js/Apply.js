@@ -7,7 +7,7 @@ function onClickWaterAddr() {
     //     success:function (data) {
     window.location.href = "/address/waters";
     //     }.
-};
+}
 
 j = 1;
 $(document).ready(function(){
@@ -63,9 +63,9 @@ $("#applyUpload").click(function(){
     }
     var applyData = JSON.stringify(new getApply(longitude,latitude,number,address,applyDate,state,imgUrl,name,waterAddress,idUser));
     alert(applyData);
-    if(waterAddress == ""){
+    if(waterAddress === ""){
         alert("请选择水域地址");
-    }else if(imgUrl == ""){
+    }else if(imgUrl === ""){
         alert("请上传河流图片");
     }else{
         $.ajax({
@@ -89,5 +89,5 @@ $("#applyUpload").click(function(){
             }
         })
     }
-})
+});
 
