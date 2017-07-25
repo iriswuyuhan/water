@@ -62,10 +62,9 @@ $("#applyUpload").click(function(){
 
     var myArray = document.getElementsByName("image");
     for(var i=0;i<myArray.length;i++){
-        var strs = new Array();
-        strs = myArray[i].value.split("\\");
-        imgUrl += myArray[i].value + ";";
+        imgUrl += idUser + "_" + applyDate + "_" + i.toString() + ".jpg" + ";";
     }
+    // alert(imgUrl);
     var applyData = JSON.stringify(new getApply(longitude,latitude,number,address,applyDate,state,imgUrl,name,waterAddress,idUser));
     // alert(applyData);
     if(waterAddress == ""){
