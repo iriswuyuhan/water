@@ -39,13 +39,11 @@ public class ApplyController {
         String state = request.getParameter("state" );
         System.out.println("!!!"+state+"!!!");
         int state1 =0;
-        if(state.equals("审核通过"))
+        if(("审核通过").equals(state))
             state1=1;
-        if (state.equals("未通过审核"))
+        if (("未通过审核").equals(state))
             state1=2;
-        System.out.println("###"+state1+"###");
         ArrayList<Apply> arrayList= applyService.getApplicationList(state1);
-        System.out.println("$$$"+arrayList);
         JSONArray array = JSONArray.fromObject(arrayList);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
