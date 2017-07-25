@@ -81,42 +81,28 @@ public class wechatApplyController {
         return modelAndView;
     }
 
-//    @RequestMapping("/chooseRiver")
-//    public void chooseRiver(){
-//        HttpSession session = request.getSession();
-//        String userName = request.getParameter("userName");
-//        String contact = request.getParameter("contact");
-//        String address = request.getParameter("address");
-//        if(userName != null && !(userName.equals(""))){
-//            session.setAttribute("userName",userName);
-//        }
-//        if(contact != null && !(contact.equals(""))){
-//            session.setAttribute("contact",contact);
-//        }
-//        if(address != null && !(address.equals(""))){
-//            session.setAttribute("address",address);
-//        }
-//    }
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
-    public String upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException, ParseException {
-        System.out.println(image.length);
-
-        File dir=new File("D:/temp");
+    public void upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException {
+        String date = request.getParameter("applyDate");
+        date = date.replace(":","-");
+        String userID = request.getParameter("img_userID");
+        String fileName = userID + "_" + date + "_";
+        File dir=new File("/home/upload");
         if(!dir.exists()){
             dir.mkdirs();
         }
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
-                file.transferTo(new File(dir.getAbsolutePath() + "/" + file.getOriginalFilename()));
+                String s = fileName + i + ".jpg";
+                file.transferTo(new File(dir + "/" + s));
             }
         }
-        return "Admin_Work";
     }
 
     @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
-    public void upload(HttpServletRequest request) throws ParseException{
+    public boolean upload(HttpServletRequest request) throws ParseException{
 
         Apply apply = new Apply();
         System.out.print(request.getParameter("longitude"));
@@ -134,14 +120,16 @@ public class wechatApplyController {
         String userId = request.getParameter("idUser");
         user = userService.getById(userId);
         apply.setUser(user);
-        System.out.println(apply.getNumber());
-        System.out.println(apply.getAddress());
-        System.out.println(apply.getApplyDate());
-        System.out.println(apply.getState());
-        System.out.println(apply.getImage());
-        System.out.println(apply.getNumber());
-        System.out.println(apply.getWaterAddress());
-        System.out.println(userId);
-        applyService.addApply(apply);
+//        System.out.println(apply.getNumber());
+//        System.out.println(apply.getAddress());
+//        System.out.println("apply:"+apply.getApplyDate());
+//        System.out.println(apply.getState());
+//        System.out.println(apply.getImage());
+//        System.out.println(apply.getNumber());
+//        System.out.println(apply.getWaterAddress());
+//        System.out.println(userId);
+        boolean f = applyService.addApply(apply);
+        System.out.println(f);
+        return f;
     }
 }
