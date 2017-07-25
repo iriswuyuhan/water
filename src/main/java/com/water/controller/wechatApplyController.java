@@ -88,7 +88,7 @@ public class wechatApplyController {
         date = date.replace(":","-");
         String userID = request.getParameter("img_userID");
         String fileName = userID + "_" + date + "_";
-        File dir=new File("D:/temp");
+        File dir=new File("/home/upload");
         if(!dir.exists()){
             dir.mkdirs();
         }
@@ -96,7 +96,7 @@ public class wechatApplyController {
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
                 String s = fileName + i + ".jpg";
-                file.transferTo(new File(dir.getAbsolutePath() + "/" + s));
+                file.transferTo(new File(dir + "/" + s));
             }
         }
     }
