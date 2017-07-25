@@ -18,6 +18,7 @@ public class Apply {
     private User user;
 
     @Id
+    @GeneratedValue
     @Column(name = "idApply", nullable = false)
     public long getIdApply() {
         return idApply;
