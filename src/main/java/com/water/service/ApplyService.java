@@ -30,4 +30,6 @@ public interface ApplyService {
     public ArrayList<Apply> findCheckedApply(String userid,String state);
 
     public boolean addApply(Apply apply);
+
+    public boolean updateState(Long idApply,Integer state,String responce );
 }
