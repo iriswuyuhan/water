@@ -7,6 +7,8 @@
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>申请采样设备</title>
     <!-- WeUI -->
+    <link rel="stylesheet" href="https://weui.io/weui.css">
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
@@ -16,7 +18,7 @@
     <!--window.open(url[0]);-->
     <!--</script>-->
     <!--<script type="text/javascript" src="split.js"></script>-->
-    <script>
+    <script type="text/javascript">
         $(function () {
             var isPageHide = false;
             window.addEventListener('pageshow', function () {
@@ -59,14 +61,19 @@
                 add.innerHTML = decodeURI(param[2]);
             }
         }
+
     </script>
 </head>
 <body onload=load()>
 <input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="longitude"/>
 <input type="hidden" id="latitude"/>
-
 <br>
+
+<div class="page__bd page__bd_spacing">
+    <a href="javascript:;" class="weui-btn weui-btn_default" id="chooseProject">选择项目</a>
+</div>
+
 <div class="weui-cells weui-cells_vcode" id="chooseRiver" onclick="onClickWaterAddr()" href="javascript:;">
     <div class="weui-cell">
         <div class="weui-cell__hd">
@@ -75,6 +82,9 @@
         <div class="weui-cell__bd">
             <label class="weui-input" id="river_place" name="river_place" value="">请输入水域地址</label>
         </div>
+        <div class="weui-cell__ft" img>
+            <img src="../resources/img/rightArrow2.png" style="width:10px;margin-left:5px;margin-right: 5px;">
+        </div>
     </div>
 </div>
 
@@ -82,7 +92,7 @@
     <div class="weui-cell">
         <div class="weui-cell__hd">
             <img src="../resources/img/position.png" alt="icon" style="width:20px;margin-left:5px;margin-right: 5px;display:block">
-        </div>
+        </div>&nbsp;
         <div class="weui-cell__bd" onclick=resetInfo()>
             <span>收货人：</span>
             <span id="name">${userName}</span>
@@ -90,6 +100,9 @@
             <span id="contact">${contact}</span>
             <p name="address">收货地址：<span id="add">${address}</span></p>
             <!--<a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>-->
+        </div>
+        <div class="weui-cell__ft" img>
+            <img src="../resources/img/rightArrow2.png" style="width:10px;margin-left:5px;margin-right: 5px;">
         </div>
     </div>
 </div>
@@ -120,4 +133,25 @@
 </body>
 <script type="text/javascript" src="../resources/js/Apply.js"></script>
 <script type="text/javascript" src="../resources/js/split.js"></script>
+<script type="text/javascript">
+    $("#chooseProject").on('click', function () {
+        weui.picker([{
+            label: '黑龙江流域',
+            value: 0
+        }, {
+            label: '长江流域',
+            value: 1
+        }, {
+            label: '一般申请',
+            value: 2
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+            }
+        });
+    });
+</script>
 </html>

@@ -120,6 +120,7 @@ public class wechatApplyController {
         String userId = request.getParameter("idUser");
         user = userService.getById(userId);
         apply.setUser(user);
+        apply.setResponse("");
 //        System.out.println(apply.getNumber());
 //        System.out.println(apply.getAddress());
 //        System.out.println("apply:"+apply.getApplyDate());

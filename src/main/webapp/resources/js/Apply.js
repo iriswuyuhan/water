@@ -13,7 +13,7 @@ j = 1;
 $(document).ready(function(){
     $("#imageForm").attr("target","rfFrame");
     $("#btn_add").click(function () {
-        $("#newUpload").append("<div id='div_" + j + "'><input name='image' type='file'/><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
+        $("#newUpload").append("<div id='div_" + j + "'><input name='image' type='file' accept='image/jpeg,image/png,image/gif' /><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
         j = j + 1;
     });
 });
@@ -95,6 +95,7 @@ $("#applyUpload").click(function(){
             "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser},
             dataType:"json",
             success:function (data) {
+                alert(data);
                 if(data){
                     alert("提交成功");
                     $.cookie('ret2', null,{path:'/'});
@@ -105,6 +106,7 @@ $("#applyUpload").click(function(){
                     $.cookie('longitude',null,{path:'/'});
                     $.cookie('latitude',null,{path:'/'});
                     $.cookie('concrete_address', null,{path:'/'});
+                    alert("/user/j"+idUser+"/history");
                     window.location.href = "/user/j"+idUser+"/history";
                 }else{
                     alert("提交申请失败");
