@@ -136,15 +136,15 @@ public class Apply {
         this.user = user;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idProject", nullable = false)
-    public Project getProject(){
-        return project;
-    }
-
-    public void setProject(Project project){
-        this.project = project;
-    }
+//    @ManyToOne
+//    @JoinColumn(name = "idProject", nullable = false)
+//    public Project getProject(){
+//        return project;
+//    }
+//
+//    public void setProject(Project project){
+//        this.project = project;
+//    }
 
 
     @Override
