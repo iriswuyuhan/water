@@ -101,6 +101,22 @@ public class ApplyServiceImpl implements ApplyService {
         return applyDao.save(apply);
     }
 
+    @Override
+    public boolean updateState(Long idApply, Integer state, String responce) {
+        boolean result=false;
+        Apply apply=applyDao.get(idApply);
+        if(apply==null){
+            result = false;
+
+        }else {
+            apply.setState(state);
+            apply.setResponse(responce);
+            result=true;
+        }
+
+        return result;
+    }
+
     /**
      * 更改状态 申请号不存在返回false
      *

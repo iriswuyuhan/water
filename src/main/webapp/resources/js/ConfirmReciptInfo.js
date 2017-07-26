@@ -10,7 +10,7 @@ $(function(){
         var sexg = $("#x12:checked").val();
         var phone = $("#phone").val();
         var address = $("#address").val();
-        if(name===""||phone===""||address===""){
+        if(name==""||phone==""||address==""){
             notnull=false;
         }
         var sex;
@@ -20,7 +20,7 @@ $(function(){
         else
             sex="女";
 
-        if(notnull===false){
+        if(notnull==false){
         alert("不能为空");
 
         }
@@ -36,12 +36,12 @@ $(function(){
                 }
             });
         }
-    });
+    })
     $("#address").click(function(){
 
 
     })
 
 
-});
+})
 

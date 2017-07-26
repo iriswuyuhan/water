@@ -12,6 +12,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,6 +82,43 @@ public class UploadServiceImpl implements UploadService {
         }
         return list;
     }
+
+
+    //根据项目编号和日期筛选sample
+//    public ArrayList<Sample> filterSample(String eventID,String startDate,String endDate){
+//        List<Sample> list=uploadDao.findAll();
+//        ArrayList<Sample> result = new ArrayList<Sample>();
+//        if(list==null
+//                ){
+//            result = null;
+//        }
+//        else {
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+//
+//            try {
+//                Date date1 = sdf.parse(startDate);
+//                Date date2 = sdf.parse(endDate);
+//                for (Sample temp : list
+//                        ) {
+//                    Date date = temp.getSampleDate();
+//                    //数据库date转化可能会有问题
+//                    if (date.getTime() >= date1.getTime() && date.getTime() <= date2.getTime()
+//                            &&String.valueOf(temp.getApply().getProject().getIdProject()).equals(eventID)) {
+//                            result.add(temp);
+//                    }
+//                }
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//
+//        return  result;
+//    }
+
+
+
+
 
     public void addTxt(Sample sample) {
         try {

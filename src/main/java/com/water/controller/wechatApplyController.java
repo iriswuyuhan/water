@@ -88,7 +88,7 @@ public class wechatApplyController {
         date = date.replace(":","-");
         String userID = request.getParameter("img_userID");
         String fileName = userID + "_" + date + "_";
-        File dir=new File("/home/upload");
+        File dir=new File("D:/temp");
         if(!dir.exists()){
             dir.mkdirs();
         }
@@ -120,6 +120,7 @@ public class wechatApplyController {
         String userId = request.getParameter("idUser");
         user = userService.getById(userId);
         apply.setUser(user);
+        apply.setResponse("");
 //        System.out.println(apply.getNumber());
 //        System.out.println(apply.getAddress());
 //        System.out.println("apply:"+apply.getApplyDate());

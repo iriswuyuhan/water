@@ -13,7 +13,7 @@ j = 1;
 $(document).ready(function(){
     $("#imageForm").attr("target","rfFrame");
     $("#btn_add").click(function () {
-        $("#newUpload").append("<div id='div_" + j + "'><input name='image' type='file'/><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
+        $("#newUpload").append("<div id='div_" + j + "'><input name='image' type='file' accept='image/jpeg,image/png,image/gif' /><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
         j = j + 1;
     });
 });
@@ -21,6 +21,18 @@ $(document).ready(function(){
 function del(o) {
     document.getElementById("newUpload").removeChild(document.getElementById("div_" + o));
 }
+
+// $("#river_place").on('input propertychange', function () {
+//     checkComplete();
+// });
+//
+// function checkComplete(){
+//     if($("#river_place").text() == "" || $("#river_place").text() == null){
+//         $("#applyUpload").addClass("weui-btn_plain-disabled");
+//         return;
+//     }
+//     $("#applyUpload").removeClass("weui-btn_plain-disabled");
+// }
 
 function getApply(longitude,latitude,number,address,applyDate,state,image,name,waterAddress,idUser){
     this.longitude = longitude;
@@ -36,6 +48,9 @@ function getApply(longitude,latitude,number,address,applyDate,state,image,name,w
 }
 
 $("#applyUpload").click(function(){
+    // if($("#applyUpload").hasClass("weui-btn_plain-disabled")){
+    //     return;
+    // }
     var idUser = $("#userID").val();
     var date = new Date();
     var applyDate=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes();
@@ -80,6 +95,7 @@ $("#applyUpload").click(function(){
             "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser},
             dataType:"json",
             success:function (data) {
+                alert(data);
                 if(data){
                     alert("提交成功");
                     $.cookie('ret2', null,{path:'/'});
@@ -90,7 +106,8 @@ $("#applyUpload").click(function(){
                     $.cookie('longitude',null,{path:'/'});
                     $.cookie('latitude',null,{path:'/'});
                     $.cookie('concrete_address', null,{path:'/'});
-                    window.location.href = "/user/j"+userID+"/history";
+                    alert("/user/j"+idUser+"/history");
+                    window.location.href = "/user/j"+idUser+"/history";
                 }else{
                     alert("提交申请失败");
                 }
