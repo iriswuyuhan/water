@@ -16,6 +16,8 @@ public class Apply {
     private String name;
     private String waterAddress;
     private User user;
+    private String response;
+    private Project project;
 
     @Id
     @GeneratedValue
@@ -27,6 +29,12 @@ public class Apply {
     public void setIdApply(long idApply) {
         this.idApply = idApply;
     }
+
+    @Basic
+    @Column(name = "response", nullable = true, length = 255)
+    public String getResponse(){return response;}
+    public void setResponse(String response){this.response = response;}
+
 
     @Basic
     @Column(name = "longitude", nullable = true, precision = 0)
@@ -126,6 +134,16 @@ public class Apply {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "idProject", nullable = false)
+    public Project getProject(){
+        return project;
+    }
+
+    public void setProject(Project project){
+        this.project = project;
     }
 
 

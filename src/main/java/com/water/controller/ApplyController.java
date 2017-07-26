@@ -35,19 +35,20 @@ public class ApplyController {
      */
     @RequestMapping("/applylist")
     @ResponseBody
-    public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        String state = request.getParameter("state" );
-        System.out.println("!!!"+state+"!!!");
-        int state1 =0;
-        if(("审核通过").equals(state))
-            state1=1;
+    public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String state = request.getParameter("state");
+        System.out.println("!!!" + state + "!!!");
+        int state1 = 0;
+        if (("审核通过").equals(state))
+            state1 = 1;
         if (("未通过审核").equals(state))
-            state1=2;
-        ArrayList<Apply> arrayList= applyService.getApplicationList(state1);
+            state1 = 2;
+        ArrayList<Apply> arrayList = applyService.getApplicationList(state1);
         JSONArray array = JSONArray.fromObject(arrayList);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
     }
+
     /**
      * @param request
      * @param response
@@ -55,11 +56,11 @@ public class ApplyController {
      * @throws Exception
      */
     @RequestMapping("/getApplyInfo")
-    public void getSampleInfo(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        String id = request.getParameter("id" );
+    public void getSampleInfo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
         long id1 = Integer.parseInt(id);
         Apply apply = applyService.searchApplication(id1);
-       JSONObject object = JSONObject.fromObject(apply);
+        JSONObject object = JSONObject.fromObject(apply);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());
     }
@@ -71,15 +72,16 @@ public class ApplyController {
      * @throws Exception
      */
     @RequestMapping("/dealApply")
-    public void dealApply(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        String id = request.getParameter("id" );
-        String state = request.getParameter("state" );
+    public void dealApply(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
+        String state = request.getParameter("state");
         int state1 = Integer.parseInt(state);
         long id1 = Integer.valueOf(id);
-        boolean bool = applyService.updateState(id1,state1);
+        boolean bool = applyService.updateState(id1, state1);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }
+
     /**
      * @param request
      * @param response
@@ -87,17 +89,18 @@ public class ApplyController {
      * @throws Exception
      */
     @RequestMapping("/getSample")
-    public void getSample(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void getSample(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String id = request.getParameter("id");
         Long id1 = Long.valueOf(id);
-        Sample sample  = uploadService.searchSample(id1);
+        Sample sample = uploadService.searchSample(id1);
         uploadService.addTxt(sample);
         JSONObject object = JSONObject.fromObject(sample);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());
 
     }
+
     /**
      * @param request
      * @param response
@@ -105,16 +108,17 @@ public class ApplyController {
      * @throws Exception
      */
     @RequestMapping("/getSampleList")
-    public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        ArrayList<Sample> samples =uploadService.findAll();
-        if(samples.size()>0)
-        uploadService.addTxt(samples.get(0));
+        ArrayList<Sample> samples = uploadService.findAll();
+        if (samples.size() > 0)
+            uploadService.addTxt(samples.get(0));
         JSONArray array = JSONArray.fromObject(samples);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
 
     }
+
     /**
      * @param request
      * @param response
@@ -122,7 +126,7 @@ public class ApplyController {
      * @throws Exception
      */
     @RequestMapping("/download")
-    public void download(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void download(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     }
 }

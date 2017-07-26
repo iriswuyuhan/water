@@ -10,7 +10,7 @@ public class Sample {
     private Double volume;
     private String remark;
     private Apply apply;
-
+    private int state;
     @Id
     @Column(name = "idSample", nullable = false)
     public long getIdSample() {
@@ -20,6 +20,11 @@ public class Sample {
     public void setIdSample(long idSample) {
         this.idSample = idSample;
     }
+
+    @Basic
+    @Column(name = "state", nullable = true)
+    public int getState(){return state;}
+    public void setState(int state){this.state = state;}
 
     @Basic
     @Column(name = "sampleDate", nullable = true)
