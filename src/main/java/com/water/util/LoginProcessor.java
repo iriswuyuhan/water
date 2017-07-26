@@ -1,4 +1,4 @@
-package com.water.controller;
+package com.water.util;
 
 import com.water.entity.User;
 import com.water.service.UserService;
