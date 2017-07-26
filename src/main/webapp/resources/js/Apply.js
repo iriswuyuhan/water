@@ -22,6 +22,18 @@ function del(o) {
     document.getElementById("newUpload").removeChild(document.getElementById("div_" + o));
 }
 
+// $("#river_place").on('input propertychange', function () {
+//     checkComplete();
+// });
+//
+// function checkComplete(){
+//     if($("#river_place").text() == "" || $("#river_place").text() == null){
+//         $("#applyUpload").addClass("weui-btn_plain-disabled");
+//         return;
+//     }
+//     $("#applyUpload").removeClass("weui-btn_plain-disabled");
+// }
+
 function getApply(longitude,latitude,number,address,applyDate,state,image,name,waterAddress,idUser){
     this.longitude = longitude;
     this.latitude = latitude;
@@ -36,6 +48,9 @@ function getApply(longitude,latitude,number,address,applyDate,state,image,name,w
 }
 
 $("#applyUpload").click(function(){
+    // if($("#applyUpload").hasClass("weui-btn_plain-disabled")){
+    //     return;
+    // }
     var idUser = $("#userID").val();
     var date = new Date();
     var applyDate=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes();
@@ -90,7 +105,7 @@ $("#applyUpload").click(function(){
                     $.cookie('longitude',null,{path:'/'});
                     $.cookie('latitude',null,{path:'/'});
                     $.cookie('concrete_address', null,{path:'/'});
-                    window.location.href = "/user/j"+userID+"/history";
+                    window.location.href = "/user/j"+idUser+"/history";
                 }else{
                     alert("提交申请失败");
                 }
