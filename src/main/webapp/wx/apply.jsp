@@ -58,7 +58,6 @@
                 contact.innerHTML = param[1];
                 add.innerHTML = decodeURI(param[2]);
             }
-
         }
     </script>
 </head>
@@ -116,7 +115,7 @@
     </div>
 </div>
 <iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
-<input type="button" id="applyUpload" value="提交">
+<a href="javascript:;" id="applyUpload" class="weui-btn weui-btn_plain-primary">提交</a>
 
 </body>
 <script type="text/javascript" src="../resources/js/Apply.js"></script>
