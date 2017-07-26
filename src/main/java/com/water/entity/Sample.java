@@ -1,16 +1,19 @@
 package com.water.entity;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Sample {
-    private long idSample;
-    private Date sampleDate;
-    private Double volume;
-    private String remark;
-    private Apply apply;
-    private Integer state;
+    private long idSample;      //样本编号
+    private Date sampleDate;    //采样时间
+    private Double volume;      //样本体积
+    private String remark;      //备注
+    private Apply apply;        //申请编号 一对一单向外键
+    private Integer state;      //样本状态 包括处理中1 已上传实验结果2 未收取0
+
 
     @Id
     @Column(name = "idSample", nullable = false)

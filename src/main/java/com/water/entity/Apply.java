@@ -5,19 +5,19 @@ import java.util.Date;
 
 @Entity
 public class Apply {
-    private long idApply;
-    private Double longitude;
-    private Double latitude;
-    private String number;
-    private String address;
-    private Date applyDate;
-    private Integer state;
-    private String image;
-    private String name;
-    private String waterAddress;
-    private User user;
-    private String response;
-    private Project project;
+    private long idApply;                 //申请编号 自增
+    private Double longitude;             //经度
+    private Double latitude;              //纬度
+    private String number;                //联系方式
+    private String address;               //邮寄地址
+    private Date applyDate;               //申请日期
+    private Integer state;                //申请状态
+    private String image;                 //图片路径 不同路径间用；隔开
+    private String name;                  //填写的邮寄人姓名
+    private String waterAddress;          //水域地址
+    private User user;                    //所属用户 多对一单向外键
+    private String response;              //拒绝申请的回复
+    private Project project;              //所属项目 多对一单向外键
 
     @Id
     @GeneratedValue
@@ -146,7 +146,7 @@ public class Apply {
         this.project = project;
     }
 
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -181,7 +181,7 @@ public class Apply {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (waterAddress != null ? waterAddress.hashCode() : 0);
         return result;
-    }
+    }*/
 
 //    @ManyToOne
 //    @JoinColumn(name = "idUser", referencedColumnName = "idUser")

@@ -1,14 +1,12 @@
 package com.water.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
 public class Project {
-    private long idProject;
-    private String name;
-    private String describe;
+    private long idProject;       //项目编号 自增
+    private String name;          //项目名称
+    private String description;      //项目描述
 
     @Id
     @GeneratedValue
@@ -22,7 +20,7 @@ public class Project {
     public void setName(String name){this.name = name;}
 
     @Basic
-    @Column(name = "describe", nullable = true)
-    public String getDescribe(){return describe;}
-    public void setDescribe(String describe){this.describe = describe;}
+    @Column(name = "description", nullable = true)
+    public String getDescription(){return description;}
+    public void setDescription(String description){this.description = description;}
 }

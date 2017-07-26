@@ -4,13 +4,12 @@ import javax.persistence.*;
 
 @Entity
 public class User {
-    private String idUser;
-    private String password;
-    private String name;
-    private String address;
-    private String number;
-    private Integer isResearcher;
-/*    private Collection<Apply> appliesByIdUser;*/
+    private String idUser;                  //用户名
+    private String password;                //密码
+    private String name;                    //用户姓名
+    private String address;                 //地址
+    private String number;                  //联系方式
+    private Integer isResearcher;           //普通用户0 管理人员1
 
     @Id
     @Column(name = "idUser", nullable = false, length = 255)
