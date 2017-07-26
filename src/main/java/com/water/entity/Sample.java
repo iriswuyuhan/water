@@ -10,7 +10,8 @@ public class Sample {
     private Double volume;
     private String remark;
     private Apply apply;
-    private int state;
+    private Integer state;
+
     @Id
     @Column(name = "idSample", nullable = false)
     public long getIdSample() {
@@ -23,8 +24,13 @@ public class Sample {
 
     @Basic
     @Column(name = "state", nullable = true)
-    public int getState(){return state;}
-    public void setState(int state){this.state = state;}
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
 
     @Basic
     @Column(name = "sampleDate", nullable = true)
@@ -57,7 +63,7 @@ public class Sample {
     }
 
     @OneToOne
-    @JoinColumn(name="applyID", nullable = false, unique = true)
+    @JoinColumn(name = "applyID", nullable = false, unique = true)
     public Apply getApply() {
         return apply;
     }
