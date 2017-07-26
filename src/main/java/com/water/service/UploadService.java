@@ -24,7 +24,7 @@ public interface UploadService {
 
     public void addTxt(Sample sample);
 
-    public ArrayList<Sample> filterSample(String eventID,String startDate,String endDate);
+   // public ArrayList<Sample> filterSample(String eventID,String startDate,String endDate);
 
 
 }
