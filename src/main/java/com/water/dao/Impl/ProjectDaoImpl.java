@@ -3,11 +3,14 @@ package com.water.dao.Impl;
 import com.water.dao.ProjectDao;
 import com.water.entity.Project;
 import com.water.entity.Sample;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,7 +27,7 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     public Project load(Long id) {
-        return null;
+        return (Project) getCurrentSession().load(Project.class, id);
     }
 
     public Project get(Long id) {
@@ -32,26 +35,76 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     public List<Project> findAll() {
-        return null;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Project> list = new LinkedList<Project>();
+        try{
+            String sql = "from Project";
+            Query query = session.createQuery(sql);
+            list = query.list();
+            tx.commit();
+        }catch (Exception ex){
+            tx.rollback();
+        }finally {
+            session.close();
+        }
+        return list;
     }
 
     public void persist(Project entity) {
-
+        getCurrentSession().persist(entity);
     }
 
     public boolean save(Project entity) {
-        return false;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try {
+            session.save(entity);
+            tx.commit();
+            flag = true;
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
     }
 
     public boolean saveOrUpdate(Project entity) {
-        return false;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try {
+            session.saveOrUpdate(entity);
+            tx.commit();
+            flag = true;
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
     }
 
     public boolean delete(Long id) {
-        return false;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try {
+            Project project = (Project) session.load(Project.class, id);
+            session.delete(project);
+            tx.commit();
+            flag = true;
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
     }
 
     public void flush() {
-
+        getCurrentSession().flush();
     }
 }

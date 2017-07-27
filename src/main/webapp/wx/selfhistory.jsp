@@ -10,6 +10,10 @@
 </head>
 <body>
 <input type="hidden" id="userID" value="${userID}"/>
+<div style="height: 35px;width: 100%;background-color: ghostwhite;border-bottom: 1px gainsboro solid;padding-bottom: 1%">
+    <img onclick="personal_info()" src="/resources/img/user.png" style="float:right;width: 35px;padding-right:2%;padding-left:2%;border-left: 1px gainsboro solid"/>
+    <label style="font-size: 19px;float: right;padding-right: 2%;padding-top: 2%">${userName}</label>
+</div>
 <div class="weui-tab">
     <div class="weui-navbar">
         <div id="unchecked_tab" class="weui-navbar__item weui-bar__item_on">
@@ -72,6 +76,17 @@
         </div>
     </div>
 </div>
+<div id="dialog" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">确认删除？</strong></div>
+        <div class="weui-dialog__bd">您真的要删除该采样申请？</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" onclick="$('#dialog').hide()" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+            <a href="javascript:;" onclick="confirmDelete()" class="weui-dialog__btn weui-dialog__btn_primary">删除</a>
+        </div>
+    </div>
+</div>
 <!--toast-->
 <div id="toast" style="display: none;">
     <div class="weui-mask_transparent"></div>
@@ -83,14 +98,15 @@
 </body>
 <script src="/resources/js/selfhistory.js"></script>
 <script>
+    var deleteIndex;
     $(".delete_unchecked").click(function () {
-        var index=$(".delete_unchecked").index(this);
-        ondelete(index);
+        deleteIndex=$(".delete_unchecked").index(this);
+        $("#dialog").show();
     });
     $(".unchecked_message").click(function () {
-       var index=$(".unchecked_message").index(this);
-       var isChecked=0;
-       onConcreteApply(index,isChecked);
+        var index=$(".unchecked_message").index(this);
+        var isChecked=0;
+        onConcreteApply(index,isChecked);
     });
     $('.checked_message').click(function () {
         var index=$('.checked_message').index(this);

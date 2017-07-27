@@ -60,6 +60,10 @@
             <span class="weui-form-preview__value">${waterAddress}</span>
         </p>
         <p>
+            <label class="weui-form-preview__label">所属项目</label>
+            <span class="weui-form-preview__value" style="color: black">${project}</span>
+        </p>
+        <p>
             <label class="weui-form-preview__label">采样位置</label>
             <span class="weui-form-preview__value">${latitude}, ${longitude}</span>
         </p>
@@ -94,6 +98,18 @@
         <p>
             <label class="weui-form-preview__label">采样备注</label>
             <span class="weui-form-preview__value">${sampleRemark}</span>
+        </p>
+        <p>
+            <label class="weui-form-preview__label">处理状态</label>
+            <%
+                int state=(Integer) request.getAttribute("state");
+                if(state==0){%>
+            <span class="weui-form-preview__value" style="color: black">待收取</span>
+            <%}else if(state==1){%>
+            <span class="weui-form-preview__value" style="color: blue">处理中</span>
+            <%}else if(state==2){%>
+            <span class="weui-form-preview__value" style="color: green">处理完成</span>
+            <%}%>
         </p>
     </div>
     <div class="weui-form-preview__ft">
