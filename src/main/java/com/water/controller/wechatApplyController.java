@@ -1,10 +1,12 @@
 package com.water.controller;
 
 import com.water.entity.Apply;
+import com.water.entity.Project;
 import com.water.entity.User;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
 import com.water.service.Impl.UserServiceImpl;
+import com.water.service.ProjectService;
 import com.water.service.UserService;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,9 @@ public class wechatApplyController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    ProjectService projectService;
+
     @RequestMapping("/init/j{userID}")
     public ModelAndView uploadApply(@PathVariable String userID){
         ModelAndView modelAndView = new ModelAndView("../wx/apply");
@@ -54,6 +59,14 @@ public class wechatApplyController {
         String userName = "";
         String contact = "";
         String address = "";
+        List<Project> p = projectService.findAllProjects();
+//        List<Project> p = new ArrayList<Project>();
+//        Project project = new Project();
+//        project.setIdProject(1);
+//        project.setName("一般申请");
+//        project.setDescription("志愿者自行选择河流区域");
+//        p.add(project);
+//        System.out.println(p.get(0));
 
 //        if(session.getAttribute("userName") != null) {
 //            userName = session.getAttribute("userName").toString();
@@ -78,9 +91,9 @@ public class wechatApplyController {
         address = user.getAddress();
 //        }
         modelAndView.addObject("address",address);
+        modelAndView.addObject("projectArray",p);
         return modelAndView;
     }
-
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
     public void upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException {

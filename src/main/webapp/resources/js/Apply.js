@@ -34,19 +34,6 @@ function del(o) {
 //     $("#applyUpload").removeClass("weui-btn_plain-disabled");
 // }
 
-function getApply(longitude,latitude,number,address,applyDate,state,image,name,waterAddress,idUser){
-    this.longitude = longitude;
-    this.latitude = latitude;
-    this.number = number;
-    this.address = address;
-    this.applyDate = applyDate;
-    this.state = state;
-    this.image = image;
-    this.name = name;
-    this.waterAddress = waterAddress;
-    this.idUser = idUser;
-}
-
 $("#applyUpload").click(function(){
     // if($("#applyUpload").hasClass("weui-btn_plain-disabled")){
     //     return;
@@ -80,8 +67,6 @@ $("#applyUpload").click(function(){
         imgUrl += idUser + "_" + applyDate + "_" + i.toString() + ".jpg" + ";";
     }
     // alert(imgUrl);
-    var applyData = JSON.stringify(new getApply(longitude,latitude,number,address,applyDate,state,imgUrl,name,waterAddress,idUser));
-    // alert(applyData);
     if(waterAddress == ""){
         alert("请选择水域地址");
     }else if(imgUrl == ""){
