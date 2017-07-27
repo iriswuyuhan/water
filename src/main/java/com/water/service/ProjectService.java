@@ -22,6 +22,6 @@ public interface ProjectService {
      * @param idProject
      * @return 项目
      */
-    public Project findProjectByID(int idProject);
+    public Project findProjectByID(long idProject);
 
 }
