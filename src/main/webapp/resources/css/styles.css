@@ -2,9 +2,40 @@
 body {
     background: #fff;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
+    font-family: '微软雅黑', sans-serif;
     color: #888;
     font-size: 16px;
+}
+a.logo {
+    font-size:48px;
+    font-family: 'Lobster', cursive;
+}
+a.logo span{
+    color: #000;
+}
+.navbar-header{
+    margin-top: 20px;
+}
+.social-links{
+    margin-top: 50px;
+}
+.content {
+    min-height: 700px;
+    background: url('http://www.demo.amitjakhu.com/login-form/images/bg.png');
+    /*     background-color: #edf0f0; */
+    margin-top: 0;
+}
+
+.container {
+    width: 1200px;
+}
+
+.intro-panel {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.2);
+    margin: 20px 0 30px;
+    min-height:700px;
 }
 
 .violet { color: #337AB7; }
@@ -1082,80 +1113,6 @@ h3, h4 { line-height: 20px; }
 ::selection { background: #337AB7; color: #fff; text-shadow: none; }
 
 
-/***** Big links / buttons *****/
-
-a.big-link-1 {
-    display: inline-block;
-    padding: 5px 22px;
-    background: #337AB7;
-    color: #fff;
-    font-style: italic;
-    text-decoration: none;
-    -moz-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    -webkit-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-}
-
-a.big-link-1:hover {
-    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-}
-
-a.big-link-1:active {
-    -moz-box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-}
-
-a.big-link-2 {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    padding-top: 6px;
-    background: #337AB7;
-    font-size: 20px;
-    color: #fff;
-    line-height: 20px;
-    -moz-border-radius: 19px; -webkit-border-radius: 19px; border-radius: 19px;
-    -moz-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    -webkit-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-}
-a.big-link-2 i { vertical-align: middle; }
-
-a.big-link-2:hover {
-    background: #5d5d5d;
-    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-}
-
-a.big-link-2:active {
-    -moz-box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-}
-
-a.big-link-3 {
-    display: inline-block;
-    padding: 5px 22px;
-    background: #337AB7;
-    font-size: 18px;
-    color: #fff;
-    font-style: italic;
-    line-height: 24px;
-    text-decoration: none;
-    -moz-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    -webkit-box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    box-shadow: 0 1px 25px 0 rgba(0,0,0,.05) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-}
-
-a.big-link-3:hover {
-    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-}
-
-a.big-link-3:active {
-    -moz-box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,.15) inset, 0 -1px 25px 0 rgba(0,0,0,.05) inset;
-}
 
 
 /***** Top menu *****/
