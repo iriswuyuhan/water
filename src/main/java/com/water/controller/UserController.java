@@ -26,17 +26,6 @@ public class UserController {
     @RequestMapping("/j{userID}")
     public ModelAndView personalInfo(@PathVariable String userID, HttpSession session){
         ModelAndView modelAndView=new ModelAndView("../wx/personal_info");
-//        if(session.getAttribute("user_name")!=null){
-//            //从定位地址页面返回，获取收货地址
-//            modelAndView.addObject("name",session.getAttribute("user_name"));
-//            modelAndView.addObject("phone_num",session.getAttribute("user_number"));
-//            modelAndView.addObject("address",session.getAttribute("user_address"));
-//            //取收货地址
-//
-//            session.removeAttribute("user_name");
-//            session.removeAttribute("user_number");
-//            session.removeAttribute("user_address");
-//        }else {
             User user = userService.getById(userID);
 //        User user=new User();
 //        user.setName("zhs");user.setNumber("15050582771");user.setAddress("江苏省南京市栖霞区");

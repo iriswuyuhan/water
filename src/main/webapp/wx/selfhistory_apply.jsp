@@ -51,6 +51,24 @@
 <div class="weui-form-preview">
     <div class="weui-form-preview__bd">
         <p>
+            <label class="weui-form-preview__label">审核状态</label>
+            <%
+                int state=(Integer) request.getAttribute("state");
+                if(state==0){%>
+            <span class="weui-form-preview__value" style="color: black">未审核</span>
+            <%}else if(state==1){%>
+            <span class="weui-form-preview__value" style="color: green">已通过（材料已寄出）</span>
+            <%}else if(state==2){%>
+            <span class="weui-form-preview__value" style="color: red">已拒绝</span>
+            <%}%>
+        </p>
+        <%if(state==1||state==2){%>
+        <p>
+            <label class="weui-form-preview__label">审核反馈</label>
+            <span class="weui-form-preview__value" style="color: black">${response}</span>
+        </p>
+        <%}%>
+        <p>
             <label class="weui-form-preview__label">所属项目</label>
             <span class="weui-form-preview__value"style="color: black">${project}</span>
         </p>
@@ -78,24 +96,6 @@
             <label class="weui-form-preview__label">收货地址</label>
             <span class="weui-form-preview__value">${address}</span>
         </p>
-        <p>
-            <label class="weui-form-preview__label">审核状态</label>
-            <%
-                int state=(Integer) request.getAttribute("state");
-                if(state==0){%>
-            <span class="weui-form-preview__value" style="color: black">未审核</span>
-            <%}else if(state==1){%>
-            <span class="weui-form-preview__value" style="color: green">已通过（材料已寄出）</span>
-            <%}else if(state==2){%>
-            <span class="weui-form-preview__value" style="color: red">已拒绝</span>
-            <%}%>
-        </p>
-        <%if(state==1||state==2){%>
-        <p>
-            <label class="weui-form-preview__label">审核反馈</label>
-            <span class="weui-form-preview__value" style="color: black">${response}</span>
-        </p>
-        <%}%>
     </div>
     <div class="weui-form-preview__ft">
         <a onclick="window.location.href='/user/j'+userID+'/history'" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">返回</a>
