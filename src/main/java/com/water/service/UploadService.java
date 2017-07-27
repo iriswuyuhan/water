@@ -11,6 +11,8 @@ import java.util.Date;
 public interface UploadService {
     public void addUpload();
 
+    public boolean updateSample(long idSample, int state);
+
     public void addUpload(Long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark);
 
     public boolean addUpload(Sample sample);
