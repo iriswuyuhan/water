@@ -24,4 +24,18 @@ public interface ProjectService {
      */
     public Project findProjectByID(long idProject);
 
+    /**
+     * 发布项目
+     *
+     * @param project
+     * @return 是否发布成功
+     */
+    public boolean saveProject(Project project);
+
+    /**
+     * 删除项目
+     * @param projectID
+     * @return 是否删除成功
+     */
+    public boolean deleteProject(long projectID);
 }

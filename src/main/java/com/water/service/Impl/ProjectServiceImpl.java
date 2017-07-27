@@ -23,4 +23,16 @@ public class ProjectServiceImpl implements ProjectService {
     public Project findProjectByID(long idProject) {
         return projectDao.get(idProject);
     }
+
+    @Override
+    public boolean saveProject(Project project) {
+        return projectDao.save(project);
+    }
+
+    @Override
+    public boolean deleteProject(long projectID) {
+        return projectDao.delete(projectID);
+    }
+
+
 }
