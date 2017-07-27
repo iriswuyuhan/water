@@ -7,7 +7,8 @@ import com.water.service.Impl.ApplyServiceImpl;
 import com.water.service.Impl.UserServiceImpl;
 import com.water.service.UserService;
 import junit.framework.TestCase;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.Test;
 import java.util.Date;
 
 /**
@@ -15,8 +16,13 @@ import java.util.Date;
  */
 public class ApplyServiceImplTest extends TestCase {
 
+    @Autowired
+    ApplyService applyService;
+
+    @Test
     public void testAddApply() throws Exception {
-        ApplyService applyService=new ApplyServiceImpl();
+
+
         Date date=new Date();
         User user=new User();
         user.setIdUser("001");
