@@ -86,7 +86,7 @@ public class Sample {
         if (sampleDate != null ? !sampleDate.equals(sample.sampleDate) : sample.sampleDate != null) return false;
         if (volume != null ? !volume.equals(sample.volume) : sample.volume != null) return false;
         if (remark != null ? !remark.equals(sample.remark) : sample.remark != null) return false;
-
+        if (state != null ? !state.equals(sample.state) : sample.state != null) return false;
         return true;
     }
 
@@ -96,6 +96,7 @@ public class Sample {
         result = 31 * result + (sampleDate != null ? sampleDate.hashCode() : 0);
         result = 31 * result + (volume != null ? volume.hashCode() : 0);
         result = 31 * result + (remark != null ? remark.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
         return result;
     }
 

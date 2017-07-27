@@ -13,7 +13,7 @@ j = 1;
 $(document).ready(function(){
     $("#imageForm").attr("target","rfFrame");
     $("#btn_add").click(function () {
-        $("#newUpload").append("<div id='div_" + j + "'><input name='image' type='file' accept='image/jpeg,image/png,image/gif' /><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
+        $("#newUpload").append("<div id='div_" + j + "'><input name='image' id='file_j' type='file' accept='image/jpeg,image/png,image/gif' /><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
         j = j + 1;
     });
 });
@@ -22,35 +22,7 @@ function del(o) {
     document.getElementById("newUpload").removeChild(document.getElementById("div_" + o));
 }
 
-// $("#river_place").on('input propertychange', function () {
-//     checkComplete();
-// });
-//
-// function checkComplete(){
-//     if($("#river_place").text() == "" || $("#river_place").text() == null){
-//         $("#applyUpload").addClass("weui-btn_plain-disabled");
-//         return;
-//     }
-//     $("#applyUpload").removeClass("weui-btn_plain-disabled");
-// }
-
-function getApply(longitude,latitude,number,address,applyDate,state,image,name,waterAddress,idUser){
-    this.longitude = longitude;
-    this.latitude = latitude;
-    this.number = number;
-    this.address = address;
-    this.applyDate = applyDate;
-    this.state = state;
-    this.image = image;
-    this.name = name;
-    this.waterAddress = waterAddress;
-    this.idUser = idUser;
-}
-
 $("#applyUpload").click(function(){
-    // if($("#applyUpload").hasClass("weui-btn_plain-disabled")){
-    //     return;
-    // }
     var idUser = $("#userID").val();
     var date = new Date();
     var applyDate=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes();
@@ -66,6 +38,7 @@ $("#applyUpload").click(function(){
     var state = 0;
     var name = "";
     var waterAddress ="";
+    var projectID = "";
 
     longitude = $("#longitude").val();
     latitude = $("#latitude").val();
@@ -73,6 +46,7 @@ $("#applyUpload").click(function(){
     address = $("#add").text();
     name = $("#name").text();
     waterAddress = $("#river_place").text();
+    projectID = $("#projectID").val();
     var imgUrl = "";
 
     var myArray = document.getElementsByName("image");
@@ -80,11 +54,11 @@ $("#applyUpload").click(function(){
         imgUrl += idUser + "_" + applyDate + "_" + i.toString() + ".jpg" + ";";
     }
     // alert(imgUrl);
-    var applyData = JSON.stringify(new getApply(longitude,latitude,number,address,applyDate,state,imgUrl,name,waterAddress,idUser));
-    // alert(applyData);
-    if(waterAddress == ""){
+    if(projectID == ""){
+        alert("请选择项目名称");
+    }else if(waterAddress == "" || waterAddress == "请选择水域地址"){
         alert("请选择水域地址");
-    }else if(imgUrl == ""){
+    }else if($("#file_0").val() == ""){
         alert("请上传河流图片");
     }else{
         $.ajax({
@@ -92,8 +66,8 @@ $("#applyUpload").click(function(){
             url:url,
             async:true,
             data:{"longitude":longitude,"latitude":latitude,"number":number,"address":address,"applyDate":applyDate,
-            "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser},
-            dataType:"json",
+            "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser,"projectID":projectID},
+            // dataType:"json",
             success:function (data) {
                 alert(data);
                 if(data){
@@ -107,13 +81,20 @@ $("#applyUpload").click(function(){
                     $.cookie('latitude',null,{path:'/'});
                     $.cookie('concrete_address', null,{path:'/'});
                     alert("/user/j"+idUser+"/history");
-                    window.location.href = "/user/j"+idUser+"/history";
+                    // window.location.href = "/user/j"+idUser+"/history";
                 }else{
                     alert("提交申请失败");
                 }
             }
-
+            // error : function(XMLHttpRequest, textStatus, errorThrown) {
+            //     //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+            //     alert(XMLHttpRequest.responseText);
+            //     alert(XMLHttpRequest.status);
+            //     alert(XMLHttpRequest.readyState);
+            //     alert(textStatus); // parser error;
+            // }
         })
+        window.location.href = "/user/j"+idUser+"/history";
     }
 })
 

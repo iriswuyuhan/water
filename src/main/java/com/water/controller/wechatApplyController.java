@@ -1,10 +1,12 @@
 package com.water.controller;
 
 import com.water.entity.Apply;
+import com.water.entity.Project;
 import com.water.entity.User;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
 import com.water.service.Impl.UserServiceImpl;
+import com.water.service.ProjectService;
 import com.water.service.UserService;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,40 +49,37 @@ public class wechatApplyController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    ProjectService projectService;
+
     @RequestMapping("/init/j{userID}")
     public ModelAndView uploadApply(@PathVariable String userID){
         ModelAndView modelAndView = new ModelAndView("../wx/apply");
-        HttpSession session = request.getSession();
         String userName = "";
         String contact = "";
         String address = "";
+        List<Project> p = projectService.findAllProjects();
+//        List<Project> p = new ArrayList<Project>();
+//        Project project = new Project();
+//        project.setIdProject(1);
+//        project.setName("一般申请");
+//        project.setDescription("志愿者自行选择河流区域");
+//        p.add(project);
+//        System.out.println(p.get(0));
 
-//        if(session.getAttribute("userName") != null) {
-//            userName = session.getAttribute("userName").toString();
-//        }
-//        if(session.getAttribute("contact") != null) {
-//            contact = session.getAttribute("contact").toString();
-//        }
-//        if(session.getAttribute("address") != null) {
-//            address = session.getAttribute("address").toString();
-//        }
         modelAndView.addObject("userID",userID);
         User user = userService.getById(userID);
-//        if(userName == null){
         userName = user.getName();
-//        }
         modelAndView.addObject("userName",userName);
-//        if(contact == null){
+
         contact = user.getNumber();
-//        }
         modelAndView.addObject("contact",contact);
-//        if(address == null){
+
         address = user.getAddress();
-//        }
         modelAndView.addObject("address",address);
+        modelAndView.addObject("projectArray",p);
         return modelAndView;
     }
-
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
     public void upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException {
@@ -121,16 +120,21 @@ public class wechatApplyController {
         user = userService.getById(userId);
         apply.setUser(user);
         apply.setResponse("");
+        int idProject = Integer.parseInt(request.getParameter("projectID")) + 1;
+        Project project = projectService.findProjectByID(idProject);
+        apply.setProject(project);
 //        System.out.println(apply.getNumber());
 //        System.out.println(apply.getAddress());
 //        System.out.println("apply:"+apply.getApplyDate());
 //        System.out.println(apply.getState());
 //        System.out.println(apply.getImage());
-//        System.out.println(apply.getNumber());
+//        System.out.println(apply.getName());
 //        System.out.println(apply.getWaterAddress());
 //        System.out.println(userId);
+//        System.out.println(apply.getResponse());
+//        System.out.println(apply.getProject().getName());
         boolean f = applyService.addApply(apply);
-        System.out.println(f);
+//        System.out.println(f);
         return f;
     }
 }

@@ -1,0 +1,23 @@
+.container-img{
+    margin-top: 34px;
+    width:1000px;
+    margin-left:50px;
+}
+a:hover{
+    text-decoration: none;
+}
+.label-pon{
+    margin-right: 20px;
+    font-size:18px;
+    padding-top:5px;
+}
+.container-text{
+    width:1000px;
+    margin-left:50px;
+}
+.set-pon{
+    float:left;
+    font-size:18px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}

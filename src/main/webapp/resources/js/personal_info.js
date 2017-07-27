@@ -22,8 +22,8 @@ function load() {
         $("#receive_addr").text($.cookie('add1'));
         $.cookie('ret1',null,{path:'/'});
         $.cookie('add1',null,{path:'/'});
+        checkFullfill();
     }
-    checkFullfill();
 }
 
 function reLoc(){

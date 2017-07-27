@@ -29,13 +29,52 @@
 </head>
 <body style="background-color: white">
 <input type="hidden" id="userID" value="${userID}"/>
+<%
+    int state=(Integer) request.getAttribute("state");
+    if(state==2){%>
+<div id="Result">
+    <div class="weui-cells__title">实验结果图片</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <div class="weui-uploader__bd">
+                    <ul class="weui-uploader__files image" id="Gallery1">
+                        <%
+                        ArrayList<String> resultImage=(ArrayList<String>) request.getAttribute("resultImage");
+                        for(int i=0;i<resultImage.size();i++){
+                        String imagePath=resultImage.get(i);
+                        %>
+                        <li class="uploaded-img weui-uploader__file">
+                            <a href="<%=imagePath%>">
+                            <img style="width: 80px;height: 80px" src="<%=imagePath%>"
+                            alt="result image"/></a>
+                            <%--<a href="/resources/img/background.jpg">--%>
+                                <%--<img style="width: 80px;height: 80px" src="/resources/img/background.jpg"--%>
+                                     <%--alt="result image"/></a>--%>
+                        </li>
+                        <%}%>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title">实验结果描述</div>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>实验结果</p>
+            </div>
+        </div>
+    </div>
+</div>
+<%}%>
 <div class="uploaded-imgs">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">
         <div class="weui-cell">
             <div class="weui-cell__bd">
                 <div class="weui-uploader__bd">
-                    <ul class="weui-uploader__files" id="Gallery">
+                    <ul class="weui-uploader__files image" id="Gallery">
                         <%
                             ArrayList<String> imageArray=(ArrayList<String>) request.getAttribute("imageArray");
                             for(int i=0;i<imageArray.size();i++){
@@ -55,6 +94,20 @@
 </div>
 <div class="weui-form-preview">
     <div class="weui-form-preview__bd">
+        <p>
+            <label class="weui-form-preview__label">处理状态</label>
+            <%if(state==0){%>
+            <span class="weui-form-preview__value" style="color: black">待收取</span>
+            <%}else if(state==1){%>
+            <span class="weui-form-preview__value" style="color: blue">处理中</span>
+            <%}else if(state==2){%>
+            <span class="weui-form-preview__value" style="color: green">处理完成</span>
+            <%}%>
+        </p>
+        <p>
+            <label class="weui-form-preview__label">所属项目</label>
+            <span class="weui-form-preview__value" style="color: black">${project}</span>
+        </p>
         <p>
             <label class="weui-form-preview__label">水域地址</label>
             <span class="weui-form-preview__value">${waterAddress}</span>
@@ -111,7 +164,7 @@
                     //点击图片关闭
                     tapToClose: true,
                 },
-                instance = PhotoSwipe.attach(window.document.querySelectorAll('#Gallery a'), options);
+                instance = PhotoSwipe.attach(window.document.querySelectorAll('.image a'), options);
         }, false);
     }(window, window.Code.PhotoSwipe));
 </script>

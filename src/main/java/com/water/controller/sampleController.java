@@ -3,10 +3,13 @@ package com.water.controller;
 /**
  * Created by Administrator on 2017/7/25 0025.
  */
+import com.sun.org.apache.regexp.internal.RE;
 import com.water.entity.Apply;
+import com.water.entity.Result;
 import com.water.entity.Sample;
 import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
+import com.water.service.ResultService;
 import com.water.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,21 +30,77 @@ import java.util.ArrayList;
 import java.io.IOException;
 @Controller
 public class sampleController {
-    @RequestMapping(value = "/uploadSampleResultImg", method = RequestMethod.POST, produces = "application/json;charset=utf8")
+    @Autowired
+    private ResultService resultService;
+    private UploadService uploadService;
+    /**
+     * @param request
+     * @return 上传实验结果的图片
+     * @throws Exception
+     */
+    @RequestMapping(value = "/uploadSampleResultImg",produces = "application/json;charset=utf8")
     @ResponseBody
-    public JSONObject uploadImg(@RequestParam("file") MultipartFile[] image) throws IOException {
-        File dir=new File("E:\\water\\src\\main\\webapp\\resources\\txt\\a");
+    public JSONObject uploadImg(@RequestParam("file") MultipartFile[] image,HttpServletRequest request) throws IOException {
+        System.out.println("asdsad");
+        System.out.println(request.getParameter("idSample")+"$$$$$$$$");
+        String filename = request.getParameter("idSample");
+        File dir=new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+filename);
         if(!dir.exists()){
             dir.mkdirs();
         }
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
-                file.transferTo(new File("E:\\water\\src\\main\\webapp\\resources\\txt\\a\\" + file.getOriginalFilename()));
+                file.transferTo(new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+filename+"\\" + file.getOriginalFilename()));
             }
         }
         String json = "{'state':'success'}";
         JSONObject object = JSONObject.fromObject(json);
         return object;
     }
+    /**
+     * @param request
+     * @param response
+     * @return 上传实验结果
+     * @throws Exception
+     */
+    @RequestMapping("/uploadResult")
+    @ResponseBody
+    public void uploadResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("123123");
+        String idSample=request.getParameter("idSample");
+
+        String text = request.getParameter("description");
+
+        File file = new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+idSample);
+        String [] fileName = file.list();
+        System.out.println(idSample+text+fileName.length);
+        for(int i=0;i<fileName.length;i++)
+            System.out.println(fileName[i]);
+        Result result  = new Result();
+        result.setIdResult(Integer.valueOf(idSample));
+        result.setDescription(text);
+        result.setImage(fileName[0]);
+        System.out.println(idSample);
+       boolean bool= resultService.addResult(result);
+       if(bool){
+            boolean bool1 = uploadService.updateSample(Integer.valueOf(idSample),2);
+       }
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print("success");
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 改变样本状态
+     * @throws Exception
+     */
+    @RequestMapping("/sampleState")
+    @ResponseBody
+    public void sampleState(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String idSample=request.getParameter("idSample");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print("success");
+    }
+
 }

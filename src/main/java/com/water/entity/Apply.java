@@ -136,15 +136,15 @@ public class Apply {
         this.user = user;
     }
 
-//    @ManyToOne
-//    @JoinColumn(name = "idProject", nullable = false)
-//    public Project getProject(){
-//        return project;
-//    }
-//
-//    public void setProject(Project project){
-//        this.project = project;
-//    }
+    @ManyToOne
+    @JoinColumn(name = "idProject", nullable = false)
+    public Project getProject(){
+        return project;
+    }
+
+    public void setProject(Project project){
+        this.project = project;
+    }
 
 /*
     @Override
@@ -164,7 +164,7 @@ public class Apply {
         if (image != null ? !image.equals(apply.image) : apply.image != null) return false;
         if (name != null ? !name.equals(apply.name) : apply.name != null) return false;
         if (waterAddress != null ? !waterAddress.equals(apply.waterAddress) : apply.waterAddress != null) return false;
-
+        if (response != null ? !response.equals(apply.response) : apply.response != null) return false;
         return true;
     }
 
@@ -180,6 +180,7 @@ public class Apply {
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (waterAddress != null ? waterAddress.hashCode() : 0);
+        result = 31 * result + (response != null ? response.hashCode() : 0);
         return result;
     }*/
 
