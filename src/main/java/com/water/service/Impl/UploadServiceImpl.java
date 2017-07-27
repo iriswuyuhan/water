@@ -83,6 +83,13 @@ public class UploadServiceImpl implements UploadService {
         return list;
     }
 
+    public boolean updateSample(long idSample, int state){
+        Sample sample = uploadDao.get(idSample);
+        if(sample==null)
+            return false;
+        sample.setState(state);
+        return uploadDao.saveOrUpdate(sample);
+    }
 
     //根据项目编号和日期筛选sample
 //    public ArrayList<Sample> filterSample(String eventID,String startDate,String endDate){
