@@ -60,15 +60,13 @@ $(function(){
         }
     });
     $(".tyo").click(function () {
-        $("#mainwrapper").hide();
-        $("#downloadwrapper").hide();
         $("#nav li").removeClass();
         $(this).parent().prop("class","active");
         var name =    $(this).find("h4").html();
         if(name==="审核申请")
-            $("#mainwrapper").show();
+            window.location.href="toAdmin.do";
         if(name==="下载采样信息")
-            $("#downloadwrapper").show();
+            window.location.href="toAdmin_Sample.do"
     })
     $(".state").click(function () {
         $("#tabs li").prop("id","");

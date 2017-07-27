@@ -17,6 +17,15 @@ $(function () {
             }
         }
     });
+    $(".tyo").click(function () {
+        $("#nav li").removeClass();
+        $(this).parent().prop("class","active");
+        var name =    $(this).find("h4").html();
+        if(name==="审核申请")
+            window.location.href="toAdmin.do";
+        if(name==="下载采样信息")
+            window.location.href="toAdmin_Sample.do"
+    })
     $("#search1").click(function () {
         var id = $("#input1").val();
         $.ajax({
@@ -29,7 +38,6 @@ $(function () {
                 if(obj!==null){
                 setSampleInfo(obj);
                     $("#scro4").find("li").each(function() {
-
                         $(this).removeClass("active");
                     });
                     $("#scro4").find("a").each(function () {

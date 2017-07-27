@@ -53,14 +53,14 @@
         </div>
         <div class="header_main">
             <ul id="nav">
-                <li class="active"><a class="tyo" href="#"><i class="fa fa-2x fa-sitemap"></i><h4>审核申请</h4></a></li>
-                <li ><a class="tyo" href="#" ><i class="fa fa-2x fa-download set_middle"></i><h4>下载采样信息</h4></a></li>
+                <li ><a class="tyo" href="#"><i class="fa fa-2x fa-sitemap"></i><h4>审核申请</h4></a></li>
+                <li class="active" ><a class="tyo" href="#" ><i class="fa fa-2x fa-download set_middle"></i><h4>下载采样信息</h4></a></li>
                 <li ><a class="tyo" href="#"><i class="fa fa-2x fa-upload set_right"></i><h4>上传实验结果</h4></a></li>
             </ul>
         </div>
     </header>
     <div id="downloadwrapper" class="download_wrapper" style="display: block">
-        <div class="load_wrapper" style="display:none">
+        <div id="content5" class="load_wrapper" style="display:none">
             <a class="return_pon">return to list</a>
             <div id="content4" class="table-content" style="display: block;">
 
@@ -166,21 +166,21 @@
                 </div>
             </div>
         </div>
-        <div class="list_wrapper" style="display:block">
+        <div id="list" class="list_wrapper" style="display:block">
             <div class="table_header">
                 <div class="row">
                     <div class="col-xs-6 col-sm-2.5">
                         <a class="pull-left label-pon">项目编号：</a>
-                        <input class="form-control pull-left" maxlength="8" required="" type="text" style="width:120px;" >
+                        <input id="project" class="form-control pull-left" maxlength="8" required="" type="text" style="width:120px;" >
                     </div>
                     <div class="col-xs-6 col-sm-4">
                         <div class="form-group">
                             <a class="pull-left label-pon">时间段选择：</a>
                             <div class="col-xs-4">
                                 <div class="input-group input-medium date-picker input-daterange pull-left" data-date-format="yyyy-mm-dd" style="width:70%";>
-                                    <input name="dtBegin" class="form-control"  type="text" value="" style="width:80px;">
+                                    <input id="databegin" name="dtBegin" class="form-control"  type="text" value="" style="width:80px;">
                                     <div class="input-group-addon">to</div>
-                                    <input name="dtEnd" class="form-control" type="text" value="" style="width:80px;">
+                                    <input id="dataend" name="dtEnd" class="form-control" type="text" value="" style="width:80px;">
                                 </div>
 
                                 <script type="text/javascript">
@@ -197,9 +197,9 @@
                     <!-- Optional: clear the XS cols if their content doesn't match in height -->
                     <div class="clearfix visible-xs-block"></div>
                     <div class="col-xs-6 col-sm-5">
-                        <button type="button" class="btn btn-info pull-left">查找</button>
+                        <button id="query" type="button" class="btn btn-info pull-left">查找</button>
                         <div class="download_pon pull-right">
-                            <i class="fa fa-download"></i>
+                            <a id="csv" onclick="clickbut()"   ><i class="fa fa-download"></i></a>
                         </div>
                     </div>
                 </div>
@@ -219,36 +219,36 @@
                     <th style="width:30px"><i class="fa fa-angle-right"></i></th>
                 </tr>
                 </thead>
-                <tbody  style="display: block; height: 340px; width: 1190px; overflow-y: auto; overflow-x:hidden ">
+                <tbody id="tbody"  style="display: block; height: 340px; width: 1190px; overflow-y: auto; overflow-x:hidden ">
                 <tr>
-                    <td style="width:80px"><input id="checkbox1" type="checkbox"><label for="checkbox1"></label></td>
-                    <td style="width:160px">123456</td>
+                    <td style="width:80px"><input id="checkbox1" name="checkbox1" type="checkbox"><label for="checkbox1"></label></td>
+                    <td name='sampleid' style="width:160px">123456</td>
                     <td style="width:160px">10ml</td>
                     <td style="width:180px">长长长长江</td>
                     <td style="width:180px">项目ABC</td>
                     <td style="width:200px">2017-01-25 10:00:00</td>
                     <td style="width:200px"><li class="yellow dot"></li><a class="pull-left">处理中</a></td>
-                    <td style="width:30px"><a><i class="fa fa-angle-right"></i></a></td>
+                    <td style="width:30px"><a onclick='sampleinfo(this)'><i class="fa fa-angle-right"></i></a></td>
                 </tr>
                 <tr>
-                    <td><input id="checkbox2" type="checkbox"><label for="checkbox2"></label></td>
-                    <td>123457</td>
+                    <td><input id="checkbox2" name="checkbox1" type="checkbox"><label for="checkbox2" ></label></td>
+                    <td name='sampleid'>123457</td>
                     <td>15ml</td>
                     <td>黄黄黄黄河</td>
                     <td>项目ABC</td>
                     <td>2017-01-25 10:00:00</td>
                     <td><li class="green dot"></li><a class="pull-left">已上传结果</a></td>
-                    <td><a><i class="fa fa-angle-right"></i></a></td>
+                    <td><a onclick='sampleinfo(this)'><i class="fa fa-angle-right"></i></a></td>
                 </tr>
                 <tr>
-                    <td style="width:80px"><input id="checkbox3" type="checkbox"><label for="checkbox3"></label></td>
-                    <td>123457</td>
+                    <td style="width:80px"><input id="checkbox3" name="checkbox1" type="checkbox"><label for="checkbox3"></label></td>
+                    <td name='sampleid'>123457</td>
                     <td>15ml</td>
                     <td>渤渤渤渤海</td>
                     <td>项目ABC</td>
                     <td>2017-01-25 10:00:00</td>
                     <td><li class="gray dot"></li><a class="pull-left">未收取</a></td>
-                    <td><a><i class="fa fa-angle-right"></i></a></td>
+                    <td><a onclick='sampleinfo(this)'><i class="fa fa-angle-right"></i></a></td>
                 </tr>
 
 
@@ -266,7 +266,7 @@
 
 
 <script src="./resources/js/Admin_work_sample.js"></script>
-
+<script src="./resources/js/Admin_Work_Samplelist.js"></script>
 <script type="text/javascript">
     /*轮播*/
     $(function(){
