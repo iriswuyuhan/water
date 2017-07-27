@@ -53,6 +53,7 @@ $("#applyUpload").click(function(){
     var state = 0;
     var name = "";
     var waterAddress ="";
+    var projectID = "";
 
     longitude = $("#longitude").val();
     latitude = $("#latitude").val();
@@ -60,6 +61,8 @@ $("#applyUpload").click(function(){
     address = $("#add").text();
     name = $("#name").text();
     waterAddress = $("#river_place").text();
+    alert(waterAddress);
+    projectID = $("#projectID").val();
     var imgUrl = "";
 
     var myArray = document.getElementsByName("image");
@@ -67,7 +70,9 @@ $("#applyUpload").click(function(){
         imgUrl += idUser + "_" + applyDate + "_" + i.toString() + ".jpg" + ";";
     }
     // alert(imgUrl);
-    if(waterAddress == ""){
+    if(projectID == ""){
+        alert("请选择项目名称");
+    }else if(waterAddress == ""){
         alert("请选择水域地址");
     }else if(imgUrl == ""){
         alert("请上传河流图片");
@@ -77,7 +82,7 @@ $("#applyUpload").click(function(){
             url:url,
             async:true,
             data:{"longitude":longitude,"latitude":latitude,"number":number,"address":address,"applyDate":applyDate,
-            "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser},
+            "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser,"projectID":projectID},
             dataType:"json",
             success:function (data) {
                 alert(data);
@@ -97,7 +102,7 @@ $("#applyUpload").click(function(){
                     alert("提交申请失败");
                 }
             }
-
+            
         })
     }
 })

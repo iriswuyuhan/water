@@ -59,13 +59,13 @@ public class wechatApplyController {
         String userName = "";
         String contact = "";
         String address = "";
-        List<Project> p = projectService.findAllProjects();
-//        List<Project> p = new ArrayList<Project>();
-//        Project project = new Project();
-//        project.setIdProject(1);
-//        project.setName("一般申请");
-//        project.setDescription("志愿者自行选择河流区域");
-//        p.add(project);
+//        List<Project> p = projectService.findAllProjects();
+        List<Project> p = new ArrayList<Project>();
+        Project project = new Project();
+        project.setIdProject(1);
+        project.setName("一般申请");
+        project.setDescription("志愿者自行选择河流区域");
+        p.add(project);
 //        System.out.println(p.get(0));
 
 //        if(session.getAttribute("userName") != null) {
@@ -134,6 +134,9 @@ public class wechatApplyController {
         user = userService.getById(userId);
         apply.setUser(user);
         apply.setResponse("");
+        int idProject = Integer.parseInt(request.getParameter("projectID"));
+        Project project = projectService.findProjectByID(idProject);
+        apply.setProject(project);
 //        System.out.println(apply.getNumber());
 //        System.out.println(apply.getAddress());
 //        System.out.println("apply:"+apply.getApplyDate());
