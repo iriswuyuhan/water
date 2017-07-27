@@ -37,6 +37,8 @@ public class SelfHistoryController {
     UploadService uploadService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
+
+
     @RequestMapping("/j{userID}/history")
     public ModelAndView getSelfHistory(@PathVariable String userID){
         ModelAndView modelAndView=new ModelAndView("../wx/selfhistory");
@@ -223,6 +225,10 @@ public class SelfHistoryController {
         modelAndView.addObject("name",apply.getName());
         modelAndView.addObject("phoneNum",apply.getNumber());
         modelAndView.addObject("address",apply.getAddress());
+        //实验结果
+        if(sample.getState()==2){
+
+        }
         return modelAndView;
     }
 
