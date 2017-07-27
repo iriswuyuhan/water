@@ -26,14 +26,19 @@ $("#sampling_tab").click(function () {
     $("#sampling_tab_panel").show();
 });
 
-function ondelete(index) {
+function personal_info() {
+    window.location.href='/user/j'+userID;
+}
+
+function confirmDelete() {
     $.ajax({
         url: "/user/j" + userID + "/history/deleteUnChecked",
         type: 'get',
         async: false,
-        data: {"index": index},
+        data: {"index": deleteIndex},
         success: function (data) {
             if (data) {
+                $("#dialog").hide();
                 // toast
                 var $toast = $('#toast');
                 if ($toast.css('display') !== 'none') return;
@@ -157,14 +162,15 @@ function loadUnchecked(goods) {
         "color: grey;font-size: 15px;'>" +
         "<div class='unchecked_message' style='width: 90%;float: left'>" +
         "<p>水域地址：<label style='color: black'>" + goods.waterAddress + "</label></p>" +
+        "<p>所属项目：<label style='color: black'>" + goods.project.name + "</label></p>" +
         "<p>姓名： <label style='color: black'>" + goods.name + "</label>" +
         "<label style='color: black;float:right'>" + goods.number + "</label></p>" +
         "<p>收货地址：<label style='color: black'>" + goods.address + "</label></p>" +
         "</div>" +
-        "<div style='height:12%;float: right;padding-left: 2%;border-left: 1px;" +
+        "<div style='height:15%;float: right;padding-left: 2%;border-left: 1px;" +
         "border-left-style: dashed;margin-bottom: 3%'>" +
         "<br/>" +
-        "<img class='delete_unchecked' src='/resources/img/delete.png' style='width:25px'/>" +
+        "<img class='delete_unchecked' src='/resources/img/delete.png' style='width:25px;position: relative;top:8%'/>" +
         "</div>" +
         "</div>" +
         "<hr style='width: 100%'>";
@@ -179,33 +185,45 @@ function loadChecked(goods) {
         result += "<div class='checked_message' style='width: 100%'>";
     }
     result += "<p>水域地址：<label style='color: black'>" + goods.waterAddress + "</label></p>" +
-        "<p>姓名： <label style='color: black'>" + goods.name + "</label>" +
-        "<label style='color: black;float:right'>" + goods.number + "</label></p>" +
-        "<p>收货地址：<label style='color: black'>" + goods.address + "</label></p>";
+        "<p>所属项目：<label style='color: black'>" + goods.project.name + "</label></p>";
     if (goods.state === 1) {
-        result += "<p>状态：<img src='/resources/img/pass.png' style='width: 15px'/>已通过</p></div>";
+        result += "<p>审核状态：<img src='/resources/img/pass.png' style='width: 15px'/>" +
+            "<label style='color: green'>已通过（材料已寄出）</label></p>";
     } else if (goods.state === 2) {
-        result += "<p>状态：<img src='/resources/img/reject.png' style='width: 15px'/>已拒绝</p></div>";
+        result += "<p>审核状态：<img src='/resources/img/reject.png' style='width: 15px'/>" +
+            "<label style='color: red'>已拒绝</label></p>";
     }
+    result+="<p>审核反馈：<label style='color: black'>" + goods.response + "</label></div>";
     if (goods.state === 1) {
-        result += "<div style='height:86px;float: right;padding-left: 2%;border-left: 1px;" +
+        result += "<div style='height:15%;float: right;padding-left: 2%;border-left: 1px;" +
             "border-left-style: dashed;margin-bottom: 3%'>" +
             "<br/>" +
-            "<img class='upload_pass' src='/resources/img/upload.png' style='padding-top:10px;width:25px'/></div>";
+            "<img class='upload_pass' src='/resources/img/upload.png' style='width:25px;position: relative;top:9%'/></div>";
     }
     result += "</div><hr style='width: 100%'>";
     return result;
 }
 
 function loadSampling(goods) {
-    return "<div class='sampling_item'" +
+    result= "<div class='sampling_item'" +
         "style='padding-left: 15px;padding-right:15px;padding-top: 10px;color: grey;font-size: 15px'>" +
         "<p>采样地点：<label style='color: black'>" + goods.waterAddress + "</label></p>" +
+        "<p>所属项目：<label style='color: black'>" + goods.project + "</label></p>"+
         "<p>经纬度：<label style='color: black'>(" + goods.longitude + ", " + goods.latitude + ")</label>" +
-        "<label style='float: right'>采样体积：<label style='color: black'>" + goods.volume + "</label></label></p>" +
-        "<p style='padding-bottom: 5px'>采样备注：<label style='color: black'>" + goods.remark + "</label></p>" +
-        "<p style='font-size: 14px'>采样时间：" + goods.sampleDate +
+        "<label style='float: right'>采样体积：<label style='color: black'>" + goods.volume + "</label></label></p>";
+    if (goods.state === 0) {
+        result += "<p>处理状态：<img src='/resources/img/toBeReceived.png' style='width: 15px'/>" +
+            "<label style='color: black'>待收取</label></p>";
+    } else if (goods.state === 1) {
+        result += "<p>处理状态：<img src='/resources/img/processing.png' style='width: 15px'/>" +
+            "<label style='color: blue'>处理中</label></p>";
+    }else if(goods.state===2){
+        result += "<p>处理状态：<img src='/resources/img/workOut.png' style='width: 15px'/>" +
+            "<label style='color: green'>处理完成</label></p>";
+    }
+    result+="<p style='font-size: 14px'>采样时间：" + goods.sampleDate +
         "<label style='float:right'>编号：" + goods.sampleID + "</label></p>" +
         "</div>" +
         "<hr>";
+    return result;
 }

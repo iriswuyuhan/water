@@ -178,7 +178,7 @@
                         $searchText = $('#searchText'),
                         $searchInput = $('#searchInput'),
                         $searchClear = $('#searchClear'),
-                        $searchCancel = $('#searchCancel');
+                        $searchCancel = $('#searchCancel'),
                         $searchConfirm=$('#searchConfirm');
 
                     function hideSearchResult(){
@@ -215,9 +215,10 @@
                         cancelSearch();
                         $searchInput.blur();
                     });
+
                     $searchConfirm.on('click',function () {
                         var add=$searchInput.val();
-                        window.open(url+"?add="+add);
+                        set(add);
                     })
                 });</script>
         </div>

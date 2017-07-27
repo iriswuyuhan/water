@@ -1,3 +1,5 @@
+<%@ page import="com.water.entity.Project" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -68,10 +70,11 @@
 <input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="longitude"/>
 <input type="hidden" id="latitude"/>
+<input type="hidden" id="projectID"/>
 <br>
 
 <div class="page__bd page__bd_spacing">
-    <a href="javascript:;" class="weui-btn weui-btn_default" id="chooseProject">选择项目</a>
+    <a href="javascript:;" class="weui-btn weui-btn_default" id="chooseProject"><span id="projectName">选择项目</span></a>
 </div>
 
 <div class="weui-cells weui-cells_vcode" id="chooseRiver" onclick="onClickWaterAddr()" href="javascript:;">
@@ -134,24 +137,26 @@
 <script type="text/javascript" src="../resources/js/Apply.js"></script>
 <script type="text/javascript" src="../resources/js/split.js"></script>
 <script type="text/javascript">
+    var project = [
+        <% ArrayList<Project> arrayList=(ArrayList)request.getAttribute("projectArray");
+        for(int i=0;i<arrayList.size();i++){%>
+        {
+            "label": '<%=arrayList.get(i).getName()%>',
+            "value": <%=arrayList.get(i).getIdProject()-1%>
+        },
+        <%}%>
+    ]
+
     $("#chooseProject").on('click', function () {
-        weui.picker([{
-            label: '黑龙江流域',
-            value: 0
-        }, {
-            label: '长江流域',
-            value: 1
-        }, {
-            label: '一般申请',
-            value: 2
-        }], {
-            onChange: function (result) {
-                console.log(result);
-            },
+        weui.picker(project, {
             onConfirm: function (result) {
-                console.log(result);
+                $("#projectID").val(result);
+                var projectID = $("#projectID").val();
+                var label = project[projectID].label;
+                $("#projectName").html(label);
             }
         });
     });
+
 </script>
 </html>

@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.water.entity.Apply;
 import com.water.entity.Sample;
+import com.water.entity.User;
 import com.water.service.ApplyService;
 import com.water.service.UploadService;
+import com.water.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +31,9 @@ public class SelfHistoryController {
     ApplyService applyService;
 
     @Autowired
+    UserService userService;
+
+    @Autowired
     UploadService uploadService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -36,6 +41,8 @@ public class SelfHistoryController {
     public ModelAndView getSelfHistory(@PathVariable String userID){
         ModelAndView modelAndView=new ModelAndView("../wx/selfhistory");
         modelAndView.addObject("userID",userID);
+        User user=userService.getById(userID);
+        modelAndView.addObject("userName",user.getName());
         return modelAndView;
     }
 
@@ -103,10 +110,12 @@ public class SelfHistoryController {
             object.put("waterAddress",sample.getApply().getWaterAddress());
             object.put("longitude",sample.getApply().getLongitude());
             object.put("latitude",sample.getApply().getLatitude());
+            object.put("project",sample.getApply().getProject().getName());
             object.put("volume",sample.getVolume());
             object.put("remark",sample.getRemark());
             object.put("sampleDate",sdf.format(sample.getSampleDate()));
             object.put("sampleID",sample.getIdSample());
+            object.put("state",sample.getState());
             jsonArray.add(object);
         }
         return jsonArray;
@@ -131,6 +140,7 @@ public class SelfHistoryController {
 //        apply.setWaterAddress("123");apply.setLongitude(12.0);apply.setLatitude(23.0);
 //        apply.setImage("/resources/img/delete.png");apply.setName("123");apply.setNumber("123456788");
 //        apply.setAddress("2456");apply.setApplyDate(new Date());apply.setState(1);apply.setIdApply(123);
+        modelAndView.addObject("project", apply.getProject().getName());
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
         String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
@@ -160,6 +170,7 @@ public class SelfHistoryController {
         modelAndView.addObject("phoneNum",apply.getNumber());
         modelAndView.addObject("address",apply.getAddress());
         modelAndView.addObject("state",apply.getState());
+        modelAndView.addObject("response",apply.getResponse());
         return modelAndView;
     }
 
@@ -183,7 +194,9 @@ public class SelfHistoryController {
         modelAndView.addObject("sampleVolume",sample.getVolume());
         modelAndView.addObject("sampleID",sample.getIdSample());
         modelAndView.addObject("sampleRemark",sample.getRemark());
+        modelAndView.addObject("state",sample.getState());
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
+        modelAndView.addObject("project",apply.getProject().getName());
         String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
             modelAndView.addObject("latitude", "北纬" + latitude + "度");
@@ -210,7 +223,6 @@ public class SelfHistoryController {
         modelAndView.addObject("name",apply.getName());
         modelAndView.addObject("phoneNum",apply.getNumber());
         modelAndView.addObject("address",apply.getAddress());
-        modelAndView.addObject("state",apply.getState());
         return modelAndView;
     }
 

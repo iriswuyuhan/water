@@ -113,6 +113,7 @@ public class ApplyDaoImpl implements ApplyDao {
             Apply apply = (Apply) session.load(Apply.class, id);
             session.delete(apply);
             tx.commit();
+            flag = true;
         } catch (Exception ex) {
             tx.rollback();
         } finally {

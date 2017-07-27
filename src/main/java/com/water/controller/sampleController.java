@@ -27,18 +27,17 @@ import java.util.ArrayList;
 import java.io.IOException;
 @Controller
 public class sampleController {
-    @Autowired
     @RequestMapping(value = "/uploadSampleResultImg", method = RequestMethod.POST, produces = "application/json;charset=utf8")
     @ResponseBody
     public JSONObject uploadImg(@RequestParam("file") MultipartFile[] image) throws IOException {
-        File dir=new File("E:\\water\\src\\main\\webapp\\resources\\txt");
+        File dir=new File("E:\\water\\src\\main\\webapp\\resources\\txt\\a");
         if(!dir.exists()){
             dir.mkdirs();
         }
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
-                file.transferTo(new File("E:\\water\\src\\main\\webapp\\resources\\txt\\" + file.getOriginalFilename()));
+                file.transferTo(new File("E:\\water\\src\\main\\webapp\\resources\\txt\\a\\" + file.getOriginalFilename()));
             }
         }
         String json = "{'state':'success'}";
