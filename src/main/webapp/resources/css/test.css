@@ -1,0 +1,279 @@
+a.logo {
+    font-size:48px;
+    font-family: 'Lobster', cursive;
+}
+a.logo span{
+    color: #000;
+}
+.navbar-header{
+    margin-top: 20px;
+}
+.social-links{
+    margin-top: 50px;
+}
+.content {
+    min-height: 700px;
+    background: url('http://www.demo.amitjakhu.com/login-form/images/bg.png');
+    /*     background-color: #edf0f0; */
+    margin-top: 0;
+}
+
+.container {
+    width: 1400px;
+}
+
+.intro-panel {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.2);
+    margin: 20px 0 30px;
+    min-height:700px;
+}
+
+#tabs {
+    overflow: hidden;
+    width: 96%;
+    padding-top: 20px;
+    list-style: none;
+}
+#tabs li {
+    float: left;
+    margin: 0 .5em 0 0;
+}
+#tabs li:first-child{
+    margin-left: 0px;
+}
+#tabs a {
+    font-size: 87.5%;
+    position: relative;
+    background: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fff, #ddd);
+    background-image: -moz-linear-gradient(top, #fff, #ddd);
+    background-image: -ms-linear-gradient(top, #fff, #ddd);
+    background-image: -o-linear-gradient(top, #fff, #ddd);
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    padding: .7em 1.5em;
+    float: left;
+    text-decoration: none;
+    color: #444;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+    border-radius: 5px 0 0 0;
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+}
+#tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after {
+    background: #fff;
+}
+#tabs a:focus {
+    font-size: 87.5%;
+    outline: 0;
+}
+#tabs a::after {
+    font-size: 87.5%;
+    content:'';
+    position:absolute;
+    z-index: 1;
+    top: 0;
+    right: -.5em;
+    bottom: 0;
+    width: 1em;
+    background: #ddd;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fff, #ddd);
+    background-image: -moz-linear-gradient(top, #fff, #ddd);
+    background-image: -ms-linear-gradient(top, #fff, #ddd);
+    background-image: -o-linear-gradient(top, #fff, #ddd);
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+    -ms-transform: skew(10deg);
+    -o-transform: skew(10deg);
+    transform: skew(10deg);
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+    border-radius: 0 5px 0 0;
+}
+#tabs #current a, #tabs #current a::after {
+    font-size: 87.5%;
+    background: #fff;
+    z-index: 3;
+}
+#main_content {
+    margin-left: 38px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.table-content {
+    max-width: 100%;
+    height: 100%;
+}
+
+.indicator-group-title {
+    float: left;
+    padding: 0.625em 0.3125em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px dashed #dfdfdf;
+    width: 15%;
+    color: #5a5a5a;
+    text-align: left;
+    min-height: 560px;
+}
+
+.indicator-group-title li.active, .indicator-easy-model .indicator-item div.content .indicator-group-title li:hover {
+    background-color: #5B9DDE;
+    color: #fff;
+    position: relative;
+}
+
+.indicator-group-title li span {
+    float: right;
+    margin-top: 0.1875em;
+    display: none;
+}
+
+.indicator-group-title li a{
+    color: #5a5a5a;
+}
+
+.indicator-group-title li.active a {
+    text-decoration: none;
+    color:#fff;
+}
+
+.indicator-group-title li.active span {
+    margin-top:0px;
+    display: block;
+}
+
+.indicator-group-title li{
+    cursor: pointer;
+    padding: 0.3125em 0.9375em 0.3125em 0.625em;
+    margin-bottom: 0.0625em;
+    border-radius: 5px;
+    font-size: 93.75%;
+}
+.indicator-group-content {
+    width: 80%;
+    height: 560px;
+    padding: 5px 30px 10px 5px;
+    border: 1px dashed #dfdfdf;
+    overflow-y: auto;
+}
+.left_title {
+    margin-top: -20px;
+    border-bottom: 2px #5B9DDE solid;
+
+}
+.left_content{
+    margin-left: 2em;
+    margin-top: 2.5em;
+    font-size: 1.25em;
+}
+.left_content  .left_info p {
+    padding-bottom: 1.8em;
+}
+.left_title h1{
+    text-align: left;
+    color: #444;
+    margin-bottom: 0.15625em;
+}
+.left_title i{
+    margin-top: 5px;
+    float: left;
+    font-size: 36px;
+}
+
+.left_title a{
+    margin-top: -40px;
+    float: right;
+    font-size: 16px;
+    color: #555;
+}
+.left_title .setpon{
+    float: right;
+    margin-top: -1.375em;
+    font-size: 100%;
+    color: #888888;
+}
+.setpon{
+    margin-right: 11.6em;
+}
+.blue{
+    color: #3FAEEC;
+}
+.left_content{
+    margin-left: 2em;
+    margin-top: 2.5em;
+    font-size: 1.25em;
+}
+.left_content  .left_info p {
+    padding-bottom: 24px;
+}
+
+.left_info{
+    float: left;
+}
+
+#scroll,#scroll2,#scroll3{width:50%; height:400px; background-color:white; position:relative;float:right;}
+#scroll4{width:42%; height:13.5em; background-color:white; position:relative;float:right;}
+.operate{
+    float: left;
+    margin-top: 390px;
+    margin-left: -120px;
+}
+
+button, .button {
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: normal;
+    line-height: normal;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    padding-top: 0.05em;
+    padding-right: 0.75em;
+    padding-bottom: 0.05em;
+    padding-left: 0.55em;
+    font-size: 1em;
+    background-color:rgba(0,0,0,0.01);
+    border-color: #829606;
+    color: #000;
+}
+.button:hover{
+    background-color:rgba(0,0,0,0.05);
+}
+
+.button i{
+    margin-right: 0.3em;
+}
+
+.yes{
+    margin-right:6.7em;
+}
+
+.yes i{
+    color: green;
+}
+.no i{
+    color: red;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
