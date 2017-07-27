@@ -13,7 +13,7 @@ j = 1;
 $(document).ready(function(){
     $("#imageForm").attr("target","rfFrame");
     $("#btn_add").click(function () {
-        $("#newUpload").append("<div id='div_" + j + "'><input name='image' type='file' accept='image/jpeg,image/png,image/gif' /><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
+        $("#newUpload").append("<div id='div_" + j + "'><input name='image' id='file_j' type='file' accept='image/jpeg,image/png,image/gif' /><input id='button_"+j+"' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
         j = j + 1;
     });
 });
@@ -22,22 +22,7 @@ function del(o) {
     document.getElementById("newUpload").removeChild(document.getElementById("div_" + o));
 }
 
-// $("#river_place").on('input propertychange', function () {
-//     checkComplete();
-// });
-//
-// function checkComplete(){
-//     if($("#river_place").text() == "" || $("#river_place").text() == null){
-//         $("#applyUpload").addClass("weui-btn_plain-disabled");
-//         return;
-//     }
-//     $("#applyUpload").removeClass("weui-btn_plain-disabled");
-// }
-
 $("#applyUpload").click(function(){
-    // if($("#applyUpload").hasClass("weui-btn_plain-disabled")){
-    //     return;
-    // }
     var idUser = $("#userID").val();
     var date = new Date();
     var applyDate=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes();
@@ -61,7 +46,6 @@ $("#applyUpload").click(function(){
     address = $("#add").text();
     name = $("#name").text();
     waterAddress = $("#river_place").text();
-    alert(waterAddress);
     projectID = $("#projectID").val();
     var imgUrl = "";
 
@@ -72,9 +56,9 @@ $("#applyUpload").click(function(){
     // alert(imgUrl);
     if(projectID == ""){
         alert("请选择项目名称");
-    }else if(waterAddress == ""){
+    }else if(waterAddress == "" || waterAddress == "请选择水域地址"){
         alert("请选择水域地址");
-    }else if(imgUrl == ""){
+    }else if($("#file_0").val() == ""){
         alert("请上传河流图片");
     }else{
         $.ajax({
@@ -102,7 +86,7 @@ $("#applyUpload").click(function(){
                     alert("提交申请失败");
                 }
             }
-            
+
         })
     }
 })

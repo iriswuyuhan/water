@@ -83,7 +83,7 @@
             <label class="weui-label">水域地址</label>
         </div>
         <div class="weui-cell__bd">
-            <label class="weui-input" id="river_place" name="river_place" value="">请输入水域地址</label>
+            <label class="weui-input" id="river_place" name="river_place" value="">请选择水域地址</label>
         </div>
         <div class="weui-cell__ft" img>
             <img src="../resources/img/rightArrow2.png" style="width:10px;margin-left:5px;margin-right: 5px;">
@@ -119,7 +119,7 @@
                     <form id="imageForm" action="/uploadImg" method="post" enctype="multipart/form-data">
                         <label>选择您要上传的图片：</label>
                         <div id="newUpload">
-                            <input type="file" name="image" accept="image/jpeg,image/png,image/gif"><br/>
+                            <input type="file" id="file_0" name="image" accept="image/jpeg,image/png,image/gif"><br/>
                         </div>
                         <input type="button" id="btn_add" value="增加一行">
                         <input type="hidden" id="applyDate" name="applyDate">
