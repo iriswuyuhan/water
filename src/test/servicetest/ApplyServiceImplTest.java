@@ -33,7 +33,6 @@ public class ApplyServiceImplTest extends TestCase {
         Apply apply=new Apply();
         apply.setAddress("南大");
         apply.setApplyDate(date);
-        apply.setImage("/image/11");
         apply.setLatitude(11.11);
         apply.setLongitude(22.22);
         apply.setName("小明");
