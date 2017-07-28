@@ -67,7 +67,7 @@ $("#applyUpload").click(function(){
             async:true,
             data:{"longitude":longitude,"latitude":latitude,"number":number,"address":address,"applyDate":applyDate,
             "state":state,"imgUrl":imgUrl,"name":name,"waterAddress":waterAddress,"idUser":idUser,"projectID":projectID},
-            dataType:"json",
+            // dataType:"json",
             success:function (data) {
                 alert(data);
                 if(data){
@@ -81,13 +81,20 @@ $("#applyUpload").click(function(){
                     $.cookie('latitude',null,{path:'/'});
                     $.cookie('concrete_address', null,{path:'/'});
                     alert("/user/j"+idUser+"/history");
-                    window.location.href = "/user/j"+idUser+"/history";
+                    // window.location.href = "/user/j"+idUser+"/history";
                 }else{
                     alert("提交申请失败");
                 }
             }
-
+            // error : function(XMLHttpRequest, textStatus, errorThrown) {
+            //     //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+            //     alert(XMLHttpRequest.responseText);
+            //     alert(XMLHttpRequest.status);
+            //     alert(XMLHttpRequest.readyState);
+            //     alert(textStatus); // parser error;
+            // }
         })
+        window.location.href = "/user/j"+idUser+"/history";
     }
 })
 

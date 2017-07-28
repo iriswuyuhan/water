@@ -160,6 +160,10 @@ public class MainController {
     public String toAdmin() throws IOException{
         return "Admin_Work";
     }
+    @RequestMapping(value="/toAdmin_Sample_Result.do")
+    public String toAdmin_Sample_Result() throws IOException{
+        return "Admin_Work_Result";
+    }
     @RequestMapping(value="/toAdmin_Sample.do")
     public String toAdmin_Sample() throws IOException{
         return "Admin_Work_Sample";
