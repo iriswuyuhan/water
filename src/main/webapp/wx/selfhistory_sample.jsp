@@ -7,6 +7,10 @@
 --%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html  lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,16 +20,16 @@
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <!--<script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>-->
-    <script type="text/javascript" src="/resources/PhotoSwipe-master/klass.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/resources/PhotoSwipe-master/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="<%=basePath%>resources/PhotoSwipe-master/klass.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>resources/PhotoSwipe-master/jquery-1.8.2.js"></script>
     <script type="text/javascript" charset="utf-8"
-            src="/resources/PhotoSwipe-master/code.photoswipe-3.0.5.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/resources/PhotoSwipe-master/jquery.transit.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/resources/PhotoSwipe-master/hammer.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/resources/PhotoSwipe-master/jquery.hammer.js"></script>
+            src="<%=basePath%>resources/PhotoSwipe-master/code.photoswipe-3.0.5.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>resources/PhotoSwipe-master/jquery.transit.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>resources/PhotoSwipe-master/hammer.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>resources/PhotoSwipe-master/jquery.hammer.js"></script>
 
-    <link href="/resources/PhotoSwipe-master/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="/resources/PhotoSwipe-master/photoswipe.css" type="text/css" rel="stylesheet"/>
+    <link href="<%=basePath%>resources/PhotoSwipe-master/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="<%=basePath%>resources/PhotoSwipe-master/photoswipe.css" type="text/css" rel="stylesheet"/>
 </head>
 <body style="background-color: white">
 <input type="hidden" id="userID" value="${userID}"/>
@@ -147,7 +151,7 @@
         </p>
     </div>
     <div class="weui-form-preview__ft">
-        <a onclick="window.location.href='/user/j'+userID+'/history'" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">返回</a>
+        <a onclick="window.location.href='../history?type=0'" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">返回</a>
     </div>
 </div>
 </body>

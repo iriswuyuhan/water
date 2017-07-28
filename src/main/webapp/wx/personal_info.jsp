@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +15,7 @@
 </head>
 <body onload="load()">
 <input type="hidden" id="userID" value="${userID}"/>
+<input type="hidden" id="next" value="${next}"/>
 <div class="weui-cells">
     <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label" style="color: grey">姓名</label></div>
@@ -47,5 +52,5 @@
     </div>
 </div>
 </body>
-<script src="/resources/js/personal_info.js"></script>
+<script src="<%=basePath%>resources/js/personal_info.js"></script>
 </html>

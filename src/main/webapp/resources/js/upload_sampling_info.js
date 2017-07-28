@@ -32,7 +32,7 @@ $("#upload_but").click(function () {
     var userID=$("#userID").val();
     var sampleID=$("#sampleID").val();
     $.ajax({
-        url:"/upload/j"+sampleID+"/confirm",
+        url:"j+"+sampleID+"/confirm",
         type:'get',
         async:false,
         data:{"sample_time":$("#sample_time").val(),"sample_volume":$("#sample_volume").val(),
@@ -45,7 +45,7 @@ $("#upload_but").click(function () {
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);
-                    window.location.href="/user/j"+userID+"/history";
+                    window.location.href=basePath+"user/j"+userID+"/history?type=2";
                 }, 2000);
             }else{
                 //没有上传成功

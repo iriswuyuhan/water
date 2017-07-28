@@ -2,6 +2,7 @@ package com.water.controller;
 
 import com.water.entity.User;
 import com.water.service.UserService;
+import com.water.util.LoginProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Created by lenovo on 2017/7/20.
@@ -24,36 +27,41 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("/wx")
-    public ModelAndView wxAccessToUser(HttpServletRequest request){
-        ModelAndView modelAndView;
-        modelAndView=new ModelAndView("../wx/personnal_info");
-        return modelAndView;
+    public void wxAccessToUser(HttpServletRequest request, HttpServletResponse response){
+        String code=request.getParameter("code");
+        LoginProcessor loginProcessor=new LoginProcessor();
+        String openID=null;
+        try {
+            openID=loginProcessor.getOpenId(code);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(openID!=null){
+            User user=userService.getById(openID);
+            if(user==null){
+                //在数据库添加该用户
+
+            }
+        }
+        String url="j"+openID+"?next=default";
+        try {
+            response.sendRedirect(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping("/j{userID}")
-    public ModelAndView personalInfo(@PathVariable String userID, HttpSession session){
+    public ModelAndView personalInfo(@PathVariable String userID, HttpServletRequest request){
         ModelAndView modelAndView=new ModelAndView("../wx/personal_info");
-            User user = userService.getById(userID);
-//        User user=new User();
-//        user.setName("zhs");user.setNumber("15050582771");user.setAddress("江苏省南京市栖霞区");
+        String nextUrl=request.getParameter("next");
+        User user = userService.getById(userID);
+        modelAndView.addObject("next",nextUrl);
         modelAndView.addObject("name", user.getName());
         modelAndView.addObject("phone_num", user.getNumber());
         modelAndView.addObject("address", user.getAddress());
         modelAndView.addObject("userID",userID);
         return modelAndView;
-    }
-
-    @RequestMapping(value = "/j{userID}/saveUserToSession", method = RequestMethod.GET)
-    @ResponseBody
-    public Boolean saveUserToSession(@PathVariable String userID,HttpServletRequest request){
-        String name=request.getParameter("name");
-        String number=request.getParameter("phone_num");
-        String address=request.getParameter("address");
-        HttpSession session=request.getSession();
-        session.setAttribute("user_name",name);
-        session.setAttribute("user_number",number);
-        session.setAttribute("user_address",address);
-        return true;
     }
 
     @RequestMapping(value = "/j{userID}/confirm", method = RequestMethod.GET)
@@ -67,6 +75,5 @@ public class UserController {
         user.setNumber(number);
         user.setAddress(address);
         return userService.updateUser(user);
-//        return true;
     }
 }

@@ -1,38 +1,47 @@
 /**
  * Created by zhanglei on 2017/7/20.
  */
-$("#unchecked_tab").click(function () {
+function on_unchecked_click() {
     $("#unchecked_tab").addClass("weui-bar__item_on");
     $("#checked_tab").removeClass("weui-bar__item_on");
     $("#sampling_tab").removeClass("weui-bar__item_on");
     $("#unchecked_tab_panel").show();
     $("#checked_tab_panel").hide();
     $("#sampling_tab_panel").hide();
-});
-$("#checked_tab").click(function () {
+};
+function on_checked_click() {
     $("#unchecked_tab").removeClass("weui-bar__item_on");
     $("#checked_tab").addClass("weui-bar__item_on");
     $("#sampling_tab").removeClass("weui-bar__item_on");
     $("#unchecked_tab_panel").hide();
     $("#checked_tab_panel").show();
     $("#sampling_tab_panel").hide();
-});
-$("#sampling_tab").click(function () {
+};
+function on_sample_click() {
     $("#unchecked_tab").removeClass("weui-bar__item_on");
     $("#checked_tab").removeClass("weui-bar__item_on");
     $("#sampling_tab").addClass("weui-bar__item_on");
     $("#unchecked_tab_panel").hide();
     $("#checked_tab_panel").hide();
     $("#sampling_tab_panel").show();
-});
+};
+
+var type=$("#type").val();
+if(type==0){
+    on_unchecked_click();
+}else if(type==1){
+    on_checked_click();
+}else if(type==2){
+    on_sample_click();
+}
 
 function personal_info() {
-    window.location.href='/user/j'+userID;
+    window.location.href='../j'+userID+'?next=default';
 }
 
 function confirmDelete() {
     $.ajax({
-        url: "/user/j" + userID + "/history/deleteUnChecked",
+        url: "history/deleteUnChecked",
         type: 'get',
         async: false,
         data: {"index": deleteIndex},
@@ -54,176 +63,31 @@ function confirmDelete() {
 
 function onUpload(index) {
     $.ajax({
-        url: "/user/j" + userID + "/history/jumpToUpload",
+        url: "history/jumpToUpload",
         type: 'get',
         async: false,
         data: {"index": index},
         success: function (uploadID) {
-            window.location.href="/upload/j"+uploadID;
+            window.location.href=basePath+"upload/j"+uploadID;
         }
     });
 }
 
 var userID = $("#userID").val();
 function onConcreteApply(index, isChecked) {
-    window.location.href = "/user/j" + userID + "/history/apply?index=" + index + "&isChecked=" + isChecked;
+    window.location.href = "history/apply?index=" + index + "&isChecked=" + isChecked;
 }
 
 function onConcreteSample(index) {
-    window.location.href = "/user/j" + userID + "/history/sample?index=" + index;
+    window.location.href = "history/sample?index=" + index;
 }
 
 function onAddApply() {
-    window.location.href='/init/j'+userID;
+    window.location.href=basePath+'init/j'+userID;
 }
-
-//加载未审核列表
-$.ajax({
-    url: "/user/j" + userID + "/history/getUnChecked",
-    type: 'get',
-    async: false,
-    data: {},
-    success: function (data) {
-        var html = "";
-        data.forEach(function (goods) {
-            html += loadUnchecked(goods);
-        });
-        $("#unchecked_tab_panel").append(html);
-        if(data.length==0){
-            noItemTip($("#unchecked_tab_panel"));
-        }
-        $("#unchecked_tab_panel").append(
-            "<div class='weui-form-preview'>" +
-            "<div class='weui-form-preview__ft' style='margin-top: 5%'>"+
-        "<a onclick='onAddApply()' class='weui-form-preview__btn weui-form-preview__btn_primary' href='javascript:'>" +
-            "<img src='/resources/img/addApply.png' width='25px' style='position:relative;top:5px'/>" +
-            " 添加采样申请</a>"+
-            "</div></div>");
-    }
-});
-
-//加载已审核列表
-$.ajax({
-    url: "/user/j" + userID + "/history/getChecked",
-    type: 'get',
-    async: false,
-    data: {},
-    success: function (data) {
-        var html = "";
-        data.forEach(function (goods) {
-            html += loadChecked(goods);
-        });
-        $("#checked_tab_panel").append(html);
-        if(data.length===0){
-            noItemTip($("#checked_tab_panel"));
-        }
-        // $("#checked_tab_panel").append("<script>$('.checked_message').click(function () {"+
-        //     "var index=$('.checked_message').index(this);"+
-        //     "var isChecked=1;"+
-        //     "onConcreteApply(index,isChecked);});" +
-        //     "$('.upload_pass').click(function(){" +
-        //     "var index=$('.upload_pass').index(this);" +
-        //     "onUpload(index);  });" +
-        //     "</script>");
-    }
-});
-
-//加载已采样列表
-$.ajax({
-    url: "/user/j" + userID + "/history/getSampling",
-    type: 'get',
-    async: false,
-    data: {},
-    success: function (data) {
-        var html = "";
-        data.forEach(function (goods) {
-            html += loadSampling(goods);
-        });
-        $("#sampling_tab_panel").append(html);
-        if(data.length===0){
-            noItemTip($("#sampling_tab_panel"));
-        }
-        // $("#sampling_tab_panel").append("<script>$('.sampling_item').click(function () {"+
-        //     "var index=$('.sampling_item').index(this);"+
-        //     "onConcreteSample(index);"+
-        //     "});</script>");
-    }
-});
 
 function noItemTip(container) {
     container.append("<div class='weui-loadmore weui-loadmore_line'>"+
         "<span class='weui-loadmore__tips'>暂无数据</span>"+
         "</div>");
-}
-
-function loadUnchecked(goods) {
-    return "<div class='unchecked_item'" +
-        "style='padding-left: 4%;padding-right:4%;padding-top: 2.6%;padding-bottom: 2.6%;" +
-        "color: grey;font-size: 15px;'>" +
-        "<div class='unchecked_message' style='width: 90%;float: left'>" +
-        "<p>水域地址：<label style='color: black'>" + goods.waterAddress + "</label></p>" +
-        "<p>所属项目：<label style='color: black'>" + goods.project.name + "</label></p>" +
-        "<p>姓名： <label style='color: black'>" + goods.name + "</label>" +
-        "<label style='color: black;float:right'>" + goods.number + "</label></p>" +
-        "<p>收货地址：<label style='color: black'>" + goods.address + "</label></p>" +
-        "</div>" +
-        "<div style='height:15%;float: right;padding-left: 2%;border-left: 1px;" +
-        "border-left-style: dashed;margin-bottom: 3%'>" +
-        "<br/>" +
-        "<img class='delete_unchecked' src='/resources/img/delete.png' style='width:25px;position: relative;top:8%'/>" +
-        "</div>" +
-        "</div>" +
-        "<hr style='width: 100%'>";
-}
-
-function loadChecked(goods) {
-    var result = "<div class='checked_item' style='padding-left: 4%;padding-right:4%;padding-top: 2.6%;" +
-        "color: grey;font-size: 15px;'>";
-    if (goods.state === 1) {
-        result += "<div class='checked_message' style='width: 90%;float: left'>";
-    } else if (goods.state === 2) {
-        result += "<div class='checked_message' style='width: 100%'>";
-    }
-    result += "<p>水域地址：<label style='color: black'>" + goods.waterAddress + "</label></p>" +
-        "<p>所属项目：<label style='color: black'>" + goods.project.name + "</label></p>";
-    if (goods.state === 1) {
-        result += "<p>审核状态：<img src='/resources/img/pass.png' style='width: 15px'/>" +
-            "<label style='color: green'>已通过（材料已寄出）</label></p>";
-    } else if (goods.state === 2) {
-        result += "<p>审核状态：<img src='/resources/img/reject.png' style='width: 15px'/>" +
-            "<label style='color: red'>已拒绝</label></p>";
-    }
-    result+="<p>审核反馈：<label style='color: black'>" + goods.response + "</label></div>";
-    if (goods.state === 1) {
-        result += "<div style='height:15%;float: right;padding-left: 2%;border-left: 1px;" +
-            "border-left-style: dashed;margin-bottom: 3%'>" +
-            "<br/>" +
-            "<img class='upload_pass' src='/resources/img/upload.png' style='width:25px;position: relative;top:9%'/></div>";
-    }
-    result += "</div><hr style='width: 100%'>";
-    return result;
-}
-
-function loadSampling(goods) {
-    result= "<div class='sampling_item'" +
-        "style='padding-left: 15px;padding-right:15px;padding-top: 10px;color: grey;font-size: 15px'>" +
-        "<p>采样地点：<label style='color: black'>" + goods.waterAddress + "</label></p>" +
-        "<p>所属项目：<label style='color: black'>" + goods.project + "</label></p>"+
-        "<p>经纬度：<label style='color: black'>(" + goods.longitude + ", " + goods.latitude + ")</label>" +
-        "<label style='float: right'>采样体积：<label style='color: black'>" + goods.volume + "</label></label></p>";
-    if (goods.state === 0) {
-        result += "<p>处理状态：<img src='/resources/img/toBeReceived.png' style='width: 15px'/>" +
-            "<label style='color: black'>待收取</label></p>";
-    } else if (goods.state === 1) {
-        result += "<p>处理状态：<img src='/resources/img/processing.png' style='width: 15px'/>" +
-            "<label style='color: blue'>处理中</label></p>";
-    }else if(goods.state===2){
-        result += "<p>处理状态：<img src='/resources/img/workOut.png' style='width: 15px'/>" +
-            "<label style='color: green'>处理完成</label></p>";
-    }
-    result+="<p style='font-size: 14px'>采样时间：" + goods.sampleDate +
-        "<label style='float:right'>编号：" + goods.sampleID + "</label></p>" +
-        "</div>" +
-        "<hr>";
-    return result;
 }

@@ -1,21 +1,6 @@
 /**
  * Created by lenovo on 2017/7/20.
  */
-//跳到定位地址页面
-function jump_to_receive_addr(){
-    $.ajax({
-        url:"/user/j"+userID+"/saveUserToSession",
-        type:'get',
-        async:false,
-        data:{"name":$("#name").val(),"phone_num":$("#phone_num").val(),
-            "address":$("#receive_addr").val()},
-        success:function (data) {
-            //跳转到定位地址
-
-        }
-    });
-}
-
 function load() {
     var useCook=$.cookie('ret1');
     if(useCook==='1'){
@@ -27,7 +12,7 @@ function load() {
 }
 
 function reLoc(){
-    var url="/wx/locate.html?add=";
+    var url="../wx/locate.html?add=";
     var curAdd=document.getElementById("receive_addr").innerHTML;
     window.location.href=url+curAdd;
 }
@@ -38,7 +23,7 @@ $("#confirm").click(function () {
     }
     var userID=$("#userID").val();
     $.ajax({
-        url:"/user/j"+userID+"/confirm",
+        url:"../user/j"+userID+"/confirm",
         type:'get',
         async:false,
         data:{"name":$("#name").val(),"phone_num":$("#phone_num").val(),
@@ -51,7 +36,7 @@ $("#confirm").click(function () {
                 $toast.fadeIn(100);
                 setTimeout(function () {
                     $toast.fadeOut(100);
-                    window.location.href="/user/j"+userID+"/history";
+                    nextPage();
                 }, 2000);
             }else{
                 alert("修改信息失败");
@@ -59,6 +44,19 @@ $("#confirm").click(function () {
         }
     });
 });
+
+//跳到下一个界面
+var userID=$("#userID").val();
+function nextPage() {
+    var nextUrl=$("#next").val();
+    if(nextUrl=="apply"){
+        window.location.href="../init/j"+userID;
+    }else if(nextUrl=="sample"){
+        window.location.href="j"+userID+"/history?type=1";
+    }else if(nextUrl=="default"){
+        window.location.href="j"+userID+"/history?type=0";
+    }
+}
 
 //确认按钮状态转换
 function checkFullfill() {
