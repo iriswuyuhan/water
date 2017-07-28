@@ -1,35 +1,4 @@
-a.logo {
-    font-size:48px;
-    font-family: 'Lobster', cursive;
-}
-a.logo span{
-    color: #000;
-}
-.navbar-header{
-    margin-top: 20px;
-}
-.social-links{
-    margin-top: 50px;
-}
-.content {
-    min-height: 700px;
-    background: url('http://www.demo.amitjakhu.com/login-form/images/bg.png');
-    /*     background-color: #edf0f0; */
-    margin-top: 0;
-}
-
-.container {
-    width: 1400px;
-}
-
-.intro-panel {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 3px rgba(0,0,0,.2);
-    margin: 20px 0 30px;
-    min-height:700px;
-}
-
+/*----------------------------------------这是审核申请的css-------------------------------------*/
 #tabs {
     overflow: hidden;
     width: 96%;
@@ -44,7 +13,7 @@ a.logo span{
     margin-left: 0px;
 }
 #tabs a {
-    font-size: 87.5%;
+    font-size: 16px;
     position: relative;
     background: #fff;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
@@ -69,11 +38,9 @@ a.logo span{
     background: #fff;
 }
 #tabs a:focus {
-    font-size: 87.5%;
     outline: 0;
 }
 #tabs a::after {
-    font-size: 87.5%;
     content:'';
     position:absolute;
     z-index: 1;
@@ -101,7 +68,6 @@ a.logo span{
     border-radius: 0 5px 0 0;
 }
 #tabs #current a, #tabs #current a::after {
-    font-size: 87.5%;
     background: #fff;
     z-index: 3;
 }
@@ -201,35 +167,26 @@ a.logo span{
 }
 .left_title .setpon{
     float: right;
-    margin-top: -1.375em;
-    font-size: 100%;
     color: #888888;
 }
-.setpon{
-    margin-right: 11.6em;
-}
+
 .blue{
     color: #3FAEEC;
 }
-.left_content{
-    margin-left: 2em;
-    margin-top: 2.5em;
-    font-size: 1.25em;
-}
+
 .left_content  .left_info p {
-    padding-bottom: 24px;
+    padding-bottom: 15px;
 }
 
 .left_info{
     float: left;
+    text-align: left;
+    max-width: 340px;
 }
 
-#scroll,#scroll2,#scroll3{width:50%; height:400px; background-color:white; position:relative;float:right;}
-#scroll4{width:42%; height:13.5em; background-color:white; position:relative;float:right;}
 .operate{
     float: left;
-    margin-top: 390px;
-    margin-left: -120px;
+    margin-top: 50px;
 }
 
 button, .button {
@@ -276,4 +233,53 @@ button, .button {
 }
 .red{
     color: red;
+}
+#myCarousel,#myCarousel2,#myCarousel3{
+    float: left;
+    margin-left: 60px;
+    width:420px;;
+}
+#myCarousel .item img,#myCarousel2 .item img,#myCarousel3 .item img{
+    width: 100%;
+    height: 350px;
+}
+.search{
+    float: right;
+    margin-top: -40px;
+}
+.bar input {
+    height: 30px;
+    width: 220px;
+    border-radius: 42px;
+    border: 2px solid rgba(0,0,0,0.1);
+    background: #fff;
+    transition: .3s linear;
+    float: right;
+    margin-right:55px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #888;
+    font-style: italic;
+}
+.bar button {
+    margin-right: -220px;
+    float: right;
+    background: none;
+    right: 0;
+    border: none;
+}
+.bar button::before {
+    font-size: 100%;
+    content: "\f002";
+    font-family: FontAwesome;
+    color: #4B9DD6;
+}
+
+.bar input{
+    padding-left: 10px;
+}
+
+#nothing1 h3,#nothing2 h3,#nothing3 h3{
+    margin-top:250px;
 }
