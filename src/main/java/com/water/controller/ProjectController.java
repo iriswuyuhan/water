@@ -1,5 +1,6 @@
 package com.water.controller;
 
+import com.water.entity.Project;
 import com.water.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,18 +19,47 @@ public class ProjectController {
 
     /**
      * @param request
-     * @param response
-     * @return 是否申请成功
+     * @return 项目id
      * @throws Exception
      */
     @RequestMapping("/publish")
     @ResponseBody
-    public boolean applylist(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public long publishProject(HttpServletRequest request) throws IOException {
         String head=request.getParameter("headline");
         String body=request.getParameter("body");
 
+        Project project=new Project();
+        project.setName(head);
+        project.setDescription(body);
 
+        //long id=projectService.saveProject(project);
+        System.out.println("success");
+        return 0;
+    }
 
+    /**
+     * @param request
+     * @param response
+     * @return void
+     * @throws Exception
+     */
+    @RequestMapping("/all")
+    @ResponseBody
+    public void getAll(HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+    }
+
+    /**
+     * @param request
+     * @param response
+     * @return boolean
+     * @throws Exception
+     */
+    @RequestMapping("/delete")
+    @ResponseBody
+    public boolean delete(HttpServletRequest request,HttpServletResponse response) throws IOException {
         return false;
     }
+
+
 }
