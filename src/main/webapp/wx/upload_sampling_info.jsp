@@ -92,7 +92,7 @@
                 <div class="weui-cell__bd">
                     <textarea id="sample_remark" class="weui-textarea" required="true" placeholder="请输入文本"
                               rows="3"></textarea>
-                    <div class="weui-textarea-counter"><span>0</span>/200</div>
+                    <%--<div class="weui-textarea-counter"><span>0</span>/200</div>--%>
                 </div>
             </div>
         </div>

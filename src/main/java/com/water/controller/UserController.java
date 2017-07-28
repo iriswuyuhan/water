@@ -23,6 +23,13 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @RequestMapping("/wx")
+    public ModelAndView wxAccessToUser(HttpServletRequest request){
+        ModelAndView modelAndView;
+        modelAndView=new ModelAndView("../wx/personnal_info");
+        return modelAndView;
+    }
+
     @RequestMapping("/j{userID}")
     public ModelAndView personalInfo(@PathVariable String userID, HttpSession session){
         ModelAndView modelAndView=new ModelAndView("../wx/personal_info");
@@ -32,7 +39,6 @@ public class UserController {
         modelAndView.addObject("name", user.getName());
         modelAndView.addObject("phone_num", user.getNumber());
         modelAndView.addObject("address", user.getAddress());
-//        }
         modelAndView.addObject("userID",userID);
         return modelAndView;
     }
