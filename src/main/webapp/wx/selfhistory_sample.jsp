@@ -48,9 +48,6 @@
                             <a href="<%=imagePath%>">
                             <img style="width: 80px;height: 80px" src="<%=imagePath%>"
                             alt="result image"/></a>
-                            <%--<a href="/resources/img/background.jpg">--%>
-                                <%--<img style="width: 80px;height: 80px" src="/resources/img/background.jpg"--%>
-                                     <%--alt="result image"/></a>--%>
                         </li>
                         <%}%>
                     </ul>
@@ -62,7 +59,7 @@
     <div class="weui-cells weui-cells_form">
         <div class="weui-cell">
             <div class="weui-cell__bd">
-                <p>实验结果</p>
+                <p>${resultDescription}</p>
             </div>
         </div>
     </div>
@@ -83,7 +80,7 @@
                         <li class="uploaded-img weui-uploader__file">
                             <a href="<%=imagePath%>">
                                 <img style="width: 80px;height: 80px" src="<%=imagePath%>"
-                                     alt="Image 01"/></a>
+                                     alt="apply image"/></a>
                         </li>
                         <%}%>
                     </ul>
