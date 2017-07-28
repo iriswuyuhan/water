@@ -38,4 +38,6 @@ public interface ProjectService {
      * @return 是否删除成功
      */
     public boolean deleteProject(long projectID);
+
+    public boolean updateProject(Project project);
 }
