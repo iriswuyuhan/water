@@ -30,7 +30,7 @@ public interface ProjectService {
      * @param project
      * @return 是否发布成功
      */
-    public boolean saveProject(Project project);
+    public long saveProject(Project project);
 
     /**
      * 删除项目

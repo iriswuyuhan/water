@@ -25,8 +25,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public boolean saveProject(Project project) {
-        return projectDao.save(project);
+    public long saveProject(Project project) {
+        projectDao.save(project);
+        return project.getIdProject();
     }
 
     @Override
