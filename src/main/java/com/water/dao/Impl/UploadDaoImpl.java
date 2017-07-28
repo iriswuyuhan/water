@@ -1,6 +1,7 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UploadDao;
+import com.water.entity.Result;
 import com.water.entity.Sample;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -26,11 +27,17 @@ public class UploadDaoImpl implements UploadDao {
     }
 
     public Sample load(Long id) {
-        return (Sample) getCurrentSession().load(Sample.class, id);
+        Session session = getCurrentSession();
+        Sample sample = (Sample) session.load(Sample.class, id);
+        session.close();
+        return sample;
     }
 
     public Sample get(Long id) {
-        return (Sample) getCurrentSession().get(Sample.class, id);
+        Session session = getCurrentSession();
+        Sample sample = (Sample) session.get(Sample.class, id);
+        session.close();
+        return sample;
     }
 
     public List<Sample> findAll() {
@@ -112,10 +119,25 @@ public class UploadDaoImpl implements UploadDao {
     }
 
     public boolean delete(Long id) {
-        return true;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try {
+            Sample sample = (Sample) session.load(Sample.class, id);
+            session.delete(sample);
+            tx.commit();
+            flag = true;
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
     }
 
     public void flush() {
-
+        Session session = getCurrentSession();
+        session.flush();
+        session.close();
     }
 }

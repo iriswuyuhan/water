@@ -1,6 +1,7 @@
 package com.water.dao.Impl;
 
 import com.water.dao.ProjectDao;
+import com.water.entity.Apply;
 import com.water.entity.Project;
 import com.water.entity.Sample;
 import org.hibernate.Query;
@@ -27,11 +28,17 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     public Project load(Long id) {
-        return (Project) getCurrentSession().load(Project.class, id);
+        Session session = getCurrentSession();
+        Project project = (Project) session.load(Project.class, id);
+        session.close();
+        return project;
     }
 
     public Project get(Long id) {
-        return (Project) getCurrentSession().get(Project.class, id);
+        Session session = getCurrentSession();
+        Project project = (Project) session.get(Project.class, id);
+        session.close();
+        return project;
     }
 
     public List<Project> findAll() {
@@ -105,6 +112,8 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     public void flush() {
-        getCurrentSession().flush();
+        Session session = getCurrentSession();
+        session.flush();
+        session.close();
     }
 }

@@ -1,6 +1,7 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UserDao;
+import com.water.entity.Sample;
 import com.water.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,11 +25,17 @@ public class UserDaoImpl implements UserDao{
     }
 
     public User load(String id) {
-        return (User) getCurrentSession().load(User.class,id);
+        Session session = getCurrentSession();
+        User user = (User) session.load(User.class, id);
+        session.close();
+        return user;
     }
 
     public User get(String id) {
-        return (User)getCurrentSession().get(User.class,id);
+        Session session = getCurrentSession();
+        User user = (User) session.get(User.class, id);
+        session.close();
+        return user;
     }
 
     public List<User> findAll() {
@@ -78,6 +85,8 @@ public class UserDaoImpl implements UserDao{
     }
 
     public void flush() {
-        getCurrentSession().flush();
+        Session session = getCurrentSession();
+        session.flush();
+        session.close();
     }
 }

@@ -1,6 +1,7 @@
 package com.water.dao.Impl;
 
 import com.water.dao.ResultDao;
+import com.water.entity.Project;
 import com.water.entity.Result;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -25,11 +26,17 @@ public class ResultDaoImpl implements ResultDao {
     }
 
     public Result load(Long id) {
-        return (Result) this.getCurrentSession().load(Result.class, id);
+        Session session = getCurrentSession();
+        Result result = (Result) session.load(Result.class, id);
+        session.close();
+        return result;
     }
 
     public Result get(Long id) {
-        return (Result) this.getCurrentSession().get(Result.class, id);
+        Session session = getCurrentSession();
+        Result result = (Result) session.get(Result.class, id);
+        session.close();
+        return result;
     }
 
     public List<Result> findAll() {
@@ -103,6 +110,8 @@ public class ResultDaoImpl implements ResultDao {
     }
 
     public void flush() {
-        getCurrentSession().flush();
+        Session session = getCurrentSession();
+        session.flush();
+        session.close();
     }
 }
