@@ -95,6 +95,7 @@ public class ApplyDaoImpl implements ApplyDao {
         boolean flag = false;
         try {
             session.saveOrUpdate(entity);
+            session.flush();
             tx.commit();
             flag = true;
         } catch (Exception ex) {

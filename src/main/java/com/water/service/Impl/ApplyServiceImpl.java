@@ -108,6 +108,7 @@ public class ApplyServiceImpl implements ApplyService {
     public boolean updateState(Long idApply, Integer state, String responce) {
         boolean result=false;
         Apply apply=applyDao.get(idApply);
+        System.out.println(apply.getImage().size()+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         if(apply==null){
             result = false;
 
