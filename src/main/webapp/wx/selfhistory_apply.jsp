@@ -39,7 +39,7 @@
                         <li class="uploaded-img weui-uploader__file">
                             <a href="<%=imagePath%>">
                                 <img style="width: 80px;height: 80px" src="<%=imagePath%>"
-                                     alt="Image 01"/></a>
+                                     alt="apply image"/></a>
                         </li>
                         <%}%>
                     </ul>
