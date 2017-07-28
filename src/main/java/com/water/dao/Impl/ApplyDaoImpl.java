@@ -5,8 +5,8 @@ import com.water.entity.Apply;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.LinkedList;
@@ -26,11 +26,17 @@ public class ApplyDaoImpl implements ApplyDao {
     }
 
     public Apply load(Long id) {
-        return (Apply) getCurrentSession().load(Apply.class, id);
+        Session session = getCurrentSession();
+        Apply apply = (Apply) session.load(Apply.class, id);
+        session.close();
+        return apply;
     }
 
     public Apply get(Long id) {
-        return (Apply) getCurrentSession().get(Apply.class, id);
+        Session session = getCurrentSession();
+        Apply apply = (Apply) session.get(Apply.class, id);
+        session.close();
+        return apply;
     }
 
     public List<Apply> findAll() {
@@ -56,10 +62,10 @@ public class ApplyDaoImpl implements ApplyDao {
         List<Apply> applyList = new LinkedList<Apply>();
         try {
 
-            String hql="from Apply where userID =:userid";//使用命名参数，推荐使用，易读。
-            Query query=session.createQuery(hql);
+            String hql = "from Apply where userID =:userid";//使用命名参数，推荐使用，易读。
+            Query query = session.createQuery(hql);
             query.setString("userid", idUser);
-            applyList=query.list();
+            applyList = query.list();
 
         } catch (Exception ex) {
             tx.rollback();
@@ -124,6 +130,8 @@ public class ApplyDaoImpl implements ApplyDao {
     }
 
     public void flush() {
-        getCurrentSession().flush();
+        Session session = getCurrentSession();
+        session.flush();
+        session.close();
     }
 }
