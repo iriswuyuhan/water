@@ -28,6 +28,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 public class sampleController {
     @Autowired
@@ -74,13 +77,14 @@ public class sampleController {
 
         File file = new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+idSample);
         String [] fileName = file.list();
+        List<String> nameList = Arrays.asList(fileName);
         System.out.println(idSample+text+fileName.length);
         for(int i=0;i<fileName.length;i++)
             System.out.println(fileName[i]);
         Result result  = new Result();
         result.setIdResult(Integer.valueOf(idSample));
         result.setDescription(text);
-        result.setImage(fileName[0]);
+        result.setImage(nameList);
         System.out.println(idSample);
        boolean bool= resultService.addResult(result);
        if(bool){
