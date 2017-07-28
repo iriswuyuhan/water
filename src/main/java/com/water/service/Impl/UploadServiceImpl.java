@@ -83,6 +83,23 @@ public class UploadServiceImpl implements UploadService {
         return list;
     }
 
+    /**
+     * 根据id判断样本是否存在 若存在返回状态值 不存在返回-1
+     * @param id
+     * @return
+     */
+    public int judgeByID(long id){
+        int state = -1;
+        Sample sample = uploadDao.get(id);
+        if(sample==null) {
+            state = -1;
+        }
+        else {
+            state=sample.getState();
+        }
+        return state;
+    }
+
     public boolean updateSample(long idSample, int state){
         Sample sample = uploadDao.get(idSample);
         if(sample==null)
