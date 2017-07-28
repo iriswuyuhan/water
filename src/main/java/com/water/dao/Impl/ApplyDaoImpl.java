@@ -26,6 +26,7 @@ public class ApplyDaoImpl implements ApplyDao {
     }
 
     public Apply load(Long id) {
+
         return (Apply) getCurrentSession().load(Apply.class, id);
     }
 
@@ -71,6 +72,25 @@ public class ApplyDaoImpl implements ApplyDao {
 
     public void persist(Apply entity) {
         getCurrentSession().persist(entity);
+    }
+
+    public boolean updateState(long id, int state){
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try {
+            String hql="update Apply set state=:stateInt where idApply =:applyID";//使用命名参数，推荐使用，易读。
+            Query query=session.createQuery(hql);
+            query.setInteger("stateInt", state);
+            query.setLong("applyID",id);
+            query.executeUpdate();
+            tx.commit();
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
     }
 
     public boolean save(Apply entity) {
@@ -124,6 +144,7 @@ public class ApplyDaoImpl implements ApplyDao {
     }
 
     public void flush() {
+
         getCurrentSession().flush();
     }
 }

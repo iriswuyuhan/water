@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface ApplyDao extends  DaoUtil<Apply,Long>{
     public List<Apply> findApplyById(String idUser);
+    public boolean updateState(long id, int state);
 }
