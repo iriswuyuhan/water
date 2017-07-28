@@ -28,4 +28,6 @@ public interface UserService {
     public User getById(String id);
 
     public boolean updateUser(User user);
+
+    public void addUser(String userId);
 }

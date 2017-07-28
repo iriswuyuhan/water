@@ -35,5 +35,10 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.delete(projectID);
     }
 
+    @Override
+    public boolean updateProject(Project project) {
+        return projectDao.saveOrUpdate(project);
+    }
+
 
 }
