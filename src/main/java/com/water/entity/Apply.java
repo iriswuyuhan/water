@@ -98,7 +98,7 @@ public class Apply {
         this.state = state;
     }
 
-    @ElementCollection(fetch=FetchType.LAZY, //加载策略,延迟加载
+    @ElementCollection(fetch=FetchType.EAGER, //加载策略,延迟加载
             targetClass=String.class) //指定集合中元素的类型
     @CollectionTable(name="Apply_img") //指定集合生成的表
     public List<String> getImage() {

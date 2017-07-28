@@ -106,14 +106,13 @@ input[type="checkbox"]:checked + label::after {
     color: gray;
 }
 .download_pon{
-    margin-right:14px;
+    margin-right:45px;
     width: 40px;
     height: 40px;
     border-radius: 5px 5px 5px 5px;
     border:2px #888 solid;
 }
 .download_pon i{
-    margin-left: 6.5px;
     margin-top: 8px;
     font-size: 25px;
     color: #888;
