@@ -103,6 +103,7 @@ public class sampleController {
     @ResponseBody
     public void sampleState(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String idSample=request.getParameter("idSample");
+        String state = request.getParameter("state");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }

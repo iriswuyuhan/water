@@ -461,18 +461,18 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#"><i
-                        class="fa fa-2x fa-sitemap"></i><br>审核申请</a></li>
+            <ul id="nav" class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#"onclick="topnavclick(this)" name="1"><i
+                        class="fa fa-2x fa-sitemap" ></i><br>审核申请</a></li>
 
-                <li><a href="#"><i
+                <li><a href="#" onclick="topnavclick(this)" name="2"><i
                         class="fa fa-2x fa-tasks"></i><br>采样信息</a>
                 </li>
 
-                <li><a href="#"><i
+                <li><a href="#" onclick="topnavclick(this)" name="3"><i
                         class="fa fa-2x fa-tasks"></i><br>实验结果</a>
                 </li>
-                <li><a href="#"><i
+                <li><a href="#" onclick="topnavclick(this)" name="4"><i
                         class="fa fa-2x fa-tasks"></i><br>项目管理</a>
                 </li>
 
@@ -573,7 +573,7 @@
                                         <!-- 轮播（Carousel）项目 -->
                                         <div class="carousel-inner">
                                             <div class="item active">
-                                                <img src="../resources/img/background.jpg" alt="First slide">
+                                                <img src="../resources/txt/zhs_2017-7-28 15-30_0.jpg" alt="First slide">
                                             </div>
                                             <div class="item">
                                                 <img src="../resources/img/leftArrow.png" alt="Second slide">
@@ -777,37 +777,10 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
-<script type="text/javascript">
-    $(function(){
-
-        $(".a1").click(function () {
-            $("#tabs li").prop("id","");
-            $("#tab1").show();
-            $("#tab2").hide();
-            $("#tab3").hide();
-            $(".a1").parent().prop("id","current");
-
-        });
-        $(".a2").click(function () {
-            $("#tabs li").prop("id","");
-            $("#tab2").show();
-            $("#tab1").hide();
-            $("#tab3").hide();
-            $(".a2").parent().prop("id","current");
-
-        })
-        $(".a3").click(function () {
-            $("#tabs li").prop("id","");
-            $("#tab3").show();
-            $("#tab2").hide();
-            $("#tab1").hide();
-            $(".a3").parent().prop("id","current");
-
-        });
-    });
-</script>
 <script src="./resources/js/Admin_Work.js"></script>
-<script src="./resources/js/Admin_work_sample.js"></script>
+
+
+
 
 </body>
 
