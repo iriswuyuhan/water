@@ -112,7 +112,7 @@ public class wechatApplyController {
         DateFormat d = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         apply.setApplyDate(d.parse(request.getParameter("applyDate")));
         apply.setState(Integer.parseInt(request.getParameter("state")));
-        apply.setImage(request.getParameter("imgUrl"));
+//        apply.setImage(request.getParameter("imgUrl"));
         apply.setName(request.getParameter("name"));
         apply.setWaterAddress(request.getParameter("waterAddress"));
         User user = new User();

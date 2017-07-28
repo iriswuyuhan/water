@@ -32,7 +32,9 @@ public class ApplyServiceImpl implements ApplyService {
         Apply apply = new Apply();
         apply.setIdApply(Long.valueOf(55555555));
         apply.setAddress("南京市鼓楼区");
-        apply.setImage("resources/img/");
+        List<String> list = new ArrayList<String>();
+        list.add("adfdsa");
+        apply.setImage(list);
         apply.setLatitude(28.55);
         apply.setLongitude(120.75);
         apply.setApplyDate(new Date(System.currentTimeMillis()));
@@ -134,7 +136,7 @@ public class ApplyServiceImpl implements ApplyService {
         return true;
     }
 
-    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, String image, String name, String waterAddress, String idUser) {
+    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, List<String> image, String name, String waterAddress, String idUser) {
         Apply apply = new Apply();
         apply.setIdApply(idApply);
         apply.setLongitude(longitude);

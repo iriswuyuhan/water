@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by lenovo on 2017/7/22.
@@ -159,7 +160,7 @@ public class SelfHistoryController {
         //解析图片路径
         ArrayList<String> imageArray = new ArrayList<String>();
         if (apply.getImage() != null) {
-            String[] images = apply.getImage().split(";");
+            List<String> images = apply.getImage();
             for (String image : images) {
                 if(!image.equals(""))
                     imageArray.add(image);
@@ -214,7 +215,7 @@ public class SelfHistoryController {
         //解析图片路径
         ArrayList<String> imageArray = new ArrayList<String>();
         if (apply.getImage() != null) {
-            String[] images = apply.getImage().split(";");
+            List<String> images = apply.getImage();
             for (String image : images) {
                 if(!image.equals(""))
                     imageArray.add(image);

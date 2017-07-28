@@ -1,7 +1,9 @@
 package com.water.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Apply {
@@ -12,7 +14,7 @@ public class Apply {
     private String address;               //邮寄地址
     private Date applyDate;               //申请日期
     private Integer state;                //申请状态
-    private String image;                 //图片路径 不同路径间用；隔开
+    private List<String> image = new ArrayList<String>();           //图片路径 不同路径间用；隔开
     private String name;                  //填写的邮寄人姓名
     private String waterAddress;          //水域地址
     private User user;                    //所属用户 多对一单向外键
@@ -96,13 +98,14 @@ public class Apply {
         this.state = state;
     }
 
-    @Basic
-    @Column(name = "image", nullable = true, length = 255)
-    public String getImage() {
+    @ElementCollection(fetch=FetchType.LAZY, //加载策略,延迟加载
+            targetClass=String.class) //指定集合中元素的类型
+    @CollectionTable(name="Apply_img") //指定集合生成的表
+    public List<String> getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(List<String> image) {
         this.image = image;
     }
 

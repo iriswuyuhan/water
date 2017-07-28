@@ -18,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -63,7 +64,7 @@ public class UploadController {
         //解析图片路径
         ArrayList<String> imageArray = new ArrayList<String>();
         if (apply.getImage() != null) {
-            String[] images = apply.getImage().split(";");
+            List<String> images = apply.getImage();
             for (String image : images) {
                 if(!image.equals(""))
                     imageArray.add(image);

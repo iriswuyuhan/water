@@ -4,6 +4,7 @@ import com.water.entity.Apply;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -16,7 +17,7 @@ public interface ApplyService {
 
     public boolean updateState(Long id,Integer state);
 
-    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name, String waterAddress, String idUser);
+    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, List<String> image, String name, String waterAddress, String idUser);
 
     public Apply searchApplication(Long idApply);
 
