@@ -45,4 +45,14 @@ public class UserServiceImpl implements UserService {
         return userDao.saveOrUpdate(user);
 
     }
+
+    public void addUser(String userId){
+        User user = new User();
+        user.setIdUser(userId);
+        user.setName("");
+        user.setPassword("");
+        user.setAddress("");
+        user.setIsResearcher(0);
+        userDao.save(user);
+    }
 }
