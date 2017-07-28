@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,10 +39,11 @@
     <script src="../resources/js/Admin_Work_Project.js"></script>
 </head>
 
-<body>
+<body onload=load()>
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({
+            placeholder:"请输入内容",
             lang: 'zh-CN', // default: 'en-US'
             height: 400,
             focus:true,
