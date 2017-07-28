@@ -40,7 +40,7 @@ public class UserController {
             User user=userService.getById(openID);
             if(user==null){
                 //在数据库添加该用户
-
+                userService.addUser(openID);
             }
         }
         String url="j"+openID+"?next=default";

@@ -29,12 +29,12 @@
             <input id="phone_num" class="weui-input" type="number" value="${phone_num}" pattern="[0-9]*" placeholder=""/>
         </div>
     </div>
-    <div class="weui-cell weui-cell_access" href="javascript:;" onclick="jump_to_receive_addr()">
+    <div class="weui-cell weui-cell_access" href="javascript:;" onclick="reLoc()">
         <div class="weui-cell__hd" style="display: block">
             <p style="color: grey">收货地址：</p>
         </div>
         <div class="weui-cell__bd">
-            <p id="receive_addr" onclick="reLoc()">${address}</p>
+            <p id="receive_addr">${address}</p>
         </div>
         <div class="weui-cell__ft">
         </div>

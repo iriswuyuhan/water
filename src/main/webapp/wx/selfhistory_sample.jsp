@@ -110,6 +110,10 @@
             <span class="weui-form-preview__value" style="color: black">${project}</span>
         </p>
         <p>
+            <label class="weui-form-preview__label">审核反馈</label>
+            <span class="weui-form-preview__value" style="color: black">${response}</span>
+        </p>
+        <p>
             <label class="weui-form-preview__label">水域地址</label>
             <span class="weui-form-preview__value">${waterAddress}</span>
         </p>

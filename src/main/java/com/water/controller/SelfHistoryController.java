@@ -10,6 +10,7 @@ import com.water.service.ApplyService;
 import com.water.service.ResultService;
 import com.water.service.UploadService;
 import com.water.service.UserService;
+import com.water.util.LoginProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +45,35 @@ public class SelfHistoryController {
     @Autowired
     ResultService resultService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+    @RequestMapping("/wx/history")
+    public void wxAccessToHistory(HttpServletRequest request, HttpServletResponse response){
+        String code=request.getParameter("code");
+        Integer type=Integer.parseInt(request.getParameter("type"));
+        LoginProcessor loginProcessor=new LoginProcessor();
+        String openID=null;
+        try {
+            openID=loginProcessor.getOpenId(code);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String url=null;
+        if(openID!=null){
+            User user=userService.getById(openID);
+            if(user==null){
+                //在数据库添加该用户
+                userService.addUser(openID);
+                url="../j"+openID+"?next=default";
+            }else{
+                url="../j"+openID+"/history?type="+type;
+            }
+            try {
+                response.sendRedirect(url);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @RequestMapping("/j{userID}/history")
     public ModelAndView getSelfHistory(@PathVariable String userID,HttpServletRequest request) {
@@ -162,6 +194,7 @@ public class SelfHistoryController {
         modelAndView.addObject("sampleID", sample.getIdSample());
         modelAndView.addObject("sampleRemark", sample.getRemark());
         modelAndView.addObject("state", sample.getState());
+        modelAndView.addObject("response",apply.getResponse());
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
         modelAndView.addObject("project", apply.getProject().getName());
         String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));

@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService {
         user.setName("");
         user.setPassword("");
         user.setAddress("");
+        user.setNumber("");
         user.setIsResearcher(0);
         userDao.save(user);
     }
