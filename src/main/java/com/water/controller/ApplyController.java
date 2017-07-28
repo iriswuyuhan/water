@@ -110,12 +110,8 @@ public class ApplyController {
     public void sampleResultTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
         Long id1 = Long.valueOf(id);
-        Sample sample = uploadService.searchSample(id1);
-        if(sample!=null)
-            uploadService.addTxt(sample);
-        JSONObject object = JSONObject.fromObject(sample);
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().print(object.toString());
+        int res = uploadService.judgeByID(id1);
+        response.getWriter().print(String.valueOf(res));
 
     }
 

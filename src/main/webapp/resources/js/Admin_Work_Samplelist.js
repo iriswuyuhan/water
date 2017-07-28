@@ -78,9 +78,9 @@ function  setlist(data) {
            " <td name='sampleid' style='width:160px'>"+data[i].idSample+"</td>"+
             "<td style='width:160px'>"+data[i].volume+"</td>"+
         "<td style='width:180px'>"+data[i].apply.waterAddress+"</td>"+
-            "<td style='width:180px'>"+data[i].idSample+"</td>"+
+            "<td style='width:180px'>"+data[i].apply.project.name+"</td>"+
            " <td style='width:200px'>"+timeFormatter1(data[i].sampleDate)+"</td>"+
-         "<td style='width:200px'><li class='yellow dot'></li><a class='pull-left'>"+data[i].idSample+"</a></td>"+
+         "<td style='width:200px'><li class='yellow dot'></li><a class='pull-left'>"+data[i].state+"</a></td>"+
             "<td style='width:30px'><a onclick='sampleinfo(this)'><i class='fa fa-angle-right'></i></a></td>"+"</tr>");
 
     }

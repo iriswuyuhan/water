@@ -35,6 +35,7 @@ import java.util.List;
 public class sampleController {
     @Autowired
     private ResultService resultService;
+    @Autowired
     private UploadService uploadService;
     /**
      * @param request
@@ -85,10 +86,13 @@ public class sampleController {
         result.setIdResult(Integer.valueOf(idSample));
         result.setDescription(text);
         result.setImage(nameList);
-        System.out.println(idSample);
+
        boolean bool= resultService.addResult(result);
+        System.out.println(bool);
        if(bool){
-            boolean bool1 = uploadService.updateSample(Integer.valueOf(idSample),2);
+           System.out.println(Integer.valueOf(idSample));
+            boolean bool1 = uploadService.updateSample(Long.valueOf(idSample),2);
+            System.out.println(bool1);
        }
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
