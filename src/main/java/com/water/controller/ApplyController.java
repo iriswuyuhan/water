@@ -90,11 +90,29 @@ public class ApplyController {
      */
     @RequestMapping("/getSample")
     public void getSample(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         String id = request.getParameter("id");
         Long id1 = Long.valueOf(id);
         Sample sample = uploadService.searchSample(id1);
+        if(sample!=null)
         uploadService.addTxt(sample);
+        JSONObject object = JSONObject.fromObject(sample);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(object.toString());
+
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 该样本是否可以上传实验结果
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleResultTest")
+    public void sampleResultTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
+        Long id1 = Long.valueOf(id);
+        Sample sample = uploadService.searchSample(id1);
+        if(sample!=null)
+            uploadService.addTxt(sample);
         JSONObject object = JSONObject.fromObject(sample);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(object.toString());

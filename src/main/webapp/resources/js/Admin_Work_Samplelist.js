@@ -28,6 +28,8 @@ $(function(){
             window.location.href="toAdmin.do";
         if(name==="下载采样信息")
             window.location.href="toAdmin_Sample.do"
+        if(name=="上传实验结果")
+            window.location.href="toAdmin_Sample_Result.do"
     })
 $("#query").click(function () {
     var project = $("#project").val();
