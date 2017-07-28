@@ -32,5 +32,7 @@ public interface ApplyService {
 
     public boolean addApply(Apply apply);
 
+    public int judgeByID(long id);
+
     public boolean updateState(Long idApply,Integer state,String responce );
 }

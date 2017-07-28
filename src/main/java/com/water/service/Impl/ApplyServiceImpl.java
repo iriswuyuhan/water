@@ -181,6 +181,23 @@ public class ApplyServiceImpl implements ApplyService {
         return list;
     }
 
+    /**
+     * 根据id判断样本是否存在 若存在返回状态值 不存在返回-1
+     * @param id
+     * @return
+     */
+    public int judgeByID(long id){
+        int state = -1;
+        Apply apply = applyDao.get(id);
+        if(apply==null) {
+            state = -1;
+        }
+        else {
+            state=apply.getState();
+        }
+        return state;
+    }
+
 //    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image){return null;}
 //
 //    public Apply addApplication(long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name){return null;}
