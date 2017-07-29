@@ -111,6 +111,7 @@ public class UploadController {
         sample.setVolume(sample_volume);
         sample.setIdSample(sampleID);
         sample.setRemark(sample_remark);
+        sample.setState(0);
         //往数据库添加一个sample
         return uploadService.addUpload(sample);
 //        return true;
