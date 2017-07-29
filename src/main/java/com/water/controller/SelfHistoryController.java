@@ -155,13 +155,13 @@ public class SelfHistoryController {
         Apply apply = applyArrayList.get(index);
         modelAndView.addObject("project", apply.getProject().getName());
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
-        String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
+        String latitude = String.valueOf(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
             modelAndView.addObject("latitude", "北纬" + latitude + "度");
         } else {
             modelAndView.addObject("latitude", "南纬" + latitude + "度");
         }
-        String longitude = keepTwoDecimal(Math.abs(apply.getLongitude()));
+        String longitude = String.valueOf(Math.abs(apply.getLongitude()));
         if (apply.getLongitude() >= 0) {
             modelAndView.addObject("longitude", "东经" + longitude + "度");
         } else {
@@ -197,13 +197,13 @@ public class SelfHistoryController {
         modelAndView.addObject("response",apply.getResponse());
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
         modelAndView.addObject("project", apply.getProject().getName());
-        String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
+        String latitude = String.valueOf(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
             modelAndView.addObject("latitude", "北纬" + latitude + "度");
         } else {
             modelAndView.addObject("latitude", "南纬" + latitude + "度");
         }
-        String longitude = keepTwoDecimal(Math.abs(apply.getLongitude()));
+        String longitude = String.valueOf(Math.abs(apply.getLongitude()));
         if (apply.getLongitude() >= 0) {
             modelAndView.addObject("longitude", "东经" + longitude + "度");
         } else {
@@ -224,11 +224,6 @@ public class SelfHistoryController {
             modelAndView.addObject("resultDescription",result.getDescription());
         }
         return modelAndView;
-    }
-
-    public String keepTwoDecimal(Double db) {
-        DecimalFormat df = new DecimalFormat("#.00");
-        return df.format(db);
     }
 
     @RequestMapping("/j{userID}/history/apply/delete")
