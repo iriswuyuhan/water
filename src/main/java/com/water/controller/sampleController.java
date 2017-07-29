@@ -108,8 +108,9 @@ public class sampleController {
     public void sampleState(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String idSample=request.getParameter("idSample");
         String state = request.getParameter("state");
+        boolean bool = uploadService.updateSample(Long.valueOf(idSample),Integer.valueOf(state));
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().print("success");
+        response.getWriter().print(bool);
     }
 
 }

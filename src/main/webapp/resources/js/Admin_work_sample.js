@@ -82,6 +82,21 @@ function  setSampleInfo(temp) {
             $(this).html(temp.apply.longitude+"°");
         if(index==8)
             $(this).html(temp.apply.latitude+"°");
+        if(index==9){
+            if(temp.state==1) {
+                $(this).html("处理中");
+                $("#confirm").hide();
+            }
+            if(temp.state==2) {
+                $(this).html("已上传实验结果");
+                $("#confirm").hide();
+            }
+            if(temp.state==0) {
+                $(this).html("待收取");
+                $("#confirm").show();
+            }
+        }
+
 
         $("#downlo1").attr("href","/samples/"+temp.idSample+".txt");
         $("#downlo1").attr("download",temp.idSample+".txt");
@@ -105,6 +120,28 @@ function  sampleClick(type) {
         $(this).removeClass("active");
     });
     $(type.parentNode).addClass("active");
+}
+
+function confirmClik(type) {
+        if(confirm("确认更改状态")){
+            var id = $("#sample").html();
+            $.ajax({
+                url: "./sampleState",
+                type: "post",
+                async: false,
+                data:{"idSample":id,"state":1},
+                success: function (data) {
+                    var bool = $.parseJSON(data);
+                    if(bool){
+                        alert("已改为处理中");
+                        location.reload();
+                    }
+                }
+            });
+        }
+        else{
+            alert("取消");
+        }
 }
 function timeFormatter1(value) {
     return (1900 + value.year) + "-" + (value.month + 1) + "-" + value.date + " " + value.hours + ":" + value.minutes + ":" + value.seconds;

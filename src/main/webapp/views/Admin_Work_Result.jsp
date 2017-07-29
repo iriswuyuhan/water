@@ -5,7 +5,6 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
 %>
-<
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +17,7 @@
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="../resources/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="../resources/css/admin_work_result.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -37,6 +36,7 @@
 
 
 <!-- Top menu -->
+
 <nav class="navbar" role="navigation">
 
 
@@ -46,20 +46,21 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i
-                        class="fa fa-2x fa-sitemap"></i><br>审核申请</a></li>
+            <ul id="nav" class="nav navbar-nav navbar-right">
+                <li><a href="#"onclick="topnavclick(this)" name="1"><i
+                        class="fa fa-2x fa-sitemap" ></i><br>审核申请</a></li>
 
-                <li><a href="#"><i
+                <li><a href="#" onclick="topnavclick(this)" name="2"><i
                         class="fa fa-2x fa-tasks"></i><br>采样信息</a>
                 </li>
 
-                <li class="active"><a href="#"><i
+                <li class="active"><a href="#" onclick="topnavclick(this)" name="3"><i
                         class="fa fa-2x fa-tasks"></i><br>实验结果</a>
                 </li>
-                <li><a href="#"><i
+                <li><a href="#" onclick="topnavclick(this)" name="4"><i
                         class="fa fa-2x fa-tasks"></i><br>项目管理</a>
                 </li>
+
 
                 <ul class="social-links">
                     <div id="top-navigation">
@@ -166,6 +167,7 @@
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 
 --></body>
+<script src="./resources/js/Admin_Work.js"></script>
 <script>
     $(function () {
         $("#reset").click(function () {

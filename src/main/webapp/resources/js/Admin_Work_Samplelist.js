@@ -72,30 +72,46 @@ $("#query").click(function () {
 //列表项加载
 function  setlist(data) {
     $("#tbody").empty();
-    for(var i =0;i<data.length;i++){
-        $("#tbody").append("<tr>"+
-            "<td style='width:80px'><input id='checkbox"+i+"' name='checkbox1' type='checkbox'><label for='checkbox"+i+"'></label></td>"+
-           " <td name='sampleid' style='width:160px'>"+data[i].idSample+"</td>"+
-            "<td style='width:160px'>"+data[i].volume+"</td>"+
-        "<td style='width:180px'>"+data[i].apply.waterAddress+"</td>"+
-            "<td style='width:180px'>"+data[i].apply.project.name+"</td>"+
-           " <td style='width:200px'>"+timeFormatter1(data[i].sampleDate)+"</td>"+
-         "<td style='width:200px'><li class='yellow dot'></li><a class='pull-left'>"+data[i].state+"</a></td>"+
-            "<td style='width:30px'><a onclick='sampleinfo(this)'><i class='fa fa-angle-right'></i></a></td>"+"</tr>");
 
+    for(var i =0;i<data.length;i++){
+        var state;
+        var color;
+        if(data[i].state=="0"){
+            state = "待收取";
+            color = "gray";
+        } else
+        if(data[i].state=="1"){
+            state = "处理中";
+            color = "yellow";
+        } else
+        if(data[i].state=="2"){
+            state = "已上传实验结果";
+            color = "green";
+        }
+        $("#tbody").append("<tr>"+
+            "<td style='width:80px;'><input id='checkbox"+i+"' name='checkbox1' type='checkbox'><label for='checkbox"+i+"'></label></td>"+
+           " <td name='sampleid' style='width:140px'>"+data[i].idSample+"</td>"+
+            "<td style='width:140px;'>"+data[i].volume+"</td>"+
+        "<td style='width:200px;'>"+data[i].apply.waterAddress+"</td>"+
+            "<td style='width:180px;'>"+data[i].apply.project.name+"</td>"+
+           " <td style='width:200px;'>"+timeFormatter1(data[i].sampleDate)+"</td>"+
+         "<td style='width:200px;'><li id='addColor"+i+"'></li><a class='pull-left'>"+state+"</a></td>"+
+            "<td style='width:30px;'><a onclick='sampleinfo(this)'><i class='fa fa-angle-right'></i></a></td>"+"</tr>");
+        var colorID = "#addColor"+i;
+        $(colorID).addClass("dot");
+        $(colorID).addClass(color);
     }
 
 }
 function  sampleinfo(type) {
    var sample= $(type).parent().parent().find("td[name='sampleid']").html();
-   alert(sample);
-   $("#content5").show();
+   $(".load_wrapper").show();
    $("#list").hide();
     $.ajax({
         url: "./getSample",
         type: "post",
         async: false,
-        data: {"id": id},
+        data: {"id": sample},
         success: function (data) {
             var obj = $.parseJSON(data);
             setSampleInfo(obj);
@@ -103,7 +119,7 @@ function  sampleinfo(type) {
                 $(this).removeClass("active");
             });
             $("#scro4").find("a").each(function () {
-                if ($(this).html() === id)
+                if ($(this).html() === sample)
                     $(this.parentNode).addClass("active");
             })
         }
@@ -115,7 +131,6 @@ function clickbut() {
         if($(this).prop("checked")==true){
 
            $(this).parent().parent().find("td").each(function (index) {
-               alert(index);
                if(index!=0&&index!=7){
                    if(index==6){
                        str+=$(this).find("a").html()+"\n";
@@ -128,7 +143,6 @@ function clickbut() {
 
         }
     })
-    alert(str);
     str =  encodeURIComponent(str);
     $("#csv").attr("href","data:text/csv;charset=utf-8,\ufeff"+str);
     $("#csv").attr("download","doon.csv");

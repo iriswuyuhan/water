@@ -540,27 +540,27 @@
                                     <div class="left_info">
                                         <p>
                                             <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
-                                            <span name="name">--</span>
+                                            <span name="name" style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>联系方式：</span>
-                                            <span name="name">--</span>
+                                            <span name="name" style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>家庭住址：</span>
-                                            <span name="name">家庭住址可能会很长长长长长长</span>
+                                            <span name="name" style="color:#555;">家庭住址可能会很长长长长长长</span>
                                         </p>
                                         <p>
                                             <span>经&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
-                                            <span name="name">--</span>
+                                            <span name="name" style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>纬&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
-                                            <span name="name">--</span>
+                                            <span name="name" style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>水域地址：</span>
-                                            <span name="name">--</span>
+                                            <span name="name" style="color:#555;">--</span>
                                         </p>
                                     </div>
                                     <div id="myCarousel" class="carousel slide">
@@ -613,27 +613,27 @@
                                     <div class="left_info">
                                         <p>
                                             <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">>--</span>
                                         </p>
                                         <p>
                                             <span>联系方式：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">>--</span>
                                         </p>
                                         <p>
                                             <span>家庭住址：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">>--</span>
                                         </p>
                                         <p>
                                             <span>经&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">>--</span>
                                         </p>
                                         <p>
                                             <span>纬&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">>--</span>
                                         </p>
                                         <p>
                                             <span>水域地址：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">--</span>
                                         </p>
                                     </div>
 
@@ -683,27 +683,27 @@
                                     <div class="left_info">
                                         <p>
                                             <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
-                                            <span name="name">--</span>
+                                            <span name="name" style="color:#555;" >--</span>
                                         </p>
                                         <p>
                                             <span>联系方式：</span>
-                                            <span name="name">--</span>
+                                            <span name="name" style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>家庭住址：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>经&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>纬&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">--</span>
                                         </p>
                                         <p>
                                             <span>水域地址：</span>
-                                            <span name='name'>--</span>
+                                            <span name='name' style="color:#555;">--</span>
                                         </p>
                                     </div>
 
