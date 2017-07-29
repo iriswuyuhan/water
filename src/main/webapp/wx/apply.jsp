@@ -2,6 +2,10 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,7 +123,7 @@
                     <form id="imageForm" action="/uploadImg" method="post" enctype="multipart/form-data">
                         <label>选择您要上传的图片：</label>
                         <div id="newUpload">
-                            <input type="file" id="file_0" name="image" accept="image/jpeg,image/png,image/gif"><br/>
+                            <input type="file" id="file_0" onchange="showImage(this.files,0)" class="image" name="image" accept="image/jpeg,image/png,image/gif"><br/>
                         </div>
                         <input type="button" id="btn_add" value="增加一行">
                         <input type="hidden" id="applyDate" name="applyDate">
@@ -131,12 +135,18 @@
     </div>
 </div>
 <iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
-<a href="javascript:;" id="applyUpload" class="weui-btn weui-btn_plain-primary">提交</a>
+
+<div id="imgPreview" style="width:100%;height:100px;overflow:auto;">
+    <img id="pre_0" src="" style="width: 100px;height: 100px;"/>
+</div>
+<br><br>
+<a href="javascript:;" id="applyUpload" class="weui-btn weui-btn_plain-primary" style="width:90%;">提交</a>
 
 </body>
 <script type="text/javascript" src="../resources/js/Apply.js"></script>
 <script type="text/javascript" src="../resources/js/split.js"></script>
 <script type="text/javascript">
+    var basePath=<%=basePath%>;
     var project = [
         <% ArrayList<Project> arrayList=(ArrayList)request.getAttribute("projectArray");
         for(int i=0;i<arrayList.size();i++){%>
