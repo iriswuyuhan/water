@@ -94,4 +94,16 @@ public class ProjectController {
         return success;
 //        return true;
     }
+
+    /**
+     * @param request
+     * @return boolean
+     * @throws Exception
+     */
+    @RequestMapping("/uploadProPic")
+    @ResponseBody
+    public boolean upload(HttpServletRequest request){
+        return false;
+    }
+
 }
