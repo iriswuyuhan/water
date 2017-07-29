@@ -18,12 +18,7 @@
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
-    <!--<script>-->
-    <!--alert(document.referrer);-->
-    <!--var url=document.referrer.split("?");-->
-    <!--window.open(url[0]);-->
-    <!--</script>-->
-    <!--<script type="text/javascript" src="split.js"></script>-->
+
     <script type="text/javascript">
         $(function () {
             var isPageHide = false;
@@ -106,7 +101,6 @@
             <span>联系电话：</span>
             <span id="contact">${contact}</span>
             <p name="address">收货地址：<span id="add">${address}</span></p>
-            <!--<a href="locate.html">收获地址:江苏省南京市栖霞区仙林街道南京大学仙林校区基础实验楼</a>-->
         </div>
         <div class="weui-cell__ft" img>
             <img src="../resources/img/rightArrow2.png" style="width:10px;margin-left:5px;margin-right: 5px;">
@@ -123,9 +117,9 @@
                     <form id="imageForm" action="/uploadImg" method="post" enctype="multipart/form-data">
                         <label>选择您要上传的图片：</label>
                         <div id="newUpload">
-                            <input type="file" id="file_0" onchange="showImage(this.files,0)" class="image" name="image" accept="image/jpeg,image/png,image/gif"><br/>
+                            <input type="file" id="file_0" class="image" name="image" accept="image/jpeg,image/png,image/gif" multiple/><br/>
                         </div>
-                        <input type="button" id="btn_add" value="增加一行">
+                        <%--<input type="button" id="btn_add" value="增加一行">--%>
                         <input type="hidden" id="applyDate" name="applyDate">
                         <input type="hidden" id="img_userID" name="img_userID">
                     </form>
@@ -137,16 +131,16 @@
 <iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
 
 <div id="imgPreview" style="width:100%;height:100px;overflow:auto;">
-    <img id="pre_0" src="" style="width: 100px;height: 100px;"/>
+    <%--<img id="pre_0" src="" style="width: 100px;height: 100px;"/>--%>
+    <%--<img id="pre_1" src="" style="width: 100px;height: 100px;"/>--%>
 </div>
 <br><br>
 <a href="javascript:;" id="applyUpload" class="weui-btn weui-btn_plain-primary" style="width:90%;">提交</a>
 
 </body>
-<script type="text/javascript" src="../resources/js/Apply.js"></script>
 <script type="text/javascript" src="../resources/js/split.js"></script>
 <script type="text/javascript">
-    var basePath=<%=basePath%>;
+    var basePath='<%=basePath%>';
     var project = [
         <% ArrayList<Project> arrayList=(ArrayList)request.getAttribute("projectArray");
         for(int i=0;i<arrayList.size();i++){%>
@@ -169,4 +163,5 @@
     });
 
 </script>
+<script type="text/javascript" src="../resources/js/Apply.js"></script>
 </html>
