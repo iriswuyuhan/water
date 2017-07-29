@@ -37,7 +37,6 @@
     <link rel="shortcut icon" href="././ico/favicon1.ico">
 
     <!-- include summernote css/js-->
-    <link href="http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
 
@@ -45,7 +44,16 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/lang/summernote-zh-CN.js"></script>
 
     <script src="./resources/js/Admin_Work_Project.js"></script>
-    <script src="./resources/js/Admin_Work.js"></script>
+    <%--<script src="./resources/js/Admin_Work.js"></script>--%>
+
+    <style>
+        .indicator-group-content{
+            text-align: left;
+        }
+        #buttons{
+            text-align: center;
+        }
+    </style> 
 </head>
 
 <body onload=load()>
@@ -150,8 +158,10 @@
                                     </form>
                                 </div>
                                 <div id="summernote" style="text-align:left;"></div>
-                                <button id="confirm" onclick="publish()" class="btn-query text-sign" style="background: #3f9db8">提交</button>
-                                <button id="cancel" onclick="deleteAll()" class="btn-query text-sign" style="background: #3f9db8">取消</button>
+                                <div id="buttons">
+                                    <button id="confirm" onclick="publish()" class="btn-query text-sign" style="background: #3f9db8">提交</button>
+                                    <button id="cancel" onclick="deleteAll()" class="btn-query text-sign" style="background: #3f9db8">取消</button>
+                                </div>
                             </div>
                         </div>
                     </div>
