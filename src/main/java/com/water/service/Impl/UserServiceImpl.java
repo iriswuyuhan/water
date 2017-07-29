@@ -26,14 +26,14 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
     }
 
-    public void addUser(String userId, String username, String password, String address, Integer isResearcher) {
+    public boolean addUser(String userId, String username, String password, String address, Integer isResearcher) {
         User user = new User();
         user.setIdUser(userId);
         user.setName(username);
         user.setPassword(password);
         user.setAddress(address);
         user.setIsResearcher(isResearcher);
-        userDao.save(user);
+        return userDao.save(user);
     }
 
     public User getById(String id) {
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void addUser(String userId){
+    public boolean addUser(String userId){
         User user = new User();
         user.setIdUser(userId);
         user.setName("");
@@ -54,6 +54,6 @@ public class UserServiceImpl implements UserService {
         user.setAddress("");
         user.setNumber("");
         user.setIsResearcher(0);
-        userDao.save(user);
+        return userDao.save(user);
     }
 }

@@ -39,14 +39,14 @@ public class UploadServiceImpl implements UploadService {
         uploadDao.save(sample);
     }
 
-    public void addUpload(Long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
+    public boolean addUpload(Long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
         Sample sampleEntity = new Sample();
         sampleEntity.setIdSample(idSample);
         sampleEntity.setSampleDate(sampleDate);
         sampleEntity.setVolume(volume);
         //        sampleEntity.setImage(image);
         sampleEntity.setRemark(remark);
-        uploadDao.save(sampleEntity);
+        return uploadDao.save(sampleEntity);
     }
 
     public boolean addUpload(Sample sample) {
@@ -65,7 +65,7 @@ public class UploadServiceImpl implements UploadService {
         for (Apply temp : list
                 ) {
             Sample sample=uploadDao.findSampleById(temp.getIdApply());
-            if(sample!=null){
+            if (sample!=null){
                 resultlist.add(sample);
             }
         }
