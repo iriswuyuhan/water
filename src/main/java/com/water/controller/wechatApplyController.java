@@ -8,6 +8,7 @@ import com.water.service.Impl.ApplyServiceImpl;
 import com.water.service.Impl.UserServiceImpl;
 import com.water.service.ProjectService;
 import com.water.service.UserService;
+import com.water.util.LoginProcessor;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -51,6 +52,34 @@ public class wechatApplyController {
 
     @Autowired
     ProjectService projectService;
+
+    @RequestMapping("/init/wx")
+    public void wxAccessToHistory(HttpServletRequest request, HttpServletResponse response){
+        String code=request.getParameter("code");
+        LoginProcessor loginProcessor=new LoginProcessor();
+        String openID=null;
+        try {
+            openID=loginProcessor.getOpenId(code);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String url=null;
+        if(openID!=null){
+            User user=userService.getById(openID);
+            if(user==null){
+                //在数据库添加该用户
+                userService.addUser(openID);
+                url="../user/j"+openID+"?next=apply";
+            }else{
+                url="../init/j"+openID;
+            }
+            try {
+                response.sendRedirect(url);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @RequestMapping("/init/j{userID}")
     public ModelAndView uploadApply(@PathVariable String userID){
