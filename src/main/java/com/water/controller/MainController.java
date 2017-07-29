@@ -1,12 +1,17 @@
 package com.water.controller;
 
 
+import com.water.entity.Result;
 import com.water.service.ApplyService;
+import com.water.service.ResultService;
 import com.water.service.UploadService;
 import com.water.service.UserService;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,7 +65,7 @@ public class MainController {
     @RequestMapping(value = "findApply", method = RequestMethod.GET)
     @ResponseBody
     public String findApply(){
-        System.out.println(applyService.getApplicationList(0).get(0).getAddress());
+        System.out.println(applyService.getApplicationList(0).get(1).getImage().size());
         return "success!";
     }
 
@@ -76,7 +81,7 @@ public class MainController {
     @RequestMapping(value = "updateState", method = RequestMethod.GET)
     @ResponseBody
     public String updateState(){
-        System.out.println(applyService.updateState(Long.valueOf(46464646),0));
+        System.out.println(applyService.updateState(Long.valueOf(1),0));
         return "success!";
     }
 
@@ -85,6 +90,13 @@ public class MainController {
     @ResponseBody
     public String deleteApply(){
         System.out.println(applyService.deleteApply(Long.valueOf(55555555)));
+        return "success!";
+    }
+
+    @RequestMapping(value = "findCheckedApply", method = RequestMethod.GET)
+    @ResponseBody
+    public String findCheckedApply(){
+        System.out.println(applyService.findCheckedApply("zhs","待审核").get(0).getImage().size());
         return "success!";
     }
     /*------------------------------------------------End--------------------------------------------------------*/
@@ -103,6 +115,29 @@ public class MainController {
     @ResponseBody
     public String searchSample(){
         System.out.println(uploadService.searchSample(Long.valueOf(1564654)).getApply().getName());
+        return "success!";
+    }
+
+    @RequestMapping(value = "updateSample", method = RequestMethod.GET)
+    @ResponseBody
+    public String updateSample(){
+        System.out.println(uploadService.updateSample(12456, 2));
+        return "success!";
+    }
+
+    @Autowired
+    private ResultService resultService;
+
+    @RequestMapping(value = "addResult", method = RequestMethod.GET)
+    @ResponseBody
+    public String addResult(){
+        Result result = new Result();
+        result.setIdResult(1157544);
+        result.setDescription("dsjfioasfs");
+        List<String> list = new ArrayList<String>();
+        list.add("1");
+        result.setImage(list);
+        System.out.println(resultService.addResult(result));
         return "success!";
     }
 
@@ -167,5 +202,9 @@ public class MainController {
     @RequestMapping(value="/toAdmin_Sample.do")
     public String toAdmin_Sample() throws IOException{
         return "Admin_Work_Sample";
+    }
+    @RequestMapping(value="/toAdmin_Project.do")
+    public String toAdmin_Project() throws IOException{
+        return "Admin_Work_Project";
     }
 }
