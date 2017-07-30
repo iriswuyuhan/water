@@ -115,6 +115,7 @@ public class ApplyServiceImpl implements ApplyService {
         }else {
             apply.setState(state);
             apply.setResponse(responce);
+            applyDao.saveOrUpdate(apply);
             result=true;
         }
 
