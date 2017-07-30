@@ -143,17 +143,17 @@ $(function () {
 })
 //处理申请的实现
 function dealApply(type){
-    alert(1);
     var state;
     if(type.className=="yes button")
         state="1"
     else
         state="2";
     var id = $("#applyid").html();
+    var response = $("#reason").val();
     $.ajax({
         url:"./dealApply",
         type:'post',
-        data:{"id":id,"state":state},
+        data:{"id":id,"state":state,"response":response},
         success:function (data) {
             alert(data);
             window.location.href="toAdmin.do";
@@ -237,10 +237,10 @@ function  setinitinfo(temp) {
     obj.find(".carousel-inner").each(function () {
         $(this).empty();
         $(this).append("<div class='item active'>"+
-            "<img src='../resources/txt/"+temp.image[0]+"' alt='Second slide'></div>");
+            "<img src='../resources/txt/"+temp.image[0]+"'></div>");
         for(var i=1;i<temp.image.length;i++){
             $(this).append("<div class='item'>"+
-                "<img src='../resources/txt/"+temp.image[i]+"' alt='Second slide'></div>");
+                "<img src='../resources/txt/"+temp.image[i]+"'></div>");
         }
     })
     $(".time").each(function () {

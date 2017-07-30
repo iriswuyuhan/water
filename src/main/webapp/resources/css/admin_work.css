@@ -11,7 +11,10 @@ body {
     /*    background-color: #D9EDF7;*/
     background: url("../img/back.png");
 }
-
+.modal-dialog {
+    margin-top: 17%;
+    max-width: 331px;
+}
 @media screen and (max-width: 1920px) {
     #scroll,#scroll2,#scroll3{width:50%; height:13.1em; background-color:white; position:relative;float:right;}
     #scroll4{width:42%; height:13.5em; background-color:white; position:relative;float:right;}

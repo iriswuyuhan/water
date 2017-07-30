@@ -1,6 +1,10 @@
 .navbar {
     margin-bottom:0px;
 }
+.modal-dialog {
+    margin-top: 17%;
+    max-width: 331px;
+}
 body {
     background: #fff;
     text-align: center;
