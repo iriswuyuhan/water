@@ -2,10 +2,7 @@ package com.water.controller;
 
 
 import com.water.entity.Result;
-import com.water.service.ApplyService;
-import com.water.service.ResultService;
-import com.water.service.UploadService;
-import com.water.service.UserService;
+import com.water.service.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -138,6 +135,16 @@ public class MainController {
         list.add("1");
         result.setImage(list);
         System.out.println(resultService.addResult(result));
+        return "success!";
+    }
+
+    @Autowired
+    private ProjectService projectService;
+
+    @RequestMapping(value = "uploadPro", method = RequestMethod.GET)
+    @ResponseBody
+    public String uploadPro(){
+        System.out.println(projectService.uploadProject("一般申请","25552"));
         return "success!";
     }
 

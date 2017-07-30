@@ -35,6 +35,7 @@ public class ProjectController {
         Project project=new Project();
         project.setName(head);
         project.setDescription(body);
+        project.setState(0);
 
         long id=projectService.saveProject(project);
 

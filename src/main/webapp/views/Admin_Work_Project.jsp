@@ -57,7 +57,7 @@
 
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="logo">Noah's <span>Ark</span></a>
+            <a href="#" class="logo">eRiver<span>Map</span></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -117,7 +117,7 @@
 
 <!-- content -->
 <div class="content">
-    <div class="container">
+    <div class="container" style="width:1200px;">
 
         <div class="intro-panel">
             <div id = "mainwrapper" class="main_wrapper" style="display: block">
@@ -138,8 +138,8 @@
                                 </div>
                                 <div id="summernote" style="text-align:left;"></div>
                                 <div id="buttons">
-                                    <button id="confirm" onclick="publish()" class="btn-query text-sign" style="background: #3f9db8">提交</button>
-                                    <button id="cancel" onclick="deleteAll()" class="btn-query text-sign" style="background: #3f9db8">取消</button>
+                                    <button id="confirm" onclick="publish()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">提交</button>
+                                    <button id="cancel" onclick="deleteAll()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">取消</button>
                                 </div>
                             </div>
                         </div>
