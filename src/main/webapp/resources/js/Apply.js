@@ -2,85 +2,16 @@ function onClickWaterAddr() {
     window.location.href = basePath + "address/waters";
 };
 
-// j = 1;
-// $(document).ready(function () {
-//     $("#imageForm").attr("target", "rfFrame");
-//     $("#btn_add").click(function () {
-//         $("#newUpload").append("<div id='div_" + j + "'><input name='image' class='image' id='file_" + j + "' onchange='showImage(this.files,"+j+")' type='file' accept='image/jpeg,image/png,image/gif'/><input id='button_" + j + "' type='button' value='删除'  onclick='del(" + j + ")'/></div>");
-//         $("#imgPreview").append("<img id='pre_" + j + "' src='' style='width: 100px;height: 100px;'/>")
-//         j = j + 1;
-//     });
-//     // $("input[name='image']").change(function(){
-//     //     alert(this.files.length);
-//     //     for(var i=0;i<this.files.length;i++){
-//     //         var file = this.files[i];
-//     //         var fileId = 'pre_' + i;
-//     //         if (window.FileReader) {
-//     //             var reader = new FileReader();
-//     //             reader.readAsDataURL(file);
-//     //             //监听文件读取结束后事件
-//     //             reader.onloadend = function (e) {
-//     //                 $('#'+fileId).attr("src",e.target.result);    //e.target.result就是最后的路径地址
-//     //             };
-//     //         }
-//     //     }
-//     // });
-// });
-
-
 $(document).ready(function () {
     $("#imageForm").attr("target", "rfFrame");
-    $("#file_0").change(function () {
-        var file = this.files;
-        var result=document.getElementById("imgPreview");
-        for(var i=0;i<this.files.length;i++){
-            for(i = 0; i< file.length; i ++) {
-                var reader    = new FileReader();
-                reader.readAsDataURL(file[i]);
-                reader.onload=function(e){
-                    //多图预览
-                    result.innerHTML = result.innerHTML + '<img src="' + this.result +'" alt="" style="width: 100px;height: 100px;"/>&nbsp;';
-                }
-
-            }
-        }
-
-    });
 });
-
-// $(document).ready(function () {
-//     $("#imageForm").attr("target", "rfFrame");
-//     $("#file_0").change(function () {
-//         if (window.FileReader) {
-//             var reader = new FileReader();
-//             for(var i=0;i<this.files.length;i++){
-//                 var file = this.files[i];
-//                 reader.readAsDataURL(file);
-//                 //监听文件读取结束后事件
-//                 reader.onloadend = function (e) {
-//                     alert(i);
-//                     for(var m=0;m<=i;m++){
-//                         var preId = 'pre_' + m;
-//                         alert(this.files[m].target.result);
-//                         $('#' + preId).attr("src", e.target.result);    //e.target.result就是最后的路径地址
-//                     }
-//                 };
-//             }
-//         }
-//
-//
-//     });
-// });
-//
-// function del(o) {
-//     document.getElementById("newUpload").removeChild(document.getElementById("div_" + o));
-// }
 
 $("#applyUpload").click(function () {
     var idUser = $("#userID").val();
     var date = new Date();
     var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
     $("#applyDate").val(applyDate);
+    alert(applyDate);
     $("#img_userID").val(idUser);
     $("#imageForm").submit();
     var url = "/applyUpload";
