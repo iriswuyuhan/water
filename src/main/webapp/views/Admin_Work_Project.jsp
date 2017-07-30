@@ -120,7 +120,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-7 wow fadeIn">
-                <i class="fa fa-sitemap"></i>
+                <i class="fa fa-newspaper-o"></i>
                 <h1>PUBLISH PROJECT/</h1>
                 <p>项目发布</p>
             </div>

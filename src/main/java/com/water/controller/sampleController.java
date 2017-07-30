@@ -113,4 +113,23 @@ public class sampleController {
         response.getWriter().print(bool);
     }
 
+    /**
+     * @param request
+     * @param response
+     * @return 获得所有样本编号
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleID")
+    public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        ArrayList<Sample> samples = uploadService.findAll();
+        ArrayList<String> sampleIDs = new ArrayList<String>();
+        for(Sample temp:samples){
+            sampleIDs.add(String.valueOf(temp.getIdSample()+""));
+        }
+        JSONArray array = JSONArray.fromObject(sampleIDs);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(array.toString());
+    }
+
 }

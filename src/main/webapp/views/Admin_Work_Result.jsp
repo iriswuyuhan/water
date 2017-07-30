@@ -14,17 +14,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>采样信息 - 后台管理</title>
+
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
     <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="../resources/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="../resources/css/admin_work_result.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../resources/js/sortable.js" type="text/javascript"></script>
     <script src="../resources/js/fileinput.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
     <![endif]-->
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="././ico/favicon1.ico">
@@ -84,7 +88,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-7 wow fadeIn">
-                <i class="fa fa-sitemap"></i>
+                <i class="fa fa-sticky-note"></i>
                 <h1>EXPERIMENTAL RESULT /</h1>
                 <p>实验结果</p>
             </div>
@@ -97,15 +101,33 @@
 <div class="content">
     <div class="container">
         <div class="intro-panel">
+            <div class="choose-type">
+                <label style="margin-right:50px;">
+                    <input type="radio" name="options" id="option1" value="1"> 上传样本结果
+                </label>
+                <label style="margin-left:50px;">
+                    <input type="radio" name="options" id="option2" value="2"> 上传实验报告
+                </label>
+            </div>
 
+            <div class="row">
+                <div class="col-sm-10 services-title wow fadeIn" style="margin-left:70px;">
+                </div>
+            </div>
 
             <div class="row" style="padding-top:30px;padding-left:50px">
-                <div class="col-xs-6 col-sm-5">
+
+                <div id="show-sample" class="col-xs-6 col-sm-5" style="display: block;">
                     <a class="pull-left label-pon">样本编号：</a>
-                    <input id="idSample" class="new-form-control dropdown-toggle" data-toggle="dropdown"
-                           placeholder="输入股票名称或代码" type="text"  style="width:200px;" >
-                    <ul id="aulist" class=" dropdown-menu" ></ul>
+                    <input id="tags" class="ui-autocomplete-input" autocomplete="off">
+
                 </div>
+
+                <div id="show-project" class="col-xs-6 col-sm-5" style="display: none">
+                    <a class="pull-left label-pon">项目名称：</a>
+                    <input id="tags-project" class="ui-autocomplete-input" autocomplete="off">
+                </div>
+
                 <div class="col-xs-6 col-sm-6">
                     <button  id="reset" type="button" class="btn btn-default pull-right" style="margin-left:20px">重置</button>
                     <button  id="save" type="button" class="btn btn-info pull-right">保存</button>
@@ -113,16 +135,20 @@
                 </div>
             </div>
             <br>
+
+            <div id="text-pon" style="display:block;">
             <a class="set-pon">文字编辑：</a>
             <div class="container-text">
                 <form role="form">
                     <div class="form-group">
-                        <textarea id="text" class="form-control" rows="12"></textarea>
+                        <textarea id="text" class="form-control" rows="22" style="width: 1025px;"></textarea>
                     </div>
                 </form>
             </div>
-            <br>
-            <a class="set-pon">图片上传：</a>
+            </div>
+
+            <div id="pdf-pon" style="display: none;">
+            <a class="set-pon" style="margin-top:-30px;">上传实验报告：</a>
             <div class="container-img kv-main">
                 <form  enctype="multipart/form-data" >
                     <div class="form-group">
@@ -132,6 +158,7 @@
                     <br>
                 </form>
             </div>
+        </div>
         </div>
 
     </div>
@@ -244,6 +271,34 @@
             alert("标号未填写上传失败");
         }
     });
+
+    $("#option1").click(function () {
+        $("#show-sample").show();
+        $("#show-project").hide();
+        $("#text-pon").show();
+        $("#pdf-pon").hide();
+    })
+
+    $("#option2").click(function () {
+        $("#show-sample").hide();
+        $("#show-project").show();
+        $("#text-pon").hide();
+        $("#pdf-pon").show();
+    })
+</script>
+
+<script type="text/javascript">
+    $.ajax({
+        url:"getSampleID",
+        type:"post",
+        async:false,
+        success:function (data) {
+            var availableTags = $.parseJSON(data);
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+        }
+    })
 
 </script>
 

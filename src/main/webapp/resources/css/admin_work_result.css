@@ -1,6 +1,6 @@
 .container-img{
     margin-top: 34px;
-    width:1000px;
+    width:1025px;
     margin-left:50px;
 }
 .container{
@@ -15,7 +15,7 @@ a:hover{
     padding-top:5px;
 }
 .container-text{
-    width:1000px;
+    width:1025px;
     margin-left:50px;
 }
 ul#aulist {
@@ -31,4 +31,20 @@ ul#aulist {
 }
 .navbar {
     margin-bottom: 0px;
+}
+.choose-type{
+    padding-top:20px;
+}
+.choose-type label{
+    font-weight: normal;
+    font-size: 18px;
+    color: #337AB7;
+}
+#tags{
+    margin-top:5px;
+    float: left;
+}
+#tags-project{
+    margin-top:5px;
+    float: left;
 }
