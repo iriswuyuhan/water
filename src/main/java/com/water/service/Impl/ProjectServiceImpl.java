@@ -20,6 +20,7 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.findAll();
     }
 
+    @Override
     public Project findProjectByID(long idProject) {
         return projectDao.get(idProject);
     }
@@ -40,5 +41,12 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.saveOrUpdate(project);
     }
 
+    @Override
+    public boolean uploadProject(String projectName , String pdf){
+        Project project = projectDao.findProjectByName(projectName);
+        project.setState(1);
+        project.setReport(pdf);
+        return  projectDao.saveOrUpdate(project);
+    }
 
 }

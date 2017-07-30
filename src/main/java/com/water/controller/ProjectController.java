@@ -39,6 +39,7 @@ public class ProjectController {
         Project project=new Project();
         project.setName(head);
         project.setDescription(body);
+        project.setState(0);
 
         long id=projectService.saveProject(project);
 
@@ -62,6 +63,24 @@ public class ProjectController {
         response.setCharacterEncoding("utf-8");
         response.getWriter().print(jsonObject);
         response.getWriter().flush();
+    }
+
+    /**
+     * @param response
+     * @return 项目列表
+     * @throws Exception
+     */
+    @RequestMapping("/getProjectName")
+    @ResponseBody
+    public void getProjectName(HttpServletResponse response) throws IOException {
+        List<Project> projects=projectService.findAllProjects();
+        ArrayList<String> projectNames = new ArrayList<String>();
+        for(Project temp:projects){
+            projectNames.add(String.valueOf(temp.getName()+""));
+        }
+        JSONArray array = JSONArray.fromObject(projectNames);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(array.toString());
     }
 
     /**
