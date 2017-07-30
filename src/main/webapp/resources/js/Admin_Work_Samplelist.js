@@ -123,6 +123,7 @@ function  sampleinfo(type) {
                 if ($(this).html() === sample)
                     $(this.parentNode).addClass("active");
             })
+            $("#show-info").addClass("active").siblings().removeClass("active");
         }
     });
 }

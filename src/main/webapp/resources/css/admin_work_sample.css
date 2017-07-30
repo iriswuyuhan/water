@@ -67,6 +67,7 @@ input[type="checkbox"]:checked + label::after {
     opacity: 0;
 }
 .table_list tbody tr td{
+    color:#555;
     height: 60px;
     border-bottom: 3px #eee solid;
 }
@@ -342,15 +343,15 @@ input[type="checkbox"]:checked + label::after {
     padding-left: 0;
 }
 
-.list-switch ul li#show-table, .list-switch ul li#show-table2{
+.list-switch ul li#show-list{
     background:url("../img/switch-icon.png") no-repeat
 }
-.list-switch ul li#show-table.active ,.list-switch ul li#show-table2.active {
+.list-switch ul li#show-list.active  {
     background:url("../img/switch-icon.png") -91px 0 no-repeat;
 }
-.list-switch ul li#show-graph,.list-switch ul li#show-graph2 {
+.list-switch ul li#show-info {
     background:url("../img/switch-icon.png") -125px 0 no-repeat
 }
-.list-switch ul li#show-graph.active,.list-switch ul li#show-graph2.active {
+.list-switch ul li#show-info.active {
     background:url("../img/switch-icon.png") -33px 0 no-repeat
 }
