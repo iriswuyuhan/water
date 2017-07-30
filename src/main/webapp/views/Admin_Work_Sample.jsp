@@ -424,6 +424,7 @@
                 <h1>SAMPLING INFO/</h1>
                 <p>采样信息</p>
             </div>
+            <div class=" list-switch" style="margin-right:20px; margin-top:10px;"><ul><li id="show-list" class=""></li><li id="show-info" class="active"></li></ul></div>
         </div>
     </div>
 </div>
@@ -447,7 +448,7 @@
                         </div>
                         <div class="col-xs-6 col-sm-5">
                             <%--<a id="come-list" href="#" class="return_pon">Come to list&nbsp;<i class="fa fa-angle-double-right"></i><i class="fa fa-angle-double-right"></i><i class="fa fa-angle-double-right"></i></a>--%>
-                            <div class="list-switch"><ul><li class="active show-table"></li><li class="show-info"></li></ul></div>
+
                         </div>
                     </div>
 
@@ -575,7 +576,8 @@
                         <div class="clearfix visible-xs-block"></div>
                         <div class="col-xs-6 col-sm-5">
                             <button  id="query" type="button" class="btn btn-info">查找</button>
-                            <a id="back-info" href="#" class="return_pon">Back Info&nbsp;<i class="fa fa-angle-double-right"></i><i class="fa fa-angle-double-right"></i></a>
+                          <%--  <a id="back-info" href="#" class="return_pon">Back Info&nbsp;<i class="fa fa-angle-double-right"></i><i class="fa fa-angle-double-right"></i></a>--%>
+                            <%--<div class="list-switch"><ul><li id="show-table" class="how-table"></li><li id="show-graph" class="show-info"></li></ul></div>--%>
                             <div class="download_pon pull-right">
                                 <a id="csv" onclick="clickbut()"   ><i class="fa fa-download"></i></a>
                             </div>
@@ -687,6 +689,33 @@
             $(".load_wrapper").show();
             $(".list_wrapper").hide();
         })
+
+
+        $("#show-info").click(function () {
+            $("#show-info").addClass("active").siblings().removeClass("active"),
+                $(".list_wrapper").fadeOut(),
+                $(".load_wrapper").fadeIn();
+/*                $(".list_wrapper").fadeOut("fast",function () {
+                    $(".load_wrapper").fadeIn("fast")
+                }),$(window).trigger("resize")*/
+        })
+
+        $("#show-list").click(function () {
+            $("#show-list").addClass("active").siblings().removeClass("active"),
+                $(".list_wrapper").fadeIn(),
+                 $(".load_wrapper").fadeOut();
+
+/*                $(".load_wrapper").fadeOut("fast",function () {
+                    $(".list_wrapper").fadeIn("fast")
+                })*/
+        })
+
+/*        function() {
+            e(this).addClass("active").siblings().removeClass("active"), e("#pool-table").fadeOut("fast", function() {
+                e("#pool-graph").fadeIn("fast")
+            }), e(window).trigger("resize")
+        }*/
+
 
     })
 </script>
