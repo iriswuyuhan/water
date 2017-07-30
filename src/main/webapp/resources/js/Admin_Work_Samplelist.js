@@ -39,19 +39,22 @@ $("#query").click(function () {
         alert("信息填写不完整");
     }
     else {
-        var sample ;
+        var sample=new Array() ;
         for(var temp in samplelist){
+            alert(samplelist[temp].apply.project.name);
             if(samplelist[temp].apply.project.name==project){
                 var begindate = new Date(begin.replace(/-/g,   "/"));
                 var enddate = new Date(end.replace(/-/g,   "/"));
                 var sampledate = (1900 + samplelist[temp].sampleDate.year) + "-" + (samplelist[temp].sampleDate.month + 1) + "-" + samplelist[temp].sampleDate.date;
                 var sampled = new Date(sampledate.replace(/-/g,   "/"));
-                if(begindate<=sampled&sampled<=enddate){
-                    sample.add(samplelist[temp]);
+                if(begindate<=sampled){
+                    if(sampled<=enddate) {
+                        sample.push(samplelist[temp]);
+                    }
                 }
             }
         }
-        if(sample){
+        if(sample.length>0){
             setlist(sample);
         }
         else {
