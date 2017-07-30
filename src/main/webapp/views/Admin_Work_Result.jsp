@@ -102,7 +102,9 @@
             <div class="row" style="padding-top:30px;padding-left:50px">
                 <div class="col-xs-6 col-sm-5">
                     <a class="pull-left label-pon">样本编号：</a>
-                    <input id="idSample" class="form-control pull-left" maxlength="8" required="" type="text" style="width:200px;" >
+                    <input id="idSample" class="new-form-control dropdown-toggle" data-toggle="dropdown"
+                           placeholder="输入股票名称或代码" type="text"  style="width:200px;" >
+                    <ul id="aulist" class=" dropdown-menu" ></ul>
                 </div>
                 <div class="col-xs-6 col-sm-6">
                     <button  id="reset" type="button" class="btn btn-default pull-right" style="margin-left:20px">重置</button>
@@ -170,6 +172,25 @@
 <script src="./resources/js/Admin_Work.js"></script>
 <script>
     $(function () {
+        $("#idSample").bind('input porpertychange',function(){
+            var name = $("#idSample").val();
+            var autolist=["a","ab"];
+
+            $("#aulist").empty();
+            var temp=0;
+            for(var i=0;i<autolist.length;i++){
+                if(autolist[i].indexOf(name)>=0){
+                    $("#aulist").append("<li><a onclick='autocom(this)'>"+autolist[i]+"</a></li>");
+                    temp++;
+                }
+                if(temp==10){
+                    i=autolist.length;
+                }
+            }
+        });
+        function autocom(type){
+            $("#idSample").val(type.innerHTML);
+        }
         $("#reset").click(function () {
                window.location.href="to_Admin_Work_Result.do";
 
@@ -203,7 +224,7 @@
     })
     $("#file-1").fileinput({
         uploadUrl: '/uploadSampleResultImg', // you must set a valid URL here else you will get an error
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        allowedFileExtensions: ['pdf'],
         language:'zh',
         overwriteInitial: false,
         uploadAsync:false,

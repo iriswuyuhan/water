@@ -42,6 +42,7 @@ $("#query").click(function () {
         var sample ;
         for(var temp in samplelist){
             if(samplelist[temp].idSample==project){
+                alert(samplelist[temp]);
                 sample.add(samplelist[temp]);
             }
         }
