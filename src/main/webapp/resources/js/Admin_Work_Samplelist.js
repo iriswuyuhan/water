@@ -41,7 +41,6 @@ $("#query").click(function () {
     else {
         var sample=new Array() ;
         for(var temp in samplelist){
-            alert(samplelist[temp].apply.project.name);
             if(samplelist[temp].apply.project.name==project){
                 var begindate = new Date(begin.replace(/-/g,   "/"));
                 var enddate = new Date(end.replace(/-/g,   "/"));
