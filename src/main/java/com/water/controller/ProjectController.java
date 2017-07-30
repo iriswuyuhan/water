@@ -1,16 +1,22 @@
 package com.water.controller;
 
 import com.water.entity.Project;
+import com.water.entity.Sample;
 import com.water.service.ProjectService;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -33,6 +39,7 @@ public class ProjectController {
         Project project=new Project();
         project.setName(head);
         project.setDescription(body);
+        project.setState(0);
 
         long id=projectService.saveProject(project);
 
@@ -56,6 +63,24 @@ public class ProjectController {
         response.setCharacterEncoding("utf-8");
         response.getWriter().print(jsonObject);
         response.getWriter().flush();
+    }
+
+    /**
+     * @param response
+     * @return 项目列表
+     * @throws Exception
+     */
+    @RequestMapping("/getProjectName")
+    @ResponseBody
+    public void getProjectName(HttpServletResponse response) throws IOException {
+        List<Project> projects=projectService.findAllProjects();
+        ArrayList<String> projectNames = new ArrayList<String>();
+        for(Project temp:projects){
+            projectNames.add(String.valueOf(temp.getName()+""));
+        }
+        JSONArray array = JSONArray.fromObject(projectNames);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(array.toString());
     }
 
     /**
@@ -106,4 +131,36 @@ public class ProjectController {
         return false;
     }
 
+    /**
+     * @param request
+     * @param response
+     * @return 上传项目报告
+     * @throws Exception
+     */
+    @RequestMapping("/uploadProjectResult")
+    public void uploadProjectResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
+            String project = request.getParameter("project");
+            String filename = project+".pdf";
+            response.getWriter().print("上传成功");
+    }
+    /**
+     * @param request
+     * @return 上传项目报告文件
+     * @throws Exception
+     */
+    @RequestMapping("/uploadProjectFile")
+    @ResponseBody
+    public JSONObject uploadProjectFile(@RequestParam("file") MultipartFile image, HttpServletRequest request) throws IOException {
+        System.out.println("asdsad");
+        String project =  request.getParameter("project");
+        System.out.println(project);
+        File dir=new File("E:\\water\\src\\main\\webapp\\resources\\txt\\");
+        MultipartFile file = image;
+        if( !(file.getOriginalFilename().equals("")) ) {
+            file.transferTo(new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+project+".pdf"));
+        }
+        String json = "{'state':'success'}";
+        JSONObject object = JSONObject.fromObject(json);
+        return object;
+    }
 }

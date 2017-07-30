@@ -103,7 +103,7 @@
         <div class="intro-panel">
             <div class="choose-type">
                 <label style="margin-right:50px;">
-                    <input type="radio" name="options" id="option1" value="1"> 上传样本结果
+                    <input type="radio" name="options" id="option1" value="1" checked="checked"> 上传样本结果
                 </label>
                 <label style="margin-left:50px;">
                     <input type="radio" name="options" id="option2" value="2"> 上传实验报告
@@ -199,74 +199,79 @@
 <script src="./resources/js/Admin_Work.js"></script>
 <script>
     $(function () {
-        $("#idSample").bind('input porpertychange',function(){
-            var name = $("#idSample").val();
-            var autolist=["a","ab"];
-
-            $("#aulist").empty();
-            var temp=0;
-            for(var i=0;i<autolist.length;i++){
-                if(autolist[i].indexOf(name)>=0){
-                    $("#aulist").append("<li><a onclick='autocom(this)'>"+autolist[i]+"</a></li>");
-                    temp++;
-                }
-                if(temp==10){
-                    i=autolist.length;
-                }
-            }
-        });
-        function autocom(type){
-            $("#idSample").val(type.innerHTML);
-        }
         $("#reset").click(function () {
                window.location.href="to_Admin_Work_Result.do";
 
             })
-        $("#save").click(function () {
-            alert(1);
-            $.ajax({
-                url:"getSample",
-                type:"post",
-                async:false,
-                data:{"id":$("#idSample").val()},
-                success:function (data) {
-                    alert(data);
-                    if(data==null){
-                        alert("样本编号不存在");
-                    }
-                    else{
-                        $("#file-1").fileinput("upload");
-                        $.ajax({
-                            url:"./uploadResult",
-                            type:"post",
-                            data:{"idSample":$("#idSample").val(),"description":$("#text").val()},
-                            success:function (data) {
-                                alert(data);
+        $("#save").click(function (){
+            if($("#option1").prop("checked")==true) {
+                if($("#text").val()==""||$("#tags").val()==""){
+                    alert("信息填写不完整");}
+                else {
+                    $.ajax({
+                        url: "./getSampleResultTest",
+                        type: "post",
+                        async: false,
+                        data: {"id": $("#tags").val()},
+                        success: function (data) {
+                            alert(data);
+                            if(date==1){
+//                        $("#file-1").fileinput("upload");
+                                $.ajax({
+                                    url: "./uploadResult",
+                                    type: "post",
+                                    data: {"idSample": $("#tags").val(), "description": $("#text").val()},
+                                    success: function (data) {
+                                        alert(data);
+                                    }
+                                })
                             }
-                        })
-                    }
+                            else {
+                                alert("样本编号不存在或已上传实验结果");
+                            }
+                        }
+
+                    })
                 }
-            })
+            }
+            else {
+                $("#file-1").fileinput("upload");
+                if($("#tags-project").val()==""){
+                    alert("项目名称未填写");
+                }
+                else{
+                    $.ajax({
+                        url:"/uploadProjectResult",
+                        type:"POST",
+                        data:{"project":$("#tags-project").val()},
+                        success:function (data) {
+                            alert(data);
+                        }
+                    })
+                }
+
+            }
+
         })
     })
     $("#file-1").fileinput({
-        uploadUrl: '/uploadSampleResultImg', // you must set a valid URL here else you will get an error
+        uploadUrl: '/uploadProjectFile', // you must set a valid URL here else you will get an error
         allowedFileExtensions: ['pdf'],
         language:'zh',
         overwriteInitial: false,
         uploadAsync:false,
-        maxFileSize: 1000,
+        maxFileSize: 10000,
         maxFilesNum: 10,
         showUpload: false,
         previewFileIcon: "",
         uploadExtraData: function (previewId, index) {
             var data={
-                "idSample" : $("#idSample").val(),
+                "project" : $("#tags-project").val(),
             }
             return data;
         },
     }).on("fileuploaded", function(event, data) {
-        if($("#idSample").val()=="")
+        if($("#tags").val()=="")
         {
             alert("标号未填写上传失败");
         }
@@ -300,6 +305,19 @@
         }
     })
 
-</script>
 
+</script>
+<script>
+    $.ajax({
+        url:"getProjectName",
+        type:"post",
+        async:false,
+        success:function (data) {
+            var availableTag = $.parseJSON(data);
+            $("#tags-project").autocomplete({
+                source: availableTag
+            });
+        }
+    })
+</script>
 </html>

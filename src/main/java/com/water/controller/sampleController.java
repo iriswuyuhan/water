@@ -73,26 +73,22 @@ public class sampleController {
     public void uploadResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("123123");
         String idSample=request.getParameter("idSample");
-
         String text = request.getParameter("description");
 
-        File file = new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+idSample);
-        String [] fileName = file.list();
-        List<String> nameList = Arrays.asList(fileName);
-        System.out.println(idSample+text+fileName.length);
-        for(int i=0;i<fileName.length;i++)
-            System.out.println(fileName[i]);
+//        File file = new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+idSample);
+//        String [] fileName = file.list();
+//        List<String> nameList = Arrays.asList(fileName);
+//        System.out.println(idSample+text+fileName.length);
+//        for(int i=0;i<fileName.length;i++)
+//            System.out.println(fileName[i]);
         Result result  = new Result();
         result.setIdResult(Integer.valueOf(idSample));
         result.setDescription(text);
-        result.setImage(nameList);
+     //   result.setImage(nameList);
 
        boolean bool= resultService.addResult(result);
-        System.out.println(bool);
        if(bool){
-           System.out.println(Integer.valueOf(idSample));
             boolean bool1 = uploadService.updateSample(Long.valueOf(idSample),2);
-            System.out.println(bool1);
        }
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
