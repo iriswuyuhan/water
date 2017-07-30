@@ -119,7 +119,7 @@ public class ApplyController {
     /**
      * @param request
      * @param response
-     * @return 获得所以样本信息
+     * @return 获得所有样本信息
      * @throws Exception
      */
     @RequestMapping("/getSampleList")
@@ -131,7 +131,6 @@ public class ApplyController {
         JSONArray array = JSONArray.fromObject(samples);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
-
     }
 
     /**

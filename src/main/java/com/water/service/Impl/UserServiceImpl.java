@@ -55,6 +55,6 @@ public class UserServiceImpl implements UserService {
         user.setNumber("");
         user.setIsResearcher(0);
         return userDao.save(user);
-        
+
     }
 }
