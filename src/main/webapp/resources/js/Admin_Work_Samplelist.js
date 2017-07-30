@@ -41,9 +41,14 @@ $("#query").click(function () {
     else {
         var sample ;
         for(var temp in samplelist){
-            if(samplelist[temp].idSample==project){
-                alert(samplelist[temp]);
-                sample.add(samplelist[temp]);
+            if(samplelist[temp].apply.project.name==project){
+                var begindate = new Date(begin.replace(/-/g,   "/"));
+                var enddate = new Date(end.replace(/-/g,   "/"));
+                var sampledate = (1900 + samplelist[temp].sampleDate.year) + "-" + (samplelist[temp].sampleDate.month + 1) + "-" + samplelist[temp].sampleDate.date;
+                var sampled = new Date(sampledate.replace(/-/g,   "/"));
+                if(begindate<=sampled&sampled<=enddate){
+                    sample.add(samplelist[temp]);
+                }
             }
         }
         if(sample){
