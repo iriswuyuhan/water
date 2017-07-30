@@ -3,6 +3,9 @@
     width:1000px;
     margin-left:50px;
 }
+.container{
+    width:1200px;
+}
 a:hover{
     text-decoration: none;
 }
@@ -15,9 +18,17 @@ a:hover{
     width:1000px;
     margin-left:50px;
 }
+ul#aulist {
+    margin-left: 40%;
+    margin-top: -5px;
+    width: 200px;
+}
 .set-pon{
     float:left;
     font-size:18px;
     margin-left: 50px;
     margin-bottom: 10px;
+}
+.navbar {
+    margin-bottom: 0px;
 }

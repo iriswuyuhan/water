@@ -152,3 +152,59 @@ function addOne(id,headline,markupStr) {
     list.appendChild(item);
 }
 
+function topnavclick(type) {
+    if(type.name==="1"){
+        window.location.href="toAdmin.do"
+    }
+    if(type.name==="2"){
+        window.location.href="toAdmin_Sample.do"
+    }
+    if(type.name==="3"){
+        window.location.href="toAdmin_Sample_Result.do"
+    }
+    if(type.name==="4"){
+        window.location.href="toAdmin_Project.do"
+    }
+}
+//导航点击事件的监听
+function  applyClick(type) {
+    var id = type.innerHTML;
+    $.ajax({
+        url: './getApplyInfo',
+        type: 'post',
+        async: 'false',
+        data: {"id": id},
+        success: function (data) {
+            var obj1 = $.parseJSON(data);
+            setactive(type, obj1);
+            setinitinfo(obj1);
+        }
+
+    });
+}
+//设置导航为active状态的方法
+function setactive(type,temp) {
+    var obj;
+    if(temp.state==0){
+        obj=$("#tab1")
+        $("#scro1").find("li").each(function() {
+            $(this).removeClass("active");
+        });
+        $(type.parentNode).addClass("active");
+    }
+    if(temp.state==1) {
+        obj = $("#tab2")
+        $("#scro2").find("li").each(function () {
+            $(this).removeClass("active");
+        });
+        $(type.parentNode).addClass("active");
+    }
+    if(temp.state==2){
+        obj=$("#tab3")
+        $("#scro3").find("li").each(function() {
+            $(this).removeClass("active");
+        });
+        $(type.parentNode).addClass("active");
+    }
+
+}

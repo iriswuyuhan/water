@@ -93,7 +93,7 @@
         </div>
     </div>
 </div>
-<div class="weui-form-preview">
+<div class="weui-form-preview" style="margin-bottom: 5%">
     <div class="weui-form-preview__bd">
         <p>
             <label class="weui-form-preview__label">处理状态</label>

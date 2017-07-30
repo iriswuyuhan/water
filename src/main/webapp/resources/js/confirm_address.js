@@ -9,35 +9,18 @@ $("#confirm_but").click(function () {
     $.cookie('longitude', longitude, {path: '/'});
     $.cookie('latitude', latitude, {path: '/'});
     $.cookie('concrete_address', concrete_address, {path: '/'});
-    window.history.go(-1);
+    // toast
+    var $toast = $('#toast');
+    if ($toast.css('display') !== 'none') return;
+    $toast.fadeIn(100);
+    setTimeout(function () {
+        $toast.fadeOut(100);
+        window.history.go(-1);
+    }, 2000);
 });
-
-//确定地址按钮的相应
-// $("#confirm_but").click(function () {
-//     $.ajax({
-//         url:"/address/waters/confirm",
-//         type:'get',
-//         async:false,
-//         data:{"longitude":$("#longitude").val(),"latitude":$("#latitude").val(),
-//             "waters_address":$("#concrete_address").text()},
-//         success:function (data) {
-//             if(data){
-//                 // toast
-//                 var $toast = $('#toast');
-//                 if ($toast.css('display') != 'none') return;
-//                 $toast.fadeIn(100);
-//                 setTimeout(function () {
-//                     $toast.fadeOut(100);
-//                     window.history.back();
-//                 }, 2000);
-//             }
-//         }
-//     });
-//  });
 
 //创建和初始化地图函数：
 function initMap() {
-
     createMap();//创建地图
     setMapEvent();//设置地图事件
     addMapControl();//向地图添加控件

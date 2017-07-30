@@ -28,7 +28,7 @@
 <input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="index" value="${index}"/>
 <input type="hidden" id="applyID" value="${applyID}"/>
-<div class="uploaded-imgs">
+<div class="uploaded-imgs" style="margin-bottom: 5%">
     <div class="weui-cells__title">已传图片</div>
     <div class="weui-cells">
         <div class="weui-cell">

@@ -102,7 +102,7 @@
         </div>
     </form>
 </div>
-<p style="padding-top: 15px;">
+<p style="padding-top: 15px;margin-bottom: 5%">
     <a id="upload_but" style="line-height: 38px;width: 85%;align-self: center" href="javascript:;"
        class="weui-btn weui-btn_primary weui-btn_disabled">上传</a>
 </p>

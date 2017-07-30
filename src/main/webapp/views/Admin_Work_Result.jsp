@@ -5,7 +5,6 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
 %>
-<
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +17,7 @@
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="../resources/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="../resources/css/admin_work_result.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -37,6 +36,7 @@
 
 
 <!-- Top menu -->
+
 <nav class="navbar" role="navigation">
 
 
@@ -46,20 +46,21 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i
-                        class="fa fa-2x fa-sitemap"></i><br>审核申请</a></li>
+            <ul id="nav" class="nav navbar-nav navbar-right">
+                <li><a href="#"onclick="topnavclick(this)" name="1"><i
+                        class="fa fa-2x fa-sitemap" ></i><br>审核申请</a></li>
 
-                <li><a href="#"><i
+                <li><a href="#" onclick="topnavclick(this)" name="2"><i
                         class="fa fa-2x fa-tasks"></i><br>采样信息</a>
                 </li>
 
-                <li class="active"><a href="#"><i
+                <li class="active"><a href="#" onclick="topnavclick(this)" name="3"><i
                         class="fa fa-2x fa-tasks"></i><br>实验结果</a>
                 </li>
-                <li><a href="#"><i
+                <li><a href="#" onclick="topnavclick(this)" name="4"><i
                         class="fa fa-2x fa-tasks"></i><br>项目管理</a>
                 </li>
+
 
                 <ul class="social-links">
                     <div id="top-navigation">
@@ -101,7 +102,9 @@
             <div class="row" style="padding-top:30px;padding-left:50px">
                 <div class="col-xs-6 col-sm-5">
                     <a class="pull-left label-pon">样本编号：</a>
-                    <input id="idSample" class="form-control pull-left" maxlength="8" required="" type="text" style="width:200px;" >
+                    <input id="idSample" class="new-form-control dropdown-toggle" data-toggle="dropdown"
+                           placeholder="输入股票名称或代码" type="text"  style="width:200px;" >
+                    <ul id="aulist" class=" dropdown-menu" ></ul>
                 </div>
                 <div class="col-xs-6 col-sm-6">
                     <button  id="reset" type="button" class="btn btn-default pull-right" style="margin-left:20px">重置</button>
@@ -166,8 +169,28 @@
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 
 --></body>
+<script src="./resources/js/Admin_Work.js"></script>
 <script>
     $(function () {
+        $("#idSample").bind('input porpertychange',function(){
+            var name = $("#idSample").val();
+            var autolist=["a","ab"];
+
+            $("#aulist").empty();
+            var temp=0;
+            for(var i=0;i<autolist.length;i++){
+                if(autolist[i].indexOf(name)>=0){
+                    $("#aulist").append("<li><a onclick='autocom(this)'>"+autolist[i]+"</a></li>");
+                    temp++;
+                }
+                if(temp==10){
+                    i=autolist.length;
+                }
+            }
+        });
+        function autocom(type){
+            $("#idSample").val(type.innerHTML);
+        }
         $("#reset").click(function () {
                window.location.href="to_Admin_Work_Result.do";
 
@@ -201,7 +224,7 @@
     })
     $("#file-1").fileinput({
         uploadUrl: '/uploadSampleResultImg', // you must set a valid URL here else you will get an error
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        allowedFileExtensions: ['pdf'],
         language:'zh',
         overwriteInitial: false,
         uploadAsync:false,

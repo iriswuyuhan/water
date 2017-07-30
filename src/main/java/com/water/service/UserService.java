@@ -17,7 +17,7 @@ public interface UserService {
      * @param isResearcher  是否为管理员
      * @return 记录id
      */
-    public void addUser(String userId, String username, String password, String address, Integer isResearcher);//用于测试
+    public boolean addUser(String userId, String username, String password, String address, Integer isResearcher);//用于测试
 
     /**
      * 根据用户编号查询用户
@@ -29,5 +29,5 @@ public interface UserService {
 
     public boolean updateUser(User user);
 
-    public void addUser(String userId);
+    public boolean addUser(String userId);
 }

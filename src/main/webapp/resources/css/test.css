@@ -108,16 +108,18 @@
 }
 
 .indicator-group-title li a{
+    display:block;
     color: #5a5a5a;
 }
 
 .indicator-group-title li.active a {
+    display: block;
     text-decoration: none;
     color:#fff;
 }
 
 .indicator-group-title li.active span {
-    margin-top:0px;
+    margin-top:-19px;
     display: block;
 }
 
@@ -149,9 +151,12 @@
     padding-bottom: 1.8em;
 }
 .left_title h1{
+    padding-top: 2px;
     text-align: left;
-    color: #444;
-    margin-bottom: 0.15625em;
+    color: #555;
+    margin-left: 40px;
+    font-family: Lobster;
+    margin-bottom: 8px;
 }
 .left_title i{
     margin-top: 5px;
@@ -178,10 +183,14 @@
     padding-bottom: 15px;
 }
 
+.left_content  .left_info p {
+    padding-bottom: 15px;
+}
+
 .left_info{
     float: left;
     text-align: left;
-    max-width: 340px;
+    width: 340px;
 }
 
 .operate{
@@ -201,11 +210,10 @@ button, .button {
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    padding-top: 0.05em;
-    padding-right: 0.75em;
-    padding-bottom: 0.05em;
-    padding-left: 0.55em;
-    font-size: 1em;
+    padding-top: 2px;
+    padding-right: 12px;
+    padding-bottom: 2px;
+    padding-left: 5px;
     background-color:rgba(0,0,0,0.01);
     border-color: #829606;
     color: #000;
@@ -215,11 +223,11 @@ button, .button {
 }
 
 .button i{
-    margin-right: 0.3em;
+    margin-right: 6px;
 }
 
 .yes{
-    margin-right:6.7em;
+    margin-right:120px;
 }
 
 .yes i{

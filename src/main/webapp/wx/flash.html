@@ -2,90 +2,139 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta id="viewport" name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>视频教程</title>
     <!-- WeUI -->
     <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <!--<link rel="stylesheet" href="../resources/css/flash.css"/>-->
+    <script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
     <script>
-        var urls=["https://v.qq.com/iframe/player.html?vid=z00248rlt2g&tiny=0&auto=0",
+        var urls = ["https://v.qq.com/iframe/player.html?vid=z00248rlt2g&tiny=0&auto=0",
             "https://v.qq.com/iframe/player.html?vid=i00244ch2xj&tiny=0&auto=0",
-            "https://v.qq.com/iframe/player.html?vid=j0526cdx4gn&tiny=0&auto=0" ];
-        var counter=0;
-        var pre=document.createElement("a");
-        pre.setAttribute("class","weui-btn weui-btn_mini weui-btn_primary");
-        pre.innerHTML="上一步";
+            "https://v.qq.com/iframe/player.html?vid=j0526cdx4gn&tiny=0&auto=0"];
+        var counter = 0;
+        /**
+         var pre=document.createElement("a");
+         pre.setAttribute("class","weui-btn weui-btn_mini weui-btn_primary");
+         pre.innerHTML="上一步";
 
-        var next=document.createElement("a");
-        next.setAttribute("class","weui-btn weui-btn_mini weui-btn_primary");
-        next.innerHTML="下一步";
+         var next=document.createElement("a");
+         next.setAttribute("class","weui-btn weui-btn_mini weui-btn_primary");
+         next.innerHTML="下一步";
+         */
+        function load() {
+            var iframe = document.getElementById("iframePage");
+            iframe.setAttribute("src", urls[counter]);
+            /**
+             var preDom=document.getElementById("previous");
+             var nextDom=document.getElementById("next");
 
-        function load(){
-//            alert(counter);
-//            alert(urls.length);
+             var preChild=preDom.childElementCount;
+             var nextChild=nextDom.childElementCount;
 
-            var iframe=document.getElementById("iframePage");
-            iframe.setAttribute("src",urls[counter]);
-
-            var preDom=document.getElementById("previous");
-            var nextDom=document.getElementById("next");
-
-            var preChild=preDom.childElementCount;
-            var nextChild=nextDom.childElementCount;
-
-            if(preChild>0){
+             if(preChild>0){
 //                alert("1");
                 preDom.removeChild(preDom.firstElementChild);
             }
-            if(nextChild>0){
+             if(nextChild>0){
 //                alert("2");
                 nextDom.removeChild(nextDom.firstElementChild);
             }
 
-            pre.onclick=function () {
+             pre.onclick=function () {
                 counter--;
                 load();
             }
 
-            next.onclick=function () {
+             next.onclick=function () {
                 counter++;
                 load();
             }
 
-            if(counter==0){
+             if(counter==0){
                 nextDom.appendChild(next);
             }
-            else if(counter==(urls.length-1)){
+             else if(counter==(urls.length-1)){
                 preDom.appendChild(pre);
             }
-            else{
+             else{
                 preDom.appendChild(pre);
                 nextDom.appendChild(next);
             }
-
+             */
+            $("#previous").click(function () {
+                if ($(this).hasClass("weui-btn_plain-disabled")) {
+                    return;
+                }
+                counter--;
+                iframe.setAttribute("src", urls[counter]);
+                $("#next").removeClass("weui-btn_plain-disabled");
+                if (counter == 0) {
+                    $("#previous").addClass("weui-btn_plain-disabled");
+                }
+            });
+            $("#next").click(function () {
+                if ($(this).hasClass("weui-btn_plain-disabled")) {
+                    return;
+                }
+                counter++;
+                iframe.setAttribute("src", urls[counter]);
+                $("#previous").removeClass("weui-btn_plain-disabled");
+                if (counter == (urls.length-1)) {
+                    $("#next").addClass("weui-btn_plain-disabled");
+                }
+            });
         }
-
     </script>
 </head>
 <body onload="load()">
-<div align="center" >
-    <iframe id="iframePage" width="100%" frameborder=0 scrolling=no height="350">
+<div align="center">
+    <iframe id="iframePage" width="100%" frameborder=0 scrolling=no style="height: 270px">
     </iframe>
-<br>
-<br>
+    <br>
 </div>
-<div class="weui-flex">
-    <div class="weui-flex__item">
+<div style="margin-top: 10px">
+    <!--<div class="weui-flex__item">-->
+    <!--</div>-->
+    <!--<div class="weui-flex__item" id="previous">-->
+    <!--&lt;!&ndash;<a class="weui-btn weui-btn_plain-primary" href="javascript:;">按钮</a>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="weui-flex__item">-->
+    <!--</div>-->
+    <!--<div class="weui-flex__item" id="next">-->
+    <!--&lt;!&ndash;<a class="weui-btn weui-btn_plain-primary" href="javascript:;">按钮</a>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="weui-flex__item">-->
+    <!--</div>-->
+    <p style="margin-left: 15px;margin-right: 15px;">
+        <label><a id="previous" style="width: 20%;float: left" href="javascript:;" class="weui-btn weui-btn_plain-primary weui-btn_plain-disabled">
+            <img src="../resources/img/previous.png" width="15px"/></a>
+        </label>
+        <label><a id="next" style="width: 20%;float: right" href="javascript:;" class="weui-btn weui-btn_plain-primary">
+            <img src="../resources/img/next.png" width="15px"/></a>
+        </label>
+    </p>
+    <div id="step_1" style="display: block">
+        <article class="weui-article">
+        <h1 style="text-align: center">步骤一</h1>
+        <section>
+            <h2 class="title">章标题</h2>
+            <section>
+                <h3>1.1 节标题</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                </p>
+            </section>
+        </section>
+    </article>
     </div>
-    <div class="weui-flex__item" id="previous">
-        <!--<a class="weui-btn weui-btn_plain-primary" href="javascript:;">按钮</a>-->
+    <div id="step_2" style="display: none">
     </div>
-    <div class="weui-flex__item">
-    </div>
-    <div class="weui-flex__item" id="next">
-        <!--<a class="weui-btn weui-btn_plain-primary" href="javascript:;">按钮</a>-->
-    </div>
-    <div class="weui-flex__item">
+    <div id="step_3" style="display: none">
     </div>
 </div>
 </body>

@@ -49,13 +49,13 @@ public class UploadController {
 //        apply.setWaterAddress("123");apply.setLongitude(12.0);
 //        apply.setLatitude(23.0);apply.setImage("/resources/img/delete.png");
         modelAndView.addObject("waterAddress", apply.getWaterAddress());
-        String latitude = keepTwoDecimal(Math.abs(apply.getLatitude()));
+        String latitude = String.valueOf(Math.abs(apply.getLatitude()));
         if (apply.getLatitude() >= 0) {
             modelAndView.addObject("latitude", "北纬" + latitude + "度");
         } else {
             modelAndView.addObject("latitude", "南纬" + latitude + "度");
         }
-        String longitude = keepTwoDecimal(Math.abs(apply.getLongitude()));
+        String longitude = String.valueOf(Math.abs(apply.getLongitude()));
         if (apply.getLongitude() >= 0) {
             modelAndView.addObject("longitude", "东经" + longitude + "度");
         } else {
@@ -79,11 +79,6 @@ public class UploadController {
         String userID=apply.getUser().getIdUser();
         modelAndView.addObject("userID",userID);
         return modelAndView;
-    }
-
-    public String keepTwoDecimal(Double db) {
-        DecimalFormat df = new DecimalFormat("#.00");
-        return df.format(db);
     }
 
     @RequestMapping(value = "/j{applyID}/confirm", method = RequestMethod.GET)
