@@ -270,4 +270,3 @@ function  setinitinfo(temp) {
 function timeFormatter(value) {
     return (1900 + value.year) + "-" + (value.month + 1) + "-" + value.date + " " + value.hours + ":" + value.minutes + ":" + value.seconds;
 }
-/*轮播*/

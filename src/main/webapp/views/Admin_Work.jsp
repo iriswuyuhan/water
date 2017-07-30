@@ -463,17 +463,17 @@
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul id="nav" class="nav navbar-nav navbar-right">
                 <li class="active"><a href="#"onclick="topnavclick(this)" name="1"><i
-                        class="fa fa-check" ></i><br>审核申请</a></li>
+                        class="fa fa-2x fa-check-circle-o" ></i><br>审核申请</a></li>
 
                 <li><a href="#" onclick="topnavclick(this)" name="2"><i
-                        class="fa fa-2x fa-tasks"></i><br>采样信息</a>
+                        class="fa fa-2x fa-envelope-open-o"></i><br>采样信息</a>
                 </li>
 
                 <li><a href="#" onclick="topnavclick(this)" name="3"><i
-                        class="fa fa-2x fa-tasks"></i><br>实验结果</a>
+                        class="fa fa-2x fa-sticky-note"></i><br>实验结果</a>
                 </li>
                 <li><a href="#" onclick="topnavclick(this)" name="4"><i
-                        class="fa fa-2x fa-tasks"></i><br>项目管理</a>
+                        class="fa fa-2x fa-newspaper-o"></i><br>项目管理</a>
                 </li>
 
 

@@ -1135,7 +1135,7 @@ ul.navbar-nav {
 ul.navbar-nav li a { padding: 23px 20px; background: #fff; border-top: 5px solid #fff; color: #5d5d5d; }
 ul.navbar-nav li.active a { background: #f8f8f8; border-color: #337AB7; color: #5d5d5d; }
 
-ul.navbar-nav li a:hover, ul.navbar-nav li a:focus { background: #00CCFF; border-color: #337AB7; color: #fff; outline: 0; }
+ul.navbar-nav li a:hover, ul.navbar-nav li a:focus { background: #5B9DDE; border-color: #337AB7; color: #fff; outline: 0; }
 
 .nav .open > a { background: #f8f8f8; border-color: #337AB7; color: #5d5d5d; }
 .nav .open > a:hover, .nav .open > a:focus { background: #00CCFF; border-color: #337AB7; color: #fff; }
