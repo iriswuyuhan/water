@@ -31,6 +31,29 @@ $(function(){
         if(name=="上传实验结果")
             window.location.href="toAdmin_Sample_Result.do"
     })
+
+    //切换list info
+    $(".load_wrapper").show();
+    $(".list_wrapper").hide();
+
+    $("#show-info").click(function () {
+        $("#show-info").addClass("active").siblings().removeClass("active"),
+            $(".list_wrapper").fadeOut("fast",function () {
+                $(".load_wrapper").fadeIn()
+            })
+    })
+
+    $("#show-list").click(function () {
+        $("#show-list").addClass("active").siblings().removeClass("active"),
+            $(".load_wrapper").fadeOut("fast", function () {
+                setlist(samplelist);
+                $("#project").html("");
+                $("#databegin").html("");
+                $("#dataend").html("");
+                $(".list_wrapper").fadeIn()
+            }), $(window).trigger("resize");
+    })
+
 $("#query").click(function () {
     var project = $("#project").val();
     var begin = $("#databegin").val();
@@ -39,19 +62,21 @@ $("#query").click(function () {
         alert("信息填写不完整");
     }
     else {
-        var sample ;
+        var sample=new Array() ;
         for(var temp in samplelist){
             if(samplelist[temp].apply.project.name==project){
                 var begindate = new Date(begin.replace(/-/g,   "/"));
                 var enddate = new Date(end.replace(/-/g,   "/"));
                 var sampledate = (1900 + samplelist[temp].sampleDate.year) + "-" + (samplelist[temp].sampleDate.month + 1) + "-" + samplelist[temp].sampleDate.date;
                 var sampled = new Date(sampledate.replace(/-/g,   "/"));
-                if(begindate<=sampled&sampled<=enddate){
-                    sample.add(samplelist[temp]);
+                if(begindate<=sampled){
+                    if(sampled<=enddate) {
+                        sample.push(samplelist[temp]);
+                    }
                 }
             }
         }
-        if(sample){
+        if(sample.length>0){
             setlist(sample);
         }
         else {
