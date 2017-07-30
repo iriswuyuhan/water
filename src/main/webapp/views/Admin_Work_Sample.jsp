@@ -533,7 +533,7 @@
                             </div>
 
                             <div class="operate">
-                                <a id="downlo1" download="" href=""  class="button btn-info"><i class="fa fa-download"></i>下载信息</a>
+                                <a id="downlo1" download="" href=""  class="button btn-info""><i class="fa fa-download"></i>下载信息</a>
                             </div>
 
                         </div>
@@ -576,7 +576,7 @@
                             <button  id="query" type="button" class="btn btn-info">查找</button>
                           <%--  <a id="back-info" href="#" class="return_pon">Back Info&nbsp;<i class="fa fa-angle-double-right"></i><i class="fa fa-angle-double-right"></i></a>--%>
                             <%--<div class="list-switch"><ul><li id="show-table" class="how-table"></li><li id="show-graph" class="show-info"></li></ul></div>--%>
-                            <a id="csv" onclick="clickbut()" class="btn-info"  ><i class="fa fa-download">下载</i></a>
+                            <a id="csv" onclick="clickbut()" class="btn-info"  style="margin-left:240px;" ><i class="fa fa-download">下载</i></a>
                             <!--<div class="list-switch"><ul><li id="show-table2" class="active"></li><li id="show-graph2" class=""></li></ul></div>-->
                         </div>
                     </div>
@@ -677,41 +677,18 @@
         $(".load_wrapper").show();
         $(".list_wrapper").hide();
 
-        $("#come-list").click(function () {
-            $(".load_wrapper").hide();
-            $(".list_wrapper").show();
-        })
-        $("#back-info").click(function () {
-            $(".load_wrapper").show();
-            $(".list_wrapper").hide();
-        })
-
-
         $("#show-info").click(function () {
             $("#show-info").addClass("active").siblings().removeClass("active"),
-                $(".list_wrapper").fadeOut(),
-                $(".load_wrapper").fadeIn();
-/*                $(".list_wrapper").fadeOut("fast",function () {
-                    $(".load_wrapper").fadeIn("fast")
-                }),$(window).trigger("resize")*/
+                $(".list_wrapper").fadeOut("fast",function () {
+                    $(".load_wrapper").fadeIn()
+                })
         })
 
         $("#show-list").click(function () {
             $("#show-list").addClass("active").siblings().removeClass("active"),
-                $(".list_wrapper").fadeIn(),
-                 $(".load_wrapper").fadeOut();
-
-/*                $(".load_wrapper").fadeOut("fast",function () {
-                    $(".list_wrapper").fadeIn("fast")
-                })*/
-        })
-
-/*        function() {
-            e(this).addClass("active").siblings().removeClass("active"), e("#pool-table").fadeOut("fast", function() {
-                e("#pool-graph").fadeIn("fast")
-            }), e(window).trigger("resize")
-        }*/
-
+                $(".load_wrapper").fadeOut("fast",function () {
+                    $(".list_wrapper").fadeIn()
+                }), $(window).trigger("resize");
 
     })
 </script>

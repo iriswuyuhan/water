@@ -31,6 +31,29 @@ $(function(){
         if(name=="上传实验结果")
             window.location.href="toAdmin_Sample_Result.do"
     })
+
+    //切换list info
+    $(".load_wrapper").show();
+    $(".list_wrapper").hide();
+
+    $("#show-info").click(function () {
+        $("#show-info").addClass("active").siblings().removeClass("active"),
+            $(".list_wrapper").fadeOut("fast",function () {
+                $(".load_wrapper").fadeIn()
+            })
+    })
+
+    $("#show-list").click(function () {
+        $("#show-list").addClass("active").siblings().removeClass("active"),
+            $(".load_wrapper").fadeOut("fast", function () {
+                setlist(samplelist);
+                $("#project").html("");
+                $("#databegin").html("");
+                $("#dataend").html("");
+                $(".list_wrapper").fadeIn()
+            }), $(window).trigger("resize");
+    })
+
 $("#query").click(function () {
     var project = $("#project").val();
     var begin = $("#databegin").val();

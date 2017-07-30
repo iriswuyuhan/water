@@ -355,3 +355,9 @@ input[type="checkbox"]:checked + label::after {
 .list-switch ul li#show-info.active {
     background:url("../img/switch-icon.png") -33px 0 no-repeat
 }
+
+#csv{
+    border-radius: 3px;
+    font-size: 14px;
+    padding:6px 8px 8px 8px;
+}
