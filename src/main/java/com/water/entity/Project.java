@@ -7,7 +7,7 @@ public class Project {
     private long idProject;       //项目编号 自增
     private String name;          //项目名称
     private String description;      //项目描述
-    private Integer state;          //项目状态
+    private Integer state;          //项目状态 0未上传报告 1上传报告
     private String report;
 
     @Id

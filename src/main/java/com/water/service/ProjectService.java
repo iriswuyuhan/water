@@ -40,4 +40,12 @@ public interface ProjectService {
     public boolean deleteProject(long projectID);
 
     public boolean updateProject(Project project);
+
+    /**
+     * \根据项目名称找到项目后上传结果
+     * @param projectName
+     * @param pdf
+     * @return
+     */
+    public boolean uploadProject(String projectName , String pdf);
 }
