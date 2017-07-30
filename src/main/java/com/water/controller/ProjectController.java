@@ -14,9 +14,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.DataInput;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,10 +38,12 @@ public class ProjectController {
         String head=request.getParameter("headline");
         String body=request.getParameter("body");
 
+        Date date=new Date();
         Project project=new Project();
         project.setName(head);
         project.setDescription(body);
         project.setState(0);
+        project.setDate(date);
 
         long id=projectService.saveProject(project);
 
@@ -109,10 +113,12 @@ public class ProjectController {
         String head=request.getParameter("headline");
         String body=request.getParameter("body");
 
+        Date date=new Date();
         Project project=new Project();
         project.setIdProject(id);
         project.setName(head);
         project.setDescription(body);
+        project.setDate(date);
 
         boolean success=projectService.updateProject(project);
 

@@ -1,0 +1,10 @@
+.content{
+    min-height: 420px;
+}
+
+.panel.panel-primary{
+    float: left;
+    margin-left: 3%;
+    max-right: 3%;
+    min-height: 400px;
+}
