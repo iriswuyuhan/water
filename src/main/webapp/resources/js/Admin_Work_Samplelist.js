@@ -20,17 +20,6 @@ $(function(){
             }
         }
     })
-    $(".tyo").click(function () {
-        $("#nav li").removeClass();
-        $(this).parent().prop("class","active");
-        var name =    $(this).find("h4").html();
-        if(name==="审核申请")
-            window.location.href="toAdmin.do";
-        if(name==="下载采样信息")
-            window.location.href="toAdmin_Sample.do"
-        if(name=="上传实验结果")
-            window.location.href="toAdmin_Sample_Result.do"
-    })
 
     //切换list info
     $(".load_wrapper").show();
