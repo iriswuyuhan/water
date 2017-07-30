@@ -3,6 +3,9 @@
     width:1000px;
     margin-left:50px;
 }
+.container{
+    width:1200px;
+}
 a:hover{
     text-decoration: none;
 }
