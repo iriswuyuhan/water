@@ -384,17 +384,17 @@
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul id="nav" class="nav navbar-nav navbar-right">
                 <li><a href="#"onclick="topnavclick(this)" name="1"><i
-                        class="fa fa-2x fa-sitemap" ></i><br>审核申请</a></li>
+                        class="fa fa-2x fa-check-circle-o" ></i><br>审核申请</a></li>
 
                 <li class="active"><a href="#" onclick="topnavclick(this)" name="2"><i
-                        class="fa fa-2x fa-tasks"></i><br>采样信息</a>
+                        class="fa fa-2x fa-envelope-open-o"></i><br>采样信息</a>
                 </li>
 
                 <li><a href="#" onclick="topnavclick(this)" name="3"><i
-                        class="fa fa-2x fa-tasks"></i><br>实验结果</a>
+                        class="fa fa-2x fa-sticky-note"></i><br>实验结果</a>
                 </li>
                 <li><a href="#" onclick="topnavclick(this)" name="4"><i
-                        class="fa fa-2x fa-tasks"></i><br>项目管理</a>
+                        class="fa fa-2x fa-newspaper-o"></i><br>项目管理</a>
                 </li>
 
 
@@ -406,8 +406,6 @@
                     </div>
                 </ul>
             </ul>
-
-
 
         </div>
     </div>
@@ -578,9 +576,7 @@
                             <button  id="query" type="button" class="btn btn-info">查找</button>
                           <%--  <a id="back-info" href="#" class="return_pon">Back Info&nbsp;<i class="fa fa-angle-double-right"></i><i class="fa fa-angle-double-right"></i></a>--%>
                             <%--<div class="list-switch"><ul><li id="show-table" class="how-table"></li><li id="show-graph" class="show-info"></li></ul></div>--%>
-                            <div class="download_pon pull-right">
-                                <a id="csv" onclick="clickbut()"   ><i class="fa fa-download"></i></a>
-                            </div>
+                            <a id="csv" onclick="clickbut()" class="btn-info"  ><i class="fa fa-download">下载</i></a>
                             <!--<div class="list-switch"><ul><li id="show-table2" class="active"></li><li id="show-graph2" class=""></li></ul></div>-->
                         </div>
                     </div>
