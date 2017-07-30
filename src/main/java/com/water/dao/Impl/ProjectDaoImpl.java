@@ -111,6 +111,25 @@ public class ProjectDaoImpl implements ProjectDao {
         return flag;
     }
 
+    public Project findProjectByName(String projectName){
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Project> applyList = new LinkedList<Project>();
+        try {
+
+            String hql = "from Project where name =:proname";//使用命名参数，推荐使用，易读。
+            Query query = session.createQuery(hql);
+            query.setString("proname", projectName);
+            applyList = query.list();
+
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return applyList.get(0);
+    }
+
     public void flush() {
         Session session = getCurrentSession();
         session.flush();

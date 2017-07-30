@@ -27,8 +27,9 @@
     <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link rel="stylesheet" href="../resources/css/test.css">
+    <link href="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
 
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -45,34 +46,12 @@
 
     <!--<script src="lang/summernote-zh-CN.js"></script>-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/lang/summernote-zh-CN.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
 
-    <style>
-        .indicator-group-content{
-            text-align: left;
-        }
-        #buttons{
-            text-align: center;
-        }
-    </style> 
 </head>
-
 <body onload=load()>
-<script>
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            placeholder:"请输入内容",
-            lang: 'zh-CN', // default: 'en-US'
-            height: 400,
-            focus:true,
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0],editor,welEditable);
-            }
-        });
-    });
-</script>
 
 <!-- Top menu -->
-
 <nav class="navbar" role="navigation" style="margin-bottom:0px;">
 
 
@@ -125,10 +104,10 @@
                 <p>项目发布</p>
             </div>
             <div class="col-md-5">
-                <div class="form_datetime">
-                    <input type="text" id="input"  placeholder="请输入项目名称"/>
+                <div class="form_datetime pull-right">
+                    <input id="tags-project" class="ui-autocomplete-input" autocomplete="off" placeholder="请输入项目名称">
                     <!--<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>-->
-                    <button id="search" class="btn-query text-sign" style="background: #3f9db8">查询</button>
+                    <button id="search" class="btn-query text-sign" style="background: #3f9db8; padding:2px 6px 2px 6px;">查询</button>
                 </div>
             </div>
         </div>
@@ -143,7 +122,7 @@
         <div class="intro-panel">
             <div id = "mainwrapper" class="main_wrapper" style="display: block">
                 <div id="main_content">
-                    <div id="tab1">
+                    <div id="tab1" style="padding-top:40px;">
                         <div id="content1" class="table-content" style="display: block;">
                             <ul id="scro1" class="scroll indicator-group-title">
                                 <li id="add" class="active" onclick=show("add")><a>新增项目</a><span class="fa fa-angle-right"></span></li>
@@ -195,6 +174,32 @@
 <!-- Javascript -->
 <script src="http://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="http://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            placeholder:"请输入内容",
+            lang: 'zh-CN', // default: 'en-US'
+            height: 400,
+            focus:true,
+            onImageUpload: function(files, editor, welEditable) {
+                sendFile(files[0],editor,welEditable);
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $.ajax({
+        url:"getProjectName",
+        type:"post",
+        async:false,
+        success:function (data) {
+            var availableTag = $.parseJSON(data);
+            $("#tags-project").autocomplete({
+                source: availableTag
+            });
+        }
+    })
+</script>
 </body>
 
 </html>
