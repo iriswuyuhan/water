@@ -15,6 +15,11 @@ a:hover{
     width:1000px;
     margin-left:50px;
 }
+ul#aulist {
+    margin-left: 40%;
+    margin-top: -5px;
+    width: 200px;
+}
 .set-pon{
     float:left;
     font-size:18px;
