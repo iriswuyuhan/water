@@ -106,20 +106,18 @@ public class ApplyServiceImpl implements ApplyService {
 
     @Override
     public boolean updateState(Long idApply, Integer state, String responce) {
-        boolean result=false;
         Apply apply=applyDao.get(idApply);
         System.out.println(apply.getImage().size()+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         if(apply==null){
-            result = false;
+            return  false;
 
         }else {
             apply.setState(state);
             apply.setResponse(responce);
             applyDao.saveOrUpdate(apply);
-            result=true;
+            return  true;
         }
 
-        return result;
     }
 
     /**

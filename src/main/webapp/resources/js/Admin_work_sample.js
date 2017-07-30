@@ -1,3 +1,18 @@
+function topnavclick(type) {
+    if(type.name==="1"){
+        window.location.href="toAdmin.do"
+    }
+    if(type.name==="2"){
+        window.location.href="toAdmin_Sample.do"
+    }
+    if(type.name==="3"){
+        window.location.href="toAdmin_Sample_Result.do"
+    }
+    if(type.name==="4"){
+        window.location.href="toAdmin_Project.do"
+    }
+}
+
 $(function () {
     $.ajax({
         url:"./getSampleList",
@@ -17,15 +32,7 @@ $(function () {
             }
         }
     });
-    $(".tyo").click(function () {
-        $("#nav li").removeClass();
-        $(this).parent().prop("class","active");
-        var name =    $(this).find("h4").html();
-        if(name==="审核申请")
-            window.location.href="toAdmin.do";
-        if(name==="下载采样信息")
-            window.location.href="toAdmin_Sample.do"
-    })
+
     $("#search1").click(function () {
         var id = $("#input1").val();
         $.ajax({
@@ -36,6 +43,7 @@ $(function () {
             success: function (data) {
                 var obj = $.parseJSON(data);
                 if(obj!==null){
+
                 setSampleInfo(obj);
                     $("#scro4").find("li").each(function() {
                         $(this).removeClass("active");
@@ -43,7 +51,8 @@ $(function () {
                     $("#scro4").find("a").each(function () {
                         if($(this).html()===id)
                             $(this.parentNode).addClass("active");
-                    })}
+                    })
+                }
                 else {
                     alert("样本编号不存在");
                 }

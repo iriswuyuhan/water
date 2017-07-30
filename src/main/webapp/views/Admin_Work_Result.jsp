@@ -196,9 +196,24 @@
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 
 --></body>
-<script src="./resources/js/Admin_Work.js"></script>
 <script>
+    function topnavclick(type) {
+        if(type.name==="1"){
+            window.location.href="toAdmin.do"
+        }
+        if(type.name==="2"){
+            window.location.href="toAdmin_Sample.do"
+        }
+        if(type.name==="3"){
+            window.location.href="toAdmin_Sample_Result.do"
+        }
+        if(type.name==="4"){
+            window.location.href="toAdmin_Project.do"
+        }
+    }
+
     $(function () {
+
         $("#reset").click(function () {
                window.location.href="to_Admin_Work_Result.do";
 

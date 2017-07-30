@@ -109,7 +109,7 @@
                 <div class="search bar">
                     <form>
                         <input id= "input" type="text" placeholder="请输入申请编号">
-                        <button id="search" ></button>
+                        <button id="search" type="button"></button>
                     </form>
                 </div>
                 <div id="main_content">
