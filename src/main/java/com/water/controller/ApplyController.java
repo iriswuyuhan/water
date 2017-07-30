@@ -75,9 +75,10 @@ public class ApplyController {
     public void dealApply(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String id = request.getParameter("id");
         String state = request.getParameter("state");
+        String reason = request.getParameter("response");
         int state1 = Integer.parseInt(state);
         long id1 = Integer.valueOf(id);
-        boolean bool = applyService.updateState(id1, state1);
+        boolean bool = applyService.updateState(id1, state1,reason);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }

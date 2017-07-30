@@ -101,7 +101,22 @@ function  setSampleInfo(temp) {
         $("#downlo1").attr("href","/samples/"+temp.idSample+".txt");
         $("#downlo1").attr("download",temp.idSample+".txt");
 
-    });
+    })
+    $("#content4").find("ol").each(function () {
+        $(this).empty();
+        for(var i=0;i<temp.apply.image.length;i++){
+            $(this).append("<li data-target='#myCarousel3' data-slide-to='"+i+"'></li>");
+        }
+    })
+    $("#content4").find(".carousel-inner").each(function () {
+        $(this).empty();
+        $(this).append("<div class='item active'>"+
+            "<img src='../resources/txt/"+temp.apply.image[0]+"'></div>");
+        for(var i=1;i<temp.apply.image.length;i++){
+            $(this).append("<div class='item'>"+
+                "<img src='../resources/txt/"+temp.apply.image[i]+"'></div>");
+        }
+    })
 }
 function  sampleClick(type) {
     var id = type.innerHTML;

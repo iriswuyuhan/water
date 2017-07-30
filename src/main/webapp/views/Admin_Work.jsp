@@ -590,7 +590,7 @@
                                     </div>
                                     <div class="operate">
                                         <a onclick="dealApply(this)" class="yes button"><i class="fa fa-check"></i>审核通过</a>
-                                        <a  onclick="dealApply(this)" class="no button"><i class="fa fa-close"></i>拒绝申请</a>
+                                        <a   data-toggle="modal" data-target="#myModal" class="no button"><i class="fa fa-close"></i>拒绝申请</a>
                                     </div>
 
                                 </div>
@@ -745,7 +745,22 @@
 
     </div>
 </div>
-
+<%--模态框--%>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">拒绝原因</h4>
+            </div>
+           <textarea id="reason" placeholder="。。。。。" style="width: 100%; height: 100%;border: 0px;"></textarea>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button onclick="dealApply(this)" type="button" class="btn btn-primary">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 
 <!-- Footer -->
 <footer>
