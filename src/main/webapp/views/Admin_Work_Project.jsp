@@ -14,6 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>项目发布</title>
 
+    <%--<script src="./resources/js/Admin_Work.js"></script>--%>
+    <script src="./resources/js/Admin_Work_Project.js"></script>
+
     <!-- CSS -->
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
@@ -42,9 +45,6 @@
 
     <!--<script src="lang/summernote-zh-CN.js"></script>-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/lang/summernote-zh-CN.js"></script>
-
-    <script src="./resources/js/Admin_Work_Project.js"></script>
-    <%--<script src="./resources/js/Admin_Work.js"></script>--%>
 
     <style>
         .indicator-group-content{
