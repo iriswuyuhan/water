@@ -463,7 +463,7 @@
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul id="nav" class="nav navbar-nav navbar-right">
                 <li class="active"><a href="#"onclick="topnavclick(this)" name="1"><i
-                        class="fa fa-2x fa-sitemap" ></i><br>审核申请</a></li>
+                        class="fa fa-check" ></i><br>审核申请</a></li>
 
                 <li><a href="#" onclick="topnavclick(this)" name="2"><i
                         class="fa fa-2x fa-tasks"></i><br>采样信息</a>
