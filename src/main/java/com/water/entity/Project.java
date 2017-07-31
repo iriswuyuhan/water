@@ -9,7 +9,7 @@ public class Project {
     private String name;          //项目名称
     private String description;      //项目描述
     private Integer state;          //项目状态
-    private String report;          //项目报告
+    private String report;          //项目报告pdf的名称
     private Date date;          //日期
 
     @Id
@@ -34,6 +34,7 @@ public class Project {
     }
 
     @Basic
+    @Lob
     @Column(name = "description", nullable = true)
     public String getDescription() {
         return description;

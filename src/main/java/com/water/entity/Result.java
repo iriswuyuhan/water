@@ -23,6 +23,7 @@ public class Result {
     }
 
     @Basic
+    @Lob
     @Column(name = "description", nullable = true)
     public String getDescription() {
         return description;

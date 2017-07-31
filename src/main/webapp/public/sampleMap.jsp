@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>公众参与</title>
+    <title>eRivermap-样本地图</title>
 
     <!-- CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -53,20 +53,24 @@
                 <li><a href="User_Main.html"><i
                         class="fa fa-2x fa-tasks"></i><br>首页</a></li>
 
-                <li><a href=""><i
+                <li><a href="engagement.html"><i
                         class="fa fa-2x fa-handshake-o"></i><br>公众参与</a>
                 </li>
 
-                <li><a href="projectIntro.jsp"><i
+                <li><a href="../projectIntro/init"><i
                         class="fa fa-2x fa-list-alt"></i><br>信息发布</a>
                 </li>
                 <li><a href="introduction.html"><i
                         class="fa fa-2x fa-file-text-o"></i><br>项目介绍</a>
                 </li>
-                <li  class="active"><a href="sampleMap.html"><i
+                <li class="active"><a href="sampleMap.jsp"><i
                         class="fa fa-2x fa-map-marker "></i><br>样本地图</a>
                 </li>
+
             </ul>
+
+
+
         </div>
     </div>
 </nav>
