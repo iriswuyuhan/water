@@ -42,7 +42,7 @@
         <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
     </div>
 </div>
-<div id="map" style="width:100%;height:450px;border:#ccc solid 1px;font-size:12px"></div>
+<div id="map" style="margin-left:10px;margin-right: 10px;height:420px;border:#ccc solid 1px;font-size:12px"></div>
 <p style="padding-top: 10px;padding-bottom: 10px">
     <a style="width: 85%;align-self: center;line-height: 35px" href="javascript:;" id="confirm_but"
        class="weui-btn weui-btn_plain-primary">确定</a>
