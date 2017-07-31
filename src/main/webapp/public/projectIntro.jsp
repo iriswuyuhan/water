@@ -48,20 +48,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="User_Main.html"><i
+                <li><a href="../public/User_Main.html"><i
                         class="fa fa-2x fa-tasks"></i><br>首页</a></li>
 
-                <li><a href="engagement.html"><i
+                <li><a href="../public/engagement.html"><i
                         class="fa fa-2x fa-handshake-o"></i><br>公众参与</a>
                 </li>
 
-                <li class="active"><a href="projectIntro.jsp"><i
+                <li class="active"><a href="../projectIntro/init"><i
                         class="fa fa-2x fa-list-alt"></i><br>信息发布</a>
                 </li>
-                <li><a href="introduction.html"><i
+                <li><a href="../public/introduction.html"><i
                         class="fa fa-2x fa-file-text-o"></i><br>项目介绍</a>
                 </li>
-                <li><a href="sampleMap.jsp"><i
+                <li><a href="../public/sampleMap.jsp"><i
                         class="fa fa-2x fa-map-marker "></i><br>样本地图</a>
                 </li>
 
