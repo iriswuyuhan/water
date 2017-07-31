@@ -174,4 +174,24 @@ public class ProjectController {
         JSONObject object = JSONObject.fromObject(json);
         return object;
     }
+
+    /**
+     * @param response
+     * @return void
+     * @throws Exception
+     */
+    @RequestMapping("/getLatestPro")
+    @ResponseBody
+    public void getLatest(HttpServletResponse response) throws IOException {
+        Project project=projectService.findNewestProject();
+//        Project project=new Project();
+//        project.setName("北戴河");
+//        project.setDescription("这是具体内容");
+//        project.setIdProject(1);
+
+        JSONObject jsonObject=JSONObject.fromObject(project);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(jsonObject);
+        response.getWriter().flush();
+    }
 }

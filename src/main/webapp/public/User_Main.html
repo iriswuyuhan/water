@@ -28,9 +28,10 @@
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="././ico/favicon1.ico">
 
+    <script src="../resources/js/user_main.js"></script>
 </head>
 
-<body>
+<body onload="load()">
 
 <!-- Top menu -->
 <nav class="navbar" role="navigation">
@@ -69,33 +70,14 @@
                 <div class="col-sm-10 col-sm-offset-1 slider">
                     <div class="flexslider">
                         <ul class="slides">
-                            <li data-thumb="../resources/img/attendback.jpg">
-                                <img src="../resources/img/attendback.jpg">
-                                <div class="flex-caption">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                </div>
+                            <li>
+                                <a href="engagement.html"><img src="../resources/img/public.jpg"></a>
                             </li>
-                            <li data-thumb="../resources/img/addphone.png">
-                                <img src="../resources/img/addphone.png">
-                                <div class="flex-caption">
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                    lobortis nisl ut aliquip ex ea commodo consequat.
-                                </div>
+                            <li>
+                                <a href="projectIntro.jsp"><img src="../resources/img/info.jpg"></a>
                             </li>
-                            <li data-thumb="../resources/img/addApply.png">
-                                <img src="../resources/img/addApply.png">
-                                <div class="flex-caption">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-                                    Lorem ipsum dolor sit amet, consectetur.
-                                </div>
-                            </li>
-                            <li data-thumb="../resources/img/rightArrow.png">
-                                <img src="../resources/img/rightArrow.png">
-                                <div class="flex-caption">
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                    lobortis nisl ut aliquip ex ea commodo consequat.
-                                </div>
+                            <li>
+                                <a href="introduction.html"><img src="../resources/img/intro.jpg"></a>
                             </li>
                         </ul>
                     </div>
@@ -112,7 +94,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">项目介绍</h3>
         </div>
-        <div id="briIntro-body" class="panel-body" style="color: #3c3c3c">
+        <div id="briIntro-body" class="panel-body" style="color: #3c3c3c;font-size: medium">
             <img src="../resources/img/water_pollution4.jpg">
             <p>
                 近年来，环境污染和全球气候变化造成水生生物多样性下降、
@@ -131,14 +113,16 @@
             <h3 class="panel-title">最新项目</h3>
         </div>
         <div class="panel-body">
-
+            <h3 id="proName" style="color: #1F7CC1"></h3>
+            <div id="proContent" style="font-size: medium;color: black"></div>
+            <a id="proDetail" onclick="gotoProDetail()">查看详情</a>
         </div>
     </div>
     <div id="promotion" class="panel panel-primary" style="width: 24%">
         <div class="panel-heading">
             <h3 class="panel-title">加入我们</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" style="font-size: medium">
             <img src="../resources/img/code.png">
             <p>
                 欢迎扫描二维码，关注我们的微信公众号“河流生态地图”，获取最新资讯并参与志愿活动。
@@ -183,7 +167,7 @@
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 <script src="../resources/andiajs/retina-1.1.0.min.js"></script>
 <script src="../resources/andiajs/jquery.magnific-popup.min.js"></script>
-<script src="../resources/flexslider/jquery.flexslider-min.js"></script>
+<script src="../resources/flexslider/jquery.flexslider.js"></script>
 <script src="../resources/andiajs/jflickrfeed.min.js"></script>
 <script src="../resources/andiajs/masonry.pkgd.min.js"></script>
 <script src="../resources/andiajs/jquery.ui.map.min.js"></script>
