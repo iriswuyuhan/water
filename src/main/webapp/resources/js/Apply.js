@@ -10,8 +10,8 @@ $("#applyUpload").click(function () {
     var idUser = $("#userID").val();
     var date = new Date();
     var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
+    var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes();
     $("#applyDate").val(applyDate);
-    alert(applyDate);
     $("#img_userID").val(idUser);
     $("#imageForm").submit();
     var url = "../applyUpload";
@@ -36,9 +36,8 @@ $("#applyUpload").click(function () {
 
     var obj = document.getElementById("file");
     for (var i = 0; i < obj.files.length; i++) {
-        imgUrl += idUser + "_" + applyDate + "_" + i.toString() + ".jpg" + ";";
+        imgUrl += idUser + "_" + applyDateStr + "_" + i.toString() + ".jpg" + ";";
     }
-    // alert(imgUrl);
     if (projectID == "") {
         alert("请选择项目名称");
     } else if (waterAddress == "" || waterAddress == "请选择水域地址") {
@@ -46,49 +45,48 @@ $("#applyUpload").click(function () {
     } else if ($("#file_0").val() == "") {
         alert("请上传河流图片");
     } else {
-        // $.ajax({
-        //     type: "POST",
-        //     url: url,
-        //     async: true,
-        //     // dataType:"json",
-        //     data: {
-        //         "longitude": longitude,
-        //         "latitude": latitude,
-        //         "number": number,
-        //         "address": address,
-        //         "applyDate": applyDate,
-        //         "state": state,
-        //         "imgUrl": imgUrl,
-        //         "name": name,
-        //         "waterAddress": waterAddress,
-        //         "idUser": idUser,
-        //         "projectID": projectID
-        //     },
-        //     success: function (data) {
-        //         alert(data);
-        //         if (data) {
-        //             alert("提交成功");
-        //             $.cookie('ret2', null, {path: '/'});
-        //             $.cookie('name', null, {path: '/'});
-        //             $.cookie('tel', null, {path: '/'});
-        //             $.cookie('add2', null, {path: '/'});
-        //             $.cookie('ret3', null, {path: '/'});
-        //             $.cookie('longitude', null, {path: '/'});
-        //             $.cookie('latitude', null, {path: '/'});
-        //             $.cookie('concrete_address', null, {path: '/'});
-        //         } else {
-        //             alert("提交申请失败");
-        //         }
-        //     }
-        //     // error : function(XMLHttpRequest, textStatus, errorThrown) {
-        //     //     //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
-        //     //     alert(XMLHttpRequest.responseText);
-        //     //     alert(XMLHttpRequest.status);
-        //     //     alert(XMLHttpRequest.readyState);
-        //     //     alert(textStatus); // parser error;
-        //     // }
-        // })
-        // window.location.href = basePath + "user/j" + idUser + "/history?type=0";
+        $.ajax({
+            type: "POST",
+            url: url,
+            async: true,
+            // dataType:"json",
+            data: {
+                "longitude": longitude,
+                "latitude": latitude,
+                "number": number,
+                "address": address,
+                "applyDate": applyDate,
+                "state": state,
+                "imgUrl": imgUrl,
+                "name": name,
+                "waterAddress": waterAddress,
+                "idUser": idUser,
+                "projectID": projectID
+            },
+            success: function (data) {
+                if (data) {
+                    alert("提交成功");
+                    $.cookie('ret2', null, {path: '/'});
+                    $.cookie('name', null, {path: '/'});
+                    $.cookie('tel', null, {path: '/'});
+                    $.cookie('add2', null, {path: '/'});
+                    $.cookie('ret3', null, {path: '/'});
+                    $.cookie('longitude', null, {path: '/'});
+                    $.cookie('latitude', null, {path: '/'});
+                    $.cookie('concrete_address', null, {path: '/'});
+                } else {
+                    alert("提交申请失败");
+                }
+            }
+            // error : function(XMLHttpRequest, textStatus, errorThrown) {
+            //     //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+            //     alert(XMLHttpRequest.responseText);
+            //     alert(XMLHttpRequest.status);
+            //     alert(XMLHttpRequest.readyState);
+            //     alert(textStatus); // parser error;
+            // }
+        })
+        window.location.href = basePath + "user/j" + idUser + "/history?type=0";
     }
 })
 
