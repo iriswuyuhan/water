@@ -157,6 +157,7 @@ public class ProjectController {
         File dir=new File("/home/samples/");
         MultipartFile file = image;
         if( !(file.getOriginalFilename().equals("")) ) {
+            file.transferTo(new File("/home/samples/"+project+".pdf"));
         }
         String json = "{'state':'success'}";
         JSONObject object = JSONObject.fromObject(json);
