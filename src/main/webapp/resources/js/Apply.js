@@ -34,8 +34,8 @@ $("#applyUpload").click(function () {
     projectID = $("#projectID").val();
     var imgUrl = "";
 
-    var obj = document.getElementById("file");
-    for (var i = 0; i < obj.files.length; i++) {
+    var myArray = document.getElementsByName("image");
+    for (var i = 0; i < myArray.length; i++) {
         imgUrl += idUser + "_" + applyDate + "_" + i.toString() + ".jpg" + ";";
     }
     // alert(imgUrl);
@@ -46,49 +46,49 @@ $("#applyUpload").click(function () {
     } else if ($("#file_0").val() == "") {
         alert("请上传河流图片");
     } else {
-        // $.ajax({
-        //     type: "POST",
-        //     url: url,
-        //     async: true,
-        //     // dataType:"json",
-        //     data: {
-        //         "longitude": longitude,
-        //         "latitude": latitude,
-        //         "number": number,
-        //         "address": address,
-        //         "applyDate": applyDate,
-        //         "state": state,
-        //         "imgUrl": imgUrl,
-        //         "name": name,
-        //         "waterAddress": waterAddress,
-        //         "idUser": idUser,
-        //         "projectID": projectID
-        //     },
-        //     success: function (data) {
-        //         alert(data);
-        //         if (data) {
-        //             alert("提交成功");
-        //             $.cookie('ret2', null, {path: '/'});
-        //             $.cookie('name', null, {path: '/'});
-        //             $.cookie('tel', null, {path: '/'});
-        //             $.cookie('add2', null, {path: '/'});
-        //             $.cookie('ret3', null, {path: '/'});
-        //             $.cookie('longitude', null, {path: '/'});
-        //             $.cookie('latitude', null, {path: '/'});
-        //             $.cookie('concrete_address', null, {path: '/'});
-        //         } else {
-        //             alert("提交申请失败");
-        //         }
-        //     }
-        //     // error : function(XMLHttpRequest, textStatus, errorThrown) {
-        //     //     //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
-        //     //     alert(XMLHttpRequest.responseText);
-        //     //     alert(XMLHttpRequest.status);
-        //     //     alert(XMLHttpRequest.readyState);
-        //     //     alert(textStatus); // parser error;
-        //     // }
-        // })
-        // window.location.href = basePath + "user/j" + idUser + "/history?type=0";
+        $.ajax({
+            type: "POST",
+            url: url,
+            async: true,
+            // dataType:"json",
+            data: {
+                "longitude": longitude,
+                "latitude": latitude,
+                "number": number,
+                "address": address,
+                "applyDate": applyDate,
+                "state": state,
+                "imgUrl": imgUrl,
+                "name": name,
+                "waterAddress": waterAddress,
+                "idUser": idUser,
+                "projectID": projectID
+            },
+            success: function (data) {
+                alert(data);
+                if (data) {
+                    alert("提交成功");
+                    $.cookie('ret2', null, {path: '/'});
+                    $.cookie('name', null, {path: '/'});
+                    $.cookie('tel', null, {path: '/'});
+                    $.cookie('add2', null, {path: '/'});
+                    $.cookie('ret3', null, {path: '/'});
+                    $.cookie('longitude', null, {path: '/'});
+                    $.cookie('latitude', null, {path: '/'});
+                    $.cookie('concrete_address', null, {path: '/'});
+                } else {
+                    alert("提交申请失败");
+                }
+            }
+            // error : function(XMLHttpRequest, textStatus, errorThrown) {
+            //     //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+            //     alert(XMLHttpRequest.responseText);
+            //     alert(XMLHttpRequest.status);
+            //     alert(XMLHttpRequest.readyState);
+            //     alert(textStatus); // parser error;
+            // }
+        })
+        window.location.href = basePath + "user/j" + idUser + "/history?type=0";
     }
 })
 
