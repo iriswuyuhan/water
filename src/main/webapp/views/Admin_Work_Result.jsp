@@ -13,7 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>采样信息 - 后台管理</title>
+    <title>实验结果 - 后台管理</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
                         class="fa fa-2x fa-sticky-note"></i><br>实验结果</a>
                 </li>
                 <li><a href="#" onclick="topnavclick(this)" name="4"><i
-                        class="fa fa-2x fa-newspaper-o"></i><br>项目管理</a>
+                        class="fa fa-2x fa-newspaper-o"></i><br>项目发布</a>
                 </li>
 
 
@@ -229,7 +229,6 @@
                         async: false,
                         data: {"id": $("#tags").val()},
                         success: function (data) {
-                            alert(data);
                             if(data==1){
 //                        $("#file-1").fileinput("upload");
                                 $.ajax({

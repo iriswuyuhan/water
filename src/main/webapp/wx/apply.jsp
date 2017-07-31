@@ -203,7 +203,7 @@
 <div class="container">
     <!--    照片添加    -->
     <div class="z_photo">
-        <form id="imageForm" action="/uploadImg" class="z_file" method="post" enctype="multipart/form-data">
+        <form id="imageForm" action="../uploadImg" class="z_file" method="post" enctype="multipart/form-data">
             <input type="file" class="image" name="image" id="file" value="" accept="image/*" multiple onchange="imgChange('z_photo','z_file');" />
             <input type="hidden" id="applyDate" name="applyDate">
             <input type="hidden" id="img_userID" name="img_userID">
@@ -245,6 +245,7 @@
             onConfirm: function (result) {
                 $("#projectID").val(result);
                 var projectID = $("#projectID").val();
+                alert(projectID);
                 var label = project[projectID].label;
                 $("#projectName").html(label);
             }

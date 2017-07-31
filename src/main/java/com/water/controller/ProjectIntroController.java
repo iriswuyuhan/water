@@ -35,4 +35,17 @@ public class ProjectIntroController {
         modelAndView.addObject("projectNameArray",projectNames);
         return modelAndView;
     }
+
+    @RequestMapping("/getInfo")
+    public ModelAndView getInfo(){
+        ModelAndView modelAndView = new ModelAndView("../public/projectIntro");
+        String projectName = request.getParameter("projectName");
+        Project p = projectService.findProjectByName(projectName);
+        modelAndView.addObject("projectDescription",p.getDescription());
+        modelAndView.addObject("projectName",p.getName());
+        modelAndView.addObject("report",p.getReport());
+        modelAndView.addObject("state",p.getState());
+        modelAndView.addObject("date",p.getDate());
+        return modelAndView;
+    }
 }

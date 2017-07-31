@@ -26,6 +26,11 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public Project findProjectByName(String projectName) {
+        return projectDao.findProjectByName(projectName);
+    }
+
+    @Override
     public long saveProject(Project project) {
         projectDao.save(project);
         return project.getIdProject();
@@ -48,5 +53,6 @@ public class ProjectServiceImpl implements ProjectService {
         project.setReport(pdf);
         return  projectDao.saveOrUpdate(project);
     }
+
 
 }

@@ -70,6 +70,17 @@ $(function () {
 
 })
 function  setSampleInfo(temp) {
+    $.ajax({
+        url: "./getSampleResult",
+        type: "post",
+        async: false,
+        data:{"idSample":temp.idSample},
+        success: function (data) {
+            $("#sample-result").html(data);
+            $("#reason").val(data);
+
+        }
+    });
     $("#sample").html(temp.idSample);
     $(".sample_time").html(timeFormatter1(temp.sampleDate));
     $("#content4").find("span[name='name']").each(function (index) {
@@ -95,14 +106,17 @@ function  setSampleInfo(temp) {
             if(temp.state==1) {
                 $(this).html("处理中");
                 $("#confirm").hide();
+                $("#result").hide();
             }
             if(temp.state==2) {
                 $(this).html("已上传实验结果");
                 $("#confirm").hide();
+                $("#result").show();
             }
             if(temp.state==0) {
                 $(this).html("待收取");
                 $("#confirm").show();
+                $("#result").hide();
             }
         }
 
@@ -127,6 +141,8 @@ function  setSampleInfo(temp) {
         }
     })
 }
+
+
 function  sampleClick(type) {
     var id = type.innerHTML;
     $.ajax({
@@ -158,7 +174,7 @@ function confirmClik(type) {
                     var bool = $.parseJSON(data);
                     if(bool){
                         alert("已改为处理中");
-                        location.reload();
+                        $("#sample-state").html("处理中");
                     }
                 }
             });
@@ -167,6 +183,23 @@ function confirmClik(type) {
             alert("取消");
         }
 }
+
+function modifyClik(type) {
+    var id = $("#sample").html();
+    $.ajax({
+        url: "./modifyResult",
+        type: "post",
+        data: {"idSample": id, "description": $("#reason").val()},
+        success: function (data) {
+            if(data) {
+                alert("修改成功！");
+                $("#myModal").modal("hide");
+                $("#sample-result").html($("#reason").val());
+            }
+        }
+    })
+}
+
 function timeFormatter1(value) {
     return (1900 + value.year) + "-" + (value.month + 1) + "-" + value.date + " " + value.hours + ":" + value.minutes + ":" + value.seconds;
 }

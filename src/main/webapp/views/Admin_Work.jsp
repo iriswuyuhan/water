@@ -62,7 +62,7 @@
                         class="fa fa-2x fa-sticky-note"></i><br>实验结果</a>
                 </li>
                 <li><a href="#" onclick="topnavclick(this)" name="4"><i
-                        class="fa fa-2x fa-newspaper-o"></i><br>项目管理</a>
+                        class="fa fa-2x fa-newspaper-o"></i><br>项目发布</a>
                 </li>
 
 
@@ -294,6 +294,10 @@
                                             <span>水域地址：</span>
                                             <span name='name' style="color:#555;">--</span>
                                         </p>
+                                        <p>
+                                            <span>拒绝原因：</span>
+                                            <span name='name' style="color:#555;">--</span>
+                                        </p>
                                     </div>
 
                                     <div id="myCarousel3" class="carousel slide">
@@ -345,7 +349,7 @@
            <textarea id="reason" placeholder="。。。。。" style="width: 100%; height: 100%;border: 0px;"></textarea>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button onclick="dealApply(this)" type="button" class="btn btn-primary">提交更改</button>
+                <button onclick="dealApply(this)" type="button" class="btn btn-primary">确认</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
