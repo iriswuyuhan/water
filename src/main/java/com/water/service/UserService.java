@@ -6,7 +6,7 @@ import com.water.entity.User;
  * Created by asus1 on 2017/7/19.
  */
 public interface UserService {
-    void addUser1();
+
     /**
      * 保存用户信息
      *
@@ -27,8 +27,18 @@ public interface UserService {
      */
     public User getById(String id);
 
+    /**
+     * 更新用户信息
+     * @param user
+     * @return
+     */
     public boolean updateUser(User user);
 
+    /**
+     * 添加微信普通用户
+     * @param userId
+     * @return
+     */
     public boolean addUser(String userId);
 
 
