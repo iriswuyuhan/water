@@ -110,8 +110,10 @@ public class ProjectController {
     @ResponseBody
     public boolean modify(HttpServletRequest request) throws IOException {
         long id=Long.parseLong(request.getParameter("id"));
+        System.out.println(id);
         String head=request.getParameter("headline");
         String body=request.getParameter("body");
+        System.out.println(body);
 
         Date date=new Date();
         Project project=new Project();
@@ -182,7 +184,7 @@ public class ProjectController {
      */
     @RequestMapping("/getLatestPro")
     @ResponseBody
-    public void getLatest(HttpServletResponse response) throws IOException {
+    public JSONObject getLatest(HttpServletResponse response) throws IOException {
         Project project=projectService.findNewestProject();
 //        Project project=new Project();
 //        project.setName("北戴河");
@@ -190,8 +192,6 @@ public class ProjectController {
 //        project.setIdProject(1);
 
         JSONObject jsonObject=JSONObject.fromObject(project);
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().print(jsonObject);
-        response.getWriter().flush();
+        return jsonObject;
     }
 }

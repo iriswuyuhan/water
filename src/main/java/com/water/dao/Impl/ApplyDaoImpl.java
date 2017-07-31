@@ -43,7 +43,7 @@ public class ApplyDaoImpl implements ApplyDao {
     public List<Apply> findAll() {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Apply> list = new LinkedList<Apply>();
+        List<Apply> list = new LinkedList<>();
         try {
             String hql = "from Apply";
             Query query = session.createQuery(hql);
@@ -60,7 +60,7 @@ public class ApplyDaoImpl implements ApplyDao {
     public List<Apply> findApplyById(String idUser) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Apply> applyList = new LinkedList<Apply>();
+        List<Apply> applyList = new LinkedList<>();
         try {
 
             String hql = "from Apply where userID =:userid";//使用命名参数，推荐使用，易读。
@@ -158,7 +158,7 @@ public class ApplyDaoImpl implements ApplyDao {
     public Apply getApplyByLocation(double longi,double lati){
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Apply> applyList=new ArrayList<Apply>();
+        List<Apply> applyList=new ArrayList<>();
         try {
 
             String hql = "from Apply where longitude =:longitude and latitude =:latitude";//使用命名参数，推荐使用，易读。

@@ -7,24 +7,25 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible"><!-- content="IE=edge">-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>项目发布 - 后台管理</title>
-    <%--<script src="./resources/js/Admin_Work.js"></script>--%>
-    <script src="${pageContext.request.contextPath}/resources/js/Admin_Work_Project.js"></script>
 
-    <!-- CSS -->
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="../resources/css/styles.css">
+    <link rel="stylesheet" href="../resources/css/test.css">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/test.css">
-    <link href="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -35,27 +36,85 @@
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="././ico/favicon1.ico">
 
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <!-- include summernote css/js-->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
 
     <!--<script src="lang/summernote-zh-CN.js"></script>-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/lang/summernote-zh-CN.js"></script>
-    <script src="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/resources/js/Admin_Work_Project.js"></script>
 
 </head>
+
 <body onload=load()>
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            placeholder:"请输入内容",
+            lang: 'zh-CN', // default: 'en-US'
+            height: 400,
+            focus:true,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['view', ['fullscreen', 'codeview']]
+            ],
+            airMode: false,
+
+            width: null,
+
+            tabSize: 4,
+            styleWithSpan: false,
+            shortcuts: true,
+            textareaAutoSync: true,
+            direction: null,
+
+            styleTags: ['p', 'blockquote', 'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+
+            fontNames: [
+                'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New',
+                'Helvetica Neue', 'Helvetica', 'Impact', 'Lucida Grande',
+                'Tahoma', 'Times New Roman', 'Verdana'
+            ],
+
+            fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36'],
+
+            // pallete colors(n x n)
+            colors: [
+                ['#000000', '#424242', '#636363', '#9C9C94', '#CEC6CE', '#EFEFEF', '#F7F7F7', '#FFFFFF'],
+                ['#FF0000', '#FF9C00', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#9C00FF', '#FF00FF'],
+                ['#F7C6CE', '#FFE7CE', '#FFEFC6', '#D6EFD6', '#CEDEE7', '#CEE7F7', '#D6D6E7', '#E7D6DE'],
+                ['#E79C9C', '#FFC69C', '#FFE79C', '#B5D6A5', '#A5C6CE', '#9CC6EF', '#B5A5D6', '#D6A5BD'],
+                ['#E76363', '#F7AD6B', '#FFD663', '#94BD7B', '#73A5AD', '#6BADDE', '#8C7BC6', '#C67BA5'],
+                ['#CE0000', '#E79439', '#EFC631', '#6BA54A', '#4A7B8C', '#3984C6', '#634AA5', '#A54A7B'],
+                ['#9C0000', '#B56308', '#BD9400', '#397B21', '#104A5A', '#085294', '#311873', '#731842'],
+                ['#630000', '#7B3900', '#846300', '#295218', '#083139', '#003163', '#21104A', '#4A1031']
+            ],
+
+            lineHeights: ['1.0', '1.2', '1.4', '1.5', '1.6', '1.8', '2.0', '3.0'],
+
+            tableClassName: 'table table-bordered',
+
+            insertTableMaxSize: {
+                col: 10,
+                row: 10
+            }
+        });
+    });
+</script>
 
 <!-- Top menu -->
-<nav class="navbar" role="navigation" style="margin-bottom:0px;">
+<nav class="navbar" role="navigation">
 
 
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="logo">eRiver<span>Map</span></a>
+            <a href="#" class="logo">eRiver <span>Map</span></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -101,13 +160,6 @@
                 <h1>PUBLISH PROJECT/</h1>
                 <p>项目发布</p>
             </div>
-            <div class="col-md-5">
-                <div class="form_datetime pull-right">
-                    <input id="tags-project" class="ui-autocomplete-input" autocomplete="off" placeholder="请输入项目名称">
-                    <!--<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>-->
-                    <button id="search" class="btn-query text-sign" style="background: #3f9db8; padding:2px 6px 2px 6px;">查询</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -115,7 +167,7 @@
 
 <!-- content -->
 <div class="content">
-    <div class="container" style="width:1200px;">
+    <div class="container">
 
         <div class="intro-panel">
             <div id = "mainwrapper" class="main_wrapper" style="display: block">
@@ -134,7 +186,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div id="summernote" style="text-align:left;"></div>
+                                <div id="summernote"></div>
                                 <div id="buttons">
                                     <button id="confirm" onclick="publish()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">提交</button>
                                     <button id="cancel" onclick="deleteAll()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">取消</button>
@@ -172,32 +224,6 @@
 <!-- Javascript -->
 <script src="http://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="http://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            placeholder:"请输入内容",
-            lang: 'zh-CN', // default: 'en-US'
-            height: 400,
-            focus:true,
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0],editor,welEditable);
-            }
-        });
-    });
-</script>
-<script type="text/javascript">
-    $.ajax({
-        url:"getProjectName",
-        type:"post",
-        async:false,
-        success:function (data) {
-            var availableTag = $.parseJSON(data);
-            $("#tags-project").autocomplete({
-                source: availableTag
-            });
-        }
-    })
-</script>
 </body>
 
 </html>

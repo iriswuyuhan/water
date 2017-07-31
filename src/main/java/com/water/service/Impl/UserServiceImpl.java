@@ -15,17 +15,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-    public void addUser1(){
-
-        User user = new User();
-        user.setIdUser(String.valueOf(1111111111));
-        user.setName("李四");
-        user.setPassword("sdfjafdsafas");
-        user.setAddress("NJU");
-        user.setIsResearcher(0);
-        userDao.save(user);
-    }
-
     public boolean addUser(String userId, String username, String password, String address, Integer isResearcher) {
         User user = new User();
         user.setIdUser(userId);
@@ -41,7 +30,6 @@ public class UserServiceImpl implements UserService {
     }
 
     public boolean updateUser(User user) {
-
         return userDao.saveOrUpdate(user);
 
     }

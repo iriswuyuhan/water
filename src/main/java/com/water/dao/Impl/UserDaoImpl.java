@@ -1,7 +1,6 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UserDao;
-import com.water.entity.Sample;
 import com.water.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

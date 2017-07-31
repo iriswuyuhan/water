@@ -14,7 +14,7 @@ public class Apply {
     private String address;               //邮寄地址
     private Date applyDate;               //申请日期
     private Integer state;                //申请状态
-    private List<String> image = new ArrayList<String>();           //图片路径 不同路径间用；隔开
+    private List<String> image = new ArrayList<String>();           //图片路径
     private String name;                  //填写的邮寄人姓名
     private String waterAddress;          //水域地址
     private User user;                    //所属用户 多对一单向外键

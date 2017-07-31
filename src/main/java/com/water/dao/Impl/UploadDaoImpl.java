@@ -1,7 +1,6 @@
 package com.water.dao.Impl;
 
 import com.water.dao.UploadDao;
-import com.water.entity.Result;
 import com.water.entity.Sample;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -43,7 +42,7 @@ public class UploadDaoImpl implements UploadDao {
     public List<Sample> findAll() {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Sample> list = new LinkedList<Sample>();
+        List<Sample> list = new LinkedList<>();
         try {
             String hql = "from Sample";
             Query query = session.createQuery(hql);
@@ -60,7 +59,7 @@ public class UploadDaoImpl implements UploadDao {
     public Sample findSampleById(long applyId) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Sample> sampleList = new LinkedList<Sample>();
+        List<Sample> sampleList = new LinkedList<>();
         try {
             String hql = "from Sample where applyID =:idApply";
             Query query = session.createQuery(hql);

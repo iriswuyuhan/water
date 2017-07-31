@@ -44,7 +44,7 @@ public class ProjectDaoImpl implements ProjectDao {
     public List<Project> findAll() {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Project> list = new LinkedList<Project>();
+        List<Project> list = new LinkedList<>();
         try{
             String sql = "from Project";
             Query query = session.createQuery(sql);
@@ -114,7 +114,7 @@ public class ProjectDaoImpl implements ProjectDao {
     public Project findProjectByName(String projectName){
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Project> applyList = new LinkedList<Project>();
+        List<Project> applyList = new LinkedList<>();
         try {
 
             String hql = "from Project where name =:proname";//使用命名参数，推荐使用，易读。
