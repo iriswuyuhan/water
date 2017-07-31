@@ -20,19 +20,22 @@
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
 
     <style type="text/css">
+        body{
+            font-size:18px;
+        }
         .z_photo {
             width: 100%;
             height:auto;
             padding: 0.5rem;
             clear: both;
             margin-left: auto;
-            margin-bottom: 10rem;
+            margin-bottom: 2rem;
             margin-right: auto;
         }
 
         .z_photo img {
-            width: 8rem;
-            height: 8rem;
+            width: 2rem;
+            height: 2rem;
         }
 
         .z_addImg {
@@ -41,8 +44,8 @@
         }
 
         .z_file {
-            width: 8rem;
-            height: 8rem;
+            width: 2rem;
+            height: 2rem;
             background: url(../resources/img/z_add.png) no-repeat;
             background-size: 100% 100%;
             float: left;
@@ -50,8 +53,8 @@
         }
 
         .z_file input::-webkit-file-upload-button {
-            width: 8rem;
-            height: 8rem;
+            width: 2rem;
+            height: 2rem;
             border: none;
             position: absolute;
             outline: 0;
@@ -78,11 +81,11 @@
         }
 
         .z_alert {
-            width: 10rem;
-            height: 5rem;
+            width: 6rem;
+            height: 2.5rem;
             border-radius: .2rem;
             background: #fff;
-            font-size: 1rem;
+            font-size: 18px;
             text-align: center;
             position: absolute;
             left: 50%;
@@ -151,6 +154,10 @@
                 name.innerHTML = decodeURI(param[0]);
                 contact.innerHTML = param[1];
                 add.innerHTML = decodeURI(param[2]);
+            }
+            var useCook2 = $.cookie('ret4');
+            if(useCook2 == '1'){
+                $("#projectName").html($.cookie('projectName'));
             }
         }
 
@@ -247,9 +254,15 @@
                 var projectID = $("#projectID").val();
                 var label = project[projectID].label;
                 $("#projectName").html(label);
+                set(label);
             }
         });
     });
+
+    function set(projectName){
+        $.cookie('ret4','1',{path:'/'});
+        $.cookie('projectName',projectName,{path:'/'});
+    }
 
     //px转换为rem
     (function(doc, win) {

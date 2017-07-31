@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
+<% String parameter = request.getParameter("name"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -163,6 +164,18 @@
     $("#scro1").append(name);
     <%}%>
 
+    <% if(parameter == null) {
+        parameter = "一般申请";
+        } %>
+    for(var i=0;i<$("#scro1 li").length;i++) {
+        $("#scro1 li").removeClass("active");
+        var element = $("#scro1 li").eq(i);
+        if(element.innerHTML == <%=parameter%>){
+            alert(element.innerHTML);
+            element.addClass("active");
+        }
+    }
+
     function changeContent(data){
         for(var i=0;i<$("#scro1 li").length;i++) {
             $("#scro1 li").removeClass("active");
@@ -174,7 +187,13 @@
             url:url,
             data:{"projectName":data.innerHTML},
             success:function (data) {
-                alert("success");
+                if(data != null){
+                    $("#projectName").html(data.projectName2);
+                    $("#projectDescription").html(data.description2);
+                    $("#projectDate").html(data.date2);
+                }else{
+                    alert("fail");
+                }
             },
             error : function(XMLHttpRequest, textStatus, errorThrown) {
                 //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
