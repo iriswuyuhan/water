@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>项目介绍 - VicQuant</title>
+    <title>eRivermap-项目介绍</title>
 
     <!-- CSS -->
 
@@ -43,7 +43,7 @@
 
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="logo">Noah's <span>Ark</span></a>
+            <a class="navbar-brand" href="#"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -55,21 +55,16 @@
                         class="fa fa-2x fa-handshake-o"></i><br>公众参与</a>
                 </li>
 
-                <li class="active"><a href=""><i
+                <li class="active"><a href="projectIntro.jsp"><i
                         class="fa fa-2x fa-list-alt"></i><br>信息发布</a>
                 </li>
                 <li><a href="introduction.html"><i
                         class="fa fa-2x fa-file-text-o"></i><br>项目介绍</a>
                 </li>
+                <li><a href="sampleMap.jsp"><i
+                        class="fa fa-2x fa-map-marker "></i><br>样本地图</a>
+                </li>
 
-
-                <ul class="social-links">
-                    <div id="top-navigation">
-                        Welcome! <a href="#"><strong>Administrator</strong></a>
-                        <span>|</span>
-                        <a href="#">Log out</a>
-                    </div>
-                </ul>
             </ul>
 
 
