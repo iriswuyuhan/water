@@ -41,4 +41,18 @@ public class ResultServiceImpl implements ResultService {
     public Result findResultByID(long idResult){
         return resultDao.get(idResult);
     }
+
+    @Override
+    public boolean modifyResult(Long idSample, String text) {
+        Result result = resultDao.get(idSample);
+        if(result==null){
+            return  false;
+
+        }else {
+            result.setDescription(text);
+            resultDao.saveOrUpdate(result);
+            return  true;
+        }
+
+    }
 }

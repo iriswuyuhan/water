@@ -69,7 +69,7 @@
                         class="fa fa-2x fa-sticky-note"></i><br>实验结果</a>
                 </li>
                 <li><a href="#" onclick="topnavclick(this)" name="4"><i
-                        class="fa fa-2x fa-newspaper-o"></i><br>项目管理</a>
+                        class="fa fa-2x fa-newspaper-o"></i><br>项目发布</a>
                 </li>
 
 
@@ -176,8 +176,13 @@
                                 </p>
                                 <p>
                                     <span>样本状态：</span>
-                                    <span name="name" style="color:#000;">待收取</span>
+                                    <span name="name" id="sample-state" style="color:#000;">待收取</span>
                                     <a id="confirm" href="#"onclick="confirmClik(this)" class="confirm btn-success" style="display:none;">确认收取</a>
+                                </p>
+                                <p  id="result" style="display: none;">
+                                    <span>实验结果：</span>
+                                    <span id="sample-result" name="name" style="color:#000;">--</span>
+                                    <a data-toggle="modal" data-target="#myModal" class="no button">修改</a>
                                 </p>
                             </div>
 
@@ -340,32 +345,29 @@
 </footer>
 
 
+<%--模态框--%>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel" style="color: #555;">修改实验结果</h4>
+            </div>
+            <textarea id="reason" placeholder="" style="width: 100%; height: 100%;border: 0px;"></textarea>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button onclick="modifyClik(this)" type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
 <!-- Javascript -->
 <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 <script src="./resources/js/Admin_work_sample.js"></script>
 <script src="./resources/js/Admin_Work_Samplelist.js"></script>
-<script type="text/javascript">
-    $(function () {
-
-        $(".load_wrapper").show();
-        $(".list_wrapper").hide();
-
-        $("#show-info").click(function () {
-            $("#show-info").addClass("active").siblings().removeClass("active"),
-                $(".list_wrapper").fadeOut("fast",function () {
-                    $(".load_wrapper").fadeIn()
-                })
-        })
-
-        $("#show-list").click(function () {
-            $("#show-list").addClass("active").siblings().removeClass("active"),
-                $(".load_wrapper").fadeOut("fast",function () {
-                    $(".list_wrapper").fadeIn()
-                }), $(window).trigger("resize");
-
-    })})
-</script>
 </body>
 
 </html>

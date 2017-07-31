@@ -93,6 +93,24 @@ public class sampleController {
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }
+
+    /**
+     * @param request
+     * @param response
+     * @return 修改样本实验结果
+     * @throws Exception
+     */
+    @RequestMapping("/modifyResult")
+    @ResponseBody
+    public void modifyResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String idSample=request.getParameter("idSample");
+        String text = request.getParameter("description");
+        boolean bool= resultService.modifyResult(Long.valueOf(idSample),text);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(bool);
+    }
+
     /**
      * @param request
      * @param response
@@ -126,6 +144,21 @@ public class sampleController {
         JSONArray array = JSONArray.fromObject(sampleIDs);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
+    }
+
+    /**
+     * @param request
+     * @param response
+     * @return 根据ID得到实验结果
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleResult")
+    @ResponseBody
+    public void getSampleResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String idSample=request.getParameter("idSample");
+        String result = resultService.findResultByID(Long.valueOf(idSample)).getDescription();
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(result);
     }
 
 }

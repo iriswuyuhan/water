@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>项目发布</title>
+    <title>项目发布 - 后台管理</title>
 
     <script src="./resources/js/Admin_Work_Project.js"></script>
 
@@ -73,7 +73,7 @@
                         class="fa fa-2x fa-sticky-note"></i><br>实验结果</a>
                 </li>
                 <li class="active"><a href="#" onclick="topnavclick(this)" name="4"><i
-                        class="fa fa-2x fa-newspaper-o"></i><br>项目管理</a>
+                        class="fa fa-2x fa-newspaper-o"></i><br>项目发布</a>
                 </li>
 
 

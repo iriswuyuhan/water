@@ -259,6 +259,10 @@ function  setinitinfo(temp) {
             $(this).html(temp.latitude);
         if(index==5)
             $(this).html(temp.waterAddress);
+        if(temp.state==2){
+            if(index==6)
+                $(this).html(temp.response);
+        }
     });
     obj.find("h1").each(function () {
         $(this).html(temp.idApply);
