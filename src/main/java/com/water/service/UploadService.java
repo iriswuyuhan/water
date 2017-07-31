@@ -9,7 +9,6 @@ import java.util.Date;
  * Created by 朱晨乾 on 2017/7/17.
  */
 public interface UploadService {
-    public void addUpload();
 
     public boolean updateSample(long idSample, int state);
 
