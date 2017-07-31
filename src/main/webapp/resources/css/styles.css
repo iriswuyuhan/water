@@ -18,6 +18,11 @@ a.logo {
 a.logo span{
     color: #000;
 }
+.navbar-brand {
+    width: 180px;
+    height: 80px;
+    background: url(../img/logo.png) left center no-repeat;
+}
 .navbar-header{
     margin-top: 20px;
 }
@@ -184,12 +189,6 @@ ul.navbar-nav li.active .dropdown-menu > .active > a:hover,
 ul.navbar-nav li.active .dropdown-menu > .active > a:focus { background: #337AB7; color: #fff; border: 0; }
 
 .navbar>.container .navbar-brand { margin-left: 0; }
-
-.navbar-brand {
-    width: 167px;
-    height: 106px;
-    text-indent: -99999px;
-}
 
 /***** Slider *****/
 
