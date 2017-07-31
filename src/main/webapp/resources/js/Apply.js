@@ -10,8 +10,8 @@ $("#applyUpload").click(function () {
     var idUser = $("#userID").val();
     var date = new Date();
     var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
+    var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes();
     $("#applyDate").val(applyDate);
-    alert(applyDate);
     $("#img_userID").val(idUser);
     $("#imageForm").submit();
     var url = "../applyUpload";
@@ -34,11 +34,10 @@ $("#applyUpload").click(function () {
     projectID = $("#projectID").val();
     var imgUrl = "";
 
-    var myArray = document.getElementsByName("image");
-    for (var i = 0; i < myArray.length; i++) {
-        imgUrl += idUser + "_" + applyDate + "_" + i.toString() + ".jpg" + ";";
+    var obj = document.getElementById("file");
+    for (var i = 0; i < obj.files.length; i++) {
+        imgUrl += idUser + "_" + applyDateStr + "_" + i.toString() + ".jpg" + ";";
     }
-    // alert(imgUrl);
     if (projectID == "") {
         alert("请选择项目名称");
     } else if (waterAddress == "" || waterAddress == "请选择水域地址") {
@@ -65,7 +64,6 @@ $("#applyUpload").click(function () {
                 "projectID": projectID
             },
             success: function (data) {
-                alert(data);
                 if (data) {
                     alert("提交成功");
                     $.cookie('ret2', null, {path: '/'});
