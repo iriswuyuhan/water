@@ -71,17 +71,27 @@
     </div>
 </nav>
 <div id="map" style="height: 700px"></div>
-<%--模态框--%>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<!-- 模态框（Modal） -->
+<div class="modal fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" style="    width: 721px; height: 500px;margin-left: -56%;margin-top: -56%;">
+        <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">样本报告</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i>
+                    <tton>
+                        <h4 class="modal-title" id="myModalLabel">
+                            样本编号：100001
+                        </h4>
             </div>
-            <p id="reason"  style="text-align:left;width: 100%; height: 87%;border: 0px;"></p>
-            <div class="modal-footer" style="background: white;  margin-top: -5px;">
-                <button  type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            <div class="modal-body">
+                <div class="pop-wrap">
+                    <div style="display: block; height: 480px; width:560px; overflow-y: auto; overflow-x:hidden ">
+                        <p id="reason" style="text-align: left;color:#555;"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-close" data-dismiss="modal">关闭
+                    <tton>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
@@ -121,6 +131,7 @@
                 data:{"longtitude":e.point.lng,"latitude":e.point.lat},
                 success:function (data) {
                     var obj1 = $.parseJSON(data);
+                    $(".h4").html( "样本编号："+obj1.idResult);
                     $("#reason").html(obj1.description);
                     $("#myModal").modal("show");
                 }
