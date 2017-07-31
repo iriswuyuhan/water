@@ -116,7 +116,7 @@ public class wechatApplyController {
         date = date.replace(":","-");
         String userID = request.getParameter("img_userID");
         String fileName = userID + "_" + date + "_";
-        File dir=new File("/home/samples");
+        File dir=new File("/home/web_upload");
         if(!dir.exists()){
             dir.mkdirs();
         }
