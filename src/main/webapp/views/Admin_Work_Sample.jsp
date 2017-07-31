@@ -25,8 +25,8 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/styles.css">
-    <link rel="stylesheet" href="../resources/css/admin_work_sample.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin_work_sample.css">
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -191,13 +191,13 @@
                                 <!-- 轮播（Carousel）项目 -->
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img src="../resources/img/background.jpg" alt="First slide">
+                                        <img src="${pageContext.request.contextPath}/resources/img/background.jpg" alt="First slide">
                                     </div>
                                     <div class="item">
-                                        <img src="../resources/img/leftArrow.png" alt="Second slide">
+                                        <img src="${pageContext.request.contextPath}/resources/img/leftArrow.png" alt="Second slide">
                                     </div>
                                     <div class="item">
-                                        <img src="../resources/img/pass.png" alt="Third slide">
+                                        <img src="${pageContext.request.contextPath}/resources/img/pass.png" alt="Third slide">
                                     </div>
                                 </div>
                                 <!-- 轮播（Carousel）导航 -->
@@ -343,8 +343,8 @@
 <!-- Javascript -->
 <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
-<script src="./resources/js/Admin_work_sample.js"></script>
-<script src="./resources/js/Admin_Work_Samplelist.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/Admin_work_sample.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/Admin_Work_Samplelist.js"></script>
 <script type="text/javascript">
     $(function () {
 
