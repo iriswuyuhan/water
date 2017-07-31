@@ -1,8 +1,11 @@
 package com.water.service.Impl;
 
+import com.water.dao.ApplyDao;
 import com.water.dao.ResultDao;
 import com.water.dao.UploadDao;
+import com.water.entity.Apply;
 import com.water.entity.Result;
+import com.water.entity.Sample;
 import com.water.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,9 @@ public class ResultServiceImpl implements ResultService {
 
     @Autowired
     private UploadDao uploadDao;
+
+    @Autowired
+    private ApplyDao applyDao;
 
     /**
      * 录入实验结果
@@ -55,4 +61,14 @@ public class ResultServiceImpl implements ResultService {
         }
 
     }
+
+    @Override
+    public Result getResultbyLocation(double longitude, double latitude) {
+        Apply apply=applyDao.getApplyByLocation(longitude,latitude);
+        Sample sample=uploadDao.findSampleById(apply.getIdApply());
+        Result result=resultDao.get(sample.getIdSample());
+        return result;
+    }
+
+
 }
