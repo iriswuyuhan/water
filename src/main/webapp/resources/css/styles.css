@@ -6,11 +6,47 @@ body {
     font-size: 16px;
 }
 
-.modal-dialog {
-    margin-top: 17%;
-    max-width: 331px;
+.pop-wrap{
+    width: 560px;
+    font-size:16px;
+}
+.pop-wrap p{
+    line-height:2em;
+    text-indent:32px;
+}
+.modal-dialog{
+    width: 600px;
+}
+.modal-body {
+    min-height: 480px;
+}
+.modal-title{
+    font-size: 22px;
+
+    padding-left: 8px;
+    color: #337AB7;
+    border-left: 10px #337AB7 solid;
+    float: left;
 }
 
+.modal-header{
+    height: 55px;
+}
+
+.gap{
+    height: 20px;
+}
+
+.btn-close {
+    height:30px;
+    width: 70px;
+    color: #333;
+    font-size: 16px;
+    border-color: #ccc;
+    border: 1px #555 solid;
+    border-radius: 4px;
+
+}
 a.logo {
     font-size:48px;
     font-family: 'Lobster', cursive;

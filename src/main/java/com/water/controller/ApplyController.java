@@ -126,6 +126,7 @@ public class ApplyController {
     public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         ArrayList<Sample> samples = uploadService.findAll();
+        System.out.println("asdk");
         if (samples.size() > 0)
             uploadService.addTxt(samples.get(0));
         JSONArray array = JSONArray.fromObject(samples);

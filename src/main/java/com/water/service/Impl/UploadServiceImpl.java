@@ -15,9 +15,7 @@ import java.io.OutputStreamWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -52,6 +50,15 @@ public class UploadServiceImpl implements UploadService {
                 resultlist.add(sample);
             }
         }
+
+        Collections.sort(resultlist, new Comparator<Sample>() {
+
+            @Override
+            public int compare(Sample o1, Sample o2) {
+                int flag = -o1.getSampleDate().compareTo(o2.getSampleDate());
+                return flag;
+            }
+        });
 
         return resultlist;
     }

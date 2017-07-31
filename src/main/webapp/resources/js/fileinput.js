@@ -2938,7 +2938,7 @@
                 self.loadedImages.push({
                     ind: i,
                     img: $img,
-                    thumb: $thumb,
+                    // thumb: $thumb,
                     pid: previewId,
                     typ: ftype,
                     siz: fsize,
@@ -2946,7 +2946,7 @@
                     imgData: iData,
                     exifObj: exifObject
                 });
-                $thumb.data('exif', exifObject);
+                // $thumb.data('exif', exifObject);
                 self._validateAllImages();
             }).one('error', function () {
                 self._raise('fileimageloaderror', [previewId]);

@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -153,4 +154,29 @@ public class ApplyDaoImpl implements ApplyDao {
         session.flush();
         session.close();
     }
+
+    public Apply getApplyByLocation(double longi,double lati){
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<Apply> applyList=new ArrayList<Apply>();
+        try {
+
+            String hql = "from Apply where longitude =:longitude and latitude =:latitude";//使用命名参数，推荐使用，易读。
+            Query query = session.createQuery(hql);
+            query.setDouble("longitude", longi);
+            query.setDouble("latitude",lati);
+            applyList = query.list();
+
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        if(applyList==null){
+            return  null;
+        }else {
+            return applyList.get(0);
+        }
+    }
+
 }

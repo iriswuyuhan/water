@@ -253,7 +253,7 @@ public class SelfHistoryController {
             List<String> images = image;
             for (String path : images) {
                 if (!path.equals(""))
-                    imageArray.add("/home/upload/"+path);
+                    imageArray.add("/web_upload/"+path);
             }
         }
         return imageArray;

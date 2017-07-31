@@ -11,8 +11,8 @@ jQuery(document).ready(function() {
 	*/
 	$('.flexslider').flexslider({
         animation: "slide",
-        controlNav: "thumbnails",
-        prevText: "",
+        // controlNav: "thumbnails",
+		prevText: "",
         nextText: ""
     });
 	
@@ -62,12 +62,12 @@ jQuery(document).ready(function() {
 	/*
 	    Google maps
 	*/
-	var position = new google.maps.LatLng(45.067883, 7.687231);
-    $('.map').gmap({'center': position,'zoom': 15, 'disableDefaultUI':true, 'callback': function() {
-            var self = this;
-            self.addMarker({'position': this.get('map').getCenter() });	
-        }
-    });
+	// var position = new google.maps.LatLng(45.067883, 7.687231);
+    // $('.map').gmap({'center': position,'zoom': 15, 'disableDefaultUI':true, 'callback': function() {
+     //        var self = this;
+     //        self.addMarker({'position': this.get('map').getCenter() });
+     //    }
+    // });
     
     /*
 	    Subscription form

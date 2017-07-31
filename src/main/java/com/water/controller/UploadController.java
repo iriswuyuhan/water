@@ -67,7 +67,7 @@ public class UploadController {
             List<String> images = apply.getImage();
             for (String image : images) {
                 if(!image.equals(""))
-                    imageArray.add("/home/upload/"+image);
+                    imageArray.add("/web_upload/"+image);
             }
         }
         modelAndView.addObject("imageArray",imageArray);
