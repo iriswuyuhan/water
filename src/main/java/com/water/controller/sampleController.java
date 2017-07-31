@@ -55,7 +55,7 @@ public class sampleController {
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
-                file.transferTo(new File("/home/samples/"+filename+"/" + file.getOriginalFilename()));
+                file.transferTo(new File("/home/web_upload/"+filename+"/" + file.getOriginalFilename()));
             }
         }
         String json = "{'state':'success'}";
@@ -71,21 +71,13 @@ public class sampleController {
     @RequestMapping("/uploadResult")
     @ResponseBody
     public void uploadResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("123123");
         String idSample=request.getParameter("idSample");
         String text = request.getParameter("description");
-
-//        File file = new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+idSample);
-//        String [] fileName = file.list();
-//        List<String> nameList = Arrays.asList(fileName);
-//        System.out.println(idSample+text+fileName.length);
-//        for(int i=0;i<fileName.length;i++)
-//            System.out.println(fileName[i]);
+        System.out.println(idSample);
         Result result  = new Result();
         result.setIdResult(Integer.valueOf(idSample));
         result.setDescription(text);
      //   result.setImage(nameList);
-
        boolean bool= resultService.addResult(result);
        if(bool){
             boolean bool1 = uploadService.updateSample(Long.valueOf(idSample),2);

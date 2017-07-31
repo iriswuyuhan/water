@@ -147,7 +147,12 @@ public class ProjectController {
     public void uploadProjectResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
             String project = request.getParameter("project");
             String filename = project+".pdf";
+            boolean bool = projectService.uploadProject(project,filename);
+            if(bool)
             response.getWriter().print("上传成功");
+            else {
+                response.getWriter().print("上传失败");
+            }
     }
     /**
      * @param request
@@ -160,10 +165,10 @@ public class ProjectController {
         System.out.println("asdsad");
         String project =  request.getParameter("project");
         System.out.println(project);
-        File dir=new File("/home/samples/");
+        File dir=new File("/home/web_upload/");
         MultipartFile file = image;
         if( !(file.getOriginalFilename().equals("")) ) {
-            file.transferTo(new File("/home/samples/"+project+".pdf"));
+            file.transferTo(new File("/home/web_upload/"+project+".pdf"));
         }
         String json = "{'state':'success'}";
         JSONObject object = JSONObject.fromObject(json);

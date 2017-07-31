@@ -230,7 +230,7 @@
                         data: {"id": $("#tags").val()},
                         success: function (data) {
                             alert(data);
-                            if(date==1){
+                            if(data==1){
 //                        $("#file-1").fileinput("upload");
                                 $.ajax({
                                     url: "./uploadResult",
@@ -250,17 +250,17 @@
                 }
             }
             else {
-                $("#file-1").fileinput("upload");
                 if($("#tags-project").val()==""){
                     alert("项目名称未填写");
                 }
                 else{
                     $.ajax({
-                        url:"/uploadProjectResult",
+                        url:"./uploadProjectResult",
                         type:"POST",
                         data:{"project":$("#tags-project").val()},
                         success:function (data) {
                             alert(data);
+                            $("#file-1").fileinput("upload");
                         }
                     })
                 }
@@ -270,7 +270,7 @@
         })
     })
     $("#file-1").fileinput({
-        uploadUrl: '/uploadProjectFile', // you must set a valid URL here else you will get an error
+        uploadUrl: './uploadProjectFile', // you must set a valid URL here else you will get an error
         allowedFileExtensions: ['pdf'],
         language:'zh',
         overwriteInitial: false,
