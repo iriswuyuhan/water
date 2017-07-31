@@ -12,11 +12,13 @@ function load(){
             var objects=$.parseJSON(data);
             for(var i=0;i<data.length;i++){
                 var id=objects[i].idProject;
+                alert(id);
                 var headline=objects[i].name;
                 var markupstr=objects[i].description;
                 addOne(id,headline,markupstr);
             }
         }
+
     })
 }
 
@@ -50,7 +52,7 @@ function publish(){
             })
         }
         else{
-            var url="/publish";
+            var url="./publish";
             $.ajax({
                 type:"POST",
                 url:url,
@@ -69,6 +71,9 @@ function publish(){
                         alert("发布成功！");
                         deleteAll();
                     }
+                },
+                error:function () {
+                    alert("发布失败！可能是格式错误！")
                 }
             });
         }
