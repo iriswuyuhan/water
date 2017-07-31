@@ -50,13 +50,7 @@ public class MainController {
     @Autowired
     private ApplyService applyService;
 
-    //测试增加Apply方法
-    @RequestMapping(value = "addApply", method = RequestMethod.GET)
-    @ResponseBody
-    public String addApply(){
-        applyService.addApply();
-        return "success!";
-    }
+
 
     //测试是否返回对应状态的列表
     @RequestMapping(value = "findApply", method = RequestMethod.GET)
@@ -101,12 +95,7 @@ public class MainController {
     @Autowired
     private UploadService uploadService;
 
-    @RequestMapping(value = "addUpload", method = RequestMethod.GET)
-    @ResponseBody
-    public String addUpload(){
-        uploadService.addUpload();
-        return "success!";
-    }
+
 
     @RequestMapping(value = "searchSample", method = RequestMethod.GET)
     @ResponseBody

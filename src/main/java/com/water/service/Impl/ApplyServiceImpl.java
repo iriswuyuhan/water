@@ -27,25 +27,6 @@ public class ApplyServiceImpl implements ApplyService {
     @Autowired
     private UserDao userDao;
 
-    //这个方法用来测试增加数据
-    public void addApply() {
-        Apply apply = new Apply();
-        apply.setIdApply(Long.valueOf(55555555));
-        apply.setAddress("南京市鼓楼区");
-        List<String> list = new ArrayList<String>();
-        list.add("adfdsa");
-        apply.setImage(list);
-        apply.setLatitude(28.55);
-        apply.setLongitude(120.75);
-        apply.setApplyDate(new Date(System.currentTimeMillis()));
-        apply.setName("Tati");
-        apply.setWaterAddress("渤海");
-        apply.setNumber("33333333333");
-        apply.setUser(userDao.get("FluteRRR"));
-        apply.setState(0);
-        applyDao.save(apply);
-    }
-
     /**
      * 删除apply 不存在返回false
      *
@@ -74,7 +55,7 @@ public class ApplyServiceImpl implements ApplyService {
         }
         return list2;
     }
-//找申请列表
+    //找申请列表
     public ArrayList<Apply> findCheckedApply(String userid, String state) {
         List<Apply> applyList=applyDao.findApplyById(userid);
         ArrayList<Apply> resultlist=new ArrayList<Apply>();
@@ -99,11 +80,13 @@ public class ApplyServiceImpl implements ApplyService {
 
 
     }
-
+    //添加申请
     public boolean addApply(Apply apply) {
         return applyDao.save(apply);
     }
 
+
+    //更新申请状态
     @Override
     public boolean updateState(Long idApply, Integer state, String responce) {
         Apply apply=applyDao.get(idApply);
@@ -136,22 +119,7 @@ public class ApplyServiceImpl implements ApplyService {
         return true;
     }
 
-    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, List<String> image, String name, String waterAddress, String idUser) {
-        Apply apply = new Apply();
-        apply.setIdApply(idApply);
-        apply.setLongitude(longitude);
-        apply.setLatitude(latitude);
-        apply.setNumber(number);
-        apply.setAddress(address);
-        apply.setApplyDate(applyDate);
-        apply.setState(state);
-        apply.setImage(image);
-        apply.setName(name);
-        apply.setWaterAddress(waterAddress);
-        apply.getUser().setIdUser(idUser);
-        applyDao.save(apply);
 
-    }
 
     /**
      * 根据申请号搜索apply
@@ -180,9 +148,4 @@ public class ApplyServiceImpl implements ApplyService {
         return list;
     }
 
-
-
-//    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, byte[] image){return null;}
-//
-//    public Apply addApplication(long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state,String image, String name){return null;}
 }

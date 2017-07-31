@@ -11,13 +11,10 @@ import java.util.List;
  */
 public interface ApplyService {
 
-    public void addApply();
 
 //    public Apply sendApplication(String idApply, Double longitude, Double latitude, String number, String address, Integer postcode, Date applyDate, Integer state, String image, String waterAddress);
 
     public boolean updateState(Long id,Integer state);
-
-    public void addApplication(Long idApply, Double longitude, Double latitude, String number, String address, Date applyDate, Integer state, List<String> image, String name, String waterAddress, String idUser);
 
     public Apply searchApplication(Long idApply);
 
