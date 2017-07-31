@@ -30,24 +30,7 @@ public class UploadServiceImpl implements UploadService {
     @Autowired
     private ApplyDao applyDao;
 
-    public void addUpload() {
-        Sample sample = new Sample();
-        sample.setIdSample(Long.valueOf(1564655));
-        sample.setRemark("666");
-        sample.setApply(applyDao.get(Long.valueOf(66666666)));
-        sample.setVolume(88.5);
-        uploadDao.save(sample);
-    }
 
-    public boolean addUpload(Long idSample, Double longitude, Double latitude, Date sampleDate, Double volume, String image, String remark) {
-        Sample sampleEntity = new Sample();
-        sampleEntity.setIdSample(idSample);
-        sampleEntity.setSampleDate(sampleDate);
-        sampleEntity.setVolume(volume);
-        //        sampleEntity.setImage(image);
-        sampleEntity.setRemark(remark);
-        return uploadDao.save(sampleEntity);
-    }
 
     public boolean addUpload(Sample sample) {
         return uploadDao.save(sample);
