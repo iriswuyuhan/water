@@ -235,7 +235,7 @@
         for(int i=0;i<arrayList.size();i++){%>
         {
             "label": '<%=arrayList.get(i).getName()%>',
-            "value": <%=arrayList.get(i).getIdProject()-1%>
+            "value": '<%=i%>'
         },
         <%}%>
     ]
@@ -245,7 +245,6 @@
             onConfirm: function (result) {
                 $("#projectID").val(result);
                 var projectID = $("#projectID").val();
-                alert(projectID);
                 var label = project[projectID].label;
                 $("#projectName").html(label);
             }

@@ -11,7 +11,7 @@
     <!-- CSS -->
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="../resources/css/styles.css">
@@ -23,7 +23,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="././ico/favicon1.ico">
 
@@ -38,7 +38,7 @@
 
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="logo">Noah's <span>Ark</span></a>
+            <a class="navbar-brand" href="#"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -56,6 +56,9 @@
                 <li><a href="introduction.html"><i
                         class="fa fa-2x fa-file-text-o"></i><br>项目介绍</a>
                 </li>
+                <li><a href="#"><i
+                        class="fa fa-2x fa-map-marker "></i><br>样本地图</a>
+                </li>
 
             </ul>
 
@@ -70,6 +73,8 @@
 <!-- Page Title -->
 <div class="page-title-container">
     <div class="container">
+        <i class="fa fa-2x fa-handshake-o"></i>
+        <p id = "joinevent" style="color: #5a5a5a;font-size: 30px;">参与我们的项目(如何参与+流程)</p>
     </div>
 </div>
 
@@ -80,10 +85,13 @@
 
         <div class="intro-panel">
             <div id = "mainwrapper" class="main_wrapper" style="display: block">
-                <div style="background-image: url(../resources/img/attendback.jpg);height: 700px;width: 1170px"></div>
-                    <div style="position:absolute; top:190px; left:1025px;"><img src=../resources/img/code.png></div>
-                    <div id="scantwocode" style="position:absolute; top:400px; left:1050px;color: #66f9cf"> 扫码关注微信公众号</div>
-                    <div id = "joinevent" style="position: absolute; top: 200px;left:100px;color: #66f9cf;font-size: 30px;">参与我们的项目(如何参与+流程)</div>
+                <div style="background-image: url(../resources/img/attendback.jpg);height: 700px;width: 1170px">
+                    <div class="pull-right">
+                        <img src=../resources/img/code.png >
+                        <p id="scantwocode" style=" color: #66f9cf;" > 扫码关注微信公众号</p>
+                    </div>
+
+                </div>
             </div>
 
 

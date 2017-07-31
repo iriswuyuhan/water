@@ -99,37 +99,25 @@
     <div class="container">
 
         <div class="intro-panel">
-            <div id = "mainwrapper" class="main_wrapper" style="display: block">
-
-                <div class="top">
-                    <div class="search bar">
-                        <form>
-                            <input type="text" placeholder="请输入项目名称">
-                            <button></button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="content-panel">
-                    <div class="left">
-                        <table class="projectList" id="projectList">
-                            <%--<tr>--%>
-                            <%--<td>淮河采样计划</td>--%>
-                            <%--</tr>--%>
-                            <%--<tr>--%>
-                            <%--<td>黄河采样计划</td>--%>
-                            <%--</tr>--%>
-                        </table>
-                    </div>
-
-                    <div class="right">
-                        <p class="projectName">${projectName}</p>
-                        <a class="projectPaper">查看项目报告</a>
-                        <p class="introduction">${projectDescription}</p>
-                        <%--<div style="text-align: center"><img src="../resources/img/projectMap.png" class="projectMap"/></div>--%>
-                        <%--<p class="introduction">淮河流域地跨河南、湖北、安徽、江苏和山东五省，流域面积约为27万平方公里，以废黄河为界，整个流域分成淮河和沂沭泗河两大水系，流域面积分别为19万平方公里和8万平方公里。 </p>--%>
-                        <p class="introduction">现征集志愿者参与采样，时间为<span>${date}</span></p>
-                        <br><br>
+            <div id="mainwrapper" class="main_wrapper" style="display: block">
+                <div id="main_content">
+                    <div class="table-content" style="display: block;">
+                        <br/>
+                        <ul id="scro1" class="scroll indicator-group-title">
+                        </ul>
+                        <div id="scrol_content">
+                            <div id="total_intro_panel" class="tab_panel indicator-group-content">
+                                <div class="left_title">
+                                    <i class="fa fa-edit blue"></i>
+                                    <h1 class="number" style="font-size: 25px">${projectName}</h1>
+                                    <a class="time">${date}</a>
+                                </div>
+                                <div class="left_content" style="text-align: left">
+                                    <p>${projectDescription}</p>
+                                    <p style="float: right"><a>查看项目报告</a></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -174,24 +162,17 @@
 <script type="text/javascript">
     <% ArrayList<String> projectNames = (ArrayList)request.getAttribute("projectNameArray");
     for(int i=0;i<projectNames.size();i++){%>
-    var name = "<tr><td><button onclick='changeContent(this)'><a><%=projectNames.get(i)%></a></button></td></tr>";
-    $("#projectList").append(name);
+    var name = "<li class=''><a onclick='changeContent(this)'><%=projectNames.get(i)%></a> <span class='fa fa-angle-right'></span></li>";
+    $("#scro1").append(name);
     <%}%>
 
-    function changeContent(button){
-        var _table = document.getElementById("projectList");
-        for(var i=0;i<_table.rows.length;i++){
-            var cell = _table.rows[i].cells[0];
-            cell.style.background = "white";
-            cell.style.color = "#9C27B0";
-        }
-        button.style.background = "#64B5F6";
-        button.style.color = "white";
+    function changeContent(a){
+        alert(a.html);
         var url="/projectIntro/getInfo";
         $.ajax({
             type:'POST',
             url:url,
-            data:{"projectName":td.innerHTML},
+            data:{"projectName":a.innerHTML},
             success:function (data) {
                 alert("success");
             }
