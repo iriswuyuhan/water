@@ -35,10 +35,10 @@ $(function(){
     $("#show-list").click(function () {
         $("#show-list").addClass("active").siblings().removeClass("active"),
             $(".load_wrapper").fadeOut("fast", function () {
-                setlist(samplelist);
+/*                setlist(samplelist);
                 $("#project").html("");
                 $("#databegin").html("");
-                $("#dataend").html("");
+                $("#dataend").html("");*/
                 $(".list_wrapper").fadeIn()
             }), $(window).trigger("resize");
     })

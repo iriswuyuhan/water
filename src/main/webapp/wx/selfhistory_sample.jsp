@@ -37,6 +37,7 @@
     int state=(Integer) request.getAttribute("state");
     if(state==2){%>
 <div id="Result">
+    <!--
     <div class="weui-cells__title">实验结果图片</div>
     <div class="weui-cells">
         <div class="weui-cell">
@@ -59,7 +60,8 @@
             </div>
         </div>
     </div>
-    <div class="weui-cells__title">实验结果描述</div>
+    -->
+    <div class="weui-cells__title">实验结果</div>
     <div class="weui-cells weui-cells_form">
         <div class="weui-cell">
             <div class="weui-cell__bd">

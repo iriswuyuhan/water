@@ -8,4 +8,5 @@ import com.water.entity.Result;
 public interface ResultService {
     public boolean addResult(Result result);
     public Result findResultByID(long idResult);
+    public boolean modifyResult(Long idSample, String text);
 }

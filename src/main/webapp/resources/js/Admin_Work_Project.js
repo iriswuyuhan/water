@@ -3,7 +3,7 @@ var content={};
 
 //加载界面使用
 function load(){
-    var url="/allProject";
+    var url="./allProject";
     $.ajax({
         type:"Post",
         url:url,
@@ -30,7 +30,7 @@ function publish(){
         var active=$("#scro1").find(".active");
         var id=active.eq(0).attr('id');
         if(id!=="add"){
-            var url="/modifyProject";
+            var url="./modifyProject";
             $.ajax({
                 type:"POST",
                 url:url,
@@ -108,7 +108,7 @@ function show(id){
 
 //to be continued
 function del(id){
-    var url="/deleteProject";
+    var url="./deleteProject";
     $.ajax({
         type:"POST",
         url:url,

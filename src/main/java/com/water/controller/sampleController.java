@@ -55,7 +55,7 @@ public class sampleController {
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
-                file.transferTo(new File("/home/samples/"+filename+"/" + file.getOriginalFilename()));
+                file.transferTo(new File("/home/web_upload/"+filename+"/" + file.getOriginalFilename()));
             }
         }
         String json = "{'state':'success'}";
@@ -71,21 +71,13 @@ public class sampleController {
     @RequestMapping("/uploadResult")
     @ResponseBody
     public void uploadResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("123123");
         String idSample=request.getParameter("idSample");
         String text = request.getParameter("description");
-
-//        File file = new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+idSample);
-//        String [] fileName = file.list();
-//        List<String> nameList = Arrays.asList(fileName);
-//        System.out.println(idSample+text+fileName.length);
-//        for(int i=0;i<fileName.length;i++)
-//            System.out.println(fileName[i]);
+        System.out.println(idSample);
         Result result  = new Result();
         result.setIdResult(Integer.valueOf(idSample));
         result.setDescription(text);
      //   result.setImage(nameList);
-
        boolean bool= resultService.addResult(result);
        if(bool){
             boolean bool1 = uploadService.updateSample(Long.valueOf(idSample),2);
@@ -93,6 +85,24 @@ public class sampleController {
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print("success");
     }
+
+    /**
+     * @param request
+     * @param response
+     * @return 修改样本实验结果
+     * @throws Exception
+     */
+    @RequestMapping("/modifyResult")
+    @ResponseBody
+    public void modifyResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String idSample=request.getParameter("idSample");
+        String text = request.getParameter("description");
+        boolean bool= resultService.modifyResult(Long.valueOf(idSample),text);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(bool);
+    }
+
     /**
      * @param request
      * @param response
@@ -126,6 +136,21 @@ public class sampleController {
         JSONArray array = JSONArray.fromObject(sampleIDs);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
+    }
+
+    /**
+     * @param request
+     * @param response
+     * @return 根据ID得到实验结果
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleResult")
+    @ResponseBody
+    public void getSampleResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String idSample=request.getParameter("idSample");
+        String result = resultService.findResultByID(Long.valueOf(idSample)).getDescription();
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(result);
     }
 
 }
