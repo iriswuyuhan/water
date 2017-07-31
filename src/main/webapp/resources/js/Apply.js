@@ -14,7 +14,7 @@ $("#applyUpload").click(function () {
     alert(applyDate);
     $("#img_userID").val(idUser);
     $("#imageForm").submit();
-    var url = "/applyUpload";
+    var url = "../applyUpload";
     var longitude = "";
     var latitude = "";
 

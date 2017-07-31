@@ -48,14 +48,14 @@ public class sampleController {
         System.out.println("asdsad");
         System.out.println(request.getParameter("idSample")+"$$$$$$$$");
         String filename = request.getParameter("idSample");
-        File dir=new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+filename);
+        File dir=new File("/home/samples/"+filename);
         if(!dir.exists()){
             dir.mkdirs();
         }
         for(int i=0;i<image.length;i++){
             MultipartFile file = image[i];
             if( !(file.getOriginalFilename().equals("")) ) {
-                file.transferTo(new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+filename+"\\" + file.getOriginalFilename()));
+                file.transferTo(new File("/home/samples/"+filename+"/" + file.getOriginalFilename()));
             }
         }
         String json = "{'state':'success'}";

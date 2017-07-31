@@ -160,10 +160,10 @@ public class ProjectController {
         System.out.println("asdsad");
         String project =  request.getParameter("project");
         System.out.println(project);
-        File dir=new File("E:\\water\\src\\main\\webapp\\resources\\txt\\");
+        File dir=new File("/home/samples/");
         MultipartFile file = image;
         if( !(file.getOriginalFilename().equals("")) ) {
-            file.transferTo(new File("E:\\water\\src\\main\\webapp\\resources\\txt\\"+project+".pdf"));
+            file.transferTo(new File("/home/samples/"+project+".pdf"));
         }
         String json = "{'state':'success'}";
         JSONObject object = JSONObject.fromObject(json);

@@ -6,6 +6,7 @@
     <title>项目概览</title>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <style>
         #play_video{
             text-align: center
@@ -54,11 +55,16 @@
                 <br>
                 <br>
                 <div>
-                    <a class="weui-btn weui-btn_primary" href="apply.html">我要参与</a>
+                    <a class="weui-btn weui-btn_primary" id="jump_apply">我要参与</a>
                 </div>
             </section>
         </article>
     </div>
 </div>
 </body>
+<script type="text/javascript">
+    $("#jump_apply").click(function () {
+        window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2014311796d1a614&redirect_uri=http%3a%2f%2fwx.softlollipop.cn%2fwater_test%2finit%2fwx&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+    });
+</script>
 </html>
