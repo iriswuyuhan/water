@@ -9,9 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -76,6 +75,14 @@ public class ApplyServiceImpl implements ApplyService {
                 }
             }
         }
+
+        Collections.sort(resultlist, new Comparator<Apply>() {
+            @Override
+            public int compare(Apply o1, Apply o2) {
+                int flag = -(o1.getApplyDate().compareTo(o2.getApplyDate()));
+                return flag;
+            }
+        });
         return resultlist;
 
 
@@ -146,5 +153,7 @@ public class ApplyServiceImpl implements ApplyService {
         }
         return list;
     }
+
+
 
 }
