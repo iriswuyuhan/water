@@ -27,16 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class MainController {
     //测试
-
-//    @Autowired
-//    private PersonService personService;
-//
-//    @RequestMapping(value = "savePerson", method = RequestMethod.GET)
-//    @ResponseBody
-//    public String savePerson(){
-//        personService.savePerson();
-//        return "success!";
-//    }
+ /*
     @Autowired
     private UserService userService;
 
@@ -46,7 +37,7 @@ public class MainController {
         userService.addUser1();
         return "success!";
     }
-/*----------------------------------对Apply逻辑调用数据增删改查方法的测试----------------------------------------*/
+*//*----------------------------------对Apply逻辑调用数据增删改查方法的测试----------------------------------------*//*
     @Autowired
     private ApplyService applyService;
 
@@ -90,7 +81,7 @@ public class MainController {
         System.out.println(applyService.findCheckedApply("zhs","待审核").get(0).getImage().size());
         return "success!";
     }
-    /*------------------------------------------------End--------------------------------------------------------*/
+    *//*------------------------------------------------End--------------------------------------------------------*//*
 
     @Autowired
     private UploadService uploadService;
@@ -135,7 +126,7 @@ public class MainController {
     public String uploadPro(){
         System.out.println(projectService.findProjectByName("一般申请").getDescription());
         return "success!";
-    }
+    }*/
 
 /*    @RequestMapping(value = "testTxt", method = RequestMethod.GET)
     @ResponseBody

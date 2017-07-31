@@ -2,14 +2,10 @@ package com.water.service.Impl;
 
 import com.water.dao.ApplyDao;
 import com.water.dao.UploadDao;
-import com.water.dao.UserDao;
 import com.water.entity.Apply;
 import com.water.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.OneToMany;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -23,15 +19,7 @@ public class ApplyServiceImpl implements ApplyService {
     @Autowired
     private UploadDao uploadDao;
 
-    @Autowired
-    private UserDao userDao;
-
-    /**
-     * 删除apply 不存在返回false
-     *
-     * @param id
-     * @return
-     */
+    @Override
     public boolean deleteApply(Long id) {
         if (applyDao.get(id) == null)
             return false;
@@ -39,22 +27,18 @@ public class ApplyServiceImpl implements ApplyService {
         return true;
     }
 
-    /**
-     * 根据用户id返回申请列表
-     * @param idUser
-     * @return
-     */
+    @Override
     public ArrayList<Apply> searchApplicationByUser(String idUser) {
         System.out.println("xx");
         List<Apply> list1 = applyDao.findApplyById(idUser);
-        System.out.println("$$$$$$$$$$$$$$$");
         ArrayList<Apply> list2 = new ArrayList<Apply>();
         for(Apply temp : list1){
                 list2.add(temp);
         }
         return list2;
     }
-    //找申请列表
+
+    @Override
     public ArrayList<Apply> findCheckedApply(String userid, String state) {
         List<Apply> applyList=applyDao.findApplyById(userid);
         ArrayList<Apply> resultlist=new ArrayList<Apply>();
@@ -85,15 +69,13 @@ public class ApplyServiceImpl implements ApplyService {
         });
         return resultlist;
 
-
     }
-    //添加申请
+
+    @Override
     public boolean addApply(Apply apply) {
         return applyDao.save(apply);
     }
 
-
-    //更新申请状态
     @Override
     public boolean updateState(Long idApply, Integer state, String responce) {
         Apply apply=applyDao.get(idApply);
@@ -109,13 +91,7 @@ public class ApplyServiceImpl implements ApplyService {
 
     }
 
-    /**
-     * 更改状态 申请号不存在返回false
-     *
-     * @param id
-     * @param state
-     * @return
-     */
+    @Override
     public boolean updateState(Long id, Integer state) {
         Apply apply = applyDao.get(id);
         if (apply == null)
@@ -125,24 +101,12 @@ public class ApplyServiceImpl implements ApplyService {
         return true;
     }
 
-
-
-    /**
-     * 根据申请号搜索apply
-     *
-     * @param idApply
-     * @return
-     */
+    @Override
     public Apply searchApplication(Long idApply) {
         return applyDao.get(idApply);
     }
 
-    /**
-     * 根据状态返回apply列表
-     *
-     * @param state
-     * @return
-     */
+    @Override
     public ArrayList<Apply> getApplicationList(int state) {
         List<Apply> arrayList = applyDao.findAll();
         ArrayList<Apply> list = new ArrayList<Apply>();
@@ -153,7 +117,5 @@ public class ApplyServiceImpl implements ApplyService {
         }
         return list;
     }
-
-
 
 }

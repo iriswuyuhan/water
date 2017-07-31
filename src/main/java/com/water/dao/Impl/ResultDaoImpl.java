@@ -1,7 +1,6 @@
 package com.water.dao.Impl;
 
 import com.water.dao.ResultDao;
-import com.water.entity.Project;
 import com.water.entity.Result;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -42,7 +41,7 @@ public class ResultDaoImpl implements ResultDao {
     public List<Result> findAll() {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-        List<Result> list = new LinkedList<Result>();
+        List<Result> list = new LinkedList<>();
         try {
             String sql = "from Result";
             Query query = session.createQuery(sql);

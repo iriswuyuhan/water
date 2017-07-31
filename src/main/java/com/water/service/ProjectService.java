@@ -47,15 +47,24 @@ public interface ProjectService {
      */
     public boolean deleteProject(long projectID);
 
+    /**
+     * 更新项目信息
+     * @param project
+     * @return
+     */
     public boolean updateProject(Project project);
 
     /**
-     * \根据项目名称找到项目后上传结果
+     * 根据项目名称找到项目后上传结果
      * @param projectName
      * @param pdf
      * @return
      */
     public boolean uploadProject(String projectName , String pdf);
 
+    /**
+     * 查找最新的项目
+     * @return
+     */
     public Project findNewestProject();
 }

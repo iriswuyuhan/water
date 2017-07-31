@@ -12,10 +12,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 /**
  * Created by 朱晨乾 on 2017/7/17.
@@ -28,18 +27,18 @@ public class UploadServiceImpl implements UploadService {
     @Autowired
     private ApplyDao applyDao;
 
-
-
+    @Override
     public boolean addUpload(Sample sample) {
         return uploadDao.save(sample);
     }
 
+    @Override
     public Sample searchSample(Long idSample) {
         Sample sample = uploadDao.get(idSample);
         return sample;
     }
 
-    //已采样sample
+    @Override
     public ArrayList<Sample> alreadySample(String userid) {
         ArrayList<Sample> resultlist = new ArrayList<Sample>();
         List<Apply> list = applyDao.findApplyById(userid);
@@ -63,6 +62,7 @@ public class UploadServiceImpl implements UploadService {
         return resultlist;
     }
 
+    @Override
     public ArrayList<Sample> findAll() {
 
         ArrayList<Sample> list = new ArrayList<Sample>();
@@ -73,11 +73,7 @@ public class UploadServiceImpl implements UploadService {
         return list;
     }
 
-    /**
-     * 根据id判断样本是否存在 若存在返回状态值 不存在返回-1
-     * @param id
-     * @return
-     */
+    @Override
     public int judgeByID(long id){
         int state = -1;
         Sample sample = uploadDao.get(id);
@@ -90,6 +86,7 @@ public class UploadServiceImpl implements UploadService {
         return state;
     }
 
+    @Override
     public boolean updateSample(long idSample, int state){
         Sample sample = uploadDao.get(idSample);
         if(sample==null)
@@ -130,10 +127,7 @@ public class UploadServiceImpl implements UploadService {
 //        return  result;
 //    }
 
-
-
-
-
+    @Override
     public void addTxt(Sample sample) {
         try {
             // FileOutputStream file1 = new FileOutputStream("F:\\拙劣工程师\\water\\src\\main\\webapp\\resources\\txt\\new.txt");

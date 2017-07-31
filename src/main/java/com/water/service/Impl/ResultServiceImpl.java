@@ -25,24 +25,12 @@ public class ResultServiceImpl implements ResultService {
     @Autowired
     private ApplyDao applyDao;
 
-    /**
-     * 录入实验结果
-     * id为样本id
-     * @param result
-     * @return
-     */
     @Override
     public boolean addResult(Result result) {
-//        if(uploadDao.get(result.getIdResult())==null)
-//            return false;
         return resultDao.save(result);
     }
 
-    /**
-     * 根据样本id获取实验结果
-     * @param idResult
-     * @return
-     */
+
     @Override
     public Result findResultByID(long idResult){
         return resultDao.get(idResult);
