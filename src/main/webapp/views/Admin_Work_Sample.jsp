@@ -27,7 +27,7 @@
     <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link rel="stylesheet" href="../resources/css/admin_work_sample.css">
-    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,7 +47,6 @@
 </head>
 
 <body>
-
 <!-- Top menu -->
 <nav class="navbar" role="navigation">
 
@@ -116,7 +115,7 @@
                             <div id="searchdiv"class="orther_search bar1">
                                 <form>
                                     <input id= "input1" type="text" placeholder="请输入样本编号">
-                                    <button id="search1"></button>
+                                    <button id="search1" type="button"></button>
                                 </form>
                             </div>
                         </div>
@@ -222,7 +221,7 @@
                 <div class="table_header">
                     <div class="row">
                         <div class="col-xs-6 col-sm-3">
-                            <a class="pull-left label-pon">项目名称：</a>
+                            <a class="pull-left label-pon">项目编号：</a>
                             <input id="project" class="form-control pull-left" maxlength="8" required="" type="text" style="width:120px;" >
                         </div>
                         <div class="col-xs-6 col-sm-4">
@@ -344,7 +343,6 @@
 <!-- Javascript -->
 <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
-<script src="./resources/js/Admin_Work.js"></script>
 <script src="./resources/js/Admin_work_sample.js"></script>
 <script src="./resources/js/Admin_Work_Samplelist.js"></script>
 <script type="text/javascript">
@@ -366,7 +364,7 @@
                     $(".list_wrapper").fadeIn()
                 }), $(window).trigger("resize");
 
-    })
+    })})
 </script>
 </body>
 
