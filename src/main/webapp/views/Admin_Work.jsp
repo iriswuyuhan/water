@@ -19,7 +19,7 @@
     <!-- CSS -->
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="../resources/css/styles.css">
@@ -31,6 +31,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="././ico/favicon1.ico">
 
@@ -45,7 +46,7 @@
 
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="logo">Noah's <span>Ark</span></a>
+            <a href="#" class="logo">eRiver <span>Map</span></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -376,8 +377,8 @@
 
 
 <!-- Javascript -->
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
 <script src="./resources/js/Admin_Work.js"></script>

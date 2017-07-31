@@ -18,12 +18,12 @@
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="../resources/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="../resources/css/admin_work_result.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../resources/js/sortable.js" type="text/javascript"></script>
     <script src="../resources/js/fileinput.js" type="text/javascript"></script>
@@ -46,7 +46,7 @@
 
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="logo">Noah's <span>Ark</span></a>
+            <a href="#" class="logo">eRiver <span>Map</span></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
