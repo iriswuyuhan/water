@@ -25,6 +25,14 @@ public interface ProjectService {
     public Project findProjectByID(long idProject);
 
     /**
+     * 根据id查找项目
+     *
+     * @param projectName
+     * @return 项目
+     */
+    public Project findProjectByName(String projectName);
+
+    /**
      * 发布项目
      *
      * @param project
