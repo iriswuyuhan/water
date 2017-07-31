@@ -1,3 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2017/7/31 0031
+  Time: 17:10
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,16 +87,15 @@
     </div><!-- /.modal -->
 </div>
 <script type="text/javascript">
-    var point = new Array();
+    var poi = new Array();
     $.ajax({
-        url:"./getSampleList",
+        url:"/getSampleList",
         type:"post",
         async:false,
         success:function (data) {
             var obj = $.parseJSON(data);
             for(var i = 0;i<obj.length;i++){
-                point[i]=[obj[i].apply.longitude,obj[i].apply.latitude,1];
-                alert(point[i]);
+                poi[i]=[obj[i].apply.longitude,obj[i].apply.latitude,1];
             }
         }
     })
@@ -96,19 +103,28 @@
     map.centerAndZoom(new BMap.Point(105.000, 38.000), 5);     // 初始化地图,设置中心点坐标和地图级别
     map.enableScrollWheelZoom();
     if (document.createElement('canvas').getContext) {  // 判断当前浏览器是否支持绘制海量点
-        for (var i = 0; i < 100; i++) {
-            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
+        var points = [];  // 添加海量点数据
+        for (var i = 0; i <poi.length; i++) {
+            points.push(new BMap.Point(poi[i][0], poi[i][1]));
         }
         var options = {
-            size: BMAP_POINT_SIZE_SMALL,
+            size: BMAP_POINT_SIZE_BIG,
             shape: BMAP_POINT_SHAPE_STAR,
             color: '#d340c3'
         }
         var pointCollection = new BMap.PointCollection(points, options);  // 初始化PointCollection
         pointCollection.addEventListener('click', function (e) {
             alert('单击点的坐标为：' + e.point.lng + ',' + e.point.lat);  // 监听点击事件
-            $("#reason").html("提供生物材料，例如医药、转基因作物等等 ,提供生物材料，例如医药、转基因作物等等,提供生物材料，例如医药、转基因作物等等……");
-            $("#myModal").modal("show");
+            $.ajax({
+                url:"/getSampleReport",
+                type:"post",
+                data:{"longtitude":e.point.lng,"latitude":e.point.lat},
+                success:function (data) {
+                    var obj1 = $.parseJSON(data);
+                    $("#reason").html(obj1.description);
+                    $("#myModal").modal("show");
+                }
+            })
         });
         map.addOverlay(pointCollection);  // 添加Overlay
     } else {

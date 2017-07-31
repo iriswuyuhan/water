@@ -118,7 +118,23 @@ public class sampleController {
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(bool);
     }
+    /**
+     * @param request
+     * @param response
+     * @return 根据经纬度返回样本
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleReport")
+    @ResponseBody
+    public void getSampleReport(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String longtitude=request.getParameter("longtitude");
+        String latitude= request.getParameter("latitude");
 
+        Result result = resultService.getResultbyLocation(Double.valueOf(longtitude),Double.valueOf(latitude));
+        JSONObject jsonObject = JSONObject.fromObject(result);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(jsonObject.toString());
+    }
     /**
      * @param request
      * @param response
