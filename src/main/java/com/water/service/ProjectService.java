@@ -56,4 +56,6 @@ public interface ProjectService {
      * @return
      */
     public boolean uploadProject(String projectName , String pdf);
+
+    public Project findNewestProject();
 }

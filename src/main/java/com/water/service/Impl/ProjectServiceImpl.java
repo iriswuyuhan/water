@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.ws.ServiceMode;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -16,6 +18,7 @@ import java.util.List;
 public class ProjectServiceImpl implements ProjectService {
     @Autowired
     ProjectDao projectDao;
+
     public List<Project> findAllProjects() {
         return projectDao.findAll();
     }
@@ -47,12 +50,30 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public boolean uploadProject(String projectName , String pdf){
+    public boolean uploadProject(String projectName, String pdf) {
         Project project = projectDao.findProjectByName(projectName);
         project.setState(1);
         project.setReport(pdf);
-        return  projectDao.saveOrUpdate(project);
+        return projectDao.saveOrUpdate(project);
     }
 
+    @Override
+    public Project findNewestProject() {
+        List<Project> projects = projectDao.findAll();
+        Comparator<Project> cmp = new ComparatorUser();
+        Collections.sort(projects, cmp);
+        return projects.get(0);
+    }
+
+    class ComparatorUser implements Comparator<Project> {
+
+        @Override
+        public int compare(Project o1, Project o2) {
+            Long a = o1.getIdProject();
+            Long b = o2.getIdProject();
+            int flag = b.compareTo(a);
+            return flag;
+        }
+    }
 
 }
