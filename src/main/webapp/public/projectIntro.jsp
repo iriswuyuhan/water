@@ -109,12 +109,12 @@
                             <div id="total_intro_panel" class="tab_panel indicator-group-content">
                                 <div class="left_title">
                                     <i class="fa fa-edit blue"></i>
-                                    <h1 class="number" style="font-size: 25px">${projectName}</h1>
-                                    <a class="time">${date}</a>
+                                    <h1 class="number" id="projectName" style="font-size: 25px">${projectName}</h1>
+                                    <a class="time" id="projectDate">${date}</a>
                                 </div>
                                 <div class="left_content" style="text-align: left">
-                                    <p>${projectDescription}</p>
-                                    <p style="float: right"><a>查看项目报告</a></p>
+                                    <p id="projectDescription">${description}</p>
+                                    <p style="float: right"><a id="repostHref">查看项目报告</a></p>
                                 </div>
                             </div>
                         </div>
@@ -160,24 +160,42 @@
 </body>
 
 <script type="text/javascript">
+    $("#repostHref").href = "http://118.89.166.19/samples/" + $("#projectName");
+
     <% ArrayList<String> projectNames = (ArrayList)request.getAttribute("projectNameArray");
     for(int i=0;i<projectNames.size();i++){%>
     var name = "<li class=''><a onclick='changeContent(this)'><%=projectNames.get(i)%></a> <span class='fa fa-angle-right'></span></li>";
     $("#scro1").append(name);
     <%}%>
 
-    function changeContent(a){
-        alert(a.html);
-        var url="/projectIntro/getInfo";
+    function changeContent(data){
+        for(var i=0;i<$("#scro1 li").length;i++) {
+            $("#scro1 li").removeClass("active");
+        }
+        $(data).parent().addClass("active");
+        var url="../projectIntro/getInfo";
         $.ajax({
             type:'POST',
             url:url,
-            data:{"projectName":a.innerHTML},
+            data:{"projectName":data.innerHTML},
             success:function (data) {
                 alert("success");
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+                alert(XMLHttpRequest.responseText);
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus); // parser error;
             }
         })
     }
+
+    $(document).ready(function () {
+        $("#scro_1").each(function () {
+            $(this).children(':first').setAttribute('class','active');
+        })
+    })
 
 </script>
 </html>
