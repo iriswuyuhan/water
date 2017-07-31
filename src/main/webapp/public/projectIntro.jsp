@@ -1,3 +1,7 @@
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,13 +112,13 @@
 
                 <div class="content-panel">
                     <div class="left">
-                        <table class="projectList">
-                            <tr>
-                                <td>淮河采样计划</td>
-                            </tr>
-                            <tr>
-                                <td>黄河采样计划</td>
-                            </tr>
+                        <table class="projectList" id="projectList">
+                            <%--<tr>--%>
+                            <%--<td>淮河采样计划</td>--%>
+                            <%--</tr>--%>
+                            <%--<tr>--%>
+                            <%--<td>黄河采样计划</td>--%>
+                            <%--</tr>--%>
                         </table>
                     </div>
 
@@ -167,4 +171,12 @@
 
 </body>
 
+<script type="text/javascript">
+    <% ArrayList<String> projectNames = (ArrayList)request.getAttribute("projectNameArray");
+    for(int i=0;i<projectNames.size();i++){%>
+    var name = "<tr><td><%=projectNames.get(i)%></td></tr>";
+    $("#projectList").append(name);
+    <%}%>
+
+</script>
 </html>
