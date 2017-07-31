@@ -12,19 +12,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"><!-- content="IE=edge">-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>项目发布</title>
+    <title>项目发布 - 后台管理</title>
 
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
-    <!--<link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link rel="stylesheet" href="../resources/css/test.css">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/test.css">
 
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -42,8 +43,7 @@
     <!--<script src="lang/summernote-zh-CN.js"></script>-->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/lang/summernote-zh-CN.js"></script>
 
-    <script src="../resources/js/Admin_Work_Project.js"></script>
-    <%--<script src="../resources/js/Admin_Work.js"></script>--%>
+    <script src="${pageContext.request.contextPath}/resources/js/Admin_Work_Project.js"></script>
 
 </head>
 
@@ -108,27 +108,29 @@
     });
 </script>
 
-<!--&lt;!&ndash; Top menu &ndash;&gt;-->
+<!-- Top menu -->
 <nav class="navbar" role="navigation">
+
+
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="logo">Noah's <span>Ark</span></a>
+            <a href="#" class="logo">eRiver <span>Map</span></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i
-                        class="fa fa-2x fa-sitemap"></i><br>审核申请</a></li>
+            <ul id="nav" class="nav navbar-nav navbar-right">
+                <li><a href="#"onclick="topnavclick(this)" name="1"><i
+                        class="fa fa-2x fa-check-circle-o" ></i><br>审核申请</a></li>
 
-                <li><a href="#"><i
-                        class="fa fa-2x fa-tasks"></i><br>采样信息</a>
+                <li><a href="#" onclick="topnavclick(this)" name="2"><i
+                        class="fa fa-2x fa-envelope-open-o"></i><br>采样信息</a>
                 </li>
 
-                <li><a href="#"><i
-                        class="fa fa-2x fa-tasks"></i><br>实验结果</a>
+                <li><a href="#" onclick="topnavclick(this)" name="3"><i
+                        class="fa fa-2x fa-sticky-note"></i><br>实验结果</a>
                 </li>
-                <li class="active"><a href="#"><i
-                        class="fa fa-2x fa-tasks"></i><br>项目管理</a>
+                <li class="active"><a href="#" onclick="topnavclick(this)" name="4"><i
+                        class="fa fa-2x fa-newspaper-o"></i><br>项目发布</a>
                 </li>
 
 
@@ -140,8 +142,12 @@
                     </div>
                 </ul>
             </ul>
+
+
+
         </div>
     </div>
+
 
 </nav>
 
@@ -150,7 +156,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-7 wow fadeIn">
-                <i class="fa fa-sitemap"></i>
+                <i class="fa fa-newspaper-o"></i>
                 <h1>PUBLISH PROJECT/</h1>
                 <p>项目发布</p>
             </div>
@@ -166,7 +172,7 @@
         <div class="intro-panel">
             <div id = "mainwrapper" class="main_wrapper" style="display: block">
                 <div id="main_content">
-                    <div id="tab1">
+                    <div id="tab1" style="padding-top:40px;">
                         <div id="content1" class="table-content" style="display: block;">
                             <ul id="scro1" class="scroll indicator-group-title">
                                 <li id="add" class="active" onclick=show("add")><a>新增项目</a><span class="fa fa-angle-right"></span></li>
@@ -182,8 +188,8 @@
                                 </div>
                                 <div id="summernote"></div>
                                 <div id="buttons">
-                                    <button id="confirm" onclick="publish()" class="btn-query text-sign" style="background: #3f9db8">提交</button>
-                                    <button id="cancel" onclick="deleteAll()" class="btn-query text-sign" style="background: #3f9db8">取消</button>
+                                    <button id="confirm" onclick="publish()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">提交</button>
+                                    <button id="cancel" onclick="deleteAll()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">取消</button>
                                 </div>
                             </div>
                         </div>
