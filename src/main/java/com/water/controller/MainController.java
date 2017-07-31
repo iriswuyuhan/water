@@ -133,7 +133,7 @@ public class MainController {
     @RequestMapping(value = "uploadPro", method = RequestMethod.GET)
     @ResponseBody
     public String uploadPro(){
-        System.out.println(projectService.uploadProject("一般申请","25552"));
+        System.out.println(projectService.findProjectByName("一般申请").getDescription());
         return "success!";
     }
 
