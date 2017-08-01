@@ -96,15 +96,15 @@ function  setlist(data) {
     for(var i =0;i<data.length;i++){
         var state;
         var color;
-        if(data[i].state==="0"){
+        if(data[i].state===0){
             state = "待收取";
             color = "gray";
         } else
-        if(data[i].state==="1"){
+        if(data[i].state===1){
             state = "处理中";
             color = "yellow";
         } else
-        if(data[i].state==="2"){
+        if(data[i].state===2){
             state = "已上传实验结果";
             color = "green";
         }

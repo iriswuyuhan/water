@@ -29,7 +29,6 @@ public class ApplyServiceImpl implements ApplyService {
 
     @Override
     public ArrayList<Apply> searchApplicationByUser(String idUser) {
-        System.out.println("xx");
         List<Apply> list1 = applyDao.findApplyById(idUser);
         ArrayList<Apply> list2 = new ArrayList<Apply>();
         for(Apply temp : list1){

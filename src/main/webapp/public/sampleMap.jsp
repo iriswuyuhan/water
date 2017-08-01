@@ -104,10 +104,9 @@
 <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
 <script type="text/javascript">
-    alert(1);
     var poi = new Array();
     $.ajax({
-        url:"/getSampleList",
+        url:"./getSampleList",
         type:"post",
         async:false,
         success:function (data) {
@@ -161,7 +160,7 @@
     function attribute(e){
         var p = e.target;
         $.ajax({
-                url:"/getSampleReport",
+                url:"./getSampleReport",
                 type:"post",
                 data:{"longtitude":p.getPosition().lng,"latitude":p.getPosition().lat},
                 success:function (data) {
