@@ -1,6 +1,17 @@
 /**
  * Created by zhanglei on 2017/7/20.
  */
+$(document).ready(function(){
+    var type=$("#type").val();
+    if(type===0){
+        on_unchecked_click();
+    }else if(type===1){
+        on_checked_click();
+    }else if(type===2){
+        on_sample_click();
+    }
+});
+
 function on_unchecked_click() {
     $("#unchecked_tab").addClass("weui-bar__item_on");
     $("#checked_tab").removeClass("weui-bar__item_on");
@@ -8,7 +19,7 @@ function on_unchecked_click() {
     $("#unchecked_tab_panel").show();
     $("#checked_tab_panel").hide();
     $("#sampling_tab_panel").hide();
-};
+}
 function on_checked_click() {
     $("#unchecked_tab").removeClass("weui-bar__item_on");
     $("#checked_tab").addClass("weui-bar__item_on");
@@ -16,7 +27,7 @@ function on_checked_click() {
     $("#unchecked_tab_panel").hide();
     $("#checked_tab_panel").show();
     $("#sampling_tab_panel").hide();
-};
+}
 function on_sample_click() {
     $("#unchecked_tab").removeClass("weui-bar__item_on");
     $("#checked_tab").removeClass("weui-bar__item_on");
@@ -24,15 +35,6 @@ function on_sample_click() {
     $("#unchecked_tab_panel").hide();
     $("#checked_tab_panel").hide();
     $("#sampling_tab_panel").show();
-};
-
-var type=$("#type").val();
-if(type===0){
-    on_unchecked_click();
-}else if(type===1){
-    on_checked_click();
-}else if(type===2){
-    on_sample_click();
 }
 
 function personal_info() {
