@@ -142,6 +142,7 @@ public class sampleController {
      * @throws Exception
      */
     @RequestMapping("/getSampleID")
+    @ResponseBody
     public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         ArrayList<Sample> samples = uploadService.findAll();
