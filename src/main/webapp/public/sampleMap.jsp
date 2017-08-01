@@ -35,14 +35,11 @@
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="././ico/favicon1.ico">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=KMeS1wUAPKRLXZVwClhw8pODhqxxP0bz"></script>
-    <script type="text/javascript" src="http://lbsyun.baidu.com/jsdemo/data/points-sample-data.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <!-- Top menu -->
 <nav class="navbar" role="navigation">
-
-
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="#"></a>
@@ -85,6 +82,8 @@
                         <h4 class="modal-title" id="myModalLabel">
                             样本编号：100001
                         </h4>
+                    </tton>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="pop-wrap">
@@ -96,11 +95,16 @@
             <div class="modal-footer">
                 <button type="button" class="btn-close" data-dismiss="modal">关闭
                     <tton>
+                    </tton>
+                </button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
 <script type="text/javascript">
+    alert(1);
     var poi = new Array();
     $.ajax({
         url:"/getSampleList",
@@ -113,53 +117,103 @@
             }
         }
     })
-    var map = new BMap.Map("map", {});                        // 创建Map实例
-    map.centerAndZoom(new BMap.Point(105.000, 38.000), 5);     // 初始化地图,设置中心点坐标和地图级别
-    map.enableScrollWheelZoom();
-    if (document.createElement('canvas').getContext) {  // 判断当前浏览器是否支持绘制海量点
+    var map = new BMap.Map("map");// 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 4);     // 初始化地图,设置中心点坐标和地图级别
+    map.enableScrollWheelZoom();// 判断当前浏览器是否支持绘制海量点
+        var markers = [];
+        var pt = null;
         var points = [];  // 添加海量点数据
-        for (var i = 0; i <poi.length; i++) {
-            points.push(new BMap.Point(poi[i][0], poi[i][1]));
-        }
         var options = {
             size: BMAP_POINT_SIZE_BIG,
-            shape: BMAP_POINT_SHAPE_STAR,
             color: '#d340c3'
         }
-        var pointCollection = new BMap.PointCollection(points, options);  // 初始化PointCollection
-        pointCollection.addEventListener('click', function (e) {
-            alert('单击点的坐标为：' + e.point.lng + ',' + e.point.lat);  // 监听点击事件
-            $.ajax({
+        for (var i = 0; i <poi.length; i++) {
+           points.push(new BMap.Point(poi[i][0], poi[i][1]));
+            pt = new BMap.Point(poi[i][0], poi[i][1]);
+            markers.push(new BMap.Marker(pt,options));
+
+        }
+
+        var markerClusterer = new BMapLib.MarkerClusterer(map, {markers:markers});
+
+//        var pointCollection = new BMap.PointCollection(points,options);  // 初始化PointCollection
+//        pointCollection.addEventListener('click', function (e) {
+//            alert(2);
+//            $.ajax({
+//                url:"/getSampleReport",
+//                type:"post",
+//                data:{"longtitude":e.point.lng,"latitude":e.point.lat},
+//                success:function (data) {
+//                    var obj1 = $.parseJSON(data);
+//                    alert(obj1.idResult);
+//                    $("#myModalLabel").html( "样本编号："+obj1.idResult);
+//                    $("#reason").html(obj1.description);
+//                    $("#myModal").modal("show");
+//                }
+//            })
+//        });
+//        map.addOverlay(pointCollection);  // 添加Overlay
+            for(var j = 0;j<markers.length;j++){
+            markers[j].addEventListener("click",attribute);
+            markers[j].ini
+            }
+
+    function attribute(e){
+        var p = e.target;
+        $.ajax({
                 url:"/getSampleReport",
                 type:"post",
-                data:{"longtitude":e.point.lng,"latitude":e.point.lat},
+                data:{"longtitude":p.getPosition().lng,"latitude":p.getPosition().lat},
                 success:function (data) {
                     var obj1 = $.parseJSON(data);
-                    $(".h4").html( "样本编号："+obj1.idResult);
+                    $("#myModalLabel").html( "样本编号："+obj1.idResult);
                     $("#reason").html(obj1.description);
                     $("#myModal").modal("show");
                 }
-            })
-        });
-        map.addOverlay(pointCollection);  // 添加Overlay
-    } else {
-        alert('请在chrome、safari、IE8+以上浏览器查看本示例');
+        })
     }
-    [
-        {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": {
-                "visibility": "off"
-            }
-        }
-    ]
+
     var json1=[
         {
             "featureType": "road",
             "elementType": "all",
             "stylers": {
                 "visibility": "off"
+            }
+        },
+        {
+            "featureType": "manmade",
+            "elementType": "all",
+            "stylers": {
+                "visibility": "off"
+            }
+        },
+        {
+            "featureType": "building",
+            "elementType": "all",
+            "stylers": {
+                "visibility": "off"
+            }
+        },
+        {
+            "featureType": "label",
+            "elementType": "labels",
+            "stylers": {
+                "lightness": 60
+            }
+        },
+        {
+            "featureType": "label",
+            "elementType": "labels.icon",
+            "stylers": {
+                "visibility": "off"
+            }
+        },
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": {
+                "lightness": -47
             }
         }
     ]

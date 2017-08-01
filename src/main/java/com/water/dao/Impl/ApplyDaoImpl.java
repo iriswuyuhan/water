@@ -50,6 +50,7 @@ public class ApplyDaoImpl implements ApplyDao {
             list = query.list();
             tx.commit();
         } catch (Exception ex) {
+            ex.printStackTrace();
             tx.rollback();
         } finally {
             session.close();
@@ -69,6 +70,7 @@ public class ApplyDaoImpl implements ApplyDao {
             applyList = query.list();
 
         } catch (Exception ex) {
+            ex.printStackTrace();
             tx.rollback();
         } finally {
             session.close();
@@ -92,6 +94,7 @@ public class ApplyDaoImpl implements ApplyDao {
             query.executeUpdate();
             tx.commit();
         } catch (Exception ex) {
+            ex.printStackTrace();
             tx.rollback();
         } finally {
             session.close();
@@ -108,6 +111,7 @@ public class ApplyDaoImpl implements ApplyDao {
             tx.commit();
             flag = true;
         } catch (Exception ex) {
+            ex.printStackTrace();
             tx.rollback();
         } finally {
             session.close();
@@ -125,6 +129,7 @@ public class ApplyDaoImpl implements ApplyDao {
             tx.commit();
             flag = true;
         } catch (Exception ex) {
+            ex.printStackTrace();
             tx.rollback();
         } finally {
             session.close();
@@ -142,6 +147,7 @@ public class ApplyDaoImpl implements ApplyDao {
             tx.commit();
             flag = true;
         } catch (Exception ex) {
+            ex.printStackTrace();
             tx.rollback();
         } finally {
             session.close();
@@ -168,11 +174,12 @@ public class ApplyDaoImpl implements ApplyDao {
             applyList = query.list();
 
         } catch (Exception ex) {
+            ex.printStackTrace();
             tx.rollback();
         } finally {
             session.close();
         }
-        if(applyList==null){
+        if(applyList.size()==0){
             return  null;
         }else {
             return applyList.get(0);
