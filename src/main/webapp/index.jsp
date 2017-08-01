@@ -56,7 +56,7 @@
                         class="fa fa-2x fa-handshake-o"></i><br>公众参与</a>
                 </li>
 
-                <li><a href="public/projectIntro/init"><i
+                <li><a href="projectIntro/init"><i
                         class="fa fa-2x fa-list-alt"></i><br>信息发布</a>
                 </li>
                 <li><a href="public/introduction.html"><i

@@ -115,7 +115,7 @@ function  setlist(data) {
         "<td style='width:200px;'>"+data[i].apply.waterAddress+"</td>"+
             "<td style='width:180px;'>"+data[i].apply.project.name+"</td>"+
            " <td style='width:200px;'>"+timeFormatter1(data[i].sampleDate)+"</td>"+
-         "<td style='width:200px;'><li id='addColor"+i+"'></li><a class='pull-left'>"+state+"</a></td>"+
+         "<td style='width:220px;'><li id='addColor"+i+"'></li><a class='pull-left'>"+state+"</a></td>"+
             "<td style='width:30px;'><a onclick='sampleinfo(this)'><i class='fa fa-angle-right'></i></a></td>"+"</tr>");
         var colorID = "#addColor"+i;
         $(colorID).addClass("dot");
