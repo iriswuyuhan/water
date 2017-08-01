@@ -106,7 +106,7 @@
 <script type="text/javascript">
     var poi = new Array();
     $.ajax({
-        url:"./getSampleList",
+        url:"../getSampleList",
         type:"post",
         async:false,
         success:function (data) {
@@ -160,7 +160,7 @@
     function attribute(e){
         var p = e.target;
         $.ajax({
-                url:"./getSampleReport",
+                url:"../getSampleReport",
                 type:"post",
                 data:{"longtitude":p.getPosition().lng,"latitude":p.getPosition().lat},
                 success:function (data) {
