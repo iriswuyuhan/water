@@ -29,7 +29,7 @@ function load() {
 }
 
 function gotoProDetail() {
-    window.location.href="./projectIntro/init?name="+encodeURI(name);
+    window.location.href="./projectIntro/init?name="+encodeURI(name)+" ";
 }
 
 function getText(str){

@@ -179,14 +179,21 @@
     <%}%>
 
     <% if(parameter == null) {
-        parameter = "一般申请";
-        } %>
+        parameter = "一般申请";%>
+        var parameter = '<%=parameter%>'.toString()+"";
+    <%}else{%>
+        var parameter = decodeURI('<%=parameter%>');
+    <%}%>
+
     for(var i=0;i<$("#scro1 li").length;i++) {
         $("#scro1 li").removeClass("active");
         var element = $("#scro1 li").eq(i);
-        if(element.innerHTML == '<%=parameter%>'){
-            alert(element.innerHTML);
-            element.addClass("active");
+        var tem = element.text().toString();
+        var tem2=tem.substr(0,tem.length-1);
+        var tem1 = parameter.toString();
+        if(tem1 == tem2){
+            $("#scro1 li").eq(i).addClass("active");
+            break;
         }
     }
 
@@ -219,12 +226,6 @@
             }
         })
     }
-
-    $(document).ready(function () {
-        $("#scro_1").each(function () {
-            $(this).children(':first').setAttribute('class','active');
-        })
-    })
 
 </script>
 </html>
