@@ -37,6 +37,10 @@ body {
     height: 20px;
 }
 
+#reason{
+    min-height: 200px;
+}
+
 .btn-close {
     height:30px;
     width: 70px;

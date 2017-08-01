@@ -254,14 +254,18 @@ function  setinitinfo(temp) {
         if(index==2)
             $(this).html(temp.address);
         if(index==3)
-            $(this).html(temp.longitude);
+            $(this).html(temp.longitude+"°");
         if(index==4)
-            $(this).html(temp.latitude);
+            $(this).html(temp.latitude+"°");
         if(index==5)
             $(this).html(temp.waterAddress);
         if(temp.state==2){
-            if(index==6)
-                $(this).html(temp.response);
+            if(index==6){
+                if(temp.response=="")
+                    $(this).html("无");
+                else
+                    $(this).html(temp.response);
+            }
         }
     });
     obj.find("h1").each(function () {

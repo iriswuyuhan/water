@@ -91,7 +91,7 @@ function  setSampleInfo(temp) {
         if(index===2)
             $(this).html(timeFormatter1(temp.apply.applyDate));
         if(index===3)
-            $(this).html(temp.volume)+"ml";
+            $(this).html(temp.volume+"ml");
         if(index===4)
             $(this).html(temp.apply.waterAddress);
         if(index===5)

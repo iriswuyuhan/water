@@ -12,7 +12,6 @@ function load(){
             var objects=$.parseJSON(data);
             for(var i=0;i<data.length;i++){
                 var id=objects[i].idProject;
-                alert(id);
                 var headline=objects[i].name;
                 var markupstr=objects[i].description;
                 addOne(id,headline,markupstr);
