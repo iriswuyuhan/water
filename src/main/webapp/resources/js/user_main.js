@@ -1,4 +1,4 @@
-var id=-1;
+var name="";
 
 function load() {
     var url="/getLatestPro";
@@ -7,20 +7,19 @@ function load() {
         url:url,
         async:true,
         success:function (data) {
-            alert(data);
-            var objects=$.parseJSON(data);
+            // alert(data);
+            // var objects=$.parseJSON(data);
             // var objects=JSON.parse(data);
 
             var headline=document.getElementById("proName");
             var body=document.getElementById("proContent");
             var time=document.getElementById("proDate");
 
-            id=objects.idProject;
-            var name=objects.name;
-            var content=getText(objects.description).substring(0,301)+'...';
-            var year=parseInt(objects.date['year'])+1900;
-            var month=parseInt(objects.date['month'])+1;
-            var day=objects.date['date'];
+            name=data.name;
+            var content=getText(data.description).substring(0,301)+'...';
+            var year=parseInt(data.date['year'])+1900;
+            var month=parseInt(data.date['month'])+1;
+            var day=data.date['date'];
             var date=year+'-'+month+'-'+day;
 
             headline.innerHTML=name;
@@ -31,7 +30,7 @@ function load() {
 }
 
 function gotoProDetail() {
-    window.location.href="projectIntro.jsp?id="+id;
+    window.location.href="/projectIntro/init?name="+encodeURI(name);
 }
 
 function getText(str){
