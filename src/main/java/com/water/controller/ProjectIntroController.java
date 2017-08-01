@@ -35,10 +35,28 @@ public class ProjectIntroController {
         }
         Project firstProject = projectService.findProjectByName("一般申请");
         ModelAndView modelAndView = new ModelAndView("../public/projectIntro");
-        modelAndView.addObject("projectName",firstProject.getName());
-        modelAndView.addObject("description",firstProject.getDescription());
-        modelAndView.addObject("date",firstProject.getDate());
+        if(firstProject != null){
+            if(firstProject.getName() != null){
+                modelAndView.addObject("projectName", firstProject.getName());
+            }else{
+                modelAndView.addObject("projectName", "");
+            }
+            if(firstProject.getDescription() != null){
+                modelAndView.addObject("description",firstProject.getDescription());
+            }else{
+                modelAndView.addObject("description","");
+            }
+            if(firstProject.getDescription() != null){
+                modelAndView.addObject("date",firstProject.getDate());
+            }else{
+                modelAndView.addObject("date","");
+            }
+        }
+        if(projectNames.size() == 0){
+            projectNames.add("暂无样本");
+        }
         modelAndView.addObject("projectNameArray",projectNames);
+
         return modelAndView;
     }
 
