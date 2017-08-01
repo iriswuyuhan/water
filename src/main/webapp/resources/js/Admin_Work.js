@@ -16,14 +16,14 @@ $(function () {
                     setinitinfo(waitlist[0]);
                 }
                 else{
-                    if(state=="待审核"){
+                    if(state==="待审核"){
                         $("#content1").hide();
                         $("#nothing1").show();}
-                    if(state=="审核通过"){
+                    if(state==="审核通过"){
                         $("#content2").hide();
                         $("#nothing2").show();
                     }
-                    if(state=="未通过审核"){
+                    if(state==="未通过审核"){
                         $("#content3").hide();
                         $("#nothing3").show();
                     }
@@ -33,21 +33,21 @@ $(function () {
     }
     //左侧导航列表的实现
     function scrolist(tem,list) {
-        if(tem=="待审核"){
+        if(tem==="待审核"){
             $("#scro1").empty();
             $("#scro1").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
                 $("#scro1").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
-        if(tem=="审核通过"){
+        if(tem==="审核通过"){
             $("#scro2").empty();
             $("#scro2").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
                 $("#scro2").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
-        if(tem=="未通过审核"){
+        if(tem==="未通过审核"){
             $("#scro3").empty();
             $("#scro3").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
@@ -64,13 +64,13 @@ $(function () {
         $("#tab2").hide();
         $("#tab3").hide();
         var  name = $(this).html();
-        if(name=="待审核"){
+        if(name==="待审核"){
             $("#tab1").show();
         }
-        if(name=="审核通过"){
+        if(name==="审核通过"){
             $("#tab2").show();
         }
-        if(name=="未通过审核"){
+        if(name==="未通过审核"){
             $("#tab3").show();
         }
     })
@@ -144,7 +144,7 @@ $(function () {
 //处理申请的实现
 function dealApply(type){
     var state;
-    if(type.className=="yes button")
+    if(type.className==="yes button")
         state="1"
     else
         state="2";
@@ -193,21 +193,21 @@ function  applyClick(type) {
 //设置导航为active状态的方法
 function setactive(type,temp) {
     var obj;
-    if(temp.state==0){
+    if(temp.state===0){
         obj=$("#tab1")
         $("#scro1").find("li").each(function() {
             $(this).removeClass("active");
         });
         $(type.parentNode).addClass("active");
     }
-    if(temp.state==1) {
+    if(temp.state===1) {
         obj = $("#tab2")
         $("#scro2").find("li").each(function () {
             $(this).removeClass("active");
         });
         $(type.parentNode).addClass("active");
     }
-    if(temp.state==2){
+    if(temp.state===2){
         obj=$("#tab3")
         $("#scro3").find("li").each(function() {
             $(this).removeClass("active");
@@ -219,13 +219,13 @@ function setactive(type,temp) {
 //初始化信息界面
 function  setinitinfo(temp) {
     var obj;
-    if(temp.state==0){
+    if(temp.state===0){
         obj=$("#tab1")
     }
-    if(temp.state==1){
+    if(temp.state===1){
         obj=$("#tab2")
     }
-    if(temp.state==2){
+    if(temp.state===2){
         obj=$("#tab3")
     }
     obj.find("ol").each(function () {
@@ -247,21 +247,21 @@ function  setinitinfo(temp) {
         $(this).html(timeFormatter(temp.applyDate));
     })
     obj.find("span[name='name']").each(function (index) {
-        if(index==0)
+        if(index===0)
             $(this).html(temp.name);
-        if(index==1)
+        if(index===1)
             $(this).html(temp.number);
-        if(index==2)
+        if(index===2)
             $(this).html(temp.address);
-        if(index==3)
+        if(index===3)
             $(this).html(temp.longitude+"°");
-        if(index==4)
+        if(index===4)
             $(this).html(temp.latitude+"°");
-        if(index==5)
+        if(index===5)
             $(this).html(temp.waterAddress);
-        if(temp.state==2){
-            if(index==6){
-                if(temp.response=="")
+        if(temp.state===2){
+            if(index===6){
+                if(temp.response==="")
                     $(this).html("无");
                 else
                     $(this).html(temp.response);
