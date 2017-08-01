@@ -226,7 +226,7 @@
                 <div class="table_header">
                     <div class="row">
                         <div class="col-xs-6 col-sm-3">
-                            <a class="pull-left label-pon">项目编号：</a>
+                            <a class="pull-left label-pon">项目名称：</a>
                             <input id="project" class="form-control pull-left" maxlength="8" required="" type="text" style="width:120px;" >
                         </div>
                         <div class="col-xs-6 col-sm-4">

@@ -174,7 +174,7 @@ function confirmClik(type) {
                     var bool = $.parseJSON(data);
                     if(bool){
                         alert("已改为处理中");
-                        $("#sample-state").html("处理中");
+                        $("#sample-state").val("处理中");
                     }
                 }
             });
