@@ -131,6 +131,7 @@ public class wechatApplyController {
     }
 
     @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
+    @ResponseBody
     public boolean upload(HttpServletRequest request) throws ParseException{
 
         Apply apply = new Apply();

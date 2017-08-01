@@ -74,8 +74,8 @@ $("#applyUpload").click(function () {
                     $.cookie('longitude', null, {path: '/'});
                     $.cookie('latitude', null, {path: '/'});
                     $.cookie('concrete_address', null, {path: '/'});
-                    $.cookie('ret4',null,{path:'/'});
-                    $.cookie('projectName',null,{path:'/'});
+                    $.cookie('ret4',{expires:-1},{path:'/'});
+                    $.cookie('projectName',{expires:-1},{path:'/'});
                 } else {
                     alert("提交申请失败");
                 }
