@@ -1,16 +1,13 @@
 var id=-1;
-
 function load() {
-    var url="/getLatestPro";
+    var url="./getLatestPro";
     $.ajax({
         type:"Post",
         url:url,
         async:true,
         success:function (data) {
-            alert(data);
-            var objects=$.parseJSON(data);
+            var objects=data;
             // var objects=JSON.parse(data);
-
             var headline=document.getElementById("proName");
             var body=document.getElementById("proContent");
             var time=document.getElementById("proDate");

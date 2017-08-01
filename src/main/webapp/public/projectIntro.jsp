@@ -49,7 +49,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../public/User_Main.html"><i
+                <li><a href="../index.jsp"><i
                         class="fa fa-2x fa-tasks"></i><br>首页</a></li>
 
                 <li><a href="../public/engagement.html"><i
