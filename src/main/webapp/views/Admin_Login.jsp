@@ -59,7 +59,11 @@
                             type:'post',
                             data:{"username":$(".username").val(),"password":$(".password").val()},
                             success:function (data) {
-                               window.location.href="toAdmin.do"
+                               if(data=="success"){
+                               window.location.href="toAdmin.do"}
+                               else {
+                                   alert(data);
+                               }
                             }
 
                         });

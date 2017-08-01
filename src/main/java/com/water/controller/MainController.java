@@ -175,8 +175,17 @@ public class MainController {
      */
     @RequestMapping("/login")
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().print("success");
+        if(username=="Admin"&&password=="eRiseMap2017"){
+            response.getWriter().print("success");
+        }
+        else {
+            response.getWriter().print("用户名或密码错误");
+        }
+
+
     }
     @RequestMapping(value="/toAdmin.do")
     public String toAdmin() throws IOException{
