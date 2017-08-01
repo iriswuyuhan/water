@@ -87,14 +87,15 @@ public class wechatApplyController {
         String userName = "";
         String contact = "";
         String address = "";
-        List<Project> p = projectService.findAllProjects();
-//        List<Project> p = new ArrayList<Project>();
-//        Project project = new Project();
-//        project.setIdProject(1);
-//        project.setName("一般申请");
-//        project.setDescription("志愿者自行选择河流区域");
-//        p.add(project);
-//        System.out.println(p.get(0));
+        List<Project> temp = projectService.findAllProjects();
+        List<Project> p = new ArrayList<Project>();
+        for(int i=0;i<temp.size();i++){
+            if(temp.get(i).getState() == 1){
+                continue;
+            }else{
+                p.add(temp.get(i));
+            }
+        }
 
         modelAndView.addObject("userID",userID);
         User user = userService.getById(userID);

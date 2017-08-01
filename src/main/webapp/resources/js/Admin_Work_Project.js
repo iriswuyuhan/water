@@ -39,7 +39,7 @@ function publish(){
                 data:{"id":id,"headline":headline,"body":markupStr},
                 dataType:"json",
                 success:function (data) {
-                    if(data=="false"){
+                    if(data==="false"){
                         alert("修改失败！请重试！");
                     }
                     else{
@@ -188,23 +188,19 @@ function  applyClick(type) {
 }
 //设置导航为active状态的方法
 function setactive(type,temp) {
-    var obj;
-    if(temp.state==0){
-        obj=$("#tab1")
+    if(temp.state===0){
         $("#scro1").find("li").each(function() {
             $(this).removeClass("active");
         });
         $(type.parentNode).addClass("active");
     }
-    if(temp.state==1) {
-        obj = $("#tab2")
+    if(temp.state===1) {
         $("#scro2").find("li").each(function () {
             $(this).removeClass("active");
         });
         $(type.parentNode).addClass("active");
     }
-    if(temp.state==2){
-        obj=$("#tab3")
+    if(temp.state===2){
         $("#scro3").find("li").each(function() {
             $(this).removeClass("active");
         });
