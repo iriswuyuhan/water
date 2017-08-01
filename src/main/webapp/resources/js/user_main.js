@@ -29,7 +29,12 @@ function load() {
 }
 
 function gotoProDetail() {
-    window.location.href="./projectIntro/init?name="+encodeURI(name)+" ";
+    if(name==null||name==""){
+        window.location.href="./projectIntro/init";
+    }
+    else {
+        window.location.href = "./projectIntro/init?name=" + encodeURI(name) + " ";
+    }
 }
 
 function getText(str){
