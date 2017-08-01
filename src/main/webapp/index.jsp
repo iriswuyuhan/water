@@ -56,7 +56,7 @@
                         class="fa fa-2x fa-handshake-o"></i><br>公众参与</a>
                 </li>
 
-                <li><a href="../projectIntro/init"><i
+                <li><a href="public/projectIntro/init"><i
                         class="fa fa-2x fa-list-alt"></i><br>信息发布</a>
                 </li>
                 <li><a href="public/introduction.html"><i
@@ -86,13 +86,13 @@
                     <div class="flexslider">
                         <ul class="slides">
                             <li>
-                                <a href="engagement.html"><img src="../resources/img/public.jpg"></a>
+                                <a href="engagement.html"><img src="./resources/img/public.jpg"></a>
                             </li>
                             <li>
-                                <a href="projectIntro.jsp"><img src="../resources/img/info.jpg"></a>
+                                <a href="projectIntro.jsp"><img src="./resources/img/info.jpg"></a>
                             </li>
                             <li>
-                                <a href="introduction.html"><img src="../resources/img/intro.jpg"></a>
+                                <a href="introduction.html"><img src="./resources/img/intro.jpg"></a>
                             </li>
                         </ul>
                     </div>
@@ -110,7 +110,7 @@
             <h3 class="panel-title">项目介绍</h3>
         </div>
         <div id="briIntro-body" class="panel-body" style="color: #3c3c3c;font-size: medium">
-            <img src="../resources/img/water_pollution4.jpg">
+            <img src="./resources/img/water_pollution4.jpg">
             <p>
                 近年来，环境污染和全球气候变化造成水生生物多样性下降、
                 生物完整性缺失和物种灭绝，最终导致生态系统功能受损。
@@ -139,7 +139,7 @@
             <h3 class="panel-title">加入我们</h3>
         </div>
         <div class="panel-body" style="font-size: medium">
-            <img src="../resources/img/code.png">
+            <img src="./resources/img/code.png">
             <p>
                 欢迎扫描二维码，关注我们的微信公众号“河流生态地图”，获取最新资讯并参与志愿活动。
             </p>
