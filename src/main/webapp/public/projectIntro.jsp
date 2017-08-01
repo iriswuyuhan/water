@@ -110,7 +110,7 @@
                                     <a class="time" id="projectDate">${date}</a>
                                 </div>
                                 <div class="left_content" style="text-align: left">
-                                    <p id="projectDescription">${description}</p>
+                                    <p id="projectDescription">自主选择水域</p>
                                     <p style="float: right"><a id="repostHref" class="media">查看项目报告</a></p>
                                     <input type="hidden" id="projectState">
                                 </div>
@@ -209,6 +209,7 @@
             data:{"projectName":data.innerHTML},
             success:function (data) {
                 if(data != null){
+                    $("#projectDescription").html("");
                     $("#projectName").html(data.projectName2);
                     $("#projectDescription").html(data.description2);
                     $("#projectDate").html(data.date2);
