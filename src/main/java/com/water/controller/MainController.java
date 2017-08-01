@@ -182,6 +182,10 @@ public class MainController {
     public String toAdmin() throws IOException{
         return "Admin_Work";
     }
+    @RequestMapping(value="/Admin")
+    public String Admin() throws IOException{
+        return "Admin_Login";
+    }
     @RequestMapping(value="/toAdmin_Sample_Result.do")
     public String toAdmin_Sample_Result() throws IOException{
         return "Admin_Work_Result";
