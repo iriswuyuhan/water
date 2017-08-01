@@ -48,7 +48,6 @@ public class ProjectController {
         long id=projectService.saveProject(project);
 
         return id;
-//        return 0;
     }
 
     /**
@@ -60,8 +59,6 @@ public class ProjectController {
     @ResponseBody
     public void getAll(HttpServletResponse response) throws IOException {
         List<Project> projects=projectService.findAllProjects();
-
-        System.out.println(projects.get(0).getName());
         JSONArray jsonObject=JSONArray.fromObject(projects);
 
         response.setCharacterEncoding("utf-8");

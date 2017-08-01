@@ -12,6 +12,19 @@
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
+    <script>
+        $(function () {
+            var isPageHide = false;
+            window.addEventListener('pageshow', function () {
+                if (isPageHide) {
+                    window.location.reload();
+                }
+            });
+            window.addEventListener('pagehide', function () {
+                isPageHide = true;
+            });
+        });
+    </script>
 </head>
 <body onload="load()">
 <input type="hidden" id="userID" value="${userID}"/>
