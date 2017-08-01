@@ -178,7 +178,7 @@ public class MainController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         response.setCharacterEncoding("UTF-8");
-        if(username=="Admin"&&password=="eRiseMap2017"){
+        if(username.equals("Admin")&&password.equals("eRiverMap2017")){
             response.getWriter().print("success");
         }
         else {

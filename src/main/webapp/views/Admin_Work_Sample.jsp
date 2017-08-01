@@ -220,7 +220,7 @@
 
                     </div>
                 </div>
-                <div id="nothing4" style="display: none"><h3>暂无此类申请！</h3></div>
+                <div id="nothing4" style="display: none"><h3>暂无此类样本！</h3></div>
             </div>
             <div id="list" class="list_wrapper" style="display:none;">
                 <div class="table_header">
