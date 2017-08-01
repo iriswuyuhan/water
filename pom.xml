@@ -126,11 +126,13 @@
         </dependency>
 
         <!-- 数据库连接池-->
+        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
         <dependency>
-            <groupId>c3p0</groupId>
+            <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
-            <version>${c3p0Version}</version>
+            <version>0.9.2-pre7</version>
         </dependency>
+
 
         <!-- json数据 使springMVC可以返回json值 ,视情况添加-->
         <dependency>
