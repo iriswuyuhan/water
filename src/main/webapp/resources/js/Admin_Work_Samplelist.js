@@ -47,13 +47,13 @@ $("#query").click(function () {
     var project = $("#project").val();
     var begin = $("#databegin").val();
     var end = $("#dataend").val();
-    if($("#databegin").val()==""||$("#dataend").val()==""||$("#project").val()==""){
+    if($("#databegin").val()===""||$("#dataend").val()===""||$("#project").val()===""){
         alert("信息填写不完整");
     }
     else {
         var sample=new Array() ;
         for(var temp in samplelist){
-            if(samplelist[temp].apply.project.name==project){
+            if(samplelist[temp].apply.project.name===project){
                 var begindate = new Date(begin.replace(/-/g,   "/"));
                 var enddate = new Date(end.replace(/-/g,   "/"));
                 var sampledate = (1900 + samplelist[temp].sampleDate.year) + "-" + (samplelist[temp].sampleDate.month + 1) + "-" + samplelist[temp].sampleDate.date;
@@ -79,7 +79,7 @@ $("#query").click(function () {
 
     //全选框的监听
     $("#checkbox").click(function () {
-        if($(this).prop("checked")==true){
+        if($(this).prop("checked")===true){
             $("input[name='checkbox1']").prop("checked",true);
         }
         else {
@@ -96,15 +96,15 @@ function  setlist(data) {
     for(var i =0;i<data.length;i++){
         var state;
         var color;
-        if(data[i].state=="0"){
+        if(data[i].state==="0"){
             state = "待收取";
             color = "gray";
         } else
-        if(data[i].state=="1"){
+        if(data[i].state==="1"){
             state = "处理中";
             color = "yellow";
         } else
-        if(data[i].state=="2"){
+        if(data[i].state==="2"){
             state = "已上传实验结果";
             color = "green";
         }
@@ -149,11 +149,11 @@ function  sampleinfo(type) {
 function clickbut() {
     var str = "样本编号,样本体积,水域地址,所属项目,采样时间,状态\n";
     $("input[name='checkbox1']").each(function () {
-        if($(this).prop("checked")==true){
+        if($(this).prop("checked")===true){
 
            $(this).parent().parent().find("td").each(function (index) {
-               if(index!=0&&index!=7){
-                   if(index==6){
+               if(index!==0&&index!==7){
+                   if(index===6){
                        str+=$(this).find("a").html()+"\n";
                    }
                    else {
