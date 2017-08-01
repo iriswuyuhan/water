@@ -98,22 +98,22 @@ function  setSampleInfo(temp) {
             $(this).html(temp.remark);
         if(index===6)
             $(this).html(temp.apply.number);
-        if(index==7)
+        if(index===7)
             $(this).html(temp.apply.longitude+"°");
-        if(index==8)
+        if(index===8)
             $(this).html(temp.apply.latitude+"°");
-        if(index==9){
-            if(temp.state==1) {
+        if(index===9){
+            if(temp.state===1) {
                 $(this).html("处理中");
                 $("#confirm").hide();
                 $("#result").hide();
             }
-            if(temp.state==2) {
+            if(temp.state===2) {
                 $(this).html("已上传实验结果");
                 $("#confirm").hide();
                 $("#result").show();
             }
-            if(temp.state==0) {
+            if(temp.state===0) {
                 $(this).html("待收取");
                 $("#confirm").show();
                 $("#result").hide();
