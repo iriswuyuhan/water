@@ -6,6 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%  ArrayList<Project> arrayList=(ArrayList)request.getAttribute("projectArray"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -193,13 +194,21 @@
 </body>
 <script type="text/javascript" src="../resources/js/split.js"></script>
 <script type="text/javascript">
+    <%--if($("#projectName") != "选择项目"){--%>
+        <%--var name = $("#projectName").val();--%>
+        <%--<%for(int i=0;i<arrayList.size();i++){%>--%>
+        <%--if('<%=arrayList.get(i).getName()%>' == name){--%>
+            <%--$("#projectID").val('<%=arrayList.get(i).getIdProject()%>');--%>
+        <%--}--%>
+        <%--<%}%>--%>
+    <%--}--%>
+
     var basePath='<%=basePath%>';
     var project = [
-        <% ArrayList<Project> arrayList=(ArrayList)request.getAttribute("projectArray");
-        for(int i=0;i<arrayList.size();i++){%>
+        <%for(int i=0;i<arrayList.size();i++){%>
         {
             "label": '<%=arrayList.get(i).getName()%>',
-            "value": '<%=i%>'
+            "value": '<%=i%>',
         },
         <%}%>
     ]
@@ -207,10 +216,16 @@
     $("#chooseProject").on('click', function () {
         weui.picker(project, {
             onConfirm: function (result) {
-                $("#projectID").val(result);
-                var projectID = $("#projectID").val();
-                var label = project[projectID].label;
+//                $("#projectID").val(result);
+//                var projectID = $("#projectID").val();
+//                alert(projectID);
+                var label = project[result].label;
                 $("#projectName").html(label);
+                <%for(int i=0;i<arrayList.size();i++){%>
+                    if('<%=arrayList.get(i).getName()%>' == label){
+                        $("#projectID").val('<%=arrayList.get(i).getIdProject()%>');
+                    }
+                <%}%>
                 set(label);
             }
         });

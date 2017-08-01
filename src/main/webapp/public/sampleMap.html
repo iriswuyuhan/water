@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>公众参与</title>
+    <title>eRivermap-样本地图</title>
 
     <!-- CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -45,50 +45,65 @@
                 <li><a href="User_Main.html"><i
                         class="fa fa-2x fa-tasks"></i><br>首页</a></li>
 
-                <li><a href=""><i
+                <li><a href="engagement.html"><i
                         class="fa fa-2x fa-handshake-o"></i><br>公众参与</a>
                 </li>
 
-                <li><a href="projectIntro.jsp"><i
+                <li><a href="../projectIntro/init"><i
                         class="fa fa-2x fa-list-alt"></i><br>信息发布</a>
                 </li>
                 <li><a href="introduction.html"><i
                         class="fa fa-2x fa-file-text-o"></i><br>项目介绍</a>
                 </li>
-                <li  class="active"><a href="sampleMap.html"><i
+                <li class="active"><a href="sampleMap.jsp"><i
                         class="fa fa-2x fa-map-marker "></i><br>样本地图</a>
                 </li>
+
             </ul>
+
+
+
         </div>
     </div>
 </nav>
 <div id="map" style="height: 700px"></div>
-<%--模态框--%>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<!-- 模态框（Modal） -->
+<div class="modal fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" style="    width: 721px; height: 500px;margin-left: -56%;margin-top: -56%;">
+        <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">样本报告</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i>
+                    <tton>
+                        <h4 class="modal-title" id="myModalLabel">
+                            样本编号：100001
+                        </h4>
             </div>
-            <p id="reason"  style="text-align:left;width: 100%; height: 87%;border: 0px;"></p>
-            <div class="modal-footer" style="background: white;  margin-top: -5px;">
-                <button  type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            <div class="modal-body">
+                <div class="pop-wrap">
+                    <div style="display: block; height: 480px; width:560px; overflow-y: auto; overflow-x:hidden ">
+                        <p id="reason" style="text-align: left;color:#555;"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-close" data-dismiss="modal">关闭
+                    <tton>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
 <script type="text/javascript">
-    var point = new Array();
+    alert(1);
+    var poi = new Array();
     $.ajax({
-        url:"./getSampleList",
+        url:"/getSampleList",
         type:"post",
         async:false,
         success:function (data) {
+            alert(data);
             var obj = $.parseJSON(data);
             for(var i = 0;i<obj.length;i++){
-                point[i]=[obj[i].apply.longitude,obj[i].apply.latitude,1];
-                alert(point[i]);
+                poi[i]=[obj[i].apply.longitude,obj[i].apply.latitude,1];
             }
         }
     })
@@ -96,19 +111,29 @@
     map.centerAndZoom(new BMap.Point(105.000, 38.000), 5);     // 初始化地图,设置中心点坐标和地图级别
     map.enableScrollWheelZoom();
     if (document.createElement('canvas').getContext) {  // 判断当前浏览器是否支持绘制海量点
-        for (var i = 0; i < 100; i++) {
-            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
+        var points = [];  // 添加海量点数据
+        for (var i = 0; i <poi.length; i++) {
+            points.push(new BMap.Point(poi[i][0], poi[i][1]));
         }
         var options = {
-            size: BMAP_POINT_SIZE_SMALL,
+            size: BMAP_POINT_SIZE_BIG,
             shape: BMAP_POINT_SHAPE_STAR,
             color: '#d340c3'
         }
         var pointCollection = new BMap.PointCollection(points, options);  // 初始化PointCollection
         pointCollection.addEventListener('click', function (e) {
             alert('单击点的坐标为：' + e.point.lng + ',' + e.point.lat);  // 监听点击事件
-            $("#reason").html("提供生物材料，例如医药、转基因作物等等 ,提供生物材料，例如医药、转基因作物等等,提供生物材料，例如医药、转基因作物等等……");
-            $("#myModal").modal("show");
+            $.ajax({
+                url:"/getSampleReport",
+                type:"post",
+                data:{"longtitude":e.point.lng,"latitude":e.point.lat},
+                success:function (data) {
+                    var obj1 = $.parseJSON(data);
+                    $("#myModalLabel").html( "样本编号："+obj1.idResult);
+                    $("#reason").html(obj1.description);
+                    $("#myModal").modal("show");
+                }
+            })
         });
         map.addOverlay(pointCollection);  // 添加Overlay
     } else {

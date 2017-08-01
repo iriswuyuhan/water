@@ -127,7 +127,7 @@ public class ProjectDaoImpl implements ProjectDao {
         } finally {
             session.close();
         }
-        if(applyList==null){
+        if(applyList.size()==0){
             return  null;
         }
         else {

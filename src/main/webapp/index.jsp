@@ -9,71 +9,186 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>河流生态地图-管理 </title>
+    <title>eRivermap-首页</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="../resources/css/styles.css">
+    <link rel="stylesheet" href="../resources/css/test.css">
+    <link rel="stylesheet" href="../resources/css/user_main.css">
+    <link rel="stylesheet" href="../resources/flexslider/flexslider.css">
+    <link rel="stylesheet" href="../resources/css/andiaStyle.css">
 
-    <!--    &lt;!&ndash; Favicon and touch icons &ndash;&gt;
-        <link rel="shortcut icon" href="assets/ico/favicon.ico">-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="././ico/favicon1.ico">
 
+    <script src="resources/js/user_main.js"></script>
 </head>
 
-<body>
-<div id="content">
-    <!-- Begin Content -->
+<body onload="load()">
 
-
-    <form name="login-form" class="login-form" action="" method="post">
-
-        <div class="header">
-            <img src="${pageContext.request.contextPath}/resources/img/Title.png">
-            <hr>
+<!-- Top menu -->
+<nav class="navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a>
         </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#"><i
+                        class="fa fa-2x fa-tasks"></i><br>首页</a></li>
 
-        <div class="content">
-            <input name="username" type="text" class="input username" placeholder="Username" />
-            <div class="user-icon"></div>
-            <input name="password" type="password" class="input password" placeholder="Password" />
-            <div class="pass-icon"></div>
+                <li><a href="public/engagement.html"><i
+                        class="fa fa-2x fa-handshake-o"></i><br>公众参与</a>
+                </li>
+
+                <li><a href="../projectIntro/init"><i
+                        class="fa fa-2x fa-list-alt"></i><br>信息发布</a>
+                </li>
+                <li><a href="public/introduction.html"><i
+                        class="fa fa-2x fa-file-text-o"></i><br>项目介绍</a>
+                </li>
+                <li><a href="public/sampleMap.jsp"><i
+                        class="fa fa-2x fa-map-marker "></i><br>样本地图</a>
+                </li>
+
+            </ul>
+
+
+
         </div>
+    </div>
 
-        <div class="footer">
-            <a href="#" id="login" class="button">Login</a>
+
+</nav>
+
+<!--&lt;!&ndash; Page Title &ndash;&gt;-->
+<div class="page-title-container">
+    <!--Slider -->
+    <div class="slider-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <a href="engagement.html"><img src="../resources/img/public.jpg"></a>
+                            </li>
+                            <li>
+                                <a href="projectIntro.jsp"><img src="../resources/img/info.jpg"></a>
+                            </li>
+                            <li>
+                                <a href="introduction.html"><img src="../resources/img/intro.jpg"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-
-                $("#login").click(function () {
-                    if($(".username").val()==""||$(".password").val()==""){
-                        alert("信息填写不完整")
-                    }
-                    else{
-
-                        $.ajax({
-                           url:'./login',
-                            type:'post',
-                            data:{"username":$(".username").val(),"password":$(".password").val()},
-                            success:function (data) {
-                               window.location.href="toAdmin.do"
-                            }
-
-                        });
-                    }
-                })
-            })
-        </script>
-    </form>
-
+    </div>
 </div>
-<!-- End Content -->
+
+
+<!-- content -->
+<div class="content" style="padding: 10px">
+    <div id="briIntro" class="panel panel-primary" style="width: 24%">
+        <div class="panel-heading">
+            <h3 class="panel-title">项目介绍</h3>
+        </div>
+        <div id="briIntro-body" class="panel-body" style="color: #3c3c3c;font-size: medium">
+            <img src="../resources/img/water_pollution4.jpg">
+            <p>
+                近年来，环境污染和全球气候变化造成水生生物多样性下降、
+                生物完整性缺失和物种灭绝，最终导致生态系统功能受损。
+            </p>
+            <p>
+                本项目通过鼓励公众参与水环境监测的采样流程，利用宏基因条形码技术对
+                来自全国各地的水环境进行生物多样性监测，进一步评价全国的水环境健康
+                状况,提供河流等湿地生态系统的生物多样性分布地图，建立河流生态健康评
+                估报告。
+            </p>
+        </div>
+    </div>
+    <div id="latestPro" class="panel panel-primary" style="width: 42%">
+        <div class="panel-heading">
+            <h3 class="panel-title">最新项目</h3>
+        </div>
+        <div class="panel-body" style="text-align: left">
+            <a onclick="gotoProDetail()"><h3 id="proName" style="color: #1F7CC1"></h3></a>
+            <span id="proDate"></span>
+            <div id="proContent" style="font-size: medium;color: black"></div>
+            <a id="proDetail" onclick="gotoProDetail()">查看详情</a>
+        </div>
+    </div>
+    <div id="promotion" class="panel panel-primary" style="width: 24%">
+        <div class="panel-heading">
+            <h3 class="panel-title">加入我们</h3>
+        </div>
+        <div class="panel-body" style="font-size: medium">
+            <img src="../resources/img/code.png">
+            <p>
+                欢迎扫描二维码，关注我们的微信公众号“河流生态地图”，获取最新资讯并参与志愿活动。
+            </p>
+            <P>
+                河流生态的改善需要你我共同努力！
+            </P>
+        </div>
+    </div>
 </div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <!--        <div class="row">
+                    <div class="col-sm-12 wow fadeIn">
+                        <div class="footer-border"></div>
+                    </div>
+                </div>-->
+        <div class="row">
+            <div class="col-sm-7 footer-copyright wow fadeIn">
+                <p>
+                    Copyright 2017 河流生态地图后台 - by <a
+                        href="http://azmind.com/free-bootstrap-themes-templates/">Noah's Ark</a>.
+                </p>
+            </div>
+            <div class="col-sm-5 footer-social wow fadeIn">
+                <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+                    class="fa fa-qq"></i></a> <a href="#"><i class="fa fa-weibo"></i></a>
+                <a href="#"><i class="fa fa-wechat"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Javascript -->
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+<script src="resources/andiajs/jquery.backstretch.min.js"></script>
+<script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+<script src="resources/andiajs/retina-1.1.0.min.js"></script>
+<script src="resources/andiajs/jquery.magnific-popup.min.js"></script>
+<script src="resources/flexslider/jquery.flexslider.js"></script>
+<script src="resources/andiajs/jflickrfeed.min.js"></script>
+<script src="resources/andiajs/masonry.pkgd.min.js"></script>
+<script src="resources/andiajs/jquery.ui.map.min.js"></script>
+<script src="resources/andiajs/scripts.js"></script>
+
 </body>
 
 </html>
