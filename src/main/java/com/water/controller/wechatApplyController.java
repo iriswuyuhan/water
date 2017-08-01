@@ -111,6 +111,7 @@ public class wechatApplyController {
     }
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
+    @ResponseBody
     public void upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException {
         String date = request.getParameter("applyDate");
         date = date.replace(":","-");
@@ -130,6 +131,7 @@ public class wechatApplyController {
     }
 
     @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
+    @ResponseBody
     public boolean upload(HttpServletRequest request) throws ParseException{
 
         Apply apply = new Apply();

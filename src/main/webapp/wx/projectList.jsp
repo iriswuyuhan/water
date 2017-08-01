@@ -33,7 +33,7 @@
             </p>
         </div>
         <label style="float: right">
-            <img class="pull_toggle_img hide" src="../resources/img/pullDown.png" style="width: 20px"/>
+            <img class="pull_toggle_img hide" src="./resources/img/pullDown.png" style="width: 20px"/>
         </label>
     </a>
     <div class="project_content" style="display:none">
@@ -64,11 +64,11 @@
        var tag=$(".pull_toggle_img").eq(index);
        $(".project_content").slideUp();
        if(tag.hasClass("hide")){
-           tag.attr("src","../resources/img/pullUp.png");
+           tag.attr("src","./resources/img/pullUp.png");
            $(".project_content").eq(index).slideDown();
            tag.removeClass("hide");
        }else{
-           tag.attr("src","../resources/img/pullDown.png");
+           tag.attr("src","./resources/img/pullDown.png");
            $(".project_content").eq(index).slideUp();
            tag.addClass("hide");
        }
@@ -78,7 +78,6 @@
     $(".apply_project").click(function () {
        var index=$(".apply_project").index(this);
        var projectId=$(".projectId").eq(index).val();
-       alert(projectId);
        window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2014311796d1a614&redirect_uri=http%3a%2f%2fwx.softlollipop.cn%2fwater%2finit%2fwx&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
     });
 </script>
