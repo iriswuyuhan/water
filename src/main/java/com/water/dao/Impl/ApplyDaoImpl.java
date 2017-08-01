@@ -179,7 +179,7 @@ public class ApplyDaoImpl implements ApplyDao {
         } finally {
             session.close();
         }
-        if(applyList==null){
+        if(applyList.size()==0){
             return  null;
         }else {
             return applyList.get(0);
