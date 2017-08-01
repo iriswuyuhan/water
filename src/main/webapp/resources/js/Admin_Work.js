@@ -93,7 +93,7 @@ $(function () {
                     $("#tab1").hide();
                     $("#tab2").hide();
                     $("#tab3").hide();
-                    if (temp.state == 0) {
+                    if (temp.state === 0) {
                         obj = $("#tab1")
                         $("#tab1").show();
                         $("#tabs").find("li[name='s1']").prop("id", "current")
@@ -101,11 +101,11 @@ $(function () {
                             $(this).removeClass("active");
                         });
                         $("#scro1").find("a").each(function () {
-                            if ($(this).html() == id)
+                            if ($(this).html() === id)
                                 $(this.parentNode).addClass("active");
                         })
                     }
-                    if (temp.state == 1) {
+                    if (temp.state === 1) {
                         obj = $("#tab2")
                         $("#tab2").show();
                         $("#tabs").find("li[name='s2']").prop("id", "current")
@@ -114,11 +114,11 @@ $(function () {
                         });
 
                         $("#scro2").find("a").each(function () {
-                            if ($(this).html() == id)
+                            if ($(this).html() === id)
                                 $(this.parentNode).addClass("active");
                         })
                     }
-                    if (temp.state == 2) {
+                    if (temp.state === 2) {
                         obj = $("#tab3")
                         $("#tab3").show();
                         $("#tabs").find("li[name='s3']").prop("id", "current")
@@ -127,7 +127,7 @@ $(function () {
                         });
 
                         $("#scro3").find("a").each(function () {
-                            if ($(this).html() == id)
+                            if ($(this).html() === id)
                                 $(this.parentNode).addClass("active");
                         })
                     }
