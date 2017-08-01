@@ -78,11 +78,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i>
-                    <tton>
+                    <button>
                         <h4 class="modal-title" id="myModalLabel">
                             样本编号：100001
                         </h4>
-                    </tton>
+                    </button>
                 </button>
             </div>
             <div class="modal-body">
