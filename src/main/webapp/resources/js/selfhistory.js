@@ -27,11 +27,11 @@ function on_sample_click() {
 };
 
 var type=$("#type").val();
-if(type==0){
+if(type===0){
     on_unchecked_click();
-}else if(type==1){
+}else if(type===1){
     on_checked_click();
-}else if(type==2){
+}else if(type===2){
     on_sample_click();
 }
 
