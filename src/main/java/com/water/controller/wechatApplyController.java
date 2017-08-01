@@ -156,7 +156,8 @@ public class wechatApplyController {
         user = userService.getById(userId);
         apply.setUser(user);
         apply.setResponse("");
-        int idProject = Integer.parseInt(request.getParameter("projectID")) + 1;
+        int idProject = Integer.parseInt(request.getParameter("projectID"));
+        System.out.println(idProject);
         Project project = projectService.findProjectByID(idProject);
         apply.setProject(project);
 //        System.out.println(apply.getNumber());
