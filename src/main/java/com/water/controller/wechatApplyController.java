@@ -87,14 +87,15 @@ public class wechatApplyController {
         String userName = "";
         String contact = "";
         String address = "";
-        List<Project> p = projectService.findAllProjects();
-//        List<Project> p = new ArrayList<Project>();
-//        Project project = new Project();
-//        project.setIdProject(1);
-//        project.setName("一般申请");
-//        project.setDescription("志愿者自行选择河流区域");
-//        p.add(project);
-//        System.out.println(p.get(0));
+        List<Project> temp = projectService.findAllProjects();
+        List<Project> p = new ArrayList<Project>();
+        for(int i=0;i<temp.size();i++){
+            if(temp.get(i).getState() == 1){
+                continue;
+            }else{
+                p.add(temp.get(i));
+            }
+        }
 
         modelAndView.addObject("userID",userID);
         User user = userService.getById(userID);
@@ -111,7 +112,6 @@ public class wechatApplyController {
     }
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
-    @ResponseBody
     public void upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException {
         String date = request.getParameter("applyDate");
         date = date.replace(":","-");
@@ -131,7 +131,6 @@ public class wechatApplyController {
     }
 
     @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
-    @ResponseBody
     public boolean upload(HttpServletRequest request) throws ParseException{
 
         Apply apply = new Apply();

@@ -67,49 +67,6 @@
             border: 0;
             vertical-align: middle;
         }
-        /*遮罩层*/
-
-        .z_mask {
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, .5);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            display: none;
-        }
-
-        .z_alert {
-            width: 6rem;
-            height: 2.5rem;
-            border-radius: .2rem;
-            background: #fff;
-            font-size: 18px;
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -1.5rem;
-            margin-top: -2rem;
-        }
-
-        .z_alert p:nth-child(1) {
-            line-height: 1.5rem;
-        }
-
-        .z_alert p:nth-child(2) span {
-            display: inline-block;
-            width: 49%;
-            height: .5rem;
-            line-height: .5rem;
-            float: left;
-            border-top: 1px solid #ddd;
-        }
-
-        .z_cancel {
-            border-right: 1px solid #ddd;
-        }
 
     </style>
 
@@ -217,17 +174,17 @@
         </form>
     </div>
 
-    <!--遮罩层-->
-    <div class="z_mask">
-        <!--弹出框-->
-        <div class="z_alert">
-            <p>确定要删除这张图片吗？</p>
-            <p>
-                <span class="z_cancel">取消</span>
-                <span class="z_sure">确定</span>
-            </p>
+    <div id="z_mask" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog" id="z_alert">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">删除当前图片</strong></div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" id="z_cancel" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+                <a href="javascript:;" id="z_sure" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+            </div>
         </div>
     </div>
+
 </div>
 <iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
 
@@ -309,9 +266,9 @@
 
     function imgRemove() {
         var imgList = document.getElementsByClassName("z_addImg");
-        var mask = document.getElementsByClassName("z_mask")[0];
-        var cancel = document.getElementsByClassName("z_cancel")[0];
-        var sure = document.getElementsByClassName("z_sure")[0];
+        var mask = document.getElementById("z_mask");
+        var cancel = document.getElementById("z_cancel");
+        var sure = document.getElementById("z_sure");
         for (var j = 0; j < imgList.length; j++) {
             imgList[j].index = j;
             imgList[j].onclick = function() {

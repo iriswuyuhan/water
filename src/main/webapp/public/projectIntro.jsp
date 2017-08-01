@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../resources/css/styles.css">
     <link rel="stylesheet" href="../resources/css/test.css">
     <link rel="stylesheet" href="../resources/css/projectIntro.css">
+    <link rel="stylesheet" href="../resources/js/jquery.media.js">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,11 +111,17 @@
                                 </div>
                                 <div class="left_content" style="text-align: left">
                                     <p id="projectDescription">${description}</p>
-                                    <p style="float: right"><a id="repostHref">查看项目报告</a></p>
+                                    <p style="float: right"><a id="repostHref" class="media">查看项目报告</a></p>
+                                    <input type="hidden" id="projectState">
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <%--<div id="annotation" style="display: none">--%>
+                        <%--<p>暂未上传实验报告</p>--%>
+                    <%--</div>--%>
+
                 </div>
             </div>
         </div>
@@ -156,7 +163,14 @@
 </body>
 
 <script type="text/javascript">
-    $("#repostHref").href = "http://118.89.166.19/samples/" + $("#projectName");
+
+    $("#repostHref").click(function () {
+        if ($("#projectState").val() == 0){
+            alert("暂未上传实验报告");
+        }else{
+            $("#repostHref").prop("href","http://118.89.166.19/web_upload/" + $("#projectName").text() + ".pdf");
+        }
+    })
 
     <% ArrayList<String> projectNames = (ArrayList)request.getAttribute("projectNameArray");
     for(int i=0;i<projectNames.size();i++){%>
@@ -170,7 +184,7 @@
     for(var i=0;i<$("#scro1 li").length;i++) {
         $("#scro1 li").removeClass("active");
         var element = $("#scro1 li").eq(i);
-        if(element.innerHTML == <%=parameter%>){
+        if(element.innerHTML == '<%=parameter%>'){
             alert(element.innerHTML);
             element.addClass("active");
         }
@@ -191,6 +205,7 @@
                     $("#projectName").html(data.projectName2);
                     $("#projectDescription").html(data.description2);
                     $("#projectDate").html(data.date2);
+                    $("#projectState").val(data.state2);
                 }else{
                     alert("fail");
                 }

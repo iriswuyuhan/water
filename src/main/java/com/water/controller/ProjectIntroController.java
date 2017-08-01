@@ -50,7 +50,6 @@ public class ProjectIntroController {
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("description2",p.getDescription());
         jsonObject.put("projectName2",p.getName());
-        jsonObject.put("report2",p.getReport());
         jsonObject.put("state2",p.getState());
         jsonObject.put("date2",p.getDate());
         return jsonObject;
