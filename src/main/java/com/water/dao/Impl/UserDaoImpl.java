@@ -78,9 +78,20 @@ public class UserDaoImpl implements UserDao{
     }
 
     public boolean delete(String id) {
-        User person = load(id);
-        getCurrentSession().delete(person);
-        return true;
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try {
+            User user = (User) session.load(User.class, id);
+            session.delete(user);
+            tx.commit();
+            flag = true;
+        } catch (Exception ex) {
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
     }
 
     public void flush() {
