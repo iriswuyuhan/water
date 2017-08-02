@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +50,10 @@ public class ProjectIntroController {
                 modelAndView.addObject("description","");
             }
             if(firstProject.getDescription() != null){
-                modelAndView.addObject("date",firstProject.getDate());
+                Date date = firstProject.getDate();
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String d = df.format(date);
+                modelAndView.addObject("date",d);
             }else{
                 modelAndView.addObject("date","");
             }
@@ -57,6 +62,7 @@ public class ProjectIntroController {
             projectNames.add("暂无样本");
         }
         modelAndView.addObject("projectNameArray",projectNames);
+        modelAndView.addObject("projectArray",p);
 
         return modelAndView;
     }
@@ -70,7 +76,10 @@ public class ProjectIntroController {
         jsonObject.put("description2",p.getDescription());
         jsonObject.put("projectName2",p.getName());
         jsonObject.put("state2",p.getState());
-        jsonObject.put("date2",p.getDate());
+        Date date = p.getDate();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String d = df.format(date);
+        jsonObject.put("date2",d);
         return jsonObject;
     }
 }

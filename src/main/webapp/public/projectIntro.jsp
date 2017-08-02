@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.water.entity.Project" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <% String parameter = request.getParameter("name"); %>
@@ -106,11 +107,16 @@
                             <div id="total_intro_panel" class="tab_panel indicator-group-content">
                                 <div class="left_title">
                                     <i class="fa fa-edit blue"></i>
-                                    <h1 class="number" id="projectName" style="font-size: 25px">${projectName}</h1>
-                                    <a class="time" id="projectDate">${date}</a>
+                                    <h1>
+                                        <span class="number" id="projectName" style="font-size: 25px">${projectName}</span>
+                                        <span style="float: right;font-size: 16px;" class="time" id="projectDate">长期有效</span>
+                                    </h1>
                                 </div>
                                 <div class="left_content" style="text-align: left">
-                                    <p id="projectDescription">自主选择水域</p>
+                                    <div id="projectDescription">
+                                        ${description}
+                                    </div>
+
                                     <p style="float: right"><a id="repostHref" class="media">查看项目报告</a></p>
                                     <input type="hidden" id="projectState">
                                 </div>
@@ -193,6 +199,19 @@
         var tem1 = parameter.toString();
         if(tem1 == tem2){
             $("#scro1 li").eq(i).addClass("active");
+            <% ArrayList<Project> projectList = (ArrayList)request.getAttribute("projectArray");
+               for(int i=0;i<projectList.size();i++){%>
+            if(tem1 == '<%=projectList.get(i).getName()%>'){
+                $("#projectDescription").empty();
+                $("#projectName").html('<%=projectList.get(i).getName()%>');
+                $("#projectDescription").append("<p>"+'<%=projectList.get(i).getDescription()%>'+"</p>");
+                $("#projectDate").empty();
+                var d = '<%=projectList.get(i).getDate()%>';
+                var d1 = d.substr(0,d.length-2);
+                $("#projectDate").text(d1);
+                $("#projectState").val('<%=projectList.get(i).getState()%>');
+            }
+            <%}%>
             break;
         }
     }
@@ -209,21 +228,15 @@
             data:{"projectName":data.innerHTML},
             success:function (data) {
                 if(data != null){
-                    $("#projectDescription").html("");
+                    $("#projectDescription").empty();
                     $("#projectName").html(data.projectName2);
-                    $("#projectDescription").html(data.description2);
-                    $("#projectDate").html(data.date2);
+                    $("#projectDescription").append("<p>"+data.description2+"</p>");
+                    $("#projectDate").empty();
+                    $("#projectDate").text(data.date2);
                     $("#projectState").val(data.state2);
                 }else{
                     alert("fail");
                 }
-            },
-            error : function(XMLHttpRequest, textStatus, errorThrown) {
-                //这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
-                alert(XMLHttpRequest.responseText);
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus); // parser error;
             }
         })
     }
