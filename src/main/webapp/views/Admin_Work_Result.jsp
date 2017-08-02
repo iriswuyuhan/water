@@ -230,7 +230,6 @@
                         data: {"id": $("#tags").val()},
                         success: function (data) {
                             if(data==1){
-//                        $("#file-1").fileinput("upload");
                                 $.ajax({
                                     url: "./uploadResult",
                                     type: "post",
@@ -240,8 +239,14 @@
                                     }
                                 })
                             }
-                            else {
-                                alert("样本编号不存在或已上传实验结果");
+                            if(data==-1){
+                                alert("样本编号不存在");
+                            }
+                            if(data==0){
+                                alert("样本尚未收取");
+                            }
+                            if(data==2){
+                                alert("该样本已上传实验结果");
                             }
                         }
 

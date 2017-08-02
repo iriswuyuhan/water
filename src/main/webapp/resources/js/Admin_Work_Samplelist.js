@@ -166,7 +166,7 @@ function clickbut() {
     })
     str =  encodeURIComponent(str);
     $("#csv").attr("href","data:text/csv;charset=utf-8,\ufeff"+str);
-    $("#csv").attr("download","doon.csv");
+    $("#csv").attr("download","SampleList.csv");
     $("#csv").click;
 }
 function  additem(temp) {
