@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by lenovo on 2017/7/20.
+ * 微信端填写个人资料的页面
  */
 @Controller
 @RequestMapping("/user")
@@ -26,6 +26,11 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    /**
+     * 微信端个人资料按钮的响应，这是未知userID(openID)时填写个人资料界面的入口
+     * @param request
+     * @param response
+     */
     @RequestMapping("/wx")
     public void wxAccessToUser(HttpServletRequest request, HttpServletResponse response){
         String code=request.getParameter("code");
@@ -51,6 +56,12 @@ public class UserController {
         }
     }
 
+    /**
+     * 这是已知userID时的填写个人资料界面的入口
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{userID}")
     public ModelAndView personalInfo(@PathVariable String userID, HttpServletRequest request){
         ModelAndView modelAndView=new ModelAndView("../wx/personal_info");
@@ -64,6 +75,12 @@ public class UserController {
         return modelAndView;
     }
 
+    /**
+     * 个人资料界面的确认按钮的响应
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/j{userID}/confirm", method = RequestMethod.GET)
     @ResponseBody
     public Boolean personalInfoConfirm(@PathVariable String userID,HttpServletRequest request){
@@ -76,4 +93,16 @@ public class UserController {
         user.setAddress(address);
         return userService.updateUser(user);
     }
+
+//    @RequestMapping(value = "/j{userID}/deleteUser", method = RequestMethod.GET)
+//    @ResponseBody
+//    public boolean deleteUser(@PathVariable String userID,HttpServletRequest request){
+//        User user=userService.getById(userID);
+//        boolean result=false;
+//        if((user.getName()==null||user.getName().equals(""))&&(user.getNumber()==null||user.getNumber().equals(""))
+//                &&(user.getAddress()==null||user.getAddress().equals(""))){
+//            result=userService.deleteUser(userID);
+//        }
+//        return result;
+//    }
 }

@@ -1,17 +1,6 @@
 /**
  * Created by zhanglei on 2017/7/20.
  */
-$(document).ready(function(){
-    var type=$("#type").val();
-    if(type===0){
-        on_unchecked_click();
-    }else if(type===1){
-        on_checked_click();
-    }else if(type===2){
-        on_sample_click();
-    }
-});
-
 function on_unchecked_click() {
     $("#unchecked_tab").addClass("weui-bar__item_on");
     $("#checked_tab").removeClass("weui-bar__item_on");

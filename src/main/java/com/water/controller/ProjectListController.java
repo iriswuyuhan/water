@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lenovo on 2017/7/31.
+ * 微信端可选项目界面的controller
  */
 @Controller
 @RequestMapping("/projectList")
@@ -21,6 +21,11 @@ public class ProjectListController {
     @Autowired
     private ProjectService projectService;
 
+    /**
+     * 加载可选项目界面
+     * @param request
+     * @return
+     */
     @RequestMapping("")
     public ModelAndView getProjectList(HttpServletRequest request){
         List<Project> projectList = projectService.findAllProjects();

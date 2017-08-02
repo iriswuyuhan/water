@@ -64,6 +64,17 @@
 </body>
 <script src="<%=basePath%>resources/js/selfhistory.js"></script>
 <script>
+    $(document).ready(function(){
+        var type=$("#type").val();
+        if(type==0){
+            on_unchecked_click();
+        }else if(type==1){
+            on_checked_click();
+        }else if(type==2){
+            on_sample_click();
+        }
+    });
+
     //加载未审核列表
     $.ajax({
         url: "history/getUnChecked",
