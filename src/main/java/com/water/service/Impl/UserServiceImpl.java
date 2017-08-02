@@ -45,4 +45,10 @@ public class UserServiceImpl implements UserService {
         return userDao.save(user);
 
     }
+
+    @Override
+    public boolean deleteUser(String userId) {
+       return userDao.delete(userId);
+
+    }
 }

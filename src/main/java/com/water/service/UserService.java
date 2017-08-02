@@ -42,5 +42,7 @@ public interface UserService {
     public boolean addUser(String userId);
 
 
+    public boolean deleteUser(String userId);
+
 
 }
