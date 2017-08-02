@@ -10,14 +10,14 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 
     <!-- 启动注解驱动的spring MVC功能,注册请求url和注解POJO类方法的映射-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
     <!-- 对模型视图名称的解析,在请求时模型视图名称添加前后缀 -->
-    <context:component-scan base-package="com.water" />
+    <context:component-scan base-package="com.water"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/views/" />      <!-- 前缀 -->
-        <property name="suffix" value=".jsp" />   <!-- 后缀 -->
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/views/"/>      <!-- 前缀 -->
+        <property name="suffix" value=".jsp"/>   <!-- 后缀 -->
     </bean>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -26,11 +26,28 @@
 
     </bean>
 
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
 
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
     <!-- 处理器 -->
     <!-- <bean name="/hello" class="com.mvc.jn.controller.HelloWorldController"/> -->
     <context:component-scan base-package="com"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截所有URL中包含/user/的请求 -->
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/**/fonts/*"/>
+            <mvc:exclude-mapping path="/**/*.css"/>
+            <mvc:exclude-mapping path="/**/*.js"/>
+            <mvc:exclude-mapping path="/**/*.png"/>
+            <mvc:exclude-mapping path="/**/*.gif"/>
+            <mvc:exclude-mapping path="/**/*.jpg"/>
+            <mvc:exclude-mapping path="/**/*.jpeg"/>
+            <mvc:exclude-mapping path="/**/*login*"/>
+            <mvc:exclude-mapping path="/**/*Login*"/>
+            <bean class="com.water.auth.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

@@ -1,24 +1,13 @@
 package com.water.controller;
 
 
-import com.water.entity.Result;
-import com.water.service.*;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.water.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 
 /**
@@ -174,37 +163,49 @@ public class MainController {
      * @throws Exception
      */
     @RequestMapping("/login")
-    public void login(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         response.setCharacterEncoding("UTF-8");
-        if(username.equals("Admin")&&password.equals("eRiverMap2017")){
+        if (username.equals("Admin") && password.equals("eRiverMap2017")) {
+            // 存储用户认证信息
+            User user = new User();
+            user.setIdUser(username);
+            user.setIsResearcher(1);
+            user.setPassword(password);
+            request.getSession().setAttribute("auth", user);
+
+
             response.getWriter().print("success");
-        }
-        else {
+        } else {
             response.getWriter().print("用户名或密码错误");
         }
 
 
     }
-    @RequestMapping(value="/toAdmin.do")
-    public String toAdmin() throws IOException{
+
+    @RequestMapping(value = "/toAdmin.do")
+    public String toAdmin() throws IOException {
         return "Admin_Work";
     }
-    @RequestMapping(value="/Admin")
-    public String Admin() throws IOException{
+
+    @RequestMapping(value = "/Admin")
+    public String Admin() throws IOException {
         return "Admin_Login";
     }
-    @RequestMapping(value="/toAdmin_Sample_Result.do")
-    public String toAdmin_Sample_Result() throws IOException{
+
+    @RequestMapping(value = "/toAdmin_Sample_Result.do")
+    public String toAdmin_Sample_Result() throws IOException {
         return "Admin_Work_Result";
     }
-    @RequestMapping(value="/toAdmin_Sample.do")
-    public String toAdmin_Sample() throws IOException{
+
+    @RequestMapping(value = "/toAdmin_Sample.do")
+    public String toAdmin_Sample() throws IOException {
         return "Admin_Work_Sample";
     }
-    @RequestMapping(value="/toAdmin_Project.do")
-    public String toAdmin_Project() throws IOException{
+
+    @RequestMapping(value = "/toAdmin_Project.do")
+    public String toAdmin_Project() throws IOException {
         return "Admin_Work_Project";
     }
 }
