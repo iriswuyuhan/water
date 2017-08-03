@@ -116,13 +116,17 @@
             }
             var useCook2 = $.cookie('ret4');
             if(useCook2 == '1'){
-                $("#projectName").text($.cookie('projectName'));
+                if($.cookie('projectName') == "undefined"){
+                    $("#projectName").text("选择项目");
+                }else{
+                    $("#projectName").text($.cookie('projectName'));
+                }
             }
         }
 
     </script>
 </head>
-<body onload=load()>
+<body>
 <input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="longitude"/>
 <input type="hidden" id="latitude"/>
@@ -196,14 +200,18 @@
 </body>
 <script type="text/javascript" src="../resources/js/split.js"></script>
 <script type="text/javascript">
-    if($("#projectName").text() != "选择项目"){
-        var name = $("#projectName").text();
-        <%for(int i=0;i<arrayList.size();i++){%>
-        if('<%=arrayList.get(i).getName()%>' == name){
-            $("#projectID").val('<%=arrayList.get(i).getIdProject()%>');
+    $(document).ready(function () {
+        load();
+
+        if($("#projectName").text() != "选择项目"){
+            var name = $("#projectName").text();
+            <%for(int i=0;i<arrayList.size();i++){%>
+            if('<%=arrayList.get(i).getName()%>' == name){
+                $("#projectID").val('<%=arrayList.get(i).getIdProject()%>');
+            }
+            <%}%>
         }
-        <%}%>
-    }
+    })
 
     var basePath='<%=basePath%>';
     var project = [
@@ -218,9 +226,6 @@
     $("#chooseProject").on('click', function () {
         weui.picker(project, {
             onConfirm: function (result) {
-//                $("#projectID").val(result);
-//                var projectID = $("#projectID").val();
-//                alert(projectID);
                 var label = project[result].label;
                 $("#projectName").text(label);
                 <%for(int i=0;i<arrayList.size();i++){%>

@@ -39,7 +39,7 @@ $("#applyUpload").click(function () {
         alert("请选择项目名称");
     } else if (waterAddress == "" || waterAddress == "请选择水域地址") {
         alert("请选择水域地址");
-    } else if ($("#file_0").val() == "") {
+    } else if ($("#file").val() == "") {
         alert("请上传河流图片");
     } else {
         $.ajax({
@@ -71,11 +71,11 @@ $("#applyUpload").click(function () {
                     $.cookie('longitude', null, {path: '/'});
                     $.cookie('latitude', null, {path: '/'});
                     $.cookie('concrete_address', null, {path: '/'});
-                    // $.cookie('ret4',null, { expires: -1, path: '/'});
-                    // $.cookie('projectName',null, { expires: -1, path: '/' });
-                    $.cookie('projectName','选择项目',{path:'/'});
-                    $("#projectName").text("选择项目");
-                    alert("cds" + $.cookie('projectName'));
+                    $.cookie('ret4',null, { expires: -1, path: '/'});
+                    $.cookie('projectName',null, { expires: -1, path: '/' });
+                    // $.cookie('projectName','选择项目',{path:'/'});
+                    // $("#projectName").text("选择项目");
+                    window.location.href = basePath + "user/j" + idUser + "/history?type=0";
                 } else {
                     alert("提交申请失败");
                 }
@@ -87,8 +87,7 @@ $("#applyUpload").click(function () {
             //     alert(XMLHttpRequest.readyState);
             //     alert(textStatus); // parser error;
             // }
-        })
-        window.location.href = basePath + "user/j" + idUser + "/history?type=0";
+        });
     }
-})
+});
 
