@@ -112,7 +112,10 @@
         success:function (data) {
             var obj = $.parseJSON(data);
             for(var i = 0;i<obj.length;i++){
-                poi[i]=[obj[i].apply.longitude,obj[i].apply.latitude,1];
+
+                if(obj[i].state=="2") {
+                    poi.push([obj[i].apply.longitude, obj[i].apply.latitude, 1]);
+                }
             }
         }
     })
