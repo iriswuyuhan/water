@@ -62,6 +62,27 @@ public class ProjectDaoImpl implements ProjectDao {
         getCurrentSession().persist(entity);
     }
 
+    public boolean modifyProject(String projectName, String desc, Long id){
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        boolean flag = false;
+        try {
+            String hql="update Project set name=:projectname , description=:body where idProject =:projectID";//使用命名参数，推荐使用，易读。
+            Query query=session.createQuery(hql);
+            query.setString("projectname", projectName);
+            query.setString("body", desc);
+            query.setLong("projectID",id);
+            query.executeUpdate();
+            tx.commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return flag;
+    }
+
     public boolean save(Project entity) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();

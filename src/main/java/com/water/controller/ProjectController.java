@@ -125,7 +125,7 @@ public class ProjectController {
         project.setDescription(body);
         project.setDate(date);
 
-        boolean success=projectService.updateProject(project);
+        boolean success=projectService.modifyProject(project);
 
         return success;
 //        return true;

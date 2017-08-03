@@ -27,8 +27,6 @@ public class ApplyController {
 
     @Autowired
     private ApplyService applyService;
-    @Autowired
-    private UploadService uploadService;
 
     /**
      * @param request
