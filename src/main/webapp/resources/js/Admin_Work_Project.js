@@ -39,7 +39,7 @@ function publish(){
                 data:{"id":id,"headline":headline,"body":markupStr},
                 dataType:"json",
                 success:function (data) {
-                    if(data==="false"){
+                    if(data==false){
                         alert("修改失败！请重试！");
                     }
                     else{
@@ -61,7 +61,7 @@ function publish(){
                 success:function (data){
                     // head.push(headline);
                     // content.push(markupStr);
-                    if(parseInt(data)===-1){
+                    if(parseInt(data)==-1){
                         alert("发布失败！请重试！");
                     }
                     else{
@@ -93,7 +93,7 @@ function show(id){
     document.getElementById(id).setAttribute("class","active");
 
     var cancel = document.getElementById("cancel");
-    if(id==="add"){
+    if(id=="add"){
         document.getElementById("headline").value="";
         $('#summernote').summernote('code', "");
 
@@ -120,7 +120,8 @@ function del(id){
         data:{"id":id},
         dataType:"json",
         success:function (data){
-            if(data==="false"){
+            alert(data);
+            if(data==false){
                 alert("删除失败！请重试！");
             }
             else{
