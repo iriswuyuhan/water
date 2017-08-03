@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//处理项目的增删改
 @Controller
 public class ProjectController {
 
@@ -31,6 +32,7 @@ public class ProjectController {
      * @param request
      * @return 项目id
      * @throws Exception
+     * 发布新项目
      */
     @RequestMapping("/publish")
     @ResponseBody
@@ -54,6 +56,7 @@ public class ProjectController {
      * @param response
      * @return 项目列表
      * @throws Exception
+     * 获取所有项目列表
      */
     @RequestMapping("/allProject")
     @ResponseBody
@@ -70,6 +73,7 @@ public class ProjectController {
      * @param response
      * @return 项目列表
      * @throws Exception
+     * 获取所有项目的名字
      */
     @RequestMapping("/getProjectName")
     @ResponseBody
@@ -88,6 +92,7 @@ public class ProjectController {
      * @param request
      * @return boolean
      * @throws Exception
+     * 删除项目
      */
     @RequestMapping("/deleteProject")
     @ResponseBody
@@ -102,6 +107,7 @@ public class ProjectController {
      * @param request
      * @return boolean
      * @throws Exception
+     * 修改项目
      */
     @RequestMapping("/modifyProject")
     @ResponseBody
@@ -123,17 +129,6 @@ public class ProjectController {
 
         return success;
 //        return true;
-    }
-
-    /**
-     * @param request
-     * @return boolean
-     * @throws Exception
-     */
-    @RequestMapping("/uploadProPic")
-    @ResponseBody
-    public boolean upload(HttpServletRequest request){
-        return false;
     }
 
     /**
@@ -176,7 +171,7 @@ public class ProjectController {
 
     /**
      * @param response
-     * @return void
+     * @return 最近一次项目
      * @throws Exception
      */
     @RequestMapping("/getLatestPro")
