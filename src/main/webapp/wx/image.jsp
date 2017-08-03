@@ -99,11 +99,7 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
-    var options = {
-        success:showImg,
-    }
     function imgChange(obj1, obj2) {
-
         var date = new Date();
         var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
         var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes();
@@ -135,11 +131,6 @@
         });
 
     };
-    function showImg(responseText, statusText, xhr, $form) {
-        alert(xhr.responseText+"=="+$form.attr("method")+'status: ' +
-            statusText + '\n\nresponseText: \n' + responseText);
-    }
-
     $(document).ready(function () {
         $("#imageForm").ajaxForm({
             url : "../uploadImg", // 请求的url

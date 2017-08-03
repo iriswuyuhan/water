@@ -146,7 +146,7 @@ public class sampleController {
      */
     @RequestMapping("/getSampleID")
     @ResponseBody
-    public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void getSampleID(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         ArrayList<Sample> samples = uploadService.findAll();
         ArrayList<String> sampleIDs = new ArrayList<String>();
@@ -174,6 +174,56 @@ public class sampleController {
         String result = resultService.findResultByID(Long.valueOf(idSample)).getDescription();
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(result);
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 获得样本信息
+     * @throws Exception
+     */
+    @RequestMapping("/getSample")
+    public void getSample(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
+        Long id1 = Long.valueOf(id);
+        Sample sample = uploadService.searchSample(id1);
+        if(sample!=null){
+            uploadService.addTxt(sample);}
+        JSONObject object = JSONObject.fromObject(sample);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(object.toString());
+
+    }
+    /**
+     * @param request
+     * @param response
+     * @return 该样本是否可以上传实验结果
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleResultTest")
+    public void sampleResultTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String id = request.getParameter("id");
+        Long id1 = Long.valueOf(id);
+        int res = uploadService.judgeByID(id1);
+        response.getWriter().print(String.valueOf(res));
+
+    }
+
+    /**
+     * @param request
+     * @param response
+     * @return 获得所有样本信息
+     * @throws Exception
+     */
+    @RequestMapping("/getSampleList")
+    public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        ArrayList<Sample> samples = uploadService.findAll();
+        log.error("asdk");
+        if (samples.size() > 0)
+            uploadService.addTxt(samples.get(0));
+        JSONArray array = JSONArray.fromObject(samples);
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().print(array.toString());
     }
 
 }
