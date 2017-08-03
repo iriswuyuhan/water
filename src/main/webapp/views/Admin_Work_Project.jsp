@@ -138,7 +138,7 @@
                     <div id="top-navigation">
                         Welcome! <a href="#"><strong>Administrator</strong></a>
                         <span>|</span>
-                        <a href="#">Log out</a>
+                        <a href="Admin">Log out</a>
                     </div>
                 </ul>
             </ul>

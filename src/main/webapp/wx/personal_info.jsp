@@ -30,6 +30,11 @@
 <input type="hidden" id="userID" value="${userID}"/>
 <input type="hidden" id="next" value="${next}"/>
 <div class="weui-cells">
+    <div class="weui-cell" id="first_login" style="display: none">
+        <div class="weui-cell__bd">
+            <p style="color: red">请先完善个人信息</p>
+        </div>
+    </div>
     <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label" style="color: grey">姓名</label></div>
         <div class="weui-cell__bd">
@@ -66,4 +71,9 @@
 </div>
 </body>
 <script src="<%=basePath%>resources/js/personal_info.js"></script>
+<script>
+    if($("#next").val()=="apply"||$("#next").val()=="sample"){
+        $("#first_login").show();
+    }
+</script>
 </html>

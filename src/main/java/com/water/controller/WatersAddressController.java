@@ -10,12 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by lenovo on 2017/7/19.
+ * 确认水域地址界面的controller
  */
 @Controller
 @RequestMapping("/address/waters")
 public class WatersAddressController {
 
+    /**
+     * 加载确认水域地址界面
+     * @return
+     */
     @RequestMapping("")
     public ModelAndView uploadSampling(){
         ModelAndView modelAndView=new ModelAndView("../wx/confirm_address");
@@ -23,7 +27,7 @@ public class WatersAddressController {
     }
 
     /**
-     * 确认地址
+     * 水域地址页面的确认按钮的响应
      * @return
      */
     @RequestMapping(value = "/confirm", method = RequestMethod.GET)

@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by 朱晨乾 on 2017/7/17.
+ * 上传采样信息页面的controller
  */
 @Controller
 @RequestMapping("/upload")
@@ -34,6 +34,12 @@ public class UploadController {
     UploadService uploadService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
+    /**
+     * 加载上传采样信息界面，先放入该申请的信息
+     * @param applyID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{applyID}")
     public ModelAndView uploadSamplePage(@PathVariable String applyID, HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("../wx/upload_sampling_info");
@@ -81,6 +87,12 @@ public class UploadController {
         return modelAndView;
     }
 
+    /**
+     * 上传采样信息界面的确认按钮的响应
+     * @param applyID
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/j{applyID}/confirm", method = RequestMethod.GET)
     @ResponseBody
     public boolean addUpload(@PathVariable String applyID, HttpServletRequest request) {

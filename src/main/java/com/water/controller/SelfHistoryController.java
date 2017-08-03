@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lenovo on 2017/7/22.
+ * 采样记录界面和申请详细信息界面和采样详细信息界面的controller
  */
 @Controller
 @RequestMapping("/user")
@@ -46,6 +46,11 @@ public class SelfHistoryController {
     ResultService resultService;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
+    /**
+     * 微信端采样记录的按钮的响应，这是未知userID(openID)时采样记录界面的入口
+     * @param request
+     * @param response
+     */
     @RequestMapping("/wx/history")
     public void wxAccessToHistory(HttpServletRequest request, HttpServletResponse response){
         String code=request.getParameter("code");
@@ -75,6 +80,12 @@ public class SelfHistoryController {
         }
     }
 
+    /**
+     * 这是已知userID时的采样记录界面的入口
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{userID}/history")
     public ModelAndView getSelfHistory(@PathVariable String userID,HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("../wx/selfhistory");
@@ -86,6 +97,11 @@ public class SelfHistoryController {
         return modelAndView;
     }
 
+    /**
+     * 采样记录界面获取未审核申请列表
+     * @param userID
+     * @return
+     */
     @RequestMapping("/j{userID}/history/getUnChecked")
     @ResponseBody
     public JSONArray getUnCheckedHistory(@PathVariable String userID) {
@@ -97,6 +113,12 @@ public class SelfHistoryController {
         return jsonArray;
     }
 
+    /**
+     * 采样记录界面删除一条未审核申请
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{userID}/history/deleteUnChecked")
     @ResponseBody
     public boolean deleteUnChecked(@PathVariable String userID, HttpServletRequest request) {
@@ -106,6 +128,11 @@ public class SelfHistoryController {
         return applyService.deleteApply(deleteID);
     }
 
+    /**
+     * 采样记录界面获取已审核申请列表
+     * @param userID
+     * @return
+     */
     @RequestMapping("/j{userID}/history/getChecked")
     @ResponseBody
     public JSONArray getCheckedHistory(@PathVariable String userID) {
@@ -117,6 +144,11 @@ public class SelfHistoryController {
         return jsonArray;
     }
 
+    /**
+     * 采样记录界面获取已采样列表
+     * @param userID
+     * @return
+     */
     @RequestMapping("/j{userID}/history/getSampling")
     @ResponseBody
     public JSONArray getSamplingHistory(@PathVariable String userID) {
@@ -138,6 +170,12 @@ public class SelfHistoryController {
         return jsonArray;
     }
 
+    /**
+     * 在采样记录界面点击一条申请进入申请详情页面
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{userID}/history/apply")
     @ResponseBody
     public ModelAndView selfHistoryApply(@PathVariable String userID, HttpServletRequest request) {
@@ -180,6 +218,12 @@ public class SelfHistoryController {
         return modelAndView;
     }
 
+    /**
+     * 在采样记录界面点击一条样本进入样本详情页面
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{userID}/history/sample")
     @ResponseBody
     public ModelAndView selfHistorySample(@PathVariable String userID, HttpServletRequest request) {
@@ -226,6 +270,12 @@ public class SelfHistoryController {
         return modelAndView;
     }
 
+    /**
+     * 申请详情页面上的删除按钮，删除该未审核申请
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{userID}/history/apply/delete")
     @ResponseBody
     public boolean deleteApply(@PathVariable String userID, HttpServletRequest request) {
@@ -236,6 +286,12 @@ public class SelfHistoryController {
 //        return true;
     }
 
+    /**
+     * 申请详情页面上的上传采样按钮，给这条已审核通过的申请上传采样信息
+     * @param userID
+     * @param request
+     * @return
+     */
     @RequestMapping("/j{userID}/history/jumpToUpload")
     @ResponseBody
     public String jumpToUpload(@PathVariable String userID, HttpServletRequest request) {

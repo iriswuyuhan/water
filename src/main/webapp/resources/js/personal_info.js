@@ -17,11 +17,12 @@ function reLoc(){
     window.location.href=url+curAdd;
 }
 
+var userID=$("#userID").val();
+
 $("#confirm").click(function () {
     if($("#confirm").hasClass("weui-btn_disabled")){
         return;
     }
-    var userID=$("#userID").val();
     $.ajax({
         url:"../user/j"+userID+"/confirm",
         type:'get',
@@ -45,10 +46,12 @@ $("#confirm").click(function () {
     });
 });
 
+
+
 //跳到下一个界面
 var userID=$("#userID").val();
+var nextUrl=$("#next").val();
 function nextPage() {
-    var nextUrl=$("#next").val();
     if(nextUrl=="apply"){
         window.location.href="../init/j"+userID;
     }else if(nextUrl=="sample"){
@@ -74,3 +77,16 @@ $("#name").on('input propertychange', function () {
 $("#phone_num").on('input propertychange', function () {
     checkFullfill();
 });
+
+// //如果用户第一次进来，没完成个人信息就退出，则删除该用户
+// $(window).bind('beforeunload',function(){
+//     $.ajax({
+//         url: "../user/j"+userID+"/deleteUser",
+//         type: 'get',
+//         async: false,
+//         data: {},
+//         success: function (data) {
+//             alert("success");
+//         }
+//     });
+// });

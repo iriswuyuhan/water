@@ -31,21 +31,30 @@
                 var contact = document.getElementById("phone");
                 var add = document.getElementById("address");
 
-                name.value=decodeURI(param[0]);
-                contact.value=param[1];
                 var useCook=$.cookie('ret1');
                 if(useCook=='1'){
+                    name.value=$.cookie('name1');
+                    contact.value=$.cookie('tel1');
                     add.innerHTML=$.cookie('add1');
                     $.cookie('ret1',null,{path:'/'});
                     $.cookie('add1',null,{path:'/'});
-                }
-                else {
+                    $.cookie('name1',null,{path:'/'});
+                    $.cookie('tel1',null,{path:'/'});
+                }else {
+                    name.value=decodeURI(param[0]);
+                    contact.value=param[1];
                     add.innerHTML = decodeURI(param[2]);
                 }
             }
         }
 
         function reLoc(){
+            //保存填写的name,number
+            var name = document.getElementById("idname").value;
+            var contact = document.getElementById("phone").value;
+            $.cookie('name1',name,{path:'/'});
+            $.cookie('tel1',contact,{path:'/'});
+
             var url="locate.html?add=";
             var curAdd=encodeURI(document.getElementById("address").innerHTML);
             window.location.href=url+curAdd;
