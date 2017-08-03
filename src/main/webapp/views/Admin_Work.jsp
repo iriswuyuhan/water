@@ -116,7 +116,7 @@
                 <div id="main_content">
                     <div id="tab1">
                         <div id="content1" class="table-content" style="display: block;">
-                            <ul id="scro1" class="scroll indicator-group-title">
+                            <ul id="scro1" class="scroll indicator-group-title" style="width:170px;height:560px;overflow:auto;">
                                 <li class="active"><a>--</a><span
                                         class="fa fa-angle-right"></span></li>
                             </ul>
@@ -189,7 +189,7 @@
                     </div>
                     <div id="tab2" style="display: none">
                         <div id="content2" class="table-content" style="">
-                            <ul id="scro2" class="scroll indicator-group-title">
+                            <ul id="scro2" class="scroll indicator-group-title" style="width:170px;height:560px;overflow:auto;">
                                 <li class="active"><a>--</a><span
                                         class="fa fa-angle-right"></span></li>
                             </ul>
@@ -259,7 +259,7 @@
                     </div>
                     <div id="tab3" style="display: none">
                         <div id="content3" class="table-content" style="">
-                            <ul id="scro3" class="scroll indicator-group-title">
+                            <ul id="scro3" class="scroll indicator-group-title" style="width:170px;height:560px;overflow:auto;">
                                 <li class="active"><a>--</a><span
                                         class="fa fa-angle-right"></span></li>
                             </ul>
