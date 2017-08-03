@@ -21,25 +21,21 @@ public class WatersAddressController {
      * @return
      */
     @RequestMapping("")
-    public ModelAndView uploadSampling(){
+    public ModelAndView waterAddressPage(){
         ModelAndView modelAndView=new ModelAndView("../wx/confirm_address");
         return modelAndView;
     }
 
-    /**
-     * 水域地址页面的确认按钮的响应
-     * @return
-     */
-    @RequestMapping(value = "/confirm", method = RequestMethod.GET)
-    @ResponseBody
-    public Boolean addUpload(HttpServletRequest request){
-        double longitude=Double.parseDouble(request.getParameter("longitude"));
-        double latitude=Double.parseDouble(request.getParameter("latitude"));
-        String waters_addr=request.getParameter("waters_address");
-        HttpSession session=request.getSession();
-        session.setAttribute("waters_addr_lng",longitude);
-        session.setAttribute("waters_addr_lat",latitude);
-        session.setAttribute("waters_addr",waters_addr);
-        return true;
-    }
+//    @RequestMapping(value = "/confirm", method = RequestMethod.GET)
+//    @ResponseBody
+//    public Boolean waterAddressConfirm(HttpServletRequest request){
+//        double longitude=Double.parseDouble(request.getParameter("longitude"));
+//        double latitude=Double.parseDouble(request.getParameter("latitude"));
+//        String waters_addr=request.getParameter("waters_address");
+//        HttpSession session=request.getSession();
+//        session.setAttribute("waters_addr_lng",longitude);
+//        session.setAttribute("waters_addr_lat",latitude);
+//        session.setAttribute("waters_addr",waters_addr);
+//        return true;
+//    }
 }
