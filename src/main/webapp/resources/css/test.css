@@ -190,7 +190,7 @@
 .left_info{
     float: left;
     text-align: left;
-    width: 330px;
+    max-width: 320px;
 }
 
 .operate{
