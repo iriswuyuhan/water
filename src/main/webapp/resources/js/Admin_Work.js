@@ -35,23 +35,23 @@ $(function () {
     function scrolist(tem,list) {
         if(tem==="待审核"){
             $("#scro1").empty();
-            $("#scro1").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
+            $("#scro1").append("<li class='active'><a onclick='applyClick(this)'>"+list[0]+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
-                $("#scro1").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
+                $("#scro1").append("<li class=''><a onclick='applyClick(this)'>"+list[i]+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
         if(tem==="审核通过"){
             $("#scro2").empty();
-            $("#scro2").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
+            $("#scro2").append("<li class='active'><a onclick='applyClick(this)'>"+list[0]+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
-                $("#scro2").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
+                $("#scro2").append("<li class=''><a onclick='applyClick(this)'>"+list[i]+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
         if(tem==="未通过审核"){
             $("#scro3").empty();
-            $("#scro3").append("<li class='active'><a onclick='applyClick(this)'>"+list[0].idApply+"</a><span class='fa fa-angle-right'></span></li>")
+            $("#scro3").append("<li class='active'><a onclick='applyClick(this)'>"+list[0]+"</a><span class='fa fa-angle-right'></span></li>")
             for(var i =1;i<list.length;i++){
-                $("#scro3").append("<li class=''><a onclick='applyClick(this)'>"+list[i].idApply+"</a><span class='fa fa-angle-right'></span></li>")
+                $("#scro3").append("<li class=''><a onclick='applyClick(this)'>"+list[i]+"</a><span class='fa fa-angle-right'></span></li>")
             }
         }
 
@@ -131,7 +131,7 @@ $(function () {
                                 $(this.parentNode).addClass("active");
                         })
                     }
-                    setinitinfo(obj1);
+                    setinitinfo(obj1.idApply);
                 }
                 else{
                     alert("编号不存在");
@@ -185,10 +185,10 @@ function  applyClick(type) {
         success: function (data) {
             var obj1 = $.parseJSON(data);
             setactive(type, obj1);
-            setinitinfo(obj1);
-        }
 
-    });
+        }
+    })
+    setinitinfo(id);
 }
 //设置导航为active状态的方法
 function setactive(type,temp) {
@@ -217,61 +217,72 @@ function setactive(type,temp) {
 
 }
 //初始化信息界面
-function  setinitinfo(temp) {
-    var obj;
-    if(temp.state===0){
-        obj=$("#tab1")
-    }
-    if(temp.state===1){
-        obj=$("#tab2")
-    }
-    if(temp.state===2){
-        obj=$("#tab3")
-    }
-    obj.find("ol").each(function () {
-        $(this).empty();
-        for(var i=0;i<temp.image.length;i++){
-            $(this).append("<li data-target='#myCarousel3' data-slide-to='"+i+"'></li>");
-        }
-    })
-    obj.find(".carousel-inner").each(function () {
-        $(this).empty();
-        $(this).append("<div class='item active'>"+
-            "<img src='http://118.89.166.19/web_upload/"+temp.image[0]+"'></div>");
-        for(var i=1;i<temp.image.length;i++){
-            $(this).append("<div class='item'>"+
-                "<img src='http://118.89.166.19/web_upload/"+temp.image[i]+"'></div>");
-        }
-    })
-    $(".time").each(function () {
-        $(this).html(timeFormatter(temp.applyDate));
-    })
-    obj.find("span[name='name']").each(function (index) {
-        if(index===0)
-            $(this).html(temp.name);
-        if(index===1)
-            $(this).html(temp.number);
-        if(index===2)
-            $(this).html(temp.address);
-        if(index===3)
-            $(this).html(temp.longitude+"°");
-        if(index===4)
-            $(this).html(temp.latitude+"°");
-        if(index===5)
-            $(this).html(temp.waterAddress);
-        if(temp.state===2){
-            if(index===6){
-                if(temp.response==="")
-                    $(this).html("无");
-                else
-                    $(this).html(temp.response);
-            }
-        }
-    });
-    obj.find("h1").each(function () {
-        $(this).html(temp.idApply);
-    })
+function  setinitinfo(id) {
+    var temp ;
+    $.ajax({
+        url: './getApplyInfo',
+        type: 'post',
+        async: 'false',
+        data: {"id": id},
+        success: function (data) {
+            temp = $.parseJSON(data);
 
+
+            var obj;
+            if (temp.state === 0) {
+                obj = $("#tab1")
+            }
+            if (temp.state === 1) {
+                obj = $("#tab2")
+            }
+            if (temp.state === 2) {
+                obj = $("#tab3")
+            }
+            obj.find("ol").each(function () {
+                $(this).empty();
+                for (var i = 0; i < temp.image.length; i++) {
+                    $(this).append("<li data-target='#myCarousel3' data-slide-to='" + i + "'></li>");
+                }
+            })
+            obj.find(".carousel-inner").each(function () {
+                $(this).empty();
+                $(this).append("<div class='item active'>" +
+                    "<img src='http://118.89.166.19/web_upload/" + temp.image[0] + "'></div>");
+                for (var i = 1; i < temp.image.length; i++) {
+                    $(this).append("<div class='item'>" +
+                        "<img src='http://118.89.166.19/web_upload/" + temp.image[i] + "'></div>");
+                }
+            })
+            $(".time").each(function () {
+                $(this).html(timeFormatter(temp.applyDate));
+            })
+            obj.find("span[name='name']").each(function (index) {
+                if (index === 0)
+                    $(this).html(temp.name);
+                if (index === 1)
+                    $(this).html(temp.number);
+                if (index === 2)
+                    $(this).html(temp.address);
+                if (index === 3)
+                    $(this).html(temp.longitude + "°");
+                if (index === 4)
+                    $(this).html(temp.latitude + "°");
+                if (index === 5)
+                    $(this).html(temp.waterAddress);
+                if (temp.state === 2) {
+                    if (index === 6) {
+                        if (temp.response === "")
+                            $(this).html("无");
+                        else
+                            $(this).html(temp.response);
+                    }
+                }
+            });
+            obj.find("h1").each(function () {
+                $(this).html(temp.idApply);
+            })
+        }
+})
 }
 
 //时间变成str的方法

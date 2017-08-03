@@ -106,14 +106,12 @@ public class ApplyServiceImpl implements ApplyService {
     }
 
     @Override
-    public ArrayList<Apply> getApplicationList(int state) {
-        List<Apply> arrayList = applyDao.findAll();
-        ArrayList<Apply> list = new ArrayList<Apply>();
-        for (Apply temp : arrayList) {
-            if (temp.getState() == state) {
-                list.add(temp);
+    public ArrayList<String> getApplicationList(int state) {
+        List<String> arrayList = applyDao.findAllByState(state);
+        ArrayList<String> list = new ArrayList<String>();
+        for (int i =0;i<arrayList.size();i++) {
+                list.add(String.valueOf(arrayList.get(i)));
             }
-        }
         return list;
     }
 
