@@ -174,7 +174,7 @@
         if ($("#projectState").val() == 0){
             alert("暂未上传实验报告");
         }else{
-            var d = $("#projectDate").text().split(" ")[0];
+            var d = $("#projectDate").text();
             $("#repostHref").prop("href","http://118.89.166.19/web_upload/" + d + ".pdf");
         }
     })
