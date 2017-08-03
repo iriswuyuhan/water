@@ -11,6 +11,7 @@ import com.water.service.ApplyService;
 import com.water.service.Impl.ApplyServiceImpl;
 import com.water.service.ResultService;
 import com.water.service.UploadService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import net.sf.json.JSONArray;
@@ -33,6 +34,8 @@ import java.util.List;
 
 @Controller
 public class sampleController {
+
+    protected Logger log = Logger.getLogger(wechatApplyController.class);
     @Autowired
     private ResultService resultService;
     @Autowired
@@ -150,6 +153,9 @@ public class sampleController {
         for(Sample temp:samples){
             sampleIDs.add(String.valueOf(temp.getIdSample()+""));
         }
+        log.info("test1");
+        log.info("test2");
+        log.info("test3");
         JSONArray array = JSONArray.fromObject(sampleIDs);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());

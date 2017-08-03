@@ -10,6 +10,7 @@ import com.water.service.ProjectService;
 import com.water.service.UserService;
 import com.water.util.LoginProcessor;
 import net.sf.json.JSONObject;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -41,6 +42,7 @@ import java.util.List;
 @Controller
 public class wechatApplyController {
 
+    protected Logger log = Logger.getLogger(wechatApplyController.class);
     //通过Spring的autowired注解获取spring默认配置的request
     @Autowired
     private HttpServletRequest request;
@@ -56,16 +58,19 @@ public class wechatApplyController {
 
     @RequestMapping("/init/wx")
     public void wxAccessToHistory(HttpServletRequest request, HttpServletResponse response){
+        log.error("!!!" + "开始access" + "!!!");
         String code=request.getParameter("code");
         LoginProcessor loginProcessor=new LoginProcessor();
         String openID=null;
         try {
             openID=loginProcessor.getOpenId(code);
         } catch (IOException e) {
+            log.error("!!!" + "获取openId报错" + "!!!");
             e.printStackTrace();
         }
         String url=null;
         if(openID!=null){
+            log.error("!!!" + openID+"存在" + "!!!");
             User user=userService.getById(openID);
             if(user==null){
                 //在数据库添加该用户
@@ -136,7 +141,7 @@ public class wechatApplyController {
     @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
     @ResponseBody
     public boolean upload(HttpServletRequest request) throws ParseException{
-
+        log.error("!!!" + "开始上传apply" + "!!!");
         Apply apply = new Apply();
         System.out.print(request.getParameter("longitude"));
         apply.setLongitude(Double.parseDouble(request.getParameter("longitude")));
@@ -152,6 +157,7 @@ public class wechatApplyController {
         for(int i=0;i<s.length;i++){
             img.add(s[i]);
         }
+
         apply.setImage(img);
         apply.setName(request.getParameter("name"));
         apply.setWaterAddress(request.getParameter("waterAddress"));
@@ -171,10 +177,11 @@ public class wechatApplyController {
 //        System.out.println(apply.getImage());
 //        System.out.println(apply.getName());
 //        System.out.println(apply.getWaterAddress());
-//        System.out.println(userId);
+//        System.out.println(userId);f
 //        System.out.println(apply.getResponse());
 //        System.out.println(apply.getProject().getName());
         boolean f = applyService.addApply(apply);
+        log.error("!!!" + "上传是否成功？"+f+ "!!!");
 //        System.out.println(f);
         return f;
     }
