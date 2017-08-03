@@ -174,7 +174,7 @@
                 <div id="main_content">
                     <div id="tab1" style="padding-top:40px;">
                         <div id="content1" class="table-content" style="display: block;">
-                            <ul id="scro1" class="scroll indicator-group-title">
+                            <ul id="scro1" class="scroll indicator-group-title" style="width:170px;height:560px;overflow:auto;">
                                 <li id="add" class="active" onclick=show("add")><a>新增项目</a><span class="fa fa-angle-right"></span></li>
                             </ul>
                             <div class="indicator-group-content">
