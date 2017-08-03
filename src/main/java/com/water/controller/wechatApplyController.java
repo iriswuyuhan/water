@@ -112,21 +112,19 @@ public class wechatApplyController {
     }
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
-    public void upload(@RequestPart("image") MultipartFile image[], HttpServletRequest request) throws IOException {
+    public void upload(@RequestPart("image") MultipartFile image, HttpServletRequest request) throws IOException {
         String date = request.getParameter("applyDate");
         date = date.replace(":","-");
         String userID = request.getParameter("img_userID");
-        String fileName = userID + "_" + date + "_";
+        String fileName = userID + "_" + date;
         File dir=new File("/home/web_upload");
         if(!dir.exists()){
             dir.mkdirs();
         }
-        for(int i=0;i<image.length;i++){
-            MultipartFile file = image[i];
-            if( !(file.getOriginalFilename().equals("")) ) {
-                String s = fileName + i + ".jpg";
-                file.transferTo(new File(dir + "/" + s));
-            }
+        MultipartFile file = image;
+        if (!(file.getOriginalFilename().equals(""))) {
+            String s = fileName + ".jpg";
+            file.transferTo(new File(dir + "/" + s));
         }
     }
 

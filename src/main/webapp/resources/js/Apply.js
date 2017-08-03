@@ -9,11 +9,11 @@ $(document).ready(function () {
 $("#applyUpload").click(function () {
     var idUser = $("#userID").val();
     var date = new Date();
-    var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
-    var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes();
-    $("#applyDate").val(applyDate);
-    $("#img_userID").val(idUser);
-    $("#imageForm").submit();
+    var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds();
+    // $("#applyDate").val(applyDate);
+    // $("#img_userID").val(idUser);
+    // $("#imageForm").submit();
     var url = "../applyUpload";
     var longitude = "";
     var latitude = "";
@@ -33,11 +33,8 @@ $("#applyUpload").click(function () {
     waterAddress = $("#river_place").text();
     projectID = $("#projectID").val();
     var imgUrl = "";
+    imgUrl = $("#url").val();
 
-    var obj = document.getElementById("file");
-    for (var i = 0; i < obj.files.length; i++) {
-        imgUrl += idUser + "_" + applyDateStr + "_" + i.toString() + ".jpg" + ";";
-    }
     if (projectID == "") {
         alert("请选择项目名称");
     } else if (waterAddress == "" || waterAddress == "请选择水域地址") {

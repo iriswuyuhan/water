@@ -126,6 +126,7 @@
 <input type="hidden" id="longitude"/>
 <input type="hidden" id="latitude"/>
 <input type="hidden" id="projectID"/>
+<input type="hidden" id="url"/>
 <br>
 
 <div class="page__bd page__bd_spacing">
@@ -256,49 +257,32 @@
     })(document, window);
 
     function imgChange(obj1, obj2) {
+        var idUser = $("#userID").val();
+        var date = new Date();
+        var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds();
+       alert(applyDate);
+        $("#applyDate").val(applyDate);
+        $("#img_userID").val(idUser);
+        $("#url").val($("#url").val() + idUser + "_" + applyDateStr + ".jpg;");
+        $("#imageForm").submit();
+
         //获取点击的文本框
         var file = document.getElementById("file");
         //存放图片的父级元素
         var imgContainer = document.getElementsByClassName(obj1)[0];
-        //获取的图片文件
-        var fileList = file.files;
         //文本框的父级元素
         var input = document.getElementsByClassName(obj2)[0];
-        var imgArr = [];
         //遍历获取到得图片文件
-        for (var i = 0; i < fileList.length; i++) {
-            var imgUrl = window.URL.createObjectURL(file.files[i]);
-            imgArr.push(imgUrl);
-            var img = document.createElement("img");
-            img.setAttribute("src", imgArr[i]);
-            var imgAdd = document.createElement("div");
-            imgAdd.setAttribute("class", "z_addImg");
-            imgAdd.appendChild(img);
-            imgContainer.appendChild(imgAdd);
-        };
-        imgRemove();
-    };
+        var imgUrl = window.URL.createObjectURL(file.files[0]);
+        alert(imgUrl);
+        var img = document.createElement("img");
+        img.setAttribute("src", imgUrl);
+        var imgAdd = document.createElement("div");
+        imgAdd.setAttribute("class", "z_addImg");
+        imgAdd.appendChild(img);
+        imgContainer.appendChild(imgAdd);
 
-    function imgRemove() {
-        var imgList = document.getElementsByClassName("z_addImg");
-        var mask = document.getElementById("z_mask");
-        var cancel = document.getElementById("z_cancel");
-        var sure = document.getElementById("z_sure");
-        for (var j = 0; j < imgList.length; j++) {
-            imgList[j].index = j;
-            imgList[j].onclick = function() {
-                var t = this;
-                mask.style.display = "block";
-                cancel.onclick = function() {
-                    mask.style.display = "none";
-                };
-                sure.onclick = function() {
-                    mask.style.display = "none";
-                    t.style.display = "none";
-                };
-
-            }
-        };
     };
 
 </script>
