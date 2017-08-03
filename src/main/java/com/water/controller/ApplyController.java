@@ -4,6 +4,7 @@ import com.water.entity.Apply;
 import com.water.entity.Sample;
 import com.water.service.ApplyService;
 import com.water.service.UploadService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import net.sf.json.JSONArray;
@@ -22,6 +23,8 @@ import java.io.IOException;
 @Controller
 public class ApplyController {
 
+    protected Logger log = Logger.getLogger(ApplyController.class);
+
     @Autowired
     private ApplyService applyService;
     @Autowired
@@ -37,7 +40,7 @@ public class ApplyController {
     @ResponseBody
     public void applylist(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String state = request.getParameter("state");
-        System.out.println("!!!" + state + "!!!");
+        log.error("!!!" + state + "!!!");
         int state1 = 0;
         if (("审核通过").equals(state))
             state1 = 1;
@@ -126,7 +129,7 @@ public class ApplyController {
     public void getSampleList(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         ArrayList<Sample> samples = uploadService.findAll();
-        System.out.println("asdk");
+        log.error("asdk");
         if (samples.size() > 0)
             uploadService.addTxt(samples.get(0));
         JSONArray array = JSONArray.fromObject(samples);

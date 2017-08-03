@@ -9,6 +9,7 @@ import com.water.service.Impl.UserServiceImpl;
 import com.water.service.ProjectService;
 import com.water.service.UserService;
 import com.water.util.LoginProcessor;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -40,6 +41,7 @@ import java.util.List;
 @Controller
 public class wechatApplyController {
 
+    protected Logger log = Logger.getLogger(wechatApplyController.class);
     //通过Spring的autowired注解获取spring默认配置的request
     @Autowired
     private HttpServletRequest request;
@@ -77,6 +79,7 @@ public class wechatApplyController {
                 response.sendRedirect(url);
             } catch (IOException e) {
                 e.printStackTrace();
+                log.debug("这个东西到底有没有用啊");
             }
         }
     }
@@ -147,6 +150,7 @@ public class wechatApplyController {
         for(int i=0;i<s.length;i++){
             img.add(s[i]);
         }
+
         apply.setImage(img);
         apply.setName(request.getParameter("name"));
         apply.setWaterAddress(request.getParameter("waterAddress"));
@@ -170,6 +174,8 @@ public class wechatApplyController {
 //        System.out.println(apply.getResponse());
 //        System.out.println(apply.getProject().getName());
         boolean f = applyService.addApply(apply);
+        log.debug(f);
+        log.error("test");
 //        System.out.println(f);
         return f;
     }
