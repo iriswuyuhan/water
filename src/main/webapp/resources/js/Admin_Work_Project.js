@@ -120,7 +120,6 @@ function del(id){
         data:{"id":id},
         dataType:"json",
         success:function (data){
-            alert(data);
             if(data==false){
                 alert("删除失败！请重试！");
             }
