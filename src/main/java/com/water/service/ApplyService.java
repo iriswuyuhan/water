@@ -29,7 +29,7 @@ public interface ApplyService {
      * @param state
      * @return
      */
-    public ArrayList<Apply> getApplicationList(int state);
+    public ArrayList<String> getApplicationList(int state);
 
     /**
      * 删除申请

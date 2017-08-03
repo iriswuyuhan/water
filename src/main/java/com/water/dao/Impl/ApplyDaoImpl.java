@@ -57,7 +57,24 @@ public class ApplyDaoImpl implements ApplyDao {
         }
         return list;
     }
-
+    public List<String> findAllByState(int state) {
+        Session session = getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        List<String> list = new LinkedList<>();
+        try {
+            String hql = "select idApply from Apply where state=:state";
+            Query query = session.createQuery(hql);
+            query.setInteger("state",state);
+            list = query.list();
+            tx.commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            tx.rollback();
+        } finally {
+            session.close();
+        }
+        return list;
+    }
     public List<Apply> findApplyById(String idUser) {
         Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();

@@ -14,7 +14,7 @@ public interface ApplyDao extends  DaoUtil<Apply,Long>{
      * @return
      */
     public List<Apply> findApplyById(String idUser);
-
+    public List<String> findAllByState(int state) ;
     /**
      * 更新申请状态 0待申请 1审核通过 2拒绝申请
      * @param id

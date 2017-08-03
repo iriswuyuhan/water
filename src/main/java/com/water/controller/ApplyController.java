@@ -46,7 +46,7 @@ public class ApplyController {
             state1 = 1;
         if (("未通过审核").equals(state))
             state1 = 2;
-        ArrayList<Apply> arrayList = applyService.getApplicationList(state1);
+        ArrayList<String> arrayList = applyService.getApplicationList(state1);
         JSONArray array = JSONArray.fromObject(arrayList);
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(array.toString());
