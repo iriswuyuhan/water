@@ -141,9 +141,8 @@ public class ProjectController {
     @RequestMapping("/uploadProjectResult")
     public void uploadProjectResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
             String project = request.getParameter("project");
-            Date d = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            String filename = formatter.format(d)+".pdf";
+            String projectname = request.getParameter("projectname");
+            String filename =projectname+".pdf";
             boolean bool = projectService.uploadProject(project,filename);
             if(bool)
             response.getWriter().print("上传成功");
@@ -160,12 +159,10 @@ public class ProjectController {
     @ResponseBody
     public JSONObject uploadProjectFile(@RequestParam("file") MultipartFile image, HttpServletRequest request) throws IOException {
         String project =  request.getParameter("project");
-        Date d = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         File dir=new File("/home/web_upload/");
         MultipartFile file = image;
         if( !(file.getOriginalFilename().equals("")) ) {
-            file.transferTo(new File("/home/web_upload/"+formatter.format(d)+".pdf"));
+            file.transferTo(new File("/home/web_upload/"+project+".pdf"));
         }
         String json = "{'state':'success'}";
         JSONObject object = JSONObject.fromObject(json);
