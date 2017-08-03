@@ -308,6 +308,23 @@
             }
         });
 
+        $(document).ready(function () {
+            $("#imageForm").ajaxForm({
+                url : "../uploadImg", // 请求的url
+                type : "post", // 请求方式
+                data: {},
+                dataType: "json",
+                async :true, // 异步
+                success : function(data){
+                    alert(data);
+                },
+                error : function(data){
+                    alert("数据加载失败！");
+                }
+            });
+
+        });
+
     };
 
 </script>
