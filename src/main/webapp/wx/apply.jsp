@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-form.js"></script>
 
     <style type="text/css">
         body{
@@ -115,7 +116,7 @@
             }
             var useCook2 = $.cookie('ret4');
             if(useCook2 == '1'){
-                $("#projectName").html($.cookie('projectName'));
+                $("#projectName").text($.cookie('projectName'));
             }
         }
 
@@ -195,14 +196,16 @@
 </body>
 <script type="text/javascript" src="../resources/js/split.js"></script>
 <script type="text/javascript">
-    <%--if($("#projectName") != "选择项目"){--%>
-        <%--var name = $("#projectName").val();--%>
-        <%--<%for(int i=0;i<arrayList.size();i++){%>--%>
-        <%--if('<%=arrayList.get(i).getName()%>' == name){--%>
-            <%--$("#projectID").val('<%=arrayList.get(i).getIdProject()%>');--%>
-        <%--}--%>
-        <%--<%}%>--%>
-    <%--}--%>
+    if($("#projectName").text() != "选择项目"){
+        var name = $("#projectName").text();
+        alert(name);
+        <%for(int i=0;i<arrayList.size();i++){%>
+        if('<%=arrayList.get(i).getName()%>' == name){
+            $("#projectID").val('<%=arrayList.get(i).getIdProject()%>');
+            alert($("#projectID").val());
+        }
+        <%}%>
+    }
 
     var basePath='<%=basePath%>';
     var project = [
@@ -221,7 +224,7 @@
 //                var projectID = $("#projectID").val();
 //                alert(projectID);
                 var label = project[result].label;
-                $("#projectName").html(label);
+                $("#projectName").text(label);
                 <%for(int i=0;i<arrayList.size();i++){%>
                     if('<%=arrayList.get(i).getName()%>' == label){
                         $("#projectID").val('<%=arrayList.get(i).getIdProject()%>');
@@ -261,27 +264,49 @@
         var date = new Date();
         var applyDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds();
-       alert(applyDate);
         $("#applyDate").val(applyDate);
         $("#img_userID").val(idUser);
         $("#url").val($("#url").val() + idUser + "_" + applyDateStr + ".jpg;");
-        $("#imageForm").submit();
-
-        //获取点击的文本框
-        var file = document.getElementById("file");
-        //存放图片的父级元素
-        var imgContainer = document.getElementsByClassName(obj1)[0];
-        //文本框的父级元素
-        var input = document.getElementsByClassName(obj2)[0];
-        //遍历获取到得图片文件
-        var imgUrl = window.URL.createObjectURL(file.files[0]);
-        alert(imgUrl);
-        var img = document.createElement("img");
-        img.setAttribute("src", imgUrl);
-        var imgAdd = document.createElement("div");
-        imgAdd.setAttribute("class", "z_addImg");
-        imgAdd.appendChild(img);
-        imgContainer.appendChild(imgAdd);
+//        $("#imageForm").submit();
+//
+//        //获取点击的文本框
+//        var file = document.getElementById("file");
+//        //存放图片的父级元素
+//        var imgContainer = document.getElementsByClassName(obj1)[0];
+//        //文本框的父级元素
+//        var input = document.getElementsByClassName(obj2)[0];
+//        //遍历获取到得图片文件
+//        var imgUrl = window.URL.createObjectURL(file.files[0]);
+//        var img = document.createElement("img");
+//        img.setAttribute("src", imgUrl);
+//        var imgAdd = document.createElement("div");
+//        imgAdd.setAttribute("class", "z_addImg");
+//        imgAdd.appendChild(img);
+//        imgContainer.appendChild(imgAdd);
+        $("#imageForm").ajaxSubmit({
+            url : "../uploadImg", // 请求的url
+            type : "post", // 请求方式
+            data: {},
+            dataType: "json",
+            async :true, // 异步
+            success: function (data) {
+                var imgContainer = document.getElementsByClassName(obj1)[0];
+                //文本框的父级元素
+                var input = document.getElementsByClassName(obj2)[0];
+                //遍历获取到得图片文件
+                var imgUrl = "http://118.89.166.19/web_upload/"+$("#img_userID").val()+"_"+applyDateStr+".jpg";
+                alert(imgUrl);
+                var img = document.createElement("img");
+                img.setAttribute("src", imgUrl);
+                var imgAdd = document.createElement("div");
+                imgAdd.setAttribute("class", "z_addImg");
+                imgAdd.appendChild(img);
+                imgContainer.appendChild(imgAdd);
+            },
+            error : function(){
+                alert("fail");
+            }
+        });
 
     };
 

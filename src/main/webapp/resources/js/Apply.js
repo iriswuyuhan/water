@@ -71,8 +71,11 @@ $("#applyUpload").click(function () {
                     $.cookie('longitude', null, {path: '/'});
                     $.cookie('latitude', null, {path: '/'});
                     $.cookie('concrete_address', null, {path: '/'});
-                    $.cookie('ret4',{expires:-1},{path:'/'});
-                    $.cookie('projectName',{expires:-1},{path:'/'});
+                    // $.cookie('ret4',null, { expires: -1, path: '/'});
+                    // $.cookie('projectName',null, { expires: -1, path: '/' });
+                    $.cookie('projectName','选择项目',{path:'/'});
+                    $("#projectName").text("选择项目");
+                    alert("cds" + $.cookie('projectName'));
                 } else {
                     alert("提交申请失败");
                 }
