@@ -50,12 +50,10 @@ public class ProjectIntroController {
                 modelAndView.addObject("description","");
             }
             if(firstProject.getDescription() != null){
-                Date date = firstProject.getDate();
-                DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                String d = df.format(date);
-                modelAndView.addObject("date",d);
+                String d = firstProject.getReport();
+                modelAndView.addObject("report",d);
             }else{
-                modelAndView.addObject("date","");
+                modelAndView.addObject("report","");
             }
         }
         if(projectNames.size() == 0){
@@ -76,10 +74,12 @@ public class ProjectIntroController {
         jsonObject.put("description2",p.getDescription());
         jsonObject.put("projectName2",p.getName());
         jsonObject.put("state2",p.getState());
-        Date date = p.getDate();
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String d = df.format(date);
-        jsonObject.put("date2",d);
+        String d = p.getReport();
+        if (d != null){
+            jsonObject.put("report2",d);
+        }else{
+            jsonObject.put("report2","");
+        }
         return jsonObject;
     }
 }

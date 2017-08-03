@@ -101,15 +101,15 @@
                 <div id="main_content">
                     <div class="table-content" style="display: block;">
                         <br/>
-                        <ul id="scro1" class="scroll indicator-group-title">
+                        <ul style="overflow:auto;height:700px;" id="scro1" class="scroll indicator-group-title">
                         </ul>
                         <div id="scrol_content">
-                            <div id="total_intro_panel" class="tab_panel indicator-group-content">
+                            <div id="total_intro_panel" style="overflow: auto;height: 700px;" class="tab_panel indicator-group-content">
                                 <div class="left_title">
                                     <i class="fa fa-edit blue"></i>
                                     <h1>
                                         <span class="number" id="projectName" style="font-size: 25px">${projectName}</span>
-                                        <span style="display: none;float: right;font-size: 16px;" class="time" id="projectDate">${date}</span>
+                                        <span style="display: none;float: right;font-size: 16px;" class="time" id="projectReport">${report}</span>
                                     </h1>
                                 </div>
                                 <div class="left_content" style="text-align: left">
@@ -174,8 +174,9 @@
         if ($("#projectState").val() == 0){
             alert("暂未上传实验报告");
         }else{
-            var d = $("#projectDate").text();
-            $("#repostHref").prop("href","http://118.89.166.19/web_upload/" + d + ".pdf");
+            var d = $("#projectReport").text();
+            alert("http://118.89.166.19/web_upload/" + d);
+            $("#repostHref").prop("href","http://118.89.166.19/web_upload/" + d);
         }
     })
 
@@ -206,10 +207,10 @@
                 $("#projectDescription").empty();
                 $("#projectName").html('<%=projectList.get(i).getName()%>');
                 $("#projectDescription").append('<%=projectList.get(i).getDescription()%>');
-                $("#projectDate").empty();
-                var d = '<%=projectList.get(i).getDate()%>';
+                $("#projectReport").empty();
+                var d = '<%=projectList.get(i).getReport()%>';
                 var d1 = d.substr(0,d.length-2);
-                $("#projectDate").text(d1);
+                $("#projectReport").text(d1);
                 $("#projectState").val('<%=projectList.get(i).getState()%>');
             }
             <%}%>
@@ -232,8 +233,8 @@
                     $("#projectDescription").empty();
                     $("#projectName").html(data.projectName2);
                     $("#projectDescription").append("<p>"+data.description2+"</p>");
-                    $("#projectDate").empty();
-                    $("#projectDate").text(data.date2);
+                    $("#projectReport").empty();
+                    $("#projectReport").text(data.report2);
                     $("#projectState").val(data.state2);
                 }else{
                     alert("fail");

@@ -75,6 +75,7 @@ $("#applyUpload").click(function () {
                     $.cookie('projectName',null, { expires: -1, path: '/' });
                     // $.cookie('projectName','选择项目',{path:'/'});
                     // $("#projectName").text("选择项目");
+                    $("#url").empty();
                     window.location.href = basePath + "user/j" + idUser + "/history?type=0";
                 } else {
                     alert("提交申请失败");
