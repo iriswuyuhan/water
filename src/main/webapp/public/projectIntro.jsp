@@ -109,12 +109,12 @@
                                     <i class="fa fa-edit blue"></i>
                                     <h1>
                                         <span class="number" id="projectName" style="font-size: 25px">${projectName}</span>
-                                        <span style="float: right;font-size: 16px;" class="time" id="projectDate">长期有效</span>
+                                        <span style="float: right;font-size: 16px;" class="time" id="projectDate">${date}</span>
                                     </h1>
                                 </div>
                                 <div class="left_content" style="text-align: left">
                                     <div id="projectDescription">
-                                        ${description}
+
                                     </div>
 
                                     <p style="float: right"><a id="repostHref" class="media">查看项目报告</a></p>
@@ -174,7 +174,8 @@
         if ($("#projectState").val() == 0){
             alert("暂未上传实验报告");
         }else{
-            $("#repostHref").prop("href","http://118.89.166.19/web_upload/" + $("#projectName").text() + ".pdf");
+            var d = $("#projectDate").text().split(" ")[0];
+            $("#repostHref").prop("href","http://118.89.166.19/web_upload/" + d + ".pdf");
         }
     })
 
@@ -204,7 +205,7 @@
             if(tem1 == '<%=projectList.get(i).getName()%>'){
                 $("#projectDescription").empty();
                 $("#projectName").html('<%=projectList.get(i).getName()%>');
-                $("#projectDescription").append("<p>"+'<%=projectList.get(i).getDescription()%>'+"</p>");
+                $("#projectDescription").append('<%=projectList.get(i).getDescription()%>');
                 $("#projectDate").empty();
                 var d = '<%=projectList.get(i).getDate()%>';
                 var d1 = d.substr(0,d.length-2);
