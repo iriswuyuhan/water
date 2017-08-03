@@ -257,7 +257,7 @@ input[type="checkbox"]:checked + label::after {
 .left_info{
     float: left;
     text-align: left;
-    min-width: 380px;
+    max-width: 380px;
 }
 
 .operate{
