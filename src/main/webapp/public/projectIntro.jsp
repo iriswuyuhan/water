@@ -109,7 +109,7 @@
                                     <i class="fa fa-edit blue"></i>
                                     <h1>
                                         <span class="number" id="projectName" style="font-size: 25px">${projectName}</span>
-                                        <span style="float: right;font-size: 16px;" class="time" id="projectDate">${date}</span>
+                                        <span style="display: none;float: right;font-size: 16px;" class="time" id="projectDate">${date}</span>
                                     </h1>
                                 </div>
                                 <div class="left_content" style="text-align: left">
