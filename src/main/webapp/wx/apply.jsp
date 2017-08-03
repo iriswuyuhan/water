@@ -198,11 +198,9 @@
 <script type="text/javascript">
     if($("#projectName").text() != "选择项目"){
         var name = $("#projectName").text();
-        alert(name);
         <%for(int i=0;i<arrayList.size();i++){%>
         if('<%=arrayList.get(i).getName()%>' == name){
             $("#projectID").val('<%=arrayList.get(i).getIdProject()%>');
-            alert($("#projectID").val());
         }
         <%}%>
     }
@@ -267,22 +265,7 @@
         $("#applyDate").val(applyDate);
         $("#img_userID").val(idUser);
         $("#url").val($("#url").val() + idUser + "_" + applyDateStr + ".jpg;");
-//        $("#imageForm").submit();
-//
-//        //获取点击的文本框
-//        var file = document.getElementById("file");
-//        //存放图片的父级元素
-//        var imgContainer = document.getElementsByClassName(obj1)[0];
-//        //文本框的父级元素
-//        var input = document.getElementsByClassName(obj2)[0];
-//        //遍历获取到得图片文件
-//        var imgUrl = window.URL.createObjectURL(file.files[0]);
-//        var img = document.createElement("img");
-//        img.setAttribute("src", imgUrl);
-//        var imgAdd = document.createElement("div");
-//        imgAdd.setAttribute("class", "z_addImg");
-//        imgAdd.appendChild(img);
-//        imgContainer.appendChild(imgAdd);
+
         $("#imageForm").ajaxSubmit({
             url : "../uploadImg", // 请求的url
             type : "post", // 请求方式
@@ -295,7 +278,6 @@
                 var input = document.getElementsByClassName(obj2)[0];
                 //遍历获取到得图片文件
                 var imgUrl = "http://118.89.166.19/web_upload/"+$("#img_userID").val()+"_"+applyDateStr+".jpg";
-                alert(imgUrl);
                 var img = document.createElement("img");
                 img.setAttribute("src", imgUrl);
                 var imgAdd = document.createElement("div");
