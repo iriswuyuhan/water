@@ -35,7 +35,7 @@ import java.util.List;
 @Controller
 public class sampleController {
 
-    protected Logger log = Logger.getLogger(wechatApplyController.class);
+    protected Logger log = Logger.getLogger(sampleController.class);
     @Autowired
     private ResultService resultService;
     @Autowired

@@ -12,4 +12,14 @@ public interface ProjectDao extends DaoUtil<Project,Long> {
      * @return
      */
     public Project findProjectByName(String projectName);
+
+
+    /**
+     * 修改项目
+     * @param projectName
+     * @param desc
+     * @param id
+     * @return
+     */
+    public boolean modifyProject(String projectName, String desc, Long id);
 }
