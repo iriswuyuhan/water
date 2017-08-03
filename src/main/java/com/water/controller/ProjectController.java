@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.DataInput;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -140,7 +141,9 @@ public class ProjectController {
     @RequestMapping("/uploadProjectResult")
     public void uploadProjectResult(HttpServletRequest request, HttpServletResponse response) throws IOException {
             String project = request.getParameter("project");
-            String filename = project+".pdf";
+            Date d = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String filename = formatter.format(d)+".pdf";
             boolean bool = projectService.uploadProject(project,filename);
             if(bool)
             response.getWriter().print("上传成功");
@@ -156,13 +159,13 @@ public class ProjectController {
     @RequestMapping("/uploadProjectFile")
     @ResponseBody
     public JSONObject uploadProjectFile(@RequestParam("file") MultipartFile image, HttpServletRequest request) throws IOException {
-        System.out.println("asdsad");
         String project =  request.getParameter("project");
-        System.out.println(project);
+        Date d = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         File dir=new File("/home/web_upload/");
         MultipartFile file = image;
         if( !(file.getOriginalFilename().equals("")) ) {
-            file.transferTo(new File("/home/web_upload/"+project+".pdf"));
+            file.transferTo(new File("/home/web_upload/"+formatter.format(d)+".pdf"));
         }
         String json = "{'state':'success'}";
         JSONObject object = JSONObject.fromObject(json);
