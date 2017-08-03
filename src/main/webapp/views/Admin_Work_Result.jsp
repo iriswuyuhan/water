@@ -198,8 +198,7 @@
 --></body>
 <script>
     var date = new Date();
-    var projectname = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
+    var projectname = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds();
     function topnavclick(type) {
          if(type.name==="1"){
             window.location.href="toAdmin.do"
@@ -236,7 +235,7 @@
                                 $.ajax({
                                     url: "./uploadResult",
                                     type: "post",
-                                    data: {"idSample": $("#tags").val(), "description": $("#text").val(),"projectname":projectname},
+                                    data: {"idSample": $("#tags").val(), "description": $("#text").val()},
                                     success: function (data) {
                                         alert(data);
                                     }
@@ -264,7 +263,7 @@
                     $.ajax({
                         url:"./uploadProjectResult",
                         type:"POST",
-                        data:{"project":projectname},
+                        data:{"project":$("#tags-project").val(),"projectname":projectname},
                         success:function (data) {
                             alert(data);
                             $("#file-1").fileinput("upload");
@@ -288,7 +287,7 @@
         previewFileIcon: "",
         uploadExtraData: function (previewId, index) {
             var data={
-                "project" : $("#tags-project").val(),
+                "project" : projectname,
             }
             return data;
         },
