@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
-
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-form.js"></script>
     <style type="text/css">
         body {
             font-size: 18px;
@@ -79,7 +79,6 @@
     </div>
 
 </div>
-<iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
 </body>
 <script type="text/javascript">
     //px转换为rem
@@ -100,7 +99,9 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
-
+    var options = {
+        success:showImg,
+    }
     function imgChange(obj1, obj2) {
 
         var date = new Date();
@@ -108,25 +109,52 @@
         var applyDateStr=date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + date.getMinutes();
         $("#applyDate").val(applyDate);
         $("#img_userID").val(1);
-        $("#imageForm").submit();
+        $("#imageForm").ajaxSubmit({
+            url : "../uploadImg", // 请求的url
+            type : "post", // 请求方式
+            data: {},
+            dataType: "json",
+            async :true, // 异步
+            success: function (data) {
+                var imgContainer = document.getElementsByClassName(obj1)[0];
+                //文本框的父级元素
+                var input = document.getElementsByClassName(obj2)[0];
+                //遍历获取到得图片文件
+                var imgUrl = "http://118.89.166.19/web_upload/"+$("#img_userID").val()+"_"+applyDateStr+".jpg";
+                alert(imgUrl);
+                var img = document.createElement("img");
+                img.setAttribute("src", imgUrl);
+                var imgAdd = document.createElement("div");
+                imgAdd.setAttribute("class", "z_addImg");
+                imgAdd.appendChild(img);
+                imgContainer.appendChild(imgAdd);
+            },
+            error : function(){
 
-        var imgContainer = document.getElementsByClassName(obj1)[0];
-        //文本框的父级元素
-        var input = document.getElementsByClassName(obj2)[0];
-        //遍历获取到得图片文件
-        var imgUrl = "http://118.89.166.19/web_upload/"+$("#img_userID").val()+"_"+applyDateStr+".jpg";
-        alert(imgUrl);
-        var img = document.createElement("img");
-        img.setAttribute("src", imgUrl);
-        var imgAdd = document.createElement("div");
-        imgAdd.setAttribute("class", "z_addImg");
-        imgAdd.appendChild(img);
-        imgContainer.appendChild(imgAdd);
+            }
+        });
 
     };
+    function showImg(responseText, statusText, xhr, $form) {
+        alert(xhr.responseText+"=="+$form.attr("method")+'status: ' +
+            statusText + '\n\nresponseText: \n' + responseText);
+    }
 
     $(document).ready(function () {
-        $("#imageForm").attr("target", "rfFrame");
+        $("#imageForm").ajaxForm({
+            url : "../uploadImg", // 请求的url
+            type : "post", // 请求方式
+            data: {},
+            dataType: "json",
+            async :true, // 异步
+            success : function(data){
+               alert(data);
+            },
+            error : function(data){
+                alert("数据加载失败！");
+            }
+        });
+
     });
 
 </script>

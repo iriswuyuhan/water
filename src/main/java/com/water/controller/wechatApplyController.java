@@ -9,6 +9,7 @@ import com.water.service.Impl.UserServiceImpl;
 import com.water.service.ProjectService;
 import com.water.service.UserService;
 import com.water.util.LoginProcessor;
+import net.sf.json.JSONObject;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -112,7 +113,8 @@ public class wechatApplyController {
     }
 
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
-    public void upload(@RequestPart("image") MultipartFile image, HttpServletRequest request) throws IOException {
+    public void upload(@RequestPart("image") MultipartFile image, HttpServletRequest request,HttpServletResponse response) throws IOException {
+        System.out.println("#########"+image.toString());
         String date = request.getParameter("applyDate");
         date = date.replace(":","-");
         String userID = request.getParameter("img_userID");
@@ -126,6 +128,9 @@ public class wechatApplyController {
             String s = fileName + ".jpg";
             file.transferTo(new File(dir + "/" + s));
         }
+        String json = "{'state':'success'}";
+        JSONObject object = JSONObject.fromObject(json);
+        response.getWriter().print(object);
     }
 
     @RequestMapping(value = "/applyUpload",method = RequestMethod.POST)
