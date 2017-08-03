@@ -67,4 +67,11 @@ public interface ProjectService {
      * @return
      */
     public Project findNewestProject();
+
+    /**
+     * 修改项目
+     * @param project
+     * @return
+     */
+    public boolean modifyProject(Project project);
 }
