@@ -7,10 +7,10 @@
         <class>com.water.entity.Sample</class>
         <class>com.water.entity.User</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://118.89.166.19:3306/water"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://47.93.34.10:3306/water"/>
             <!--<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/water"/>-->
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="newroot"/>
+            <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="Water.01"/>
             <!--<property name="hibernate.connection.username" value="root"/>-->
             <!--<property name="hibernate.connection.password" value="123456"/>-->

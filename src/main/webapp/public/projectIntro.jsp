@@ -175,8 +175,7 @@
             alert("暂未上传实验报告");
         }else{
             var d = $("#projectReport").text();
-            alert("http://118.89.166.19/web_upload/" + d);
-            $("#repostHref").prop("href","http://118.89.166.19/web_upload/" + d);
+            $("#repostHref").prop("href","http://47.93.34.10/web_upload/" + d);
         }
     })
 
