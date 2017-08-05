@@ -309,7 +309,7 @@ public class SelfHistoryController {
             List<String> images = image;
             for (String path : images) {
                 if (!path.equals(""))
-                    imageArray.add("http://47.93.34.10/web_upload/"+path);
+                    imageArray.add("http://nju.softlollipop.cn/web_upload/"+path);
             }
         }
         return imageArray;

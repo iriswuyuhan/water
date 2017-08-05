@@ -73,7 +73,7 @@ public class UploadController {
             List<String> images = apply.getImage();
             for (String image : images) {
                 if(!image.equals(""))
-                    imageArray.add("http://47.93.34.10/web_upload/"+image);
+                    imageArray.add("http://nju.softlollipop.cn/web_upload/"+image);
             }
         }
         modelAndView.addObject("imageArray",imageArray);
