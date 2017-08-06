@@ -63,6 +63,13 @@
        var index=$(".project_item").index(this);
        var tag=$(".pull_toggle_img").eq(index);
        $(".project_content").slideUp();
+       for(var i=0;i<$(".project_item").length;i++){
+           if(i!=index){
+               var other=$(".pull_toggle_img").eq(i);
+               other.attr("src","./resources/img/pullDown.png");
+               other.addClass("hide");
+           }
+       }
        if(tag.hasClass("hide")){
            tag.attr("src","./resources/img/pullUp.png");
            $(".project_content").eq(index).slideDown();
