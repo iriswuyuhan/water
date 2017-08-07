@@ -134,10 +134,10 @@ function  setSampleInfo(temp) {
     $("#content4").find(".carousel-inner").each(function () {
         $(this).empty();
         $(this).append("<div class='item active'>"+
-            "<img src='http://118.89.166.19/web_upload/"+temp.apply.image[0]+"'></div>");
+            "<img src='http://47.93.34.10/web_upload/"+temp.apply.image[0]+"'></div>");
         for(var i=1;i<temp.apply.image.length;i++){
             $(this).append("<div class='item'>"+
-                "<img src='http://118.89.166.19/web_upload/"+temp.apply.image[i]+"'></div>");
+                "<img src='http://47.93.34.10/web_upload/"+temp.apply.image[i]+"'></div>");
         }
     })
 }

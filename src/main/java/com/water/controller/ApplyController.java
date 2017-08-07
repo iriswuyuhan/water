@@ -81,7 +81,7 @@ public class ApplyController {
         long id1 = Integer.valueOf(id);
         boolean bool = applyService.updateState(id1, state1,reason);
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().print("success");
+        response.getWriter().print("处理成功");
     }
 
 

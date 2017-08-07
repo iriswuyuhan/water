@@ -217,7 +217,7 @@
     $(function () {
 
         $("#reset").click(function () {
-               window.location.href="to_Admin_Work_Result.do";
+               window.location.href="toAdmin_Project.do";
 
             })
         $("#save").click(function (){
