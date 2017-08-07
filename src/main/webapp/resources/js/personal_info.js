@@ -4,14 +4,24 @@
 function load() {
     var useCook=$.cookie('ret1');
     if(useCook==='1'){
+        $("#name").val($.cookie('p_name'));
+        $("#phone_num").val($.cookie('p_tel'));
         $("#receive_addr").text($.cookie('add1'));
+
         $.cookie('ret1',null,{path:'/'});
         $.cookie('add1',null,{path:'/'});
+        $.cookie('p_name',null,{path:'/'});
+        $.cookie('p_tel',null,{path:'/'});
         checkFullfill();
     }
 }
 
 function reLoc(){
+    var name=$("#name").val();
+    var tel=$("#phone_num").val();
+    $.cookie('p_name',name,{path:'/'});
+    $.cookie('p_tel',tel,{path:'/'});
+
     var url="../wx/locate.html?add=";
     var curAdd=document.getElementById("receive_addr").innerHTML;
     window.location.href=url+curAdd;

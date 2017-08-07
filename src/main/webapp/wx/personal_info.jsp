@@ -25,6 +25,7 @@
             });
         });
     </script>
+    <script src="<%=basePath%>resources/js/personal_info.js"></script>
 </head>
 <body onload="load()">
 <input type="hidden" id="userID" value="${userID}"/>
@@ -70,7 +71,6 @@
     </div>
 </div>
 </body>
-<script src="<%=basePath%>resources/js/personal_info.js"></script>
 <script>
     if($("#next").val()=="apply"||$("#next").val()=="sample"){
         $("#first_login").show();
