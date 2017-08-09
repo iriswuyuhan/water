@@ -25,6 +25,7 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/test.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin_work_project.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -186,7 +187,9 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div id="summernote"></div>
+                                <div id="specialAlign">
+                                    <div id="summernote"></div>
+                                </div>
                                 <div id="buttons">
                                     <button id="confirm" onclick="publish()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">提交</button>
                                     <button id="cancel" onclick="deleteAll()" class="btn-info text-sign" style="padding:2px 7px 2px 7px;">取消</button>
