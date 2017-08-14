@@ -148,13 +148,13 @@
             <div class="col-sm-7 footer-copyright wow fadeIn">
                 <p>
                     Copyright 2017 河流生态地图后台 - by <a
-                        href="http://azmind.com/free-bootstrap-themes-templates/">Noah's Ark</a>.
+                        href="#">Noah's Ark</a>.
                 </p>
             </div>
             <div class="col-sm-5 footer-social wow fadeIn">
-                <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+<%--                <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
                     class="fa fa-qq"></i></a> <a href="#"><i class="fa fa-weibo"></i></a>
-                <a href="#"><i class="fa fa-wechat"></i></a>
+                <a href="#"><i class="fa fa-wechat"></i></a>--%>
             </div>
         </div>
     </div>
