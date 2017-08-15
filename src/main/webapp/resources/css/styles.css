@@ -59,9 +59,9 @@ a.logo span{
     color: #000;
 }
 .navbar-brand {
-    width: 180px;
+    width: 100px;
     height: 80px;
-    background: url(../img/logo.png) left center no-repeat;
+    background: url(../img/newLogo-small.jpg) left center no-repeat;
 }
 .navbar-header{
     margin-top: 20px;
