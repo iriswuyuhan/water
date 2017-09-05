@@ -176,7 +176,7 @@
 
 
 <!-- Javascript -->
-<script src="resources/jquery/3.2.1/jquery.min.js"></script>
+<script src="resources/jquery/3.2.1/jquery-3.2.1.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="resources/andiajs/jquery.backstretch.min.js"></script>
