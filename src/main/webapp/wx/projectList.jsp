@@ -8,12 +8,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>可选项目</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <script src="../resources/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<%=basePath%>resources/jquery/1.11.3/jquery.min.js"></script>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>

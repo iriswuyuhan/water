@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>上传采样信息</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <script src="../resources/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<%=basePath%>resources/jquery/1.11.3/jquery.min.js"></script>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <!--<script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>-->
@@ -81,12 +81,15 @@
                     <input id="sample_volume" class="weui-input" type="number" required="true" pattern="[0-9]*"
                            placeholder="采样体积"/>
                 </div>
+                <div class="weui-cell__ft" style="color: black">
+                    <p>mL</p>
+                </div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">采样编号</label></div>
                 <div class="weui-cell__bd">
                     <input id="sample_number" class="weui-input" type="number" pattern="[0-9]*" required="true"
-                           placeholder="采样编号"/>
+                           placeholder="见采样器编号"/>
                 </div>
             </div>
         </div>

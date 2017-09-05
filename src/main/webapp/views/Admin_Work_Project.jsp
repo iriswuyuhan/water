@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>项目发布 - 后台管理</title>
 
-    <script type="text/javascript" src="../resources/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">

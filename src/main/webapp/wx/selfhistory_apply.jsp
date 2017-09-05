@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>采样申请详细信息</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <script src="../resources/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<%=basePath%>resources/jquery/1.11.3/jquery.min.js"></script>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <!--<script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>-->
