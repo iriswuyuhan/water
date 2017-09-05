@@ -31,7 +31,7 @@
     <script src="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
     <![endif]-->
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="././ico/favicon1.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/favicon.ico">
 
 
 </head>
@@ -68,7 +68,7 @@
 
                 <ul class="social-links">
                     <div id="top-navigation">
-                        Welcome! <a href="#"><strong>Administrator</strong></a>
+                        Welcome! <a><strong>Administrator</strong></a>
                         <span>|</span>
                         <a href="Admin">Log out</a>
                     </div>

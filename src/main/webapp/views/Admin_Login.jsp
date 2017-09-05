@@ -20,7 +20,7 @@
 
     <!--    &lt;!&ndash; Favicon and touch icons &ndash;&gt;
         <link rel="shortcut icon" href="assets/ico/favicon.ico">-->
-
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/favicon.ico">
 
 </head>
 

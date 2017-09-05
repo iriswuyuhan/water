@@ -35,7 +35,7 @@
     <![endif]-->
 
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="././ico/favicon1.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/favicon.ico">
 
     <!-- include summernote css/js-->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
@@ -137,7 +137,7 @@
 
                 <ul class="social-links">
                     <div id="top-navigation">
-                        Welcome! <a href="#"><strong>Administrator</strong></a>
+                        Welcome! <a><strong>Administrator</strong></a>
                         <span>|</span>
                         <a href="Admin">Log out</a>
                     </div>

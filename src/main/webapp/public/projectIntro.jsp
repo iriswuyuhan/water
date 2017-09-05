@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eRivermap-项目介绍</title>
+    <title>eRivermap-信息发布</title>
 
     <!-- CSS -->
 
@@ -33,7 +33,7 @@
     <![endif]-->
     <script src="../resources/jquery/3.2.1/jquery-3.2.1.min.js"></script>
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="././ico/favicon1.ico">
+    <link rel="shortcut icon" href="../resources/img/favicon.ico">
 
 
 </head>
@@ -84,8 +84,8 @@
         <div class="row">
             <div class="col-sm-7 wow fadeIn">
                 <i class="fa fa-file-text-o"></i>
-                <h1><span>PROJECT</span>&nbsp;&nbsp;&nbsp;<span>INTRODUCTION</span>/</h1>
-                <p>项目介绍</p>
+                <h1><span>INFO </span>&nbsp;&nbsp;&nbsp;<span>DIFFUSION</span>/</h1>
+                <p>信息发布</p>
             </div>
         </div>
     </div>

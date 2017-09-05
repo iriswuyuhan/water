@@ -33,7 +33,7 @@
     <![endif]-->
     <script src="../resources/jquery/3.2.1/jquery-3.2.1.min.js"></script>
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="././ico/favicon1.ico">
+    <link rel="shortcut icon" href="../resources/img/favicon.ico">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=KMeS1wUAPKRLXZVwClhw8pODhqxxP0bz"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
