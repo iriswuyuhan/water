@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>个人信息</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <script src="../resources/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<%=basePath%>resources/jquery/1.11.3/jquery.min.js"></script>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
