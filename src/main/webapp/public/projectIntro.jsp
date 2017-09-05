@@ -31,7 +31,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../resources/jquery/3.2.1/jquery-3.2.1.min.js"></script>
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="././ico/favicon1.ico">
 

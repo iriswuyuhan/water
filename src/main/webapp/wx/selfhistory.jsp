@@ -10,7 +10,7 @@
     <title>个人中心</title>
     <!-- 引入 WeUI -->
     <link rel="stylesheet" href="//res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
-    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../resources/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
 <input type="hidden" id="userID" value="${userID}"/>

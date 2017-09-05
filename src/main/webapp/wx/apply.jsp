@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://weui.io/weui.css">
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
     <link rel="stylesheet" href="http://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css"/>
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://code.changer.hk/jquery/plugins/jquery.cookie.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/jquery-form.js"></script>
 

@@ -46,7 +46,7 @@
         <div class="footer">
             <a href="#" id="login" class="button">Login</a>
         </div>
-        <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+        <script src="../resources/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript">
             $(function () {
                 $("#login").click(function () {

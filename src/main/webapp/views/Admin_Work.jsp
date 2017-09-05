@@ -381,7 +381,7 @@
 
 
 <!-- Javascript -->
-<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="../resources/jquery/1.11.3/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
 <script src="//cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
