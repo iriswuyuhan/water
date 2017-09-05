@@ -23,7 +23,7 @@
     <link href="${pageContext.request.contextPath}/resources/css/admin_work_result.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
 
-    <script type="text/javascript" src="../resources/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/resources/js/sortable.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/resources/js/fileinput.js" type="text/javascript"></script>
@@ -217,7 +217,8 @@
     $(function () {
 
         $("#reset").click(function () {
-               window.location.href="toAdmin_Project.do";
+            window.location.href="toAdmin_Sample_Result.do";
+
 
             })
         $("#save").click(function (){
