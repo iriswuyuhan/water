@@ -155,7 +155,7 @@ function dealApply(type){
         type:'post',
         data:{"id":id,"state":state,"response":response},
         success:function (data) {
-            alert(data);
+            alert("申请处理成功");
             window.location.href="toAdmin.do";
         }
     })
@@ -226,8 +226,6 @@ function  setinitinfo(id) {
         data: {"id": id},
         success: function (data) {
             temp = $.parseJSON(data);
-
-
             var obj;
             if (temp.state === 0) {
                 obj = $("#tab1")
@@ -247,15 +245,13 @@ function  setinitinfo(id) {
             obj.find(".carousel-inner").each(function () {
                 $(this).empty();
                 $(this).append("<div class='item active'>" +
-                    "<img src='http://47.93.34.10/web_upload/" + temp.image[0] + "'></div>");
+                    "<img src='http://106.14.185.185/web_upload/" + temp.image[0] + "'></div>");
                 for (var i = 1; i < temp.image.length; i++) {
                     $(this).append("<div class='item'>" +
-                        "<img src='http://47.93.34.10/web_upload/" + temp.image[i] + "'></div>");
+                        "<img src='http://106.14.185.185/web_upload/" + temp.image[i] + "'></div>");
                 }
             })
-            $(".time").each(function () {
-                $(this).html(timeFormatter(temp.applyDate));
-            })
+            obj.find("a[class='time']").html(timeFormatter(temp.applyDate));
             obj.find("span[name='name']").each(function (index) {
                 if (index === 0)
                     $(this).html(temp.name);
