@@ -21,6 +21,19 @@ $(function(){
         }
     })
 
+    $.ajax({
+        url:"getProjectName",
+        type:"post",
+        async:false,
+        success:function (data) {
+            var availableTag = $.parseJSON(data);
+            $("#tags-project").autocomplete({
+                source: availableTag
+            });
+        }
+    })
+
+
     //切换list info
     $(".load_wrapper").show();
     $(".list_wrapper").hide();
@@ -173,3 +186,5 @@ function  additem(temp) {
     var str = temp.idSample+","+temp.volume+","+temp.apply.waterAddress+","+temp.idSample+","+timeFormatter1(temp.sampleDate)+","+temp.idSample+"\n";
     return str
 }
+
+

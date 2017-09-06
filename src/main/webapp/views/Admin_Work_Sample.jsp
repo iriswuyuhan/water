@@ -38,6 +38,8 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="//cdn.bootcss.com/sortable/0.8.0/js/sortable.js"></script>
     <script src="//cdn.bootcss.com/bootstrap-fileinput/4.4.2/js/fileinput.js"></script>
+    <link href="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
 
     <![endif]-->
     <!-- Favicon and touch icons -->
@@ -227,7 +229,7 @@
                     <div class="row">
                         <div class="col-xs-6 col-sm-3">
                             <a class="pull-left label-pon">项目名称：</a>
-                            <input id="project" class="form-control pull-left" maxlength="8" required="" type="text" style="width:120px;" >
+                            <input id="tags-project" class="ui-autocomplete-input form-control pull-left" autocomplete="off"  style="width:120px;">
                         </div>
                         <div class="col-xs-6 col-sm-4">
                             <div class="form-group">
@@ -268,10 +270,10 @@
                     <tr  style="display:block;">
                         <th style="width:60px;padding-left:13px;"><input id="checkbox" type="checkbox"><label for="checkbox"></label></th>
                         <th style="width:120px;padding-left:40px;">样本编号</th>
-                        <th style="width:120px;padding-left:45px;">样本体积</th>
-                        <th style="width:180px;padding-left:80px;">水域地址</th>
-                        <th style="width:180px;padding-left:70px;">所属项目</th>
-                        <th style="width:200px;padding-left:60px;">采样时间</th>
+                        <th style="width:160px;padding-left:30px;">样本体积/mL</th>
+                        <th style="width:160px;padding-left:25px;">水域地址</th>
+                        <th style="width:180px;padding-left:40px;">所属项目</th>
+                        <th style="width:180px;padding-left:30px;">采样时间</th>
                         <th style="width:180px;">状态</th>
                         <th style="width:30px;"><i class="fa fa-angle-right"></i></th>
                     </tr>
@@ -369,6 +371,7 @@
 
 <script src="${pageContext.request.contextPath}/resources/js/Admin_work_sample.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/Admin_Work_Samplelist.js"></script>
+
 
 </body>
 
